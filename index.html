@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le fiabe di Nina</title>
+<meta name="description" content="Tre fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<style>
+  :root {
+    --ground: #edf0e6;
+    --paper: #f8faf3;
+    --ink: #1c241b;
+    --muted: #5f6a56;
+    --rule: #d5dbc8;
+    --accent: #6b7a1c;
+    --glow: #8c9e22;
+    --alone: rgba(140, 158, 34, 0.22);
+    --ombra: 0 1px 2px rgba(28, 36, 27, 0.05), 0 12px 32px -20px rgba(28, 36, 27, 0.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0c1310;
+      --paper: #111a15;
+      --ink: #e4e9dc;
+      --muted: #8d9b86;
+      --rule: #22302a;
+      --accent: #c3d75f;
+      --glow: #d8ec6b;
+      --alone: rgba(216, 236, 107, 0.3);
+      --ombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0c1310;
+    --paper: #111a15;
+    --ink: #e4e9dc;
+    --muted: #8d9b86;
+    --rule: #22302a;
+    --accent: #c3d75f;
+    --glow: #d8ec6b;
+    --alone: rgba(216, 236, 107, 0.3);
+    --ombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-size: 1.1875rem;
+    line-height: 1.75;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .pagina {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+
+  .etichetta {
+    margin: 0;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* --- testata ------------------------------------------------------ */
+  .testata { display: flex; flex-direction: column; gap: 1rem; }
+  .testata-alto {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .testata h1 {
+    margin: 0;
+    font-family: "Young Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 9vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .occhiello { display: flex; align-items: center; gap: 0.6rem; }
+  .testata .intro {
+    margin: 0;
+    max-width: 32rem;
+    color: var(--muted);
+    font-size: 1.0625rem;
+  }
+
+  .interruttore {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.85rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--muted);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .interruttore:hover { color: var(--accent); border-color: var(--accent); }
+  .interruttore::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--glow);
+    box-shadow: 0 0 0 4px var(--alone);
+  }
+
+  /* --- indice ------------------------------------------------------- */
+  .indice { display: flex; flex-direction: column; gap: 0.75rem; }
+  .indice ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .indice li + li { border-top: 1px solid var(--rule); }
+  .indice a {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    color: inherit;
+    text-decoration: none;
+  }
+  .indice a:hover .voce-titolo { color: var(--accent); }
+  .numero {
+    flex: none;
+    width: 1.75rem;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--glow);
+  }
+  .voce-titolo { flex: 1; font-size: 1.0625rem; transition: color 0.2s ease; }
+  .voce-durata {
+    flex: none;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* --- fiabe -------------------------------------------------------- */
+  .fiaba {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    box-shadow: var(--ombra);
+    padding: clamp(1.75rem, 6vw, 3.25rem);
+    scroll-margin-top: 1.5rem;
+  }
+  .fiaba-testata { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2.25rem; }
+  .fiaba h2 {
+    margin: 0;
+    font-family: "Young Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 5.5vw, 2.25rem);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .sottotitolo { margin: 0; color: var(--muted); font-style: italic; font-size: 1rem; }
+  .fiaba p { margin: 0 0 1.35em; }
+  .fiaba p:last-of-type { margin-bottom: 0; }
+
+  .apertura::first-letter {
+    float: left;
+    font-family: "Young Serif", Georgia, serif;
+    font-size: 3.6em;
+    line-height: 0.82;
+    padding: 0.06em 0.09em 0 0;
+    color: var(--accent);
+  }
+
+  .congedo {
+    font-family: "Young Serif", Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--accent);
+  }
+
+  .divisorio { display: flex; justify-content: center; padding-top: 2.5rem; }
+  .lucciole { display: inline-flex; gap: 0.9rem; }
+  .lucciola {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--glow);
+    box-shadow: 0 0 0 5px var(--alone);
+    animation: respiro 4.4s ease-in-out infinite;
+    animation-delay: var(--ritardo);
+  }
+  @keyframes respiro {
+    0%, 100% { opacity: 0.22; transform: scale(0.85); }
+    45% { opacity: 1; transform: scale(1); }
+  }
+
+  .colophon {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+  .colophon p { margin: 0; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lucciola { animation: none; opacity: 0.9; }
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <div class="occhiello">
+          <span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span>
+          <p class="etichetta">Fiabe della buonanotte</p>
+        </div>
+        <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
+      </div>
+      <h1>Le fiabe di Nina</h1>
+      <p class="intro">Tre storie di una lucciola che impara ad accendersi, a spegnersi e a
+      lasciare che sia un&rsquo;altra ad accendersi da sola. Da leggere ad alta voce, una per sera,
+      nell&rsquo;ordine in cui sono scritte.</p>
+    </header>
+
+    <nav class="indice" aria-label="Indice delle fiabe">
+      <p class="etichetta">Indice &middot; 14 minuti in tutto</p>
+      <ol>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">La Lucciola che Aveva Paura del Buio</span><span class="voce-durata">3 min</span></a></li>
+        <li><a href="#libro-2"><span class="numero">II</span><span class="voce-titolo">La Lucciola e la Lanterna Stanca</span><span class="voce-durata">5 min</span></a></li>
+        <li><a href="#libro-3"><span class="numero">III</span><span class="voce-titolo">La Lucciola e la Piccola che Non Voleva Accendersi</span><span class="voce-durata">6 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="libro-1">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 3 minuti di lettura</p>
+        <h2>La Lucciola che Aveva Paura del Buio</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro primo</p>
+      </header>
+      <p class="apertura">C'era una volta, in un prato ai piedi di una collina, una piccola lucciola di nome Nina.</p>
+      <p>Nina aveva un problema molto strano per una lucciola: aveva paura del buio.</p>
+      <p>Ogni sera, quando il sole scendeva dietro gli alberi e le ombre si allungavano sull'erba, Nina si nascondeva sotto una foglia di trifoglio e chiudeva gli occhi.</p>
+      <p>«Non uscire, non uscire», sussurrava a se stessa.</p>
+      <p>Le sue sorelle, invece, volavano felici sopra il prato, accendendo e spegnendo le loro lanterne dorate. Sembravano stelle cadute dal cielo che avevano deciso di restare.</p>
+      <p>Una notte, mentre Nina tremava sotto la sua foglia, sentì una vocina piangere vicino al ruscello.</p>
+      <p>Era un piccolo grillo che si era perso.</p>
+      <p>«Non trovo la strada di casa», singhiozzò il grillo. «È troppo buio.»</p>
+      <p>Nina dimenticò completamente la sua paura. Uscì da sotto la foglia, e senza nemmeno accorgersene, la sua lanterna si accese: un caldo bagliore dorato che illuminò l'erba, i sassolini e il piccolo grillo spaventato.</p>
+      <p>«Oh!» disse il grillo, asciugandosi le lacrime. «Come sei luminosa!»</p>
+      <p>Nina guardò in basso e vide la sua stessa luce riflessa nell'acqua del ruscello. Era bellissima.</p>
+      <p>«Vieni», disse Nina. «Ti accompagno io.»</p>
+      <p>E così, volando piano piano, la lucciola guidò il grillo attraverso il prato, oltre i fiori addormentati, fino alla sua casetta sotto la radice della vecchia quercia.</p>
+      <p>Da quella notte, Nina non ebbe più paura del buio.</p>
+      <p>Perché aveva scoperto un segreto: il buio non è mai davvero buio, quando c'è qualcuno disposto ad accendere la propria luce.</p>
+      <p>E ora, piccolo mio, chiudi gli occhi. Le lucciole vegliano su di te.</p>
+      <p class="congedo">Buonanotte. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+    </article>
+    <article class="fiaba" id="libro-2">
+      <header class="fiaba-testata">
+        <p class="etichetta">II &middot; 5 minuti di lettura</p>
+        <h2>La Lucciola e la Lanterna Stanca</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro secondo, seguito de “La Lucciola che Aveva Paura del Buio”</p>
+      </header>
+      <p class="apertura">Passò un'estate intera, e nel prato ai piedi della collina tutti conoscevano ormai la storia di Nina, la lucciola che aveva imparato ad accendersi.</p>
+      <p>Ogni notte lei volava da una parte all'altra del prato. Illuminava il sentiero delle formiche che tornavano tardi. Faceva luce alla vecchia talpa che non trovava mai la porta di casa. Accompagnava le lumache smarrite, le falene confuse, i semi di soffione che avevano perso il vento.</p>
+      <p>E il grillo — che ora aveva un nome, si chiamava Rocco — la guardava passare dalla sua casetta sotto la radice della quercia.</p>
+      <p>«Nina», le disse una sera, «ti riposi mai?»</p>
+      <p>«Non posso», rispose lei, già volando via. «Qualcuno potrebbe avere bisogno di me.»</p>
+      <p>Ma poi arrivò settembre.</p>
+      <p>Le notti diventarono più lunghe e più fredde. Il ruscello rallentò. I fiori chiusero le corolle e non le riaprirono.</p>
+      <p>E una notte accadde una cosa che spaventò Nina più di tutto il buio del mondo.</p>
+      <p>La sua lanterna si spense.</p>
+      <p>Non piano piano, come quando una lucciola respira. Si spense e basta, come una candela sotto il vento.</p>
+      <p>Nina si posò tremando su un sasso vicino al ruscello.</p>
+      <p>«Oh no», sussurrò. «Oh no, oh no.»</p>
+      <p>Provò a riaccendersi. Strinse gli occhi, trattenne il respiro, ci mise tutta la forza che aveva.</p>
+      <p>Niente. Solo grigio.</p>
+      <p>«Ecco», pianse. «Adesso non servo più a nessuno.»</p>
+      <p>Fu allora che sentì un piccolo <em>frin frin</em> nell'erba.</p>
+      <p>Era Rocco, che saliva sul sasso con le sue zampette, ansimando un po', perché era una bella salita per un grillo.</p>
+      <p>«Ti ho vista da laggiù», disse.</p>
+      <p>«Ma... come? Sono spenta.»</p>
+      <p>Rocco si sedette accanto a lei.</p>
+      <p>«Nina», disse dolcemente, «io non ti ho mai cercata guardando la luce. Ti ho cercata guardando <em>te</em>.»</p>
+      <p>Nina non seppe cosa rispondere.</p>
+      <p>«Sai perché la tua lanterna si è spenta?» continuò il grillo. «Non perché sia rotta. Perché è stanca. Hai illuminato tutto il prato per tutta l'estate e non ti sei fermata nemmeno una notte.»</p>
+      <p>«Ma se mi fermo, il buio torna.»</p>
+      <p>«Il buio torna comunque», disse Rocco. «Torna ogni sera. Non è colpa tua e non è compito tuo. Tu sei una lucciola, non sei il sole.»</p>
+      <p>Nina rimase in silenzio a lungo, ascoltando l'acqua.</p>
+      <p>«E allora cosa faccio?»</p>
+      <p>«Adesso?» Rocco alzò le antenne verso il cielo. «Adesso guardiamo le stelle. E domani dormi. E dopodomani dormi ancora, se vuoi.»</p>
+      <p>«E se qualcuno si perde?»</p>
+      <p>«Allora canterò io», disse il grillo. «Non so fare luce. Ma so fare rumore, e nel buio a volte basta una voce per sapere dove andare.»</p>
+      <p>E così, per la prima volta da mesi, Nina non volò.</p>
+      <p>Rimase sul sasso, vicino al suo amico, e insieme guardarono il cielo di settembre che era pieno, pieno, pieno di stelle — di quelle stelle che lei non aveva mai avuto tempo di guardare, perché era sempre troppo occupata a fare luce.</p>
+      <p>E mentre Rocco cantava piano nell'erba fredda, Nina si addormentò.</p>
+      <p>Dormì tutto l'autunno. Dormì tutto l'inverno, arrotolata nel cuore caldo della vecchia quercia, e il grillo dormì lì vicino, e la neve coprì il prato come una coperta bianca.</p>
+      <p>Poi un giorno l'aria si fece dolce, il ruscello ricominciò a cantare, e i primi trifogli spuntarono dalla terra.</p>
+      <p>Nina aprì gli occhi.</p>
+      <p>E senza sforzo, senza paura, senza nemmeno pensarci —</p>
+      <p>si accese.</p>
+      <p>Più luminosa di prima.</p>
+      <p>Perché anche le luci più belle hanno bisogno di riposare, piccolo mio.</p>
+      <p>Anche la tua.</p>
+      <p>E ora chiudi gli occhi: il prato è al sicuro, il grillo fa la guardia, e domani ci sarà di nuovo luce.</p>
+      <p class="congedo">Buonanotte. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+    </article>
+    <article class="fiaba" id="libro-3">
+      <header class="fiaba-testata">
+        <p class="etichetta">III &middot; 6 minuti di lettura</p>
+        <h2>La Lucciola e la Piccola che Non Voleva Accendersi</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro terzo, seguito de “La Lucciola e la Lanterna Stanca”</p>
+      </header>
+      <p class="apertura">Tornò l'estate nel prato ai piedi della collina.</p>
+      <p>Nina volava di nuovo, e la sua lanterna era dorata e calda come prima. Ma una cosa era cambiata: ogni notte, a un certo punto, si posava su un filo d'erba e restava lì senza fare niente, a guardare le stelle.</p>
+      <p>Rocco il grillo la vedeva ferma dalla sua casetta sotto la radice della quercia, e cantava contento.</p>
+      <p>Fu in una di quelle notti che nacquero le lucciole nuove.</p>
+      <p>Erano tantissime e piccolissime, e una dopo l'altra si accesero come si accendono le braci di un fuoco. Pluf. Pluf. Pluf.</p>
+      <p>Tutte tranne una.</p>
+      <p>Se ne stava all'ombra di una foglia di trifoglio, con gli occhi stretti stretti, e non brillava per niente.</p>
+      <p>Si chiamava Bea.</p>
+      <p>Nina si avvicinò piano, e sentì una cosa strana nel petto: quella cosa che si sente quando si riconosce una vecchia canzone.</p>
+      <p>«Ciao», disse. «Perché non vieni a volare con le altre?»</p>
+      <p>«Perché è buio», rispose Bea.</p>
+      <p>E Nina pensò: <em>ah, ma questo lo so fare. Questo lo so fare benissimo.</em></p>
+      <p>«Guarda me», disse la prima notte, e si accese fortissimo. «Si fa così.»</p>
+      <p>Bea guardò. Non successe niente.</p>
+      <p>«Fai come me», disse la seconda notte. «Trattieni il respiro, stringi gli occhi e spingi.»</p>
+      <p>Bea trattenne il respiro, strinse gli occhi e spinse. Diventò soltanto un pochino più grigia.</p>
+      <p>«Devi provarci di più», disse Nina la terza notte, e senza accorgersene aveva la voce un po' dura.</p>
+      <p>E allora Bea fece la cosa che fanno tutti quando qualcuno dice loro di provarci di più: si nascose ancora meglio sotto la foglia, e non uscì per due notti intere.</p>
+      <p>Nina si posò sul suo sasso vicino al ruscello, arrabbiata.</p>
+      <p>«Non capisco», disse a Rocco. «Io le sto insegnando. Le sto insegnando benissimo!»</p>
+      <p>«Nina», disse il grillo, «posso farti una domanda?»</p>
+      <p>«Falla.»</p>
+      <p>«A te, chi te l'ha insegnato?»</p>
+      <p>Nina aprì la bocca. E la richiuse.</p>
+      <p>Perché nessuno gliel'aveva insegnato. Quella notte, tanto tempo prima, non c'era stata nessuna lucciola grande a dirle <em>guarda me</em>, o <em>spingi</em>, o <em>provaci di più</em>.</p>
+      <p>C'era stato soltanto un grillo che piangeva nell'erba, perché non trovava la strada di casa.</p>
+      <p>«Ecco», disse Rocco piano. «Tu non ti sei accesa perché qualcuno te l'ha spiegato. Ti sei accesa perché qualcuno aveva bisogno di te.»</p>
+      <p>«E allora io cosa faccio?»</p>
+      <p>«Niente», disse il grillo. «Per una volta, niente.»</p>
+      <p>La notte dopo Nina tornò alla foglia di trifoglio. Non disse <em>guarda me</em>. Non disse <em>provaci</em>.</p>
+      <p>Si sedette accanto a Bea.</p>
+      <p>E poi fece una cosa che una lucciola non fa quasi mai: spense la propria lanterna.</p>
+      <p>«Cosa fai?» chiese Bea, spaventata.</p>
+      <p>«Ti tengo compagnia», disse Nina. «Il buio è più facile in due.»</p>
+      <p>E rimasero lì, due lucciole spente sotto una foglia, zitte come due sassolini.</p>
+      <p>Poi arrivò il vento.</p>
+      <p>Arrivò tutto insieme, da dietro la collina, e piegò l'erba e fece tremare i rami della quercia. Le lucciole grandi corsero a ripararsi sotto le foglie, e le loro lanterne si spensero una dopo l'altra.</p>
+      <p>Il prato diventò buio come non era mai stato.</p>
+      <p>E in quel buio, dal fondo dell'erba, si sentì piangere.</p>
+      <p>Era una voce piccolissima — più piccola perfino di Bea. Era una coccinella che il vento aveva portato via dalla sua foglia, e adesso non sapeva più dov'era.</p>
+      <p>Bea aspettò che qualcuno andasse.</p>
+      <p>Non andò nessuno: erano tutti al riparo.</p>
+      <p>E allora — senza trattenere il respiro, senza stringere gli occhi, senza spingere, senza pensarci nemmeno un secondo —</p>
+      <p>Bea si accese.</p>
+      <p>Era una luce piccola e tremolante, verdolina come i germogli di marzo. Ma bastava.</p>
+      <p>Bastò per attraversare l'erba piegata, per trovare la coccinella tutta bagnata, e per accompagnarla fino alla sua foglia, contro il vento, un passo alla volta.</p>
+      <p>Nina la guardò passare da sotto il suo riparo, e non disse niente.</p>
+      <p>Sorrise soltanto.</p>
+      <p>Perché sapeva esattamente com'era.</p>
+      <p>La luce di qualcun altro non si può accendere, piccolo mio. Non con le spiegazioni, non con la forza, non dicendo <em>provaci di più</em>.</p>
+      <p>Si può soltanto restare seduti vicino, nel buio, finché non arriva da sola.</p>
+      <p>E adesso chiudi gli occhi.</p>
+      <p>Se qualche volta ti sembra di non avere nessuna luce, non è vero: ce l'hai. È solo che non è ancora arrivata la notte in cui ti servirà.</p>
+      <p>E quando arriverà, non dovrai fare niente per accenderti.</p>
+      <p>Succederà e basta.</p>
+      <p class="congedo">Buonanotte. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">Colophon</p>
+      <p>Tre fiabe, 1578 parole. I tempi di lettura sono calcolati
+      a 130 parole al minuto: il passo di chi legge ad alta voce, non di chi legge
+      da solo.</p>
+    </footer>
+  </div>
+<script>
+  (function () {
+    var radice = document.documentElement;
+    var bottone = document.getElementById("interruttore");
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      bottone.textContent = scuro ? "Accendi la luce" : "Spegni la luce";
+      bottone.setAttribute("aria-label", scuro ? "Passa al tema chiaro" : "Passa al tema scuro");
+    }
+
+    bottone.addEventListener("click", function () {
+      radice.setAttribute("data-theme", scuroAdesso() ? "light" : "dark");
+      aggiornaEtichetta();
+    });
+
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+  })();
+</script>
+</body>
+</html>
