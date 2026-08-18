@@ -29,3 +29,12 @@ titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
 
 I tempi di lettura sono calcolati a 130 parole al minuto — il passo di chi legge
 ad alta voce a un bambino, non quello di chi legge da solo.
+
+## Il sito
+
+La pagina è online su **https://fiabe.vercel.app**.
+
+Il progetto Vercel è collegato a questo repository: ogni push su `main`
+pubblica una nuova versione. Ricordarsi quindi di eseguire `python3 build.py`
+e committare anche `index.html` rigenerato, altrimenti il sito resta indietro
+rispetto ai testi.
