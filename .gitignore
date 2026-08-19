@@ -3,6 +3,8 @@
 # voce di partenza e artefatti di sintesi vocale (dati personali / rigenerabili)
 *.opus
 ref/
-audio/
+audio/*
+!audio/11l-*.mp3
 chunks/
 generation.log
+.env

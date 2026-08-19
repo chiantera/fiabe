@@ -184,6 +184,32 @@
   .fiaba p { margin: 0 0 1.35em; }
   .fiaba p:last-of-type { margin-bottom: 0; }
 
+  /* --- lettore audio ------------------------------------------------- */
+  .lettura {
+    margin: 0 0 2.25rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--ground);
+  }
+  .lettura figcaption {
+    margin-bottom: 0.6rem;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .lettura audio {
+    display: block;
+    width: 100%;
+    height: 2.4rem;
+  }
+  .lettura audio::-webkit-media-controls-panel {
+    background: transparent;
+  }
+
   .apertura::first-letter {
     float: left;
     font-family: "Young Serif", Georgia, serif;
@@ -267,6 +293,12 @@
         <h2>La Lucciola che Aveva Paura del Buio</h2>
         <p class="sottotitolo">Una fiaba della buonanotte — Libro primo</p>
       </header>
+        <figure class="lettura">
+          <figcaption>Ascolta</figcaption>
+          <audio controls preload="none" src="audio/11l-01-lalucciolacheavevapauradelbuio.mp3">
+            Il tuo browser non supporta la riproduzione audio.
+          </audio>
+        </figure>
       <p class="apertura">C'era una volta, in un prato ai piedi di una collina, una piccola lucciola di nome Nina.</p>
       <p>Nina aveva un problema molto strano per una lucciola: aveva paura del buio.</p>
       <p>Ogni sera, quando il sole scendeva dietro gli alberi e le ombre si allungavano sull'erba, Nina si nascondeva sotto una foglia di trifoglio e chiudeva gli occhi.</p>
@@ -292,6 +324,12 @@
         <h2>La Lucciola e la Lanterna Stanca</h2>
         <p class="sottotitolo">Una fiaba della buonanotte — Libro secondo, seguito de “La Lucciola che Aveva Paura del Buio”</p>
       </header>
+        <figure class="lettura">
+          <figcaption>Ascolta</figcaption>
+          <audio controls preload="none" src="audio/11l-02-lalucciolacheavevapauradelbuio.mp3">
+            Il tuo browser non supporta la riproduzione audio.
+          </audio>
+        </figure>
       <p class="apertura">Passò un'estate intera, e nel prato ai piedi della collina tutti conoscevano ormai la storia di Nina, la lucciola che aveva imparato ad accendersi.</p>
       <p>Ogni notte lei volava da una parte all'altra del prato. Illuminava il sentiero delle formiche che tornavano tardi. Faceva luce alla vecchia talpa che non trovava mai la porta di casa. Accompagnava le lumache smarrite, le falene confuse, i semi di soffione che avevano perso il vento.</p>
       <p>E il grillo — che ora aveva un nome, si chiamava Rocco — la guardava passare dalla sua casetta sotto la radice della quercia.</p>
@@ -343,6 +381,12 @@
         <h2>La Lucciola e la Piccola che Non Voleva Accendersi</h2>
         <p class="sottotitolo">Una fiaba della buonanotte — Libro terzo, seguito de “La Lucciola e la Lanterna Stanca”</p>
       </header>
+        <figure class="lettura">
+          <figcaption>Ascolta</figcaption>
+          <audio controls preload="none" src="audio/11l-03-lalucciolacheavevapauradelbuio.mp3">
+            Il tuo browser non supporta la riproduzione audio.
+          </audio>
+        </figure>
       <p class="apertura">Tornò l'estate nel prato ai piedi della collina.</p>
       <p>Nina volava di nuovo, e la sua lanterna era dorata e calda come prima. Ma una cosa era cambiata: ogni notte, a un certo punto, si posava su un filo d'erba e restava lì senza fare niente, a guardare le stelle.</p>
       <p>Rocco il grillo la vedeva ferma dalla sua casetta sotto la radice della quercia, e cantava contento.</p>

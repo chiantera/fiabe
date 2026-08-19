@@ -57,6 +57,15 @@ def lucciole(n=3):
     ) + "</span>"
 
 
+def audio_per(numero_libro):
+    """Restituisce il percorso (relativo al sito) dell'audio della fiaba, se c'è."""
+    num = f"{numero_libro:02d}"
+    candidati = sorted(glob.glob(os.path.join(SRC, "audio", f"11l-{num}-*.mp3")))
+    if candidati:
+        return os.path.relpath(candidati[0], SRC)
+    return None
+
+
 fiabe = [leggi(p) for p in sorted(glob.glob(os.path.join(SRC, "0*.md")))]
 
 indice = []
@@ -77,13 +86,28 @@ for i, f in enumerate(fiabe):
             classi.append("congedo")
         attr = f' class="{" ".join(classi)}"' if classi else ""
         corpo.append(f"      <p{attr}>{inline(p)}</p>")
+
+    # lettore audio della fiaba, se l'MP3 è presente
+    audio = audio_per(i + 1)
+    if audio:
+        lettore = (
+            f'        <figure class="lettura">\n'
+            f'          <figcaption>Ascolta</figcaption>\n'
+            f'          <audio controls preload="none" src="{audio}">\n'
+            f'            Il tuo browser non supporta la riproduzione audio.\n'
+            f'          </audio>\n'
+            f'        </figure>\n'
+        )
+    else:
+        lettore = ""
+
     articoli.append(
         f'    <article class="fiaba" id="{slug}">\n'
         f'      <header class="fiaba-testata">\n'
         f'        <p class="etichetta">{ROMANI[i]} &middot; {f["minuti"]} minuti di lettura</p>\n'
         f'        <h2>{inline(f["titolo"])}</h2>\n'
         f'        <p class="sottotitolo">{inline(f["sottotitolo"])}</p>\n'
-        f"      </header>\n" + "\n".join(corpo) + "\n"
+        f"      </header>\n" + lettore + "\n".join(corpo) + "\n"
         f'      <div class="divisorio">{lucciole()}</div>\n'
         f"    </article>"
     )
@@ -264,6 +288,32 @@ STILE = """
   .sottotitolo { margin: 0; color: var(--muted); font-style: italic; font-size: 1rem; }
   .fiaba p { margin: 0 0 1.35em; }
   .fiaba p:last-of-type { margin-bottom: 0; }
+
+  /* --- lettore audio ------------------------------------------------- */
+  .lettura {
+    margin: 0 0 2.25rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--ground);
+  }
+  .lettura figcaption {
+    margin-bottom: 0.6rem;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .lettura audio {
+    display: block;
+    width: 100%;
+    height: 2.4rem;
+  }
+  .lettura audio::-webkit-media-controls-panel {
+    background: transparent;
+  }
 
   .apertura::first-letter {
     float: left;

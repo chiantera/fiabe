@@ -15,34 +15,26 @@ scopre che la luce di un altro non si può accendere.
 
 ## L'audio (voce clonata)
 
-Oltre alla pagina web, le tre fiabe possono essere lette ad alta voce con una
-**voce clonata**: `generate.py` usa **Coqui TTS (XTTS-v2)** per sintetizzare le
-fiabe in italiano a partire da un breve campione della voce da clonare.
+Oltre alla pagina web, le tre fiabe possono essere ascoltate ad alta voce con una
+**voce clonata** (la voce dell'autore). La clonazione è fatta con **ElevenLabs
+Professional Voice Cloning** (piano Creator): voce `fausto bedtime stories`,
+italiano, accento romanesco.
 
-```bash
-# una tantum: venv e dipendenze
-python3 -m venv ~/tts-venv
-~/tts-venv/bin/pip install coqui-tts "transformers>=4.40,<5"
-~/tts-venv/bin/pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+Gli MP3 finali (`audio/11l-*.mp3`) sono versionati nel repository e compaiono come
+lettori audio sulla pagina (`index.html`): ogni fiaba ha un riquadro "Ascolta"
+subito sotto il titolo.
 
-# mettere il campione della voce in ref/reference.wav (mono, 22050 Hz, 6-30 s)
-# poi generare i tre MP3:
-COQUI_TOS_AGREED=1 ~/tts-venv/bin/python generate.py
-```
-
-`generate.py` legge i file `0*.md`, pulisce il testo (toglie emoji e corsivi),
-lo divide in blocchi e sintetizza ogni blocco con la voce di `ref/reference.wav`;
-i blocchi vengono poi concatenati nei tre MP3 in `audio/`, con una copia sul
-Desktop Windows (`fiabe-audio`). `launch.sh` fa lo stesso ma in modo sganciato
-dalla sessione, per le generazioni lunghe su CPU.
+Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
+alternativa gratuita, ma è stato sostituito da ElevenLabs perché la qualità della
+clonazione era giudicata insufficiente. `generate_elevenlabs.py` è lo script che
+chiama l'API ElevenLabs (richiede `ELEVENLABS_API_KEY` in `.env`).
 
 Note:
 
-- `transformers` va tenuto `<5` perché XTTS-v2 (coqui-tts 0.27) è incompatibile
-  con la serie 5.x; `torch` va tenuto a 2.8 (niente `torchcodec`, che su CPU
-  dà problemi di librerie native).
-- Il modello XTTS-v2 è distribuito con licenza **non-commerciale** (CPML):
-  va bene per l'uso personale; per un uso commerciale serve un'altra soluzione.
+- La voce clonata parte da un campione pulito (non un vocale WhatsApp compresso):
+  il campione va registrato con l'app Memo Vocali a 128 kbps o più.
+- Il modello XTTS-v2 (usato in `generate.py`) è distribuito con licenza
+  **non-commerciale** (CPML); ElevenLabs non ha questa limitazione sul piano a pagamento.
 
 ## La pagina
 
@@ -78,13 +70,15 @@ fiabe/
 ├── README.md
 ├── build.py                                # genera index.html dai file .md
 ├── index.html                              # generato: non modificare a mano
-├── generate.py                             # sintesi vocale con voce clonata
+├── generate.py                             # sintesi vocale locale (XTTS-v2, alternativa)
+├── generate_elevenlabs.py                  # sintesi vocale via API ElevenLabs
 ├── launch.sh                               # lancia generate.py sganciato
 ├── 01lalucciolacheavevapauradelbuio.md     # Libro I
 ├── 02lalucciolaelalanternastanca.md        # Libro II
 ├── 03lalucciolaelapiccolachenonvolevaaccendersi.md  # Libro III
 ├── ref/                                    # (ignorato) campione voce di riferimento
-├── audio/                                  # (ignorato) gli MP3 generati
+├── audio/                                  # (ignorato, tranne gli MP3 finali)
+│   └── 11l-*.mp3                           # le tre fiabe lette ad alta voce (versionati)
 └── chunks/                                 # (ignorato) blocchi intermedi
 ```
 
