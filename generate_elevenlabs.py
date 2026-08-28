@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera le tre fiabe con voce clonata ElevenLabs (PVC 'fausto bedtime stories')."""
+"""Genera le fiabe con voce clonata ElevenLabs (PVC 'fausto bedtime stories')."""
 import json
 import os
 import re
@@ -22,12 +22,14 @@ STORIES = {
     "01": "01lalucciolacheavevapauradelbuio.md",
     "02": "02lalucciolaelalanternastanca.md",
     "03": "03lalucciolaelapiccolachenonvolevaaccendersi.md",
+    "04": "04lalucciolaeilgrillocheperselavoce.md",
 }
 
 NAMES = {
     "01": "lalucciolacheavevapauradelbuio",
     "02": "lalucciolaelalanternastanca",
     "03": "lalucciolaelapiccolachenonvolevaaccendersi",
+    "04": "lalucciolaeilgrillocheperselavoce",
 }
 
 EMOJI_RE = re.compile(
@@ -165,7 +167,8 @@ def main():
             check=True,
         )
 
-        final = AUDIO / f"{key}_{name}.mp3"
+        # build.py cerca audio/11l-<NN>-*.mp3: generiamo già con quel nome
+        final = AUDIO / f"11l-{key}-{name}.mp3"
         subprocess.run(
             ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
              "-f", "concat", "-safe", "0", "-i", str(concat_list),
@@ -207,12 +210,12 @@ def main():
     except OSError:
         pass
 
-    print("\nDone. All three stories generated.", flush=True)
+    print(f"\nDone. {len(STORIES)} stories generated.", flush=True)
 
     # Send via Telegram
     for key in sorted(STORIES.keys()):
         name = NAMES[key]
-        mp3 = AUDIO / f"{key}_{name}.mp3"
+        mp3 = AUDIO / f"11l-{key}-{name}.mp3"
         if mp3.exists():
             for attempt in range(5):
                 result = subprocess.run(
