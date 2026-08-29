@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera le tre fiabe con la voce clonata (Coqui XTTS-v2)."""
+"""Genera le fiabe in stories/ con la voce clonata (Coqui XTTS-v2)."""
 import re
 import shutil
 import subprocess
@@ -15,11 +15,7 @@ AUDIO = BASE / "audio"
 TMP = BASE / "chunks"
 LANG = "it"
 
-STORIES = {
-    "01": "01lalucciolacheavevapauradelbuio.md",
-    "02": "02lalucciolaelalanternastanca.md",
-    "03": "03lalucciolaelapiccolachenonvolevaaccendersi.md",
-}
+STORIES = sorted((BASE / "stories").glob("0*.md"))
 
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]"
@@ -80,8 +76,9 @@ def main():
     tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2").to("cpu")
     print("Modello caricato.", flush=True)
 
-    for key, fname in STORIES.items():
-        md = BASE / fname
+    for index, md in enumerate(STORIES, start=1):
+        key = f"{index:02d}"
+        fname = md.name
         text = load_story(md)
         chunks = split_chunks(text)
         print(f"[{key}] {fname}: {len(chunks)} chunk, {len(text)} char", flush=True)
@@ -115,8 +112,8 @@ def main():
             check=True,
         )
 
-        name = re.sub(r"^\d+", "", fname[:-3])
-        final = AUDIO / f"{key}_{name}.mp3"
+        name = re.sub(r"^\d+", "", md.stem)
+        final = AUDIO / f"11l-{key}-{name}.mp3"
         subprocess.run(
             ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
              "-f", "concat", "-safe", "0", "-i", str(concat),

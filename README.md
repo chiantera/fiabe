@@ -9,20 +9,22 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 | I | La Lucciola che Aveva Paura del Buio | 3 min |
 | II | La Lucciola e la Lanterna Stanca | 5 min |
 | III | La Lucciola e la Piccola che Non Voleva Accendersi | 6 min |
+| IV | La Lucciola e il Grillo che Perse la Voce | 9 min |
 
 Vanno letti in ordine: il primo accende la luce, il secondo la spegne, il terzo
-scopre che la luce di un altro non si può accendere.
+scopre che la luce di un altro non si può accendere, il quarto insegna che ciò
+che si è donato resta in chi ci è stato vicino.
 
 ## L'audio (voce clonata)
 
-Oltre alla pagina web, le tre fiabe possono essere ascoltate ad alta voce con una
+Oltre alla pagina web, le fiabe possono essere ascoltate ad alta voce con una
 **voce clonata** (la voce dell'autore). La clonazione è fatta con **ElevenLabs
 Professional Voice Cloning** (piano Creator): voce `fausto bedtime stories`,
 italiano, accento romanesco.
 
-Gli MP3 finali (`audio/11l-*.mp3`) sono versionati nel repository e compaiono come
-lettori audio sulla pagina (`index.html`): ogni fiaba ha un riquadro "Ascolta"
-subito sotto il titolo.
+Gli MP3 finali disponibili (`audio/11l-*.mp3`) sono versionati nel repository e
+compaiono come lettori audio sulla pagina (`index.html`): ogni fiaba che ha il
+suo MP3 ha un riquadro "Ascolta" subito sotto il titolo.
 
 Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
 alternativa gratuita, ma è stato sostituito da ElevenLabs perché la qualità della
@@ -45,9 +47,9 @@ Note:
 python3 build.py
 ```
 
-Lo script rilegge tutti i file `0*.md` in ordine e ricostruisce indice, tempi di
-lettura e colophon. Per aggiungere il Libro quarto basta creare
-`04<titolo-attaccato-minuscolo>.md` con la stessa struttura degli altri:
+Lo script rilegge tutti i file `stories/0*.md` in ordine e ricostruisce indice,
+tempi di lettura e colophon. Per aggiungere una fiaba basta creare in `stories/`
+un file `NN<titolo-attaccato-minuscolo>.md` con la stessa struttura degli altri:
 titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
 
 I tempi di lettura sono calcolati a 130 parole al minuto — il passo di chi legge
@@ -73,12 +75,14 @@ fiabe/
 ├── generate.py                             # sintesi vocale locale (XTTS-v2, alternativa)
 ├── generate_elevenlabs.py                  # sintesi vocale via API ElevenLabs
 ├── launch.sh                               # lancia generate.py sganciato
-├── 01lalucciolacheavevapauradelbuio.md     # Libro I
-├── 02lalucciolaelalanternastanca.md        # Libro II
-├── 03lalucciolaelapiccolachenonvolevaaccendersi.md  # Libro III
+├── stories/                                # testi sorgente, ordinati per libro
+│   ├── 01lalucciolacheavevapauradelbuio.md # Libro I
+│   ├── 02lalucciolaelalanternastanca.md    # Libro II
+│   ├── 03lalucciolaelapiccolachenonvolevaaccendersi.md  # Libro III
+│   └── 04lalucciolaeilgrillocheperselavoce.md  # Libro IV
 ├── ref/                                    # (ignorato) campione voce di riferimento
 ├── audio/                                  # (ignorato, tranne gli MP3 finali)
-│   └── 11l-*.mp3                           # le tre fiabe lette ad alta voce (versionati)
+│   └── 11l-*.mp3                           # fiabe lette ad alta voce (versionate)
 └── chunks/                                 # (ignorato) blocchi intermedi
 ```
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera le fiabe con voce clonata ElevenLabs (PVC 'fausto bedtime stories')."""
+"""Genera le fiabe in stories/ con la voce ElevenLabs 'fausto bedtime stories'."""
 import json
 import os
 import re
@@ -18,19 +18,7 @@ VOICE_ID = "ZcI3lqwa2V77372zvT4W"
 MODEL = "eleven_multilingual_v2"
 API = "https://api.elevenlabs.io/v1/text-to-speech"
 
-STORIES = {
-    "01": "01lalucciolacheavevapauradelbuio.md",
-    "02": "02lalucciolaelalanternastanca.md",
-    "03": "03lalucciolaelapiccolachenonvolevaaccendersi.md",
-    "04": "04lalucciolaeilgrillocheperselavoce.md",
-}
-
-NAMES = {
-    "01": "lalucciolacheavevapauradelbuio",
-    "02": "lalucciolaelalanternastanca",
-    "03": "lalucciolaelapiccolachenonvolevaaccendersi",
-    "04": "lalucciolaeilgrillocheperselavoce",
-}
+STORIES = sorted((BASE / "stories").glob("0*.md"))
 
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]"
@@ -129,11 +117,12 @@ def main():
         "use_speaker_boost": True,
     }
 
-    for key, fname in STORIES.items():
-        md = BASE / fname
+    for index, md in enumerate(STORIES, start=1):
+        key = f"{index:02d}"
+        fname = md.name
         text = load_story(md)
         chunks = split_chunks(text)
-        name = NAMES[key]
+        name = re.sub(r"^\d+", "", md.stem)
         print(f"\n[{key}] {fname}: {len(chunks)} chunks, {len(text)} chars", flush=True)
 
         wav_files = []
@@ -213,8 +202,9 @@ def main():
     print(f"\nDone. {len(STORIES)} stories generated.", flush=True)
 
     # Send via Telegram
-    for key in sorted(STORIES.keys()):
-        name = NAMES[key]
+    for index, md in enumerate(STORIES, start=1):
+        key = f"{index:02d}"
+        name = re.sub(r"^\d+", "", md.stem)
         mp3 = AUDIO / f"11l-{key}-{name}.mp3"
         if mp3.exists():
             for attempt in range(5):

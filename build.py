@@ -12,6 +12,7 @@ import os
 import re
 
 SRC = os.path.dirname(os.path.abspath(__file__))
+STORIE = os.path.join(SRC, "stories")
 ROMANI = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 PAROLE_AL_MINUTO = 130  # ritmo di lettura ad alta voce, non di lettura silenziosa
 
@@ -66,7 +67,7 @@ def audio_per(numero_libro):
     return None
 
 
-fiabe = [leggi(p) for p in sorted(glob.glob(os.path.join(SRC, "0*.md")))]
+fiabe = [leggi(p) for p in sorted(glob.glob(os.path.join(STORIE, "0*.md")))]
 
 indice = []
 articoli = []
@@ -400,6 +401,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
          '&family=Karla:wght@400;600&display=swap">')
 
 totale_minuti = sum(f["minuti"] for f in fiabe)
+numero_fiabe = len(fiabe)
 
 CORPO = f"""<div class="pagina">
     <header class="testata">
@@ -411,7 +413,7 @@ CORPO = f"""<div class="pagina">
         <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
       </div>
       <h1>Le fiabe di Nina</h1>
-      <p class="intro">Tre storie di una lucciola che impara ad accendersi, a spegnersi e a
+      <p class="intro">{numero_fiabe} storie di una lucciola che impara ad accendersi, a spegnersi e a
       lasciare che sia un&rsquo;altra ad accendersi da sola. Da leggere ad alta voce, una per sera,
       nell&rsquo;ordine in cui sono scritte.</p>
     </header>
@@ -427,7 +429,7 @@ CORPO = f"""<div class="pagina">
 
     <footer class="colophon">
       <p class="etichetta">Colophon</p>
-      <p>Tre fiabe, {sum(f['parole'] for f in fiabe)} parole. I tempi di lettura sono calcolati
+      <p>{numero_fiabe} fiabe, {sum(f['parole'] for f in fiabe)} parole. I tempi di lettura sono calcolati
       a {PAROLE_AL_MINUTO} parole al minuto: il passo di chi legge ad alta voce, non di chi legge
       da solo.</p>
     </footer>
@@ -442,7 +444,7 @@ autonoma = f"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {TITOLO}
-<meta name="description" content="Tre fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.">
+<meta name="description" content="{numero_fiabe} fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.">
 {FONTS}
 <style>{STILE}</style>
 </head>

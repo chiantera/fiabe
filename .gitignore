@@ -1,4 +1,5 @@
 .vercel
+__pycache__/
 
 # voce di partenza e artefatti di sintesi vocale (dati personali / rigenerabili)
 *.opus
