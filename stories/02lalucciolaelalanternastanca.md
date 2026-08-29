@@ -82,7 +82,7 @@ si accese.
 
 Più luminosa di prima.
 
-Perché anche le luci più belle hanno bisogno di riposare, piccolo mio.
+Perché anche le luci più belle hanno bisogno di riposare, amore mio.
 
 Anche la tua.
 

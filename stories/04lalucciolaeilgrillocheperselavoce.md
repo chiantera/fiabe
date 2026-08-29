@@ -146,7 +146,7 @@ Perché appena scese la sera, da tutta l'erba, da sotto ogni foglia, da dietro o
 
 E lui se ne stette sulla radice ad ascoltare, con le antenne dritte, contento come non era mai stato.
 
-Le cose che sai fare, un giorno può darsi che non le saprai più fare, piccolo mio.
+Le cose che sai fare, un giorno può darsi che non le saprai più fare, amore mio.
 
 Non fa niente, perché non è per quelle che ti vogliono bene.
 
