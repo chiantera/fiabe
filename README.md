@@ -11,11 +11,14 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 | III | La Lucciola e la Piccola che Non Voleva Accendersi | 6 min |
 | IV | La Lucciola e il Grillo che Perse la Voce | 9 min |
 | V | La Lucciola e la Luce nella Finestra | 6 min |
+| VI | La Lucciola e Chi Scese dalla Collina | 6 min |
 
 Vanno letti in ordine: il primo accende la luce, il secondo la spegne, il terzo
 scopre che la luce di un altro non si può accendere, il quarto insegna che ciò
 che si è donato resta in chi ci è stato vicino. Il quinto porta Nina fuori dal
-prato per la prima volta, e le fa scoprire chi c'è dall'altra parte.
+prato per la prima volta, e le fa scoprire chi c'è dall'altra parte; nel sesto
+è l'altra parte che scende nel prato, e deve imparare da capo la lezione del
+terzo — che certe cose non si vanno a prendere, si aspettano.
 
 ## Come ci si rivolge a chi ascolta
 
