@@ -22,9 +22,7 @@ prato per la prima volta, e le fa scoprire chi c'è dall'altra parte.
 Ogni fiaba si chiude parlando direttamente a chi ascolta. La formula è
 **«amore mio»**, scelta perché non ha genere: chi ascolta può essere chiunque.
 
-Fino al Libro quinto la formula era «piccolo mio», sostituita ovunque. Gli MP3
-dei Libri I–IV sono stati incisi con la formula vecchia: finché non vengono
-rigenerati, l'audio dice «piccolo mio» dove il testo dice «amore mio».
+Fino al Libro quinto la formula era «piccolo mio», sostituita ovunque nei testi.
 
 ## L'audio (voce clonata)
 
