@@ -445,6 +445,7 @@ autonoma = f"""<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {TITOLO}
 <meta name="description" content="{numero_fiabe} fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.">
+<link rel="canonical" href="https://fiabe.vercel.app/">
 {FONTS}
 <style>{STILE}</style>
 </head>
