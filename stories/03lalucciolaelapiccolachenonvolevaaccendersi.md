@@ -102,7 +102,7 @@ Sorrise soltanto.
 
 Perché sapeva esattamente com'era.
 
-La luce di qualcun altro non si può accendere, piccolo mio. Non con le spiegazioni, non con la forza, non dicendo *provaci di più*.
+La luce di qualcun altro non si può accendere, amore mio. Non con le spiegazioni, non con la forza, non dicendo *provaci di più*.
 
 Si può soltanto restare seduti vicino, nel buio, finché non arriva da sola.
 

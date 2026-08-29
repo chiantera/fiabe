@@ -10,10 +10,19 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 | II | La Lucciola e la Lanterna Stanca | 5 min |
 | III | La Lucciola e la Piccola che Non Voleva Accendersi | 6 min |
 | IV | La Lucciola e il Grillo che Perse la Voce | 9 min |
+| V | La Lucciola e la Luce nella Finestra | 6 min |
 
 Vanno letti in ordine: il primo accende la luce, il secondo la spegne, il terzo
 scopre che la luce di un altro non si può accendere, il quarto insegna che ciò
-che si è donato resta in chi ci è stato vicino.
+che si è donato resta in chi ci è stato vicino. Il quinto porta Nina fuori dal
+prato per la prima volta, e le fa scoprire chi c'è dall'altra parte.
+
+## Come ci si rivolge a chi ascolta
+
+Ogni fiaba si chiude parlando direttamente a chi ascolta. La formula è
+**«amore mio»**, scelta perché non ha genere: chi ascolta può essere chiunque.
+
+Fino al Libro quinto la formula era «piccolo mio», sostituita ovunque nei testi.
 
 ## L'audio (voce clonata)
 
@@ -54,6 +63,18 @@ titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
 
 I tempi di lettura sono calcolati a 130 parole al minuto — il passo di chi legge
 ad alta voce a un bambino, non quello di chi legge da solo.
+
+## Rigenerare l'audio dopo una correzione
+
+`generate_elevenlabs.py` spezza ogni fiaba in blocchi e li tiene in cache come
+`audio/chunk_<NN>_<i>_<firma>.mp3`. La firma è l'hash del testo del blocco: se
+correggi una fiaba, i blocchi cambiati si rigenerano da soli e quelli intatti si
+riusano, senza spendere caratteri ElevenLabs per niente. I blocchi vecchi
+vengono ripuliti a fine run.
+
+Prima questa cache era indicizzata solo per posizione, e una correzione al testo
+veniva ignorata: il blocco vecchio veniva riusato e l'audio restava indietro
+rispetto alla fiaba.
 
 ## Il sito
 

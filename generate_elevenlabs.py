@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Genera le fiabe in stories/ con la voce ElevenLabs 'fausto bedtime stories'."""
+import hashlib
 import json
 import os
 import re
@@ -127,7 +128,9 @@ def main():
 
         wav_files = []
         for i, ch in enumerate(chunks):
-            out = AUDIO / f"chunk_{key}_{i:03d}.mp3"
+            # l'hash del testo nel nome: se la fiaba cambia, il pezzo si rigenera
+            firma = hashlib.sha1(ch.encode("utf-8")).hexdigest()[:8]
+            out = AUDIO / f"chunk_{key}_{i:03d}_{firma}.mp3"
             if out.exists() and out.stat().st_size > 1000:
                 print(f"  [{key}] reuse chunk {i+1}/{len(chunks)}", flush=True)
             else:
@@ -166,8 +169,8 @@ def main():
             check=True,
         )
 
-        # Clean up chunks
-        for w in wav_files:
+        # Clean up chunks (anche quelli di run precedenti, ormai scaduti)
+        for w in set(wav_files) | set(AUDIO.glob(f"chunk_{key}_*.mp3")):
             try:
                 w.unlink()
             except OSError:

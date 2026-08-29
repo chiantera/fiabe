@@ -34,6 +34,6 @@ Da quella notte, Nina non ebbe più paura del buio.
 
 Perché aveva scoperto un segreto: il buio non è mai davvero buio, quando c'è qualcuno disposto ad accendere la propria luce.
 
-E ora, piccolo mio, chiudi gli occhi. Le lucciole vegliano su di te.
+E ora, amore mio, chiudi gli occhi. Le lucciole vegliano su di te.
 
 Buonanotte. 🌙✨
