@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Genera le fiabe in stories/ con la voce ElevenLabs 'fausto bedtime stories'."""
+"""Genera le fiabe in stories/ con la voce ElevenLabs 'fiabe'.
+
+Senza argomenti genera tutte le fiabe; con argomenti genera solo quelle
+indicate per numero, per esempio:  python3 generate_elevenlabs.py 05 06
+"""
 import hashlib
 import json
 import os
@@ -15,7 +19,7 @@ import urllib.error
 BASE = Path(__file__).resolve().parent
 AUDIO = BASE / "audio"
 LANG = "it"
-VOICE_ID = "ZcI3lqwa2V77372zvT4W"
+VOICE_ID = "G9UYpVOtV3hbTUam453l"  # PVC 'fiabe', italiano, accento romanesco
 MODEL = "eleven_multilingual_v2"
 API = "https://api.elevenlabs.io/v1/text-to-speech"
 
@@ -118,8 +122,12 @@ def main():
         "use_speaker_boost": True,
     }
 
+    voluti = {a.zfill(2) for a in sys.argv[1:]}
+
     for index, md in enumerate(STORIES, start=1):
         key = f"{index:02d}"
+        if voluti and key not in voluti:
+            continue
         fname = md.name
         text = load_story(md)
         chunks = split_chunks(text)
@@ -149,13 +157,16 @@ def main():
         with open(concat_list, "w") as fh:
             for w in wav_files:
                 fh.write(f"file '{w.resolve()}'\n")
-                fh.write("file 'silence.wav'\n")
+                fh.write("file 'silence.mp3'\n")
 
-        # Generate silence file
+        # Generate silence file: MP3 come i chunk, non WAV. Il demuxer concat
+        # si aggancia al codec del primo file (mp3) e scarta i pacchetti PCM,
+        # quindi con un silenzio in WAV le pause sparivano senza errori fatali.
         subprocess.run(
             ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
              "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono",
-             "-t", "0.6", "-c:a", "pcm_s16le", str(AUDIO / "silence.wav")],
+             "-t", "0.6", "-c:a", "libmp3lame", "-b:a", "192k",
+             str(AUDIO / "silence.mp3")],
             check=True,
         )
 
@@ -190,23 +201,30 @@ def main():
         size = final.stat().st_size
         print(f"  -> {final.name} ({dur_val:.1f}s, {size/1024:.0f} KB)", flush=True)
 
-        # Copy to Desktop
+        # Copy to Desktop (solo se il Desktop c'è: altrove si salta)
         desktop = Path("/mnt/c/Users/Deckard/Desktop/fiabe-audio")
-        desktop.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(final, desktop / final.name)
-        print(f"  -> copied to Desktop", flush=True)
+        if desktop.parent.is_dir():
+            desktop.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(final, desktop / final.name)
+            print(f"  -> copied to Desktop", flush=True)
 
     # Clean up silence file
     try:
-        (AUDIO / "silence.wav").unlink()
+        (AUDIO / "silence.mp3").unlink()
     except OSError:
         pass
 
-    print(f"\nDone. {len(STORIES)} stories generated.", flush=True)
+    fatte = len(voluti) if voluti else len(STORIES)
+    print(f"\nDone. {fatte} stories generated.", flush=True)
 
-    # Send via Telegram
+    # Send via Telegram (solo se hermes c'è: altrove si salta)
+    if shutil.which("hermes") is None:
+        print("  hermes non disponibile: niente invio Telegram", flush=True)
+        return
     for index, md in enumerate(STORIES, start=1):
         key = f"{index:02d}"
+        if voluti and key not in voluti:
+            continue
         name = re.sub(r"^\d+", "", md.stem)
         mp3 = AUDIO / f"11l-{key}-{name}.mp3"
         if mp3.exists():
