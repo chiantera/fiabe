@@ -7,12 +7,98 @@ Quattro regole bastano: nessuna libreria.
 """
 import glob
 import html
+import json
 import math
 import os
 import re
 
 SRC = os.path.dirname(os.path.abspath(__file__))
 STORIE = os.path.join(SRC, "stories")
+SITO = "https://fiabe.vercel.app"
+SPECIALI = {"prologo", "prologue", "epilogo", "epilogue"}
+
+# Una lingua per cartella. "uscita" è il file generato, "base" il prefisso
+# degli URL. L'italiano sta alla radice perché era lì da prima.
+LINGUE = {
+    "it": {
+        "cartella": "it",
+        "uscita": "index.html",
+        "base": "/",
+        "lang": "it",
+        "nome": "Italiano",
+        "audio": "audio",
+        "sito": "Le fiabe di Nina",
+        "occhiello": "Fiabe della buonanotte",
+        "intro": ("{n} storie di una lucciola che impara ad accendersi, a spegnersi e a "
+                  "lasciare che sia un&rsquo;altra ad accendersi da sola. Da leggere ad alta "
+                  "voce, una per sera, nell&rsquo;ordine in cui sono scritte."),
+        "descrizione": "{n} fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.",
+        "indice": "Indice",
+        "in_tutto": "{m} minuti in tutto",
+        "minuti_lettura": "{m} minuti di lettura",
+        "ascolta": "Ascolta",
+        "no_audio": "Il tuo browser non supporta la riproduzione audio.",
+        "libro": "Libro",
+        "da_libro": "dal Libro {r}",
+        "da_prologo": "dal Prologo",
+        "da_epilogo": "dall&rsquo;Epilogo",
+        "colophon": "Colophon",
+        "colophon_testo": ("{n} fiabe{coda}, {p} parole. I tempi di lettura sono calcolati a {wpm} "
+                           "parole al minuto: il passo di chi legge ad alta voce, non di chi legge da solo."),
+        "extra_nome": {"prologo": "un prologo", "epilogo": "un epilogo"},
+        "extra_giunzione": " e ",
+        "spegni": "Spegni la luce",
+        "accendi": "Accendi la luce",
+        "tema_chiaro": "Passa al tema chiaro",
+        "tema_scuro": "Passa al tema scuro",
+        "riprendi": "Riprendi",
+        "chiudi": "Chiudi",
+        "chiudi_aria": "Nascondi la ripresa",
+        "testo_meno": "Testo pi&ugrave; piccolo",
+        "testo_piu": "Testo pi&ugrave; grande",
+        "cambia_tema": "Cambia tema",
+        "altra_lingua": "English",
+    },
+    "en-GB": {
+        "cartella": "en-GB",
+        "uscita": os.path.join("en", "index.html"),
+        "base": "/en/",
+        "lang": "en-GB",
+        "nome": "English",
+        "audio": os.path.join("audio", "en-GB"),
+        "sito": "Nina&rsquo;s Bedtime Stories",
+        "occhiello": "Bedtime stories",
+        "intro": ("{n} stories about a firefly who learns to light up, to put herself out, and "
+                  "to let someone else come to it on her own. To be read aloud, one a night, "
+                  "in the order they were written."),
+        "descrizione": "{n} bedtime stories about Nina, the firefly of the meadow at the foot of the hill.",
+        "indice": "Contents",
+        "in_tutto": "{m} minutes in all",
+        "minuti_lettura": "{m} minutes to read aloud",
+        "ascolta": "Listen",
+        "no_audio": "Your browser cannot play this audio.",
+        "libro": "Book",
+        "da_libro": "from Book {r}",
+        "da_prologo": "from the Prologue",
+        "da_epilogo": "from the Epilogue",
+        "colophon": "Colophon",
+        "colophon_testo": ("{n} stories{coda}, {p} words. Reading times are worked out at {wpm} words a "
+                           "minute: the pace of someone reading aloud, not of someone reading alone."),
+        "extra_nome": {"prologue": "a prologue", "epilogue": "an epilogue"},
+        "extra_giunzione": " and ",
+        "spegni": "Turn the light off",
+        "accendi": "Turn the light on",
+        "tema_chiaro": "Switch to the light theme",
+        "tema_scuro": "Switch to the dark theme",
+        "riprendi": "Resume",
+        "chiudi": "Close",
+        "chiudi_aria": "Hide the resume prompt",
+        "testo_meno": "Smaller text",
+        "testo_piu": "Larger text",
+        "cambia_tema": "Change theme",
+        "altra_lingua": "Italiano",
+    },
+}
 ROMANI = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 PAROLE_AL_MINUTO = 130  # ritmo di lettura ad alta voce, non di lettura silenziosa
 
@@ -46,7 +132,7 @@ def leggi(percorso):
     nome = os.path.basename(percorso)
     numero = nome[:2]
     chiave = os.path.splitext(nome)[0][2:]
-    speciale = chiave in ("prologo", "epilogo")
+    speciale = chiave in SPECIALI
     return {
         "numero": numero,
         "speciale": speciale,
@@ -65,74 +151,79 @@ def lucciole(n=3):
     ) + "</span>"
 
 
-def audio_per(numero):
-    """Restituisce il percorso (relativo al sito) dell'audio della fiaba, se c'è."""
-    candidati = sorted(glob.glob(os.path.join(SRC, "audio", f"11l-{numero}-*.mp3")))
+def audio_per(cartella_audio, numero):
+    """Percorso dell'audio della fiaba, relativo alla radice del sito."""
+    candidati = sorted(glob.glob(os.path.join(SRC, cartella_audio, f"11l-{numero}-*.mp3")))
     if candidati:
-        return os.path.relpath(candidati[0], SRC)
+        return "/" + os.path.relpath(candidati[0], SRC).replace(os.sep, "/")
     return None
 
 
-fiabe = [leggi(p) for p in sorted(glob.glob(os.path.join(STORIE, "[0-9][0-9]*.md")))]
+def raccogli(lingua):
+    """Legge le fiabe di una lingua e prepara indice e articoli."""
+    cartella = os.path.join(STORIE, lingua["cartella"])
+    fiabe = [leggi(f) for f in sorted(glob.glob(os.path.join(cartella, "[0-9][0-9]*.md")))]
 
-indice = []
-articoli = []
-conta = 0
-for i, f in enumerate(fiabe):
-    if f["speciale"]:
-        slug = f["chiave"]
-        etichetta_numero = f["titolo"]
-        numero_indice = "&mdash;"
-        # "dal Prologo" ma "dall'Epilogo": la preposizione la sa il Python,
-        # non il JavaScript.
-        ripresa = "dall&rsquo;Epilogo" if f["chiave"] == "epilogo" else "dal Prologo"
-    else:
-        slug = f"libro-{conta + 1}"
-        etichetta_numero = ROMANI[conta]
-        numero_indice = ROMANI[conta]
-        ripresa = f"dal Libro {ROMANI[conta]}"
-        conta += 1
-    f["slug"] = slug
-    f["etichetta_numero"] = etichetta_numero
-    indice.append(
-        f'<li><a href="#{slug}"><span class="numero">{numero_indice}</span>'
-        f'<span class="voce-titolo">{inline(f["titolo"])}</span>'
-        f'<span class="voce-durata">{f["minuti"]} min</span></a></li>'
-    )
-    corpo = []
-    for j, p in enumerate(f["paragrafi"]):
-        classi = []
-        if j == 0:
-            classi.append("apertura")
-        if p.startswith("Buonanotte."):
-            classi.append("congedo")
-        attr = f' class="{" ".join(classi)}"' if classi else ""
-        corpo.append(f"      <p{attr}>{inline(p)}</p>")
+    indice, articoli = [], []
+    conta = 0
+    for f in fiabe:
+        if f["speciale"]:
+            # l'ancora non cambia con la lingua: #prologo e #epilogo sono gli
+            # stessi ovunque, così i link restano validi e un domani si può
+            # cambiare lingua restando sulla stessa fiaba.
+            epilogo = "epilog" in f["chiave"]
+            slug = "epilogo" if epilogo else "prologo"
+            etichetta_numero = f["titolo"]
+            numero_indice = "&mdash;"
+            ripresa = lingua["da_epilogo" if epilogo else "da_prologo"]
+        else:
+            slug = f"libro-{conta + 1}"
+            etichetta_numero = ROMANI[conta]
+            numero_indice = ROMANI[conta]
+            ripresa = lingua["da_libro"].format(r=ROMANI[conta])
+            conta += 1
 
-    # lettore audio della fiaba, se l'MP3 è presente
-    audio = audio_per(f["numero"])
-    if audio:
-        lettore = (
-            f'        <figure class="lettura">\n'
-            f'          <figcaption>Ascolta</figcaption>\n'
-            f'          <audio controls preload="none" src="{audio}">\n'
-            f'            Il tuo browser non supporta la riproduzione audio.\n'
-            f'          </audio>\n'
-            f'        </figure>\n'
+        minuti = lingua["minuti_lettura"].format(m=f["minuti"])
+        indice.append(
+            f'<li><a href="#{slug}"><span class="numero">{numero_indice}</span>'
+            f'<span class="voce-titolo">{inline(f["titolo"])}</span>'
+            f'<span class="voce-durata">{f["minuti"]} min</span></a></li>'
         )
-    else:
-        lettore = ""
 
-    articoli.append(
-        f'    <article class="fiaba" id="{slug}" data-ripresa="{ripresa}">\n'
-        f'      <header class="fiaba-testata">\n'
-        f'        <p class="etichetta">{etichetta_numero} &middot; {f["minuti"]} minuti di lettura</p>\n'
-        f'        <h2>{inline(f["titolo"])}</h2>\n'
-        f'        <p class="sottotitolo">{inline(f["sottotitolo"])}</p>\n'
-        f"      </header>\n" + lettore + "\n".join(corpo) + "\n"
-        f'      <div class="divisorio">{lucciole()}</div>\n'
-        f"    </article>"
-    )
+        corpo = []
+        for j, par in enumerate(f["paragrafi"]):
+            classi = []
+            if j == 0:
+                classi.append("apertura")
+            if par.startswith("Buonanotte.") or par.startswith("Goodnight."):
+                classi.append("congedo")
+            attr = f' class="{" ".join(classi)}"' if classi else ""
+            corpo.append(f"      <p{attr}>{inline(par)}</p>")
+
+        audio = audio_per(lingua["audio"], f["numero"])
+        lettore = ""
+        if audio:
+            lettore = (
+                f'        <figure class="lettura">\n'
+                f'          <figcaption>{lingua["ascolta"]}</figcaption>\n'
+                f'          <audio controls preload="none" src="{audio}">\n'
+                f'            {lingua["no_audio"]}\n'
+                f'          </audio>\n'
+                f'        </figure>\n'
+            )
+
+        articoli.append(
+            f'    <article class="fiaba" id="{slug}" data-ripresa="{ripresa}">\n'
+            f'      <header class="fiaba-testata">\n'
+            f'        <p class="etichetta">{etichetta_numero} &middot; {minuti}</p>\n'
+            f'        <h2>{inline(f["titolo"])}</h2>\n'
+            f'        <p class="sottotitolo">{inline(f["sottotitolo"])}</p>\n'
+            f"      </header>\n" + lettore + "\n".join(corpo) + "\n"
+            f'      <div class="divisorio">{lucciole()}</div>\n'
+            f"    </article>"
+        )
+    return fiabe, indice, articoli
+
 
 STILE = """
   :root {
@@ -227,6 +318,30 @@ STILE = """
     max-width: 32rem;
     color: var(--muted);
     font-size: 1.0625rem;
+  }
+
+  .testata-azioni {
+    flex: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .lingua {
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.1rem;
+  }
+  .lingua:hover { color: var(--accent); border-color: var(--accent); }
+  .lingua:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 
   .interruttore {
@@ -525,6 +640,7 @@ PRESCRIPT = """
 
 SCRIPT = """
   (function () {
+    var T = /*TRADUZIONI*/;
     var radice = document.documentElement;
     var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
     var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -549,8 +665,8 @@ SCRIPT = """
     }
     function aggiornaEtichetta() {
       var scuro = scuroAdesso();
-      interruttore.textContent = scuro ? "Accendi la luce" : "Spegni la luce";
-      interruttore.setAttribute("aria-label", scuro ? "Passa al tema chiaro" : "Passa al tema scuro");
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
     }
     function cambiaTema() {
       var prossimo = scuroAdesso() ? "light" : "dark";
@@ -621,8 +737,8 @@ SCRIPT = """
       if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
         var d = datiFiaba(bersaglio);
         riquadroLink.textContent = (d.titolo === d.numero)
-          ? "Riprendi " + d.ripresa
-          : "Riprendi " + d.ripresa + " \u2014 " + d.titolo;
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " \u2014 " + d.titolo;
         riquadroLink.setAttribute("href", "#" + d.id);
         riquadro.setAttribute("data-visibile", "si");
       }
@@ -693,25 +809,40 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
          'family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600'
          '&family=Karla:wght@400;600&display=swap">')
 
-totale_minuti = sum(f["minuti"] for f in fiabe)
-numero_fiabe = sum(1 for f in fiabe if not f["speciale"])
-extra = [f["titolo"].lower() for f in fiabe if f["speciale"]]
-coda = ""
-if len(extra) == 1:
-    coda = f", un {extra[0]}"
-elif len(extra) > 1:
-    coda = ", un " + " e un ".join(extra)
 
-CORPO = f"""<div class="barra" id="barra" data-visibile="no">
-    <a class="tasto" href="#indice">&#9650;&nbsp;Indice</a>
+
+def pagina(codice, lingua):
+    fiabe, indice, articoli = raccogli(lingua)
+    if not fiabe:
+        return None
+
+    totale_minuti = sum(f["minuti"] for f in fiabe)
+    numero_fiabe = sum(1 for f in fiabe if not f["speciale"])
+    parole = sum(f["parole"] for f in fiabe)
+
+    # "un prologo e un epilogo": l'articolo cambia con la parola e con la
+    # lingua ("a prologue" ma "an epilogue"), quindi sta scritto per esteso.
+    pezzi = [lingua["extra_nome"][f["chiave"]] for f in fiabe
+             if f["speciale"] and f["chiave"] in lingua["extra_nome"]]
+    coda = ", " + lingua["extra_giunzione"].join(pezzi) if pezzi else ""
+
+    altre = [(c, l) for c, l in LINGUE.items() if c != codice]
+    scambio = "".join(
+        f'<a class="lingua" href="{l["base"]}" hreflang="{l["lang"]}" lang="{l["lang"]}">{l["nome"]}</a>'
+        for _, l in altre
+    )
+
+    titolo_sito = lingua["sito"]
+    corpo = f"""<div class="barra" id="barra" data-visibile="no">
+    <a class="tasto" href="#indice">&#9650;&nbsp;{lingua["indice"]}</a>
     <p class="dove" id="dove">
       <span class="dove-numero" id="dove-numero"></span>
       <span class="dove-titolo" id="dove-titolo"></span>
     </p>
     <span class="barra-azioni">
-      <button class="tasto" id="testo-meno" type="button" aria-label="Testo pi&ugrave; piccolo"><span class="aa-piccola">A</span>&minus;</button>
-      <button class="tasto" id="testo-piu" type="button" aria-label="Testo pi&ugrave; grande">A&plus;</button>
-      <button class="tasto" id="tema-barra" type="button" aria-label="Cambia tema">&#9681;</button>
+      <button class="tasto" id="testo-meno" type="button" aria-label="{lingua["testo_meno"]}"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="{lingua["testo_piu"]}">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="{lingua["cambia_tema"]}">&#9681;</button>
     </span>
   </div>
 
@@ -720,23 +851,24 @@ CORPO = f"""<div class="barra" id="barra" data-visibile="no">
       <div class="testata-alto">
         <div class="occhiello">
           {lucciole()}
-          <p class="etichetta">Fiabe della buonanotte</p>
+          <p class="etichetta">{lingua["occhiello"]}</p>
         </div>
-        <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
+        <span class="testata-azioni">
+          {scambio}
+          <button class="interruttore" id="interruttore" type="button">{lingua["spegni"]}</button>
+        </span>
       </div>
-      <h1>Le fiabe di Nina</h1>
-      <p class="intro">{numero_fiabe} storie di una lucciola che impara ad accendersi, a spegnersi e a
-      lasciare che sia un&rsquo;altra ad accendersi da sola. Da leggere ad alta voce, una per sera,
-      nell&rsquo;ordine in cui sono scritte.</p>
+      <h1>{titolo_sito}</h1>
+      <p class="intro">{lingua["intro"].format(n=numero_fiabe)}</p>
     </header>
 
     <p class="riprendi" id="riprendi" data-visibile="no">
-      <a href="#" id="riprendi-link">Riprendi dal Libro I</a>
-      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Nascondi la ripresa">Chiudi</button>
+      <a href="#" id="riprendi-link">{lingua["riprendi"]}</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="{lingua["chiudi_aria"]}">{lingua["chiudi"]}</button>
     </p>
 
-    <nav class="indice" id="indice" aria-label="Indice delle fiabe">
-      <p class="etichetta">Indice &middot; {totale_minuti} minuti in tutto</p>
+    <nav class="indice" id="indice" aria-label="{lingua["indice"]}">
+      <p class="etichetta">{lingua["indice"]} &middot; {lingua["in_tutto"].format(m=totale_minuti)}</p>
       <ol>
 {chr(10).join("        " + v for v in indice)}
       </ol>
@@ -745,50 +877,82 @@ CORPO = f"""<div class="barra" id="barra" data-visibile="no">
 {chr(10).join(articoli)}
 
     <footer class="colophon">
-      <p class="etichetta">Colophon</p>
-      <p>{numero_fiabe} fiabe{coda}, {sum(f['parole'] for f in fiabe)} parole. I tempi di lettura sono calcolati
-      a {PAROLE_AL_MINUTO} parole al minuto: il passo di chi legge ad alta voce, non di chi legge
-      da solo.</p>
+      <p class="etichetta">{lingua["colophon"]}</p>
+      <p>{lingua["colophon_testo"].format(n=numero_fiabe, coda=coda, p=parole, wpm=PAROLE_AL_MINUTO)}</p>
     </footer>
   </div>"""
 
-TITOLO = "<title>Le fiabe di Nina</title>"
+    # le stringhe che servono al JavaScript
+    tr = json.dumps({
+        "accendi": lingua["accendi"],
+        "spegni": lingua["spegni"],
+        "temaChiaro": lingua["tema_chiaro"],
+        "temaScuro": lingua["tema_scuro"],
+        "riprendi": lingua["riprendi"],
+    }, ensure_ascii=False)
+    script = SCRIPT.replace("/*TRADUZIONI*/", tr)
 
-# 1. pagina autonoma per la cartella del progetto
-autonoma = f"""<!doctype html>
-<html lang="it">
+    titolo = f"<title>{titolo_sito}</title>"
+    canonico = SITO + lingua["base"]
+    alternative = "\n".join(
+        f'<link rel="alternate" hreflang="{l["lang"]}" href="{SITO}{l["base"]}">'
+        for l in LINGUE.values()
+    ) + f'\n<link rel="alternate" hreflang="x-default" href="{SITO}/">'
+
+    pagina_html = f"""<!doctype html>
+<html lang="{lingua["lang"]}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{TITOLO}
-<meta name="description" content="{numero_fiabe} fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.">
-<link rel="canonical" href="https://fiabe.vercel.app/">
+{titolo}
+<meta name="description" content="{lingua["descrizione"].format(n=numero_fiabe)}">
+<link rel="canonical" href="{canonico}">
+{alternative}
 {FONTS}
 <style>{STILE}</style>
 <script>{PRESCRIPT}</script>
 </head>
 <body>
-{CORPO}
-<script>{SCRIPT}</script>
+{corpo}
+<script>{script}</script>
 </body>
 </html>
 """
-with open(os.path.join(SRC, "index.html"), "w", encoding="utf-8") as fp:
-    fp.write(autonoma)
+    destinazione = os.path.join(SRC, lingua["uscita"])
+    os.makedirs(os.path.dirname(destinazione) or SRC, exist_ok=True)
+    with open(destinazione, "w", encoding="utf-8") as fp:
+        fp.write(pagina_html)
 
-# 2. versione per l'Artifact: niente doctype/html/head/body, li aggiunge la piattaforma
-artifact = f"""{TITOLO}
-{FONTS}
-<style>{STILE}</style>
-<script>{PRESCRIPT}</script>
-{CORPO}
-<script>{SCRIPT}</script>
-"""
-fuori = os.environ.get("SCRATCH")
-if fuori:
-    with open(os.path.join(fuori, "fiabe-di-nina.html"), "w", encoding="utf-8") as fp:
-        fp.write(artifact)
+    # versione per l'Artifact, solo per la lingua principale
+    fuori = os.environ.get("SCRATCH")
+    if fuori and codice == "it":
+        with open(os.path.join(fuori, "fiabe-di-nina.html"), "w", encoding="utf-8") as fp:
+            fp.write(f"{titolo}\n{FONTS}\n<style>{STILE}</style>\n<script>{PRESCRIPT}</script>\n{corpo}\n<script>{script}</script>\n")
 
-for f in fiabe:
-    print(f"{f['titolo']}: {f['parole']} parole, {f['minuti']} min")
-print("scritti index.html e fiabe-di-nina.html")
+    return fiabe, lingua["uscita"]
+
+
+fatte = []
+for codice, lingua in LINGUE.items():
+    esito = pagina(codice, lingua)
+    if esito is None:
+        print(f"[{codice}] nessuna fiaba in stories/{lingua['cartella']}/: saltata")
+        continue
+    fiabe, uscita = esito
+    print(f"[{codice}] -> {uscita}")
+    for f in fiabe:
+        print(f"    {f['titolo']}: {f['parole']} parole, {f['minuti']} min")
+    fatte.append(uscita)
+
+# sitemap: una voce per lingua generata
+voci = "\n".join(
+    f"  <url>\n    <loc>{SITO}{l['base']}</loc>\n  </url>"
+    for c, l in LINGUE.items()
+    if os.path.exists(os.path.join(SRC, l["uscita"]))
+)
+with open(os.path.join(SRC, "sitemap.xml"), "w", encoding="utf-8") as fp:
+    fp.write('<?xml version="1.0" encoding="UTF-8"?>\n'
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+             + voci + "\n</urlset>\n")
+
+print("scritte: " + ", ".join(fatte) + ", sitemap.xml")

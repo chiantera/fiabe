@@ -102,11 +102,42 @@ Note:
 python3 build.py
 ```
 
-Lo script rilegge tutti i file `stories/0*.md` in ordine e ricostruisce indice,
+Lo script rilegge tutti i file `stories/<lingua>/[0-9][0-9]*.md` in ordine e ricostruisce indice,
 tempi di lettura e colophon. Per aggiungere una fiaba basta creare in `stories/`
-un file `NN<titolo-attaccato-minuscolo>.md` (`00` è il prologo) con la stessa
+in `stories/<lingua>/` un file `NN<titolo-attaccato-minuscolo>.md` (`00` è il prologo) con la stessa
 struttura degli altri:
 titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
+
+## Le lingue
+
+Una cartella per lingua sotto `stories/`, e una pagina per lingua:
+
+| Lingua | Testi | Pagina | URL |
+| --- | --- | --- | --- |
+| Italiano | `stories/it/` | `index.html` | `/` |
+| English (UK) | `stories/en-GB/` | `en/index.html` | `/en/` |
+
+`build.py` genera tutte le lingue in `LINGUE`, dove stanno anche le stringhe
+dell'interfaccia. Una lingua senza file `.md` viene saltata con un avviso, quindi
+per aggiungerne una basta creare la cartella, tradurre e aggiungere la voce.
+
+Le ancore non cambiano con la lingua: `#prologo`, `#libro-1` … `#libro-10`,
+`#epilogo` sono le stesse su tutte le pagine.
+
+I titoli inglesi seguono la stessa regola di quelli italiani, maiuscola solo
+sulla prima parola. In inglese si userebbe anche il maiuscolo su tutte le
+parole: è una scelta, non una dimenticanza.
+
+L'audio è per ora solo italiano. `build.py` cerca gli MP3 di ogni lingua in
+`audio/` per l'italiano e in `audio/<lingua>/` per le altre: la pagina inglese
+semplicemente non mostra nessun riquadro "Ascolta".
+
+I percorsi nelle pagine sono assoluti (`/audio/…`, `/en/`), quindi per
+guardarle in locale serve un server, non basta aprire il file:
+
+```bash
+python3 -m http.server 8000
+```
 
 ## Come si usa la pagina
 
