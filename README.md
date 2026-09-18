@@ -40,12 +40,13 @@ Fino al Libro quinto la formula era «piccolo mio», sostituita ovunque nei test
 
 Oltre alla pagina web, le fiabe possono essere ascoltate ad alta voce con una
 **voce clonata** (la voce dell'autore). La clonazione è fatta con **ElevenLabs
-Professional Voice Cloning** (piano Creator): voce `fausto bedtime stories`,
-italiano, accento romanesco.
+Professional Voice Cloning** (piano Creator): voce `fiabe`
+(`G9UYpVOtV3hbTUam453l`), italiano, accento romanesco.
 
-Gli MP3 finali disponibili (`audio/11l-*.mp3`) sono versionati nel repository e
-compaiono come lettori audio sulla pagina (`index.html`): ogni fiaba che ha il
-suo MP3 ha un riquadro "Ascolta" subito sotto il titolo.
+Gli MP3 (`audio/11l-*.mp3`) sono versionati nel repository e compaiono come
+lettori audio sulla pagina (`index.html`): ogni fiaba ha un riquadro "Ascolta"
+subito sotto il titolo. Tutte e otto sono incise con la stessa voce e con le
+stesse impostazioni, a 192 kbps.
 
 Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
 alternativa gratuita, ma è stato sostituito da ElevenLabs perché la qualità della
