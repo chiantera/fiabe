@@ -1,6 +1,6 @@
-# La Lucciola e la Luce nella Finestra
+# La lucciola e la luce nella finestra
 
-*Una fiaba della buonanotte — Libro quinto, seguito de "La Lucciola e il Grillo che Perse la Voce"*
+*Una fiaba della buonanotte — Libro quinto, seguito de "La lucciola e il grillo che perse la voce"*
 
 ---
 

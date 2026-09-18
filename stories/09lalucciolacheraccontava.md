@@ -1,6 +1,6 @@
-# La Lucciola che Raccontava
+# La lucciola che raccontava
 
-*Una fiaba della buonanotte — Libro nono, seguito de "La Lucciola che Restò sulla Radice"*
+*Una fiaba della buonanotte — Libro nono, seguito de "La lucciola che restò sulla radice"*
 
 ---
 

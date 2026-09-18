@@ -1,6 +1,6 @@
-# La Lucciola che Restò sulla Radice
+# La lucciola che restò sulla radice
 
-*Una fiaba della buonanotte — Libro ottavo, seguito de "La Lucciola e il Grillo che Volò"*
+*Una fiaba della buonanotte — Libro ottavo, seguito de "La lucciola e il grillo che volò"*
 
 ---
 
