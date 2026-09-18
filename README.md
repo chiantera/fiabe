@@ -77,6 +77,24 @@ tempi di lettura e colophon. Per aggiungere una fiaba basta creare in `stories/`
 un file `NN<titolo-attaccato-minuscolo>.md` con la stessa struttura degli altri:
 titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
 
+## Come si usa la pagina
+
+Chi legge lo fa quasi sempre di sera, col telefono in mano e la luce bassa, una
+fiaba per volta. La pagina tiene conto di questo:
+
+- **Barra in alto**: compare quando si è dentro una fiaba e dice a quale si è
+  arrivati. Da lì si torna all'indice, si cambia la dimensione del testo e si
+  cambia il tema, senza dover risalire.
+- **Riprendi**: la pagina ricorda l'ultima fiaba raggiunta e la propone in cima
+  alla visita dopo. Nell'indice le fiabe già passate hanno un pallino.
+- **Tema e dimensione del testo** restano come li si è lasciati, anche
+  riaprendo la pagina. Vengono applicati prima del disegno, così non si vede il
+  tema chiaro lampeggiare al buio.
+- **Un solo audio alla volta**: farne partire uno mette in pausa gli altri.
+
+Se il browser non ha la memoria locale (navigazione privata, cookie bloccati)
+la pagina funziona lo stesso: perde solo il ricordo fra una visita e l'altra.
+
 I tempi di lettura sono calcolati a 130 parole al minuto — il passo di chi legge
 ad alta voce a un bambino, non quello di chi legge da solo.
 

@@ -86,7 +86,7 @@ E poi, per la prima volta da mesi, non volò.
 
 Restò sul sasso, vicino alla sua amica, e guardarono insieme il cielo di settembre che era pieno, pieno, pieno di stelle.
 
-Dormì tutto l'autunno e tutto l'inverno, nel cuore caldo della vecchia quercia.
+Bea dormì tutto l'autunno e tutto l'inverno, nel cuore caldo della vecchia quercia.
 
 E a primavera si accese da sola, senza sforzo, più luminosa di prima.
 

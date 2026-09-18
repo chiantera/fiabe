@@ -22,11 +22,11 @@ Si posò sulla radice della quercia, dove Nina ormai stava sempre, e disse:
 
 E Nina rimase zitta talmente a lungo che la piccola pensò di averla offesa.
 
-Perché in quel momento aveva capito una cosa: che di tutto il prato, era rimasta soltanto lei. Lei sola aveva visto. Lei sola sapeva.
+Perché in quel momento aveva capito una cosa: che di tutto il prato era rimasta soltanto lei ad aver visto come era cominciata. Bea era arrivata dopo. Tutte erano arrivate dopo.
 
 E c'era un'altra cosa, che Nina sapeva da qualche estate e non aveva detto a nessuno: che le ali non la portavano più.
 
-Fino al ruscello ci arrivava, con calma. Oltre il ruscello, no. Il prato che una volta attraversava sei volte in un'ora adesso finiva a tre metri dalla radice.
+Fino al ruscello ci arrivava ancora, con calma, fermandosi due volte. Oltre il ruscello, no. Il prato che una volta attraversava in un soffio adesso finiva lì.
 
 Così non poteva più andare lei dagli altri.
 
@@ -60,7 +60,21 @@ A quel punto Bea, che stava in fondo e non diceva mai niente, disse pianissimo: 
 
 E tutte le piccole si girarono a guardarla, e la guardarono in un modo diverso da prima.
 
-Raccontò della finestra gialla in cima alla collina, e di quando era uscita dal prato, che nessuna lucciola l'aveva mai fatto.
+E poi raccontò la sera in cui il grillo aveva provato a cantare e non gli era uscito niente, e una lucciola si era posata sulla radice e gli aveva detto *io la so*.
+
+«E quella chi era?» chiese una piccola.
+
+«Sempre lei», disse Nina.
+
+E Bea, in fondo, guardava per terra.
+
+«E il grillo le insegnò come si fa», continuò Nina. «Tutta la notte, con quel filo di voce che gli restava. *Più piano. Più lungo. Non è una cosa che si spinge.*»
+
+Le piccole si guardarono, perché quelle parole le sapevano: se le dicevano fra loro, ogni volta che una sbagliava.
+
+«Ecco perché la facciamo», disse Nina. «Adesso lo sapete.»
+
+Raccontò della finestra gialla in cima alla collina, e di quando era uscita dal prato: cosa che nessuna lucciola aveva mai fatto.
 
 Raccontò della torcia, e di com'era buio il prato quella notte, e di una mano ferma nell'erba.
 
@@ -90,7 +104,7 @@ E dal fondo, piano, Bea riprese la frase da dove si era interrotta.
 
 La sapeva tutta. Parola per parola. Anche quelle che non c'era stata a sentire.
 
-Nina la stette ad ascoltare fino in fondo, con le antenne dritte, senza dire niente.
+Nina stette ad ascoltarla fino in fondo, con le antenne dritte, senza dire niente.
 
 E quando Bea finì, e le piccole se ne andarono a dormire nell'erba, Nina rimase sulla radice a pensare che forse, adesso, poteva anche stancarsi.
 

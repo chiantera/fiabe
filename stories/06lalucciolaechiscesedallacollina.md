@@ -10,7 +10,7 @@ Ogni sera le lucciole aspettavano. Stavano nell'erba con le lanterne spente e gu
 
 E ogni sera, a un certo punto, la finestra si spegneva.
 
-Allora il prato si accendeva tutto insieme — duecento lucciole in una volta sola — e per un attimo, lassù dietro il vetro, si vedeva una faccia piccola schiacciata contro il vetro.
+Allora il prato si accendeva tutto insieme — duecento lucciole in una volta sola — e per un attimo, lassù nella finestra spenta, si vedeva una faccia piccola schiacciata contro il vetro.
 
 Poi la faccia spariva. E il prato restava acceso ancora un pochino, per sicurezza. Nel caso servisse.
 
@@ -26,7 +26,7 @@ Le lucciole si fermarono a mezz'aria.
 
 Qualcosa stava scendendo. Qualcosa di enorme.
 
-L'erba si piegava a ogni passo. Il terreno tremava. E i grilli — tutti i grilli del prato insieme — smisero di cantare di colpo, come quando si spegne una radio.
+L'erba si piegava a ogni passo. Il terreno tremava. E il prato, che era sempre pieno di rumori piccoli, smise di farne di colpo, come quando si spegne una radio.
 
 E allora il prato fece una cosa che non aveva mai fatto in tutta la sua storia.
 
