@@ -46,13 +46,13 @@ E allora Nina capì, e sentì una cosa stretta nel petto.
 
 Rocco voleva vedere il prato.
 
-Il prato in cui era nato, in cui aveva cantato ogni notte di ogni estate della sua vita, e che non aveva mai visto in vita sua — perché i grilli stanno nell'erba, e dall'erba si vede soltanto altra erba.
+Il prato in cui era nato, in cui aveva cantato ogni notte di ogni estate della sua vita, e che non aveva mai visto — perché i grilli stanno nell'erba, e dall'erba si vede soltanto altra erba.
 
 «Aspetta qui», disse Nina, che era una cosa un po' stupida da dire. «Non ti muovere.»
 
 Tornò con Bea. Bea tornò con le altre. E quelle tornarono con tutte quante.
 
-Ci vollero in tante. Un grillo vecchio non pesa quasi niente, ma una lucciola pesa ancora meno, e ce ne vollero più di quaranta: sotto le zampe, sotto la pancia, ai lati, tenendolo piano come si tiene una cosa che si può rompere.
+Ci vollero in tante. Un grillo vecchio non pesa quasi niente, ma una lucciola pesa ancora meno, e ce ne vollero quaranta: sotto le zampe, sotto la pancia, ai lati, tenendolo piano come si tiene una cosa che si può rompere.
 
 «Rocco», disse Nina. «Non avere paura.»
 
@@ -84,7 +84,7 @@ Poi lo riportarono giù, piano piano, fino alla radice.
 
 Nina restò con lui.
 
-Il grillo girò la testa e la guardò, e non disse niente, perché non poteva dire niente da due estati.
+Il grillo girò la testa e la guardò, e non disse niente, perché non poteva dire niente da tre estati.
 
 «Lo so», disse Nina.
 

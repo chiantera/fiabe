@@ -44,7 +44,7 @@ Niente.
 
 Il vento nell'erba, e basta.
 
-Allora Nina si posò per terra e fece la cosa più difficile: smise di cercare la voce e cominciò a cercare *lui*. Le pieghe della corteccia. L'incavo tra le due radici grosse. Il sasso piatto dove d'estate c'era sempre l'ombra.
+Allora Nina si posò per terra e fece la cosa più difficile: smise di cercare la voce e cominciò a cercare *lui*. Le pieghe della corteccia. L'incavo tra le due radici grosse. La pietra sotto cui d'estate c'era sempre l'ombra.
 
 E lì dietro, in un angolino di terra asciutta, c'era Rocco, con le antenne abbassate e la testa girata dall'altra parte.
 

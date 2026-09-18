@@ -362,36 +362,298 @@ STILE = """
     border-radius: 2px;
   }
 
+  /* --- scala del testo: si legge ad alta voce, spesso al buio -------- */
+  :root { --scala: 1; }
+  body { font-size: calc(1.1875rem * var(--scala)); }
+
+  /* --- barra di servizio: compare quando si è dentro una fiaba ------- */
+  .barra {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem max(1.5rem, calc(50vw - 21rem + 1.5rem));
+    background: var(--ground);
+    background: color-mix(in srgb, var(--ground) 97%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    transform: translateY(-105%);
+    transition: transform 0.22s ease;
+  }
+  .barra[data-visibile="si"] { transform: none; }
+  .barra .dove {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+  .barra .dove-numero { font-weight: 600; color: var(--accent); flex: none; }
+  .barra .dove-titolo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .barra-azioni { display: flex; align-items: center; gap: 0.25rem; flex: none; }
+
+  .tasto {
+    appearance: none;
+    border: 1px solid transparent;
+    background: none;
+    color: var(--muted);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.5rem 0.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    min-height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .tasto:hover { color: var(--accent); border-color: var(--rule); }
+  .tasto:focus-visible,
+  .interruttore:focus-visible,
+  .indice a:focus-visible,
+  .riprendi a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  .tasto .aa-piccola { font-size: 0.7em; }
+
+  /* --- riprendi da dove si era rimasti ------------------------------- */
+  .riprendi {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: var(--paper);
+    box-shadow: var(--ombra);
+  }
+  .riprendi[data-visibile="si"] { display: flex; }
+  .riprendi a {
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    flex: 1 1 auto;
+  }
+  .riprendi a:hover { text-decoration: underline; }
+
+  /* --- segno sulle fiabe già raggiunte ------------------------------- */
+  .indice li[data-letta="si"] .numero::after {
+    content: "";
+    display: inline-block;
+    width: 0.3rem;
+    height: 0.3rem;
+    margin-left: 0.35rem;
+    border-radius: 50%;
+    background: var(--accent);
+    vertical-align: 0.15em;
+  }
+  .indice li[data-letta="si"] .voce-titolo { color: var(--muted); }
+
+  /* --- ancore: non finire sotto la barra ----------------------------- */
+  .fiaba { scroll-margin-top: 4.25rem; }
+  .indice { scroll-margin-top: 4.25rem; }
+
+  /* --- il lettore audio è il comando più usato al buio --------------- */
+  .lettura audio { width: 100%; min-height: 2.75rem; }
+
+  @media (max-width: 30rem) {
+    .barra { padding-left: 1rem; padding-right: 1rem; gap: 0.5rem; }
+    .barra .dove-titolo { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .barra { transition: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .lucciola { animation: none; opacity: 0.9; }
     * { transition-duration: 0.01ms !important; }
   }
 """
 
+PRESCRIPT = """
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+"""
+
 SCRIPT = """
   (function () {
     var radice = document.documentElement;
-    var bottone = document.getElementById("interruttore");
     var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
 
     function scuroAdesso() {
       var scelta = radice.getAttribute("data-theme");
       return scelta ? scelta === "dark" : sistemaScuro.matches;
     }
-
     function aggiornaEtichetta() {
       var scuro = scuroAdesso();
-      bottone.textContent = scuro ? "Accendi la luce" : "Spegni la luce";
-      bottone.setAttribute("aria-label", scuro ? "Passa al tema chiaro" : "Passa al tema scuro");
+      interruttore.textContent = scuro ? "Accendi la luce" : "Spegni la luce";
+      interruttore.setAttribute("aria-label", scuro ? "Passa al tema chiaro" : "Passa al tema scuro");
     }
-
-    bottone.addEventListener("click", function () {
-      radice.setAttribute("data-theme", scuroAdesso() ? "light" : "dark");
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
       aggiornaEtichetta();
-    });
-
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
     sistemaScuro.addEventListener("change", aggiornaEtichetta);
     aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("\u00b7")[0].trim();
+      return { id: articolo.id, numero: numero, titolo: testata.querySelector("h2").textContent };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi("fiabe:arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi("fiabe:ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = "Riprendi dal Libro " + d.numero + " \u2014 " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        doveTitolo.textContent = d.titolo;
+        scrivi("fiabe:ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi("fiabe:arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    var soglia = document.querySelector(".indice");
+    function aggiornaBarra() {
+      var dentro = soglia.getBoundingClientRect().bottom < 0;
+      barra.setAttribute("data-visibile", dentro && corrente ? "si" : "no");
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
   })();
 """
 
@@ -403,7 +665,20 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
 totale_minuti = sum(f["minuti"] for f in fiabe)
 numero_fiabe = len(fiabe)
 
-CORPO = f"""<div class="pagina">
+CORPO = f"""<div class="barra" id="barra" data-visibile="no">
+    <a class="tasto" href="#indice">&#9650;&nbsp;Indice</a>
+    <p class="dove" id="dove">
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="Testo pi&ugrave; piccolo"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="Testo pi&ugrave; grande">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="Cambia tema">&#9681;</button>
+    </span>
+  </div>
+
+  <div class="pagina">
     <header class="testata">
       <div class="testata-alto">
         <div class="occhiello">
@@ -418,7 +693,12 @@ CORPO = f"""<div class="pagina">
       nell&rsquo;ordine in cui sono scritte.</p>
     </header>
 
-    <nav class="indice" aria-label="Indice delle fiabe">
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">Riprendi dal Libro I</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Nascondi la ripresa">Chiudi</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="Indice delle fiabe">
       <p class="etichetta">Indice &middot; {totale_minuti} minuti in tutto</p>
       <ol>
 {chr(10).join("        " + v for v in indice)}
@@ -448,6 +728,7 @@ autonoma = f"""<!doctype html>
 <link rel="canonical" href="https://fiabe.vercel.app/">
 {FONTS}
 <style>{STILE}</style>
+<script>{PRESCRIPT}</script>
 </head>
 <body>
 {CORPO}
@@ -462,6 +743,7 @@ with open(os.path.join(SRC, "index.html"), "w", encoding="utf-8") as fp:
 artifact = f"""{TITOLO}
 {FONTS}
 <style>{STILE}</style>
+<script>{PRESCRIPT}</script>
 {CORPO}
 <script>{SCRIPT}</script>
 """
