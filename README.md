@@ -6,6 +6,7 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 
 | | Titolo | Lettura ad alta voce |
 |---|---|---|
+| — | Prologo | 4 min |
 | I | La Lucciola che Aveva Paura del Buio | 3 min |
 | II | La Lucciola e la Lanterna Stanca | 5 min |
 | III | La Lucciola e la Piccola che Non Voleva Accendersi | 6 min |
@@ -14,7 +15,8 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 | VI | La Lucciola e Chi Scese dalla Collina | 6 min |
 | VII | La Lucciola e il Grillo che Volò | 7 min |
 | VIII | La Lucciola che Restò sulla Radice | 7 min |
-| IX | La Lucciola che Raccontava | 6 min |
+| IX | La Lucciola che Raccontava | 7 min |
+| X | La Lucciola che Ascoltò la Sua Storia | 8 min |
 
 Vanno letti in ordine: il primo accende la luce, il secondo la spegne, il terzo
 scopre che la luce di un altro non si può accendere, il quarto insegna che ciò
@@ -26,7 +28,12 @@ la storia di Rocco, e riprende la promessa fatta nel quarto: la canzone resta
 in chi l'ha sentita. L'ottavo rifà il secondo con i ruoli scambiati: stavolta
 è Bea a spegnersi, e Nina a dire le parole che una volta le aveva detto Rocco.
 Nel nono le ali non la portano più, e le lucciole nuove — che Rocco non l'hanno
-mai conosciuto — vanno da lei a farsi raccontare le otto fiabe di prima.
+mai conosciuto — vanno da lei a farsi raccontare le otto fiabe di prima. Nel
+decimo è Bea che racconta, e chi ascolta è Nina.
+
+Il **Prologo** si legge per primo ed è scritto per ultimo: non racconta il prato,
+racconta chi lo guardava dalla finestra. È quella persona a dire «amore mio»
+nella chiusa di tutte e dieci le fiabe.
 
 Il settimo è l'unico in cui muore qualcuno. Muore di vecchiaia, nel sonno, dopo
 aver avuto quello che voleva, e la fiaba non finisce lì — ma è bene saperlo
@@ -47,9 +54,16 @@ Professional Voice Cloning** (piano Creator): voce `fiabe`
 (`G9UYpVOtV3hbTUam453l`), italiano, accento romanesco.
 
 Gli MP3 (`audio/11l-*.mp3`) sono versionati nel repository e compaiono come
-lettori audio sulla pagina (`index.html`): ogni fiaba ha un riquadro "Ascolta"
-subito sotto il titolo. Tutte e otto sono incise con la stessa voce e con le
-stesse impostazioni, a 192 kbps.
+lettori audio sulla pagina (`index.html`): ogni fiaba che ha il suo MP3 mostra un
+riquadro "Ascolta" subito sotto il titolo.
+
+Il numero dell'MP3 viene dal nome del file della fiaba, non dalla sua posizione:
+`stories/07...md` cerca `audio/11l-07-*.mp3`. Per questo il Prologo ha potuto
+prendere il numero `00` senza rinumerare niente.
+
+Stato attuale: Prologo e Libro X non hanno ancora l'audio, e i testi di IV, VI,
+VII, VIII e IX sono cambiati dopo la revisione, quindi i loro MP3 vanno rifatti.
+I, II, III e V sono allineati.
 
 Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
 alternativa gratuita, ma è stato sostituito da ElevenLabs perché la qualità della
@@ -74,7 +88,8 @@ python3 build.py
 
 Lo script rilegge tutti i file `stories/0*.md` in ordine e ricostruisce indice,
 tempi di lettura e colophon. Per aggiungere una fiaba basta creare in `stories/`
-un file `NN<titolo-attaccato-minuscolo>.md` con la stessa struttura degli altri:
+un file `NN<titolo-attaccato-minuscolo>.md` (`00` è il prologo) con la stessa
+struttura degli altri:
 titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
 
 ## Come si usa la pagina

@@ -23,7 +23,7 @@ VOICE_ID = "G9UYpVOtV3hbTUam453l"  # PVC 'fiabe', italiano, accento romanesco
 MODEL = "eleven_multilingual_v2"
 API = "https://api.elevenlabs.io/v1/text-to-speech"
 
-STORIES = sorted((BASE / "stories").glob("0*.md"))
+STORIES = sorted((BASE / "stories").glob("[0-9][0-9]*.md"))
 
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]"
@@ -221,8 +221,8 @@ def main():
     if shutil.which("hermes") is None:
         print("  hermes non disponibile: niente invio Telegram", flush=True)
         return
-    for index, md in enumerate(STORIES, start=1):
-        key = f"{index:02d}"
+    for md in STORIES:
+        key = md.name[:2]
         if voluti and key not in voluti:
             continue
         name = re.sub(r"^\d+", "", md.stem)
