@@ -13,6 +13,7 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 | V | La Lucciola e la Luce nella Finestra | 6 min |
 | VI | La Lucciola e Chi Scese dalla Collina | 6 min |
 | VII | La Lucciola e il Grillo che Volò | 7 min |
+| VIII | La Lucciola che Restò sulla Radice | 7 min |
 
 Vanno letti in ordine: il primo accende la luce, il secondo la spegne, il terzo
 scopre che la luce di un altro non si può accendere, il quarto insegna che ciò
@@ -21,7 +22,8 @@ prato per la prima volta, e le fa scoprire chi c'è dall'altra parte; nel sesto
 è l'altra parte che scende nel prato, e deve imparare da capo la lezione del
 terzo — che certe cose non si vanno a prendere, si aspettano. Il settimo chiude
 la storia di Rocco, e riprende la promessa fatta nel quarto: la canzone resta
-in chi l'ha sentita.
+in chi l'ha sentita. L'ottavo rifà il secondo con i ruoli scambiati: stavolta
+è Bea a spegnersi, e Nina a dire le parole che una volta le aveva detto Rocco.
 
 Il settimo è l'unico in cui muore qualcuno. Muore di vecchiaia, nel sonno, dopo
 aver avuto quello che voleva, e la fiaba non finisce lì — ma è bene saperlo
