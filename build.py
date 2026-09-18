@@ -43,7 +43,10 @@ def leggi(percorso):
         else:
             paragrafi.append(riga)
     parole = sum(len(p.split()) for p in paragrafi)
+    numero = os.path.basename(percorso)[:2]
     return {
+        "numero": numero,
+        "prologo": numero == "00",
         "titolo": titolo,
         "sottotitolo": sottotitolo,
         "paragrafi": paragrafi,
@@ -58,23 +61,31 @@ def lucciole(n=3):
     ) + "</span>"
 
 
-def audio_per(numero_libro):
+def audio_per(numero):
     """Restituisce il percorso (relativo al sito) dell'audio della fiaba, se c'è."""
-    num = f"{numero_libro:02d}"
-    candidati = sorted(glob.glob(os.path.join(SRC, "audio", f"11l-{num}-*.mp3")))
+    candidati = sorted(glob.glob(os.path.join(SRC, "audio", f"11l-{numero}-*.mp3")))
     if candidati:
         return os.path.relpath(candidati[0], SRC)
     return None
 
 
-fiabe = [leggi(p) for p in sorted(glob.glob(os.path.join(STORIE, "0*.md")))]
+fiabe = [leggi(p) for p in sorted(glob.glob(os.path.join(STORIE, "[0-9][0-9]*.md")))]
 
 indice = []
 articoli = []
+conta = 0
 for i, f in enumerate(fiabe):
-    slug = f"libro-{i + 1}"
+    if f["prologo"]:
+        slug = "prologo"
+        etichetta_numero = "Prologo"
+    else:
+        slug = f"libro-{conta + 1}"
+        etichetta_numero = ROMANI[conta]
+        conta += 1
+    f["slug"] = slug
+    f["etichetta_numero"] = etichetta_numero
     indice.append(
-        f'<li><a href="#{slug}"><span class="numero">{ROMANI[i]}</span>'
+        f'<li><a href="#{slug}"><span class="numero">{etichetta_numero}</span>'
         f'<span class="voce-titolo">{inline(f["titolo"])}</span>'
         f'<span class="voce-durata">{f["minuti"]} min</span></a></li>'
     )
@@ -89,7 +100,7 @@ for i, f in enumerate(fiabe):
         corpo.append(f"      <p{attr}>{inline(p)}</p>")
 
     # lettore audio della fiaba, se l'MP3 è presente
-    audio = audio_per(i + 1)
+    audio = audio_per(f["numero"])
     if audio:
         lettore = (
             f'        <figure class="lettura">\n'
@@ -105,7 +116,7 @@ for i, f in enumerate(fiabe):
     articoli.append(
         f'    <article class="fiaba" id="{slug}">\n'
         f'      <header class="fiaba-testata">\n'
-        f'        <p class="etichetta">{ROMANI[i]} &middot; {f["minuti"]} minuti di lettura</p>\n'
+        f'        <p class="etichetta">{etichetta_numero} &middot; {f["minuti"]} minuti di lettura</p>\n'
         f'        <h2>{inline(f["titolo"])}</h2>\n'
         f'        <p class="sottotitolo">{inline(f["sottotitolo"])}</p>\n'
         f"      </header>\n" + lettore + "\n".join(corpo) + "\n"
@@ -663,7 +674,8 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
          '&family=Karla:wght@400;600&display=swap">')
 
 totale_minuti = sum(f["minuti"] for f in fiabe)
-numero_fiabe = len(fiabe)
+numero_fiabe = sum(1 for f in fiabe if not f["prologo"])
+c_è_prologo = any(f["prologo"] for f in fiabe)
 
 CORPO = f"""<div class="barra" id="barra" data-visibile="no">
     <a class="tasto" href="#indice">&#9650;&nbsp;Indice</a>
@@ -709,7 +721,7 @@ CORPO = f"""<div class="barra" id="barra" data-visibile="no">
 
     <footer class="colophon">
       <p class="etichetta">Colophon</p>
-      <p>{numero_fiabe} fiabe, {sum(f['parole'] for f in fiabe)} parole. I tempi di lettura sono calcolati
+      <p>{numero_fiabe} fiabe{' e un prologo' if c_è_prologo else ''}, {sum(f['parole'] for f in fiabe)} parole. I tempi di lettura sono calcolati
       a {PAROLE_AL_MINUTO} parole al minuto: il passo di chi legge ad alta voce, non di chi legge
       da solo.</p>
     </footer>
