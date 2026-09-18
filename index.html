@@ -6,6 +6,9 @@
 <title>Le fiabe di Nina</title>
 <meta name="description" content="10 fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.">
 <link rel="canonical" href="https://fiabe.vercel.app/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
 <style>
@@ -101,6 +104,30 @@
     max-width: 32rem;
     color: var(--muted);
     font-size: 1.0625rem;
+  }
+
+  .testata-azioni {
+    flex: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .lingua {
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.1rem;
+  }
+  .lingua:hover { color: var(--accent); border-color: var(--accent); }
+  .lingua:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 
   .interruttore {
@@ -417,20 +444,21 @@
           <span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span>
           <p class="etichetta">Fiabe della buonanotte</p>
         </div>
-        <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
+        <span class="testata-azioni">
+          <a class="lingua" href="/en/" hreflang="en-GB" lang="en-GB">English</a>
+          <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
+        </span>
       </div>
       <h1>Le fiabe di Nina</h1>
-      <p class="intro">10 storie di una lucciola che impara ad accendersi, a spegnersi e a
-      lasciare che sia un&rsquo;altra ad accendersi da sola. Da leggere ad alta voce, una per sera,
-      nell&rsquo;ordine in cui sono scritte.</p>
+      <p class="intro">10 storie di una lucciola che impara ad accendersi, a spegnersi e a lasciare che sia un&rsquo;altra ad accendersi da sola. Da leggere ad alta voce, una per sera, nell&rsquo;ordine in cui sono scritte.</p>
     </header>
 
     <p class="riprendi" id="riprendi" data-visibile="no">
-      <a href="#" id="riprendi-link">Riprendi dal Libro I</a>
+      <a href="#" id="riprendi-link">Riprendi</a>
       <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Nascondi la ripresa">Chiudi</button>
     </p>
 
-    <nav class="indice" id="indice" aria-label="Indice delle fiabe">
+    <nav class="indice" id="indice" aria-label="Indice">
       <p class="etichetta">Indice &middot; 72 minuti in tutto</p>
       <ol>
         <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">Prologo</span><span class="voce-durata">4 min</span></a></li>
@@ -492,7 +520,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-01-lalucciolacheavevapauradelbuio.mp3">
+          <audio controls preload="none" src="/audio/11l-01-lalucciolacheavevapauradelbuio.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -523,7 +551,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-02-lalucciolaelalanternastanca.mp3">
+          <audio controls preload="none" src="/audio/11l-02-lalucciolaelalanternastanca.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -580,7 +608,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-03-lalucciolaelapiccolachenonvolevaaccendersi.mp3">
+          <audio controls preload="none" src="/audio/11l-03-lalucciolaelapiccolachenonvolevaaccendersi.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -650,7 +678,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-04-lalucciolaeilgrillocheperselavoce.mp3">
+          <audio controls preload="none" src="/audio/11l-04-lalucciolaeilgrillocheperselavoce.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -741,7 +769,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-05-lalucciolaelalucenellafinestra.mp3">
+          <audio controls preload="none" src="/audio/11l-05-lalucciolaelalucenellafinestra.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -811,7 +839,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-06-lalucciolaechiscesedallacollina.mp3">
+          <audio controls preload="none" src="/audio/11l-06-lalucciolaechiscesedallacollina.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -874,7 +902,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-07-lalucciolaeilgrillochevolo.mp3">
+          <audio controls preload="none" src="/audio/11l-07-lalucciolaeilgrillochevolo.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -949,7 +977,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-08-lalucciolacherestosullaradice.mp3">
+          <audio controls preload="none" src="/audio/11l-08-lalucciolacherestosullaradice.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -1014,7 +1042,7 @@
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
-          <audio controls preload="none" src="audio/11l-09-lalucciolacheraccontava.mp3">
+          <audio controls preload="none" src="/audio/11l-09-lalucciolacheraccontava.mp3">
             Il tuo browser non supporta la riproduzione audio.
           </audio>
         </figure>
@@ -1199,13 +1227,12 @@
 
     <footer class="colophon">
       <p class="etichetta">Colophon</p>
-      <p>10 fiabe, un prologo e un epilogo, 8356 parole. I tempi di lettura sono calcolati
-      a 130 parole al minuto: il passo di chi legge ad alta voce, non di chi legge
-      da solo.</p>
+      <p>10 fiabe, un prologo e un epilogo, 8356 parole. I tempi di lettura sono calcolati a 130 parole al minuto: il passo di chi legge ad alta voce, non di chi legge da solo.</p>
     </footer>
   </div>
 <script>
   (function () {
+    var T = {"accendi": "Accendi la luce", "spegni": "Spegni la luce", "temaChiaro": "Passa al tema chiaro", "temaScuro": "Passa al tema scuro", "riprendi": "Riprendi"};
     var radice = document.documentElement;
     var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
     var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1230,8 +1257,8 @@
     }
     function aggiornaEtichetta() {
       var scuro = scuroAdesso();
-      interruttore.textContent = scuro ? "Accendi la luce" : "Spegni la luce";
-      interruttore.setAttribute("aria-label", scuro ? "Passa al tema chiaro" : "Passa al tema scuro");
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
     }
     function cambiaTema() {
       var prossimo = scuroAdesso() ? "light" : "dark";
@@ -1302,8 +1329,8 @@
       if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
         var d = datiFiaba(bersaglio);
         riquadroLink.textContent = (d.titolo === d.numero)
-          ? "Riprendi " + d.ripresa
-          : "Riprendi " + d.ripresa + " — " + d.titolo;
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
         riquadroLink.setAttribute("href", "#" + d.id);
         riquadro.setAttribute("data-visibile", "si");
       }

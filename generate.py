@@ -15,7 +15,7 @@ AUDIO = BASE / "audio"
 TMP = BASE / "chunks"
 LANG = "it"
 
-STORIES = sorted((BASE / "stories").glob("0*.md"))
+STORIES = sorted((BASE / "stories" / "it").glob("[0-9][0-9]*.md"))
 
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]"

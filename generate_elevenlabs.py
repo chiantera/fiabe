@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera le fiabe in stories/ con la voce ElevenLabs 'fiabe'.
+"""Genera le fiabe in stories/it/ con la voce ElevenLabs 'fiabe'.
 
 Senza argomenti genera tutte le fiabe; con argomenti genera solo quelle
 indicate per numero, per esempio:  python3 generate_elevenlabs.py 05 06
@@ -23,7 +23,7 @@ VOICE_ID = "G9UYpVOtV3hbTUam453l"  # PVC 'fiabe', italiano, accento romanesco
 MODEL = "eleven_multilingual_v2"
 API = "https://api.elevenlabs.io/v1/text-to-speech"
 
-STORIES = sorted((BASE / "stories").glob("[0-9][0-9]*.md"))
+STORIES = sorted((BASE / "stories" / "it").glob("[0-9][0-9]*.md"))
 
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]"
