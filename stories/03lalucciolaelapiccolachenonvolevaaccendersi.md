@@ -1,6 +1,6 @@
-# La Lucciola e la Piccola che Non Voleva Accendersi
+# La lucciola e la piccola che non voleva accendersi
 
-*Una fiaba della buonanotte — Libro terzo, seguito de "La Lucciola e la Lanterna Stanca"*
+*Una fiaba della buonanotte — Libro terzo, seguito de "La lucciola e la lanterna stanca"*
 
 ---
 

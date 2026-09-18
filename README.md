@@ -7,16 +7,16 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 | | Titolo | Lettura ad alta voce |
 |---|---|---|
 | — | Prologo | 4 min |
-| I | La Lucciola che Aveva Paura del Buio | 3 min |
-| II | La Lucciola e la Lanterna Stanca | 5 min |
-| III | La Lucciola e la Piccola che Non Voleva Accendersi | 6 min |
-| IV | La Lucciola e il Grillo che Perse la Voce | 9 min |
-| V | La Lucciola e la Luce nella Finestra | 6 min |
-| VI | La Lucciola e Chi Scese dalla Collina | 6 min |
-| VII | La Lucciola e il Grillo che Volò | 7 min |
-| VIII | La Lucciola che Restò sulla Radice | 7 min |
-| IX | La Lucciola che Raccontava | 7 min |
-| X | La Lucciola che Ascoltò la Sua Storia | 8 min |
+| I | La lucciola che aveva paura del buio | 3 min |
+| II | La lucciola e la lanterna stanca | 5 min |
+| III | La lucciola e la piccola che non voleva accendersi | 6 min |
+| IV | La lucciola e il grillo che perse la voce | 9 min |
+| V | La lucciola e la luce nella finestra | 6 min |
+| VI | La lucciola e chi scese dalla collina | 6 min |
+| VII | La lucciola e il grillo che volò | 7 min |
+| VIII | La lucciola che restò sulla radice | 7 min |
+| IX | La lucciola che raccontava | 7 min |
+| X | La lucciola che ascoltò la sua storia | 8 min |
 | — | Epilogo | 4 min |
 
 Vanno letti in ordine: il primo accende la luce, il secondo la spegne, il terzo

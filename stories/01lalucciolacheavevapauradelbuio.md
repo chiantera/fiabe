@@ -1,4 +1,4 @@
-# La Lucciola che Aveva Paura del Buio
+# La lucciola che aveva paura del buio
 
 *Una fiaba della buonanotte — Libro primo*
 

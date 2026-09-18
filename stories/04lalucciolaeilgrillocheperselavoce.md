@@ -1,6 +1,6 @@
-# La Lucciola e il Grillo che Perse la Voce
+# La lucciola e il grillo che perse la voce
 
-*Una fiaba della buonanotte — Libro quarto, seguito de "La Lucciola e la Piccola che Non Voleva Accendersi"*
+*Una fiaba della buonanotte — Libro quarto, seguito de "La lucciola e la piccola che non voleva accendersi"*
 
 ---
 

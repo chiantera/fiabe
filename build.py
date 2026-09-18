@@ -82,18 +82,20 @@ for i, f in enumerate(fiabe):
     if f["speciale"]:
         slug = f["chiave"]
         etichetta_numero = f["titolo"]
+        numero_indice = "&mdash;"
         # "dal Prologo" ma "dall'Epilogo": la preposizione la sa il Python,
         # non il JavaScript.
         ripresa = "dall&rsquo;Epilogo" if f["chiave"] == "epilogo" else "dal Prologo"
     else:
         slug = f"libro-{conta + 1}"
         etichetta_numero = ROMANI[conta]
+        numero_indice = ROMANI[conta]
         ripresa = f"dal Libro {ROMANI[conta]}"
         conta += 1
     f["slug"] = slug
     f["etichetta_numero"] = etichetta_numero
     indice.append(
-        f'<li><a href="#{slug}"><span class="numero">{etichetta_numero}</span>'
+        f'<li><a href="#{slug}"><span class="numero">{numero_indice}</span>'
         f'<span class="voce-titolo">{inline(f["titolo"])}</span>'
         f'<span class="voce-durata">{f["minuti"]} min</span></a></li>'
     )
@@ -270,7 +272,8 @@ STILE = """
   .indice a:hover .voce-titolo { color: var(--accent); }
   .numero {
     flex: none;
-    width: 1.75rem;
+    min-width: 2.75rem;
+    white-space: nowrap;
     font-family: "Karla", system-ui, sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
@@ -645,7 +648,8 @@ SCRIPT = """
 
         var d = datiFiaba(attiva);
         doveNumero.textContent = d.numero;
-        doveTitolo.textContent = d.titolo;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
         scrivi("fiabe:ultima", d.id);
 
         var indice = fiabe.indexOf(attiva);

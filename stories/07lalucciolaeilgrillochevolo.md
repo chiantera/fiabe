@@ -1,6 +1,6 @@
-# La Lucciola e il Grillo che Volò
+# La lucciola e il grillo che volò
 
-*Una fiaba della buonanotte — Libro settimo, seguito de "La Lucciola e Chi Scese dalla Collina"*
+*Una fiaba della buonanotte — Libro settimo, seguito de "La lucciola e chi scese dalla collina"*
 
 ---
 

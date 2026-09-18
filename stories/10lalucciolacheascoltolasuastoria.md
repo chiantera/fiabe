@@ -1,6 +1,6 @@
-# La Lucciola che Ascoltò la Sua Storia
+# La lucciola che ascoltò la sua storia
 
-*Una fiaba della buonanotte — Libro decimo, seguito de "La Lucciola che Raccontava"*
+*Una fiaba della buonanotte — Libro decimo, seguito de "La lucciola che raccontava"*
 
 ---
 

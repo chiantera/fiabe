@@ -146,7 +146,8 @@
   .indice a:hover .voce-titolo { color: var(--accent); }
   .numero {
     flex: none;
-    width: 1.75rem;
+    min-width: 2.75rem;
+    white-space: nowrap;
     font-family: "Karla", system-ui, sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
@@ -432,18 +433,18 @@
     <nav class="indice" id="indice" aria-label="Indice delle fiabe">
       <p class="etichetta">Indice &middot; 72 minuti in tutto</p>
       <ol>
-        <li><a href="#prologo"><span class="numero">Prologo</span><span class="voce-titolo">Prologo</span><span class="voce-durata">4 min</span></a></li>
-        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">La Lucciola che Aveva Paura del Buio</span><span class="voce-durata">3 min</span></a></li>
-        <li><a href="#libro-2"><span class="numero">II</span><span class="voce-titolo">La Lucciola e la Lanterna Stanca</span><span class="voce-durata">5 min</span></a></li>
-        <li><a href="#libro-3"><span class="numero">III</span><span class="voce-titolo">La Lucciola e la Piccola che Non Voleva Accendersi</span><span class="voce-durata">6 min</span></a></li>
-        <li><a href="#libro-4"><span class="numero">IV</span><span class="voce-titolo">La Lucciola e il Grillo che Perse la Voce</span><span class="voce-durata">9 min</span></a></li>
-        <li><a href="#libro-5"><span class="numero">V</span><span class="voce-titolo">La Lucciola e la Luce nella Finestra</span><span class="voce-durata">6 min</span></a></li>
-        <li><a href="#libro-6"><span class="numero">VI</span><span class="voce-titolo">La Lucciola e Chi Scese dalla Collina</span><span class="voce-durata">6 min</span></a></li>
-        <li><a href="#libro-7"><span class="numero">VII</span><span class="voce-titolo">La Lucciola e il Grillo che Volò</span><span class="voce-durata">7 min</span></a></li>
-        <li><a href="#libro-8"><span class="numero">VIII</span><span class="voce-titolo">La Lucciola che Restò sulla Radice</span><span class="voce-durata">7 min</span></a></li>
-        <li><a href="#libro-9"><span class="numero">IX</span><span class="voce-titolo">La Lucciola che Raccontava</span><span class="voce-durata">7 min</span></a></li>
-        <li><a href="#libro-10"><span class="numero">X</span><span class="voce-titolo">La Lucciola che Ascoltò la Sua Storia</span><span class="voce-durata">8 min</span></a></li>
-        <li><a href="#epilogo"><span class="numero">Epilogo</span><span class="voce-titolo">Epilogo</span><span class="voce-durata">4 min</span></a></li>
+        <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">Prologo</span><span class="voce-durata">4 min</span></a></li>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">La lucciola che aveva paura del buio</span><span class="voce-durata">3 min</span></a></li>
+        <li><a href="#libro-2"><span class="numero">II</span><span class="voce-titolo">La lucciola e la lanterna stanca</span><span class="voce-durata">5 min</span></a></li>
+        <li><a href="#libro-3"><span class="numero">III</span><span class="voce-titolo">La lucciola e la piccola che non voleva accendersi</span><span class="voce-durata">6 min</span></a></li>
+        <li><a href="#libro-4"><span class="numero">IV</span><span class="voce-titolo">La lucciola e il grillo che perse la voce</span><span class="voce-durata">9 min</span></a></li>
+        <li><a href="#libro-5"><span class="numero">V</span><span class="voce-titolo">La lucciola e la luce nella finestra</span><span class="voce-durata">6 min</span></a></li>
+        <li><a href="#libro-6"><span class="numero">VI</span><span class="voce-titolo">La lucciola e chi scese dalla collina</span><span class="voce-durata">6 min</span></a></li>
+        <li><a href="#libro-7"><span class="numero">VII</span><span class="voce-titolo">La lucciola e il grillo che volò</span><span class="voce-durata">7 min</span></a></li>
+        <li><a href="#libro-8"><span class="numero">VIII</span><span class="voce-titolo">La lucciola che restò sulla radice</span><span class="voce-durata">7 min</span></a></li>
+        <li><a href="#libro-9"><span class="numero">IX</span><span class="voce-titolo">La lucciola che raccontava</span><span class="voce-durata">7 min</span></a></li>
+        <li><a href="#libro-10"><span class="numero">X</span><span class="voce-titolo">La lucciola che ascoltò la sua storia</span><span class="voce-durata">8 min</span></a></li>
+        <li><a href="#epilogo"><span class="numero">&mdash;</span><span class="voce-titolo">Epilogo</span><span class="voce-durata">4 min</span></a></li>
       </ol>
     </nav>
 
@@ -486,7 +487,7 @@
     <article class="fiaba" id="libro-1" data-ripresa="dal Libro I">
       <header class="fiaba-testata">
         <p class="etichetta">I &middot; 3 minuti di lettura</p>
-        <h2>La Lucciola che Aveva Paura del Buio</h2>
+        <h2>La lucciola che aveva paura del buio</h2>
         <p class="sottotitolo">Una fiaba della buonanotte — Libro primo</p>
       </header>
         <figure class="lettura">
@@ -517,8 +518,8 @@
     <article class="fiaba" id="libro-2" data-ripresa="dal Libro II">
       <header class="fiaba-testata">
         <p class="etichetta">II &middot; 5 minuti di lettura</p>
-        <h2>La Lucciola e la Lanterna Stanca</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro secondo, seguito de “La Lucciola che Aveva Paura del Buio”</p>
+        <h2>La lucciola e la lanterna stanca</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro secondo, seguito de “La lucciola che aveva paura del buio”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -574,8 +575,8 @@
     <article class="fiaba" id="libro-3" data-ripresa="dal Libro III">
       <header class="fiaba-testata">
         <p class="etichetta">III &middot; 6 minuti di lettura</p>
-        <h2>La Lucciola e la Piccola che Non Voleva Accendersi</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro terzo, seguito de “La Lucciola e la Lanterna Stanca”</p>
+        <h2>La lucciola e la piccola che non voleva accendersi</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro terzo, seguito de “La lucciola e la lanterna stanca”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -644,8 +645,8 @@
     <article class="fiaba" id="libro-4" data-ripresa="dal Libro IV">
       <header class="fiaba-testata">
         <p class="etichetta">IV &middot; 9 minuti di lettura</p>
-        <h2>La Lucciola e il Grillo che Perse la Voce</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro quarto, seguito de “La Lucciola e la Piccola che Non Voleva Accendersi”</p>
+        <h2>La lucciola e il grillo che perse la voce</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro quarto, seguito de “La lucciola e la piccola che non voleva accendersi”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -735,8 +736,8 @@
     <article class="fiaba" id="libro-5" data-ripresa="dal Libro V">
       <header class="fiaba-testata">
         <p class="etichetta">V &middot; 6 minuti di lettura</p>
-        <h2>La Lucciola e la Luce nella Finestra</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro quinto, seguito de “La Lucciola e il Grillo che Perse la Voce”</p>
+        <h2>La lucciola e la luce nella finestra</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro quinto, seguito de “La lucciola e il grillo che perse la voce”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -805,8 +806,8 @@
     <article class="fiaba" id="libro-6" data-ripresa="dal Libro VI">
       <header class="fiaba-testata">
         <p class="etichetta">VI &middot; 6 minuti di lettura</p>
-        <h2>La Lucciola e Chi Scese dalla Collina</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro sesto, seguito de “La Lucciola e la Luce nella Finestra”</p>
+        <h2>La lucciola e chi scese dalla collina</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro sesto, seguito de “La lucciola e la luce nella finestra”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -868,8 +869,8 @@
     <article class="fiaba" id="libro-7" data-ripresa="dal Libro VII">
       <header class="fiaba-testata">
         <p class="etichetta">VII &middot; 7 minuti di lettura</p>
-        <h2>La Lucciola e il Grillo che Volò</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro settimo, seguito de “La Lucciola e Chi Scese dalla Collina”</p>
+        <h2>La lucciola e il grillo che volò</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro settimo, seguito de “La lucciola e chi scese dalla collina”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -943,8 +944,8 @@
     <article class="fiaba" id="libro-8" data-ripresa="dal Libro VIII">
       <header class="fiaba-testata">
         <p class="etichetta">VIII &middot; 7 minuti di lettura</p>
-        <h2>La Lucciola che Restò sulla Radice</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro ottavo, seguito de “La Lucciola e il Grillo che Volò”</p>
+        <h2>La lucciola che restò sulla radice</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro ottavo, seguito de “La lucciola e il grillo che volò”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -1008,8 +1009,8 @@
     <article class="fiaba" id="libro-9" data-ripresa="dal Libro IX">
       <header class="fiaba-testata">
         <p class="etichetta">IX &middot; 7 minuti di lettura</p>
-        <h2>La Lucciola che Raccontava</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro nono, seguito de “La Lucciola che Restò sulla Radice”</p>
+        <h2>La lucciola che raccontava</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro nono, seguito de “La lucciola che restò sulla radice”</p>
       </header>
         <figure class="lettura">
           <figcaption>Ascolta</figcaption>
@@ -1080,8 +1081,8 @@
     <article class="fiaba" id="libro-10" data-ripresa="dal Libro X">
       <header class="fiaba-testata">
         <p class="etichetta">X &middot; 8 minuti di lettura</p>
-        <h2>La Lucciola che Ascoltò la Sua Storia</h2>
-        <p class="sottotitolo">Una fiaba della buonanotte — Libro decimo, seguito de “La Lucciola che Raccontava”</p>
+        <h2>La lucciola che ascoltò la sua storia</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro decimo, seguito de “La lucciola che raccontava”</p>
       </header>
       <p class="apertura">Venne un'altra estate, e Nina non volò più per niente.</p>
       <p>Non fu una cosa triste e non fu una cosa decisa. Successe come succedono queste cose: una sera provò ad alzarsi dalla radice, sentì che non era aria da lei, e si rimise giù.</p>
@@ -1328,7 +1329,8 @@
 
         var d = datiFiaba(attiva);
         doveNumero.textContent = d.numero;
-        doveTitolo.textContent = d.titolo;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
         scrivi("fiabe:ultima", d.id);
 
         var indice = fiabe.indexOf(attiva);

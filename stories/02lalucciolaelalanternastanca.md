@@ -1,6 +1,6 @@
-# La Lucciola e la Lanterna Stanca
+# La lucciola e la lanterna stanca
 
-*Una fiaba della buonanotte — Libro secondo, seguito de "La Lucciola che Aveva Paura del Buio"*
+*Una fiaba della buonanotte — Libro secondo, seguito de "La lucciola che aveva paura del buio"*
 
 ---
 

@@ -1,6 +1,6 @@
-# La Lucciola e Chi Scese dalla Collina
+# La lucciola e chi scese dalla collina
 
-*Una fiaba della buonanotte — Libro sesto, seguito de "La Lucciola e la Luce nella Finestra"*
+*Una fiaba della buonanotte — Libro sesto, seguito de "La lucciola e la luce nella finestra"*
 
 ---
 
