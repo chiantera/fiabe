@@ -43,10 +43,14 @@ def leggi(percorso):
         else:
             paragrafi.append(riga)
     parole = sum(len(p.split()) for p in paragrafi)
-    numero = os.path.basename(percorso)[:2]
+    nome = os.path.basename(percorso)
+    numero = nome[:2]
+    chiave = os.path.splitext(nome)[0][2:]
+    speciale = chiave in ("prologo", "epilogo")
     return {
         "numero": numero,
-        "prologo": numero == "00",
+        "speciale": speciale,
+        "chiave": chiave,
         "titolo": titolo,
         "sottotitolo": sottotitolo,
         "paragrafi": paragrafi,
@@ -75,12 +79,16 @@ indice = []
 articoli = []
 conta = 0
 for i, f in enumerate(fiabe):
-    if f["prologo"]:
-        slug = "prologo"
-        etichetta_numero = "Prologo"
+    if f["speciale"]:
+        slug = f["chiave"]
+        etichetta_numero = f["titolo"]
+        # "dal Prologo" ma "dall'Epilogo": la preposizione la sa il Python,
+        # non il JavaScript.
+        ripresa = "dall&rsquo;Epilogo" if f["chiave"] == "epilogo" else "dal Prologo"
     else:
         slug = f"libro-{conta + 1}"
         etichetta_numero = ROMANI[conta]
+        ripresa = f"dal Libro {ROMANI[conta]}"
         conta += 1
     f["slug"] = slug
     f["etichetta_numero"] = etichetta_numero
@@ -114,7 +122,7 @@ for i, f in enumerate(fiabe):
         lettore = ""
 
     articoli.append(
-        f'    <article class="fiaba" id="{slug}">\n'
+        f'    <article class="fiaba" id="{slug}" data-ripresa="{ripresa}">\n'
         f'      <header class="fiaba-testata">\n'
         f'        <p class="etichetta">{etichetta_numero} &middot; {f["minuti"]} minuti di lettura</p>\n'
         f'        <h2>{inline(f["titolo"])}</h2>\n'
@@ -582,7 +590,13 @@ SCRIPT = """
     function datiFiaba(articolo) {
       var testata = articolo.querySelector(".fiaba-testata");
       var numero = testata.querySelector(".etichetta").textContent.split("\u00b7")[0].trim();
-      return { id: articolo.id, numero: numero, titolo: testata.querySelector("h2").textContent };
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "\u2019")
+      };
     }
 
     var corrente = null;
@@ -603,7 +617,9 @@ SCRIPT = """
       var bersaglio = document.getElementById(ultima);
       if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
         var d = datiFiaba(bersaglio);
-        riquadroLink.textContent = "Riprendi dal Libro " + d.numero + " \u2014 " + d.titolo;
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? "Riprendi " + d.ripresa
+          : "Riprendi " + d.ripresa + " \u2014 " + d.titolo;
         riquadroLink.setAttribute("href", "#" + d.id);
         riquadro.setAttribute("data-visibile", "si");
       }
@@ -674,8 +690,13 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
          '&family=Karla:wght@400;600&display=swap">')
 
 totale_minuti = sum(f["minuti"] for f in fiabe)
-numero_fiabe = sum(1 for f in fiabe if not f["prologo"])
-c_è_prologo = any(f["prologo"] for f in fiabe)
+numero_fiabe = sum(1 for f in fiabe if not f["speciale"])
+extra = [f["titolo"].lower() for f in fiabe if f["speciale"]]
+coda = ""
+if len(extra) == 1:
+    coda = f", un {extra[0]}"
+elif len(extra) > 1:
+    coda = ", un " + " e un ".join(extra)
 
 CORPO = f"""<div class="barra" id="barra" data-visibile="no">
     <a class="tasto" href="#indice">&#9650;&nbsp;Indice</a>
@@ -721,7 +742,7 @@ CORPO = f"""<div class="barra" id="barra" data-visibile="no">
 
     <footer class="colophon">
       <p class="etichetta">Colophon</p>
-      <p>{numero_fiabe} fiabe{' e un prologo' if c_è_prologo else ''}, {sum(f['parole'] for f in fiabe)} parole. I tempi di lettura sono calcolati
+      <p>{numero_fiabe} fiabe{coda}, {sum(f['parole'] for f in fiabe)} parole. I tempi di lettura sono calcolati
       a {PAROLE_AL_MINUTO} parole al minuto: il passo di chi legge ad alta voce, non di chi legge
       da solo.</p>
     </footer>

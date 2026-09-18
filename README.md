@@ -17,6 +17,7 @@ Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina
 | VIII | La Lucciola che Restò sulla Radice | 7 min |
 | IX | La Lucciola che Raccontava | 7 min |
 | X | La Lucciola che Ascoltò la Sua Storia | 8 min |
+| — | Epilogo | 4 min |
 
 Vanno letti in ordine: il primo accende la luce, il secondo la spegne, il terzo
 scopre che la luce di un altro non si può accendere, il quarto insegna che ciò
@@ -34,6 +35,17 @@ decimo è Bea che racconta, e chi ascolta è Nina.
 Il **Prologo** si legge per primo ed è scritto per ultimo: non racconta il prato,
 racconta chi lo guardava dalla finestra. È quella persona a dire «amore mio»
 nella chiusa di tutte e dieci le fiabe.
+
+L'**Epilogo** si legge alla fine e risponde all'unica domanda che i bambini
+fanno sempre — *ma è vera?* — separando quello che è vero davvero (il prato, la
+quercia, le lucciole, i grilli, il buio, la paura del buio) da quello che è
+stato aggiunto: il nome di Nina. Poi smette di raccontare e porta chi ascolta
+alla finestra, al buio, ad aspettare. La serie finisce facendo fare la cosa di
+cui ha parlato per dieci sere.
+
+Prologo ed Epilogo prendono i numeri `00` e `11` e non consumano un numero
+romano: nell'indice sono «Prologo» ed «Epilogo», e le loro ancore sono
+`#prologo` e `#epilogo`.
 
 Il settimo è l'unico in cui muore qualcuno. Muore di vecchiaia, nel sonno, dopo
 aver avuto quello che voleva, e la fiaba non finisce lì — ma è bene saperlo
@@ -61,9 +73,13 @@ Il numero dell'MP3 viene dal nome del file della fiaba, non dalla sua posizione:
 `stories/07...md` cerca `audio/11l-07-*.mp3`. Per questo il Prologo ha potuto
 prendere il numero `00` senza rinumerare niente.
 
-Stato attuale: Prologo e Libro X non hanno ancora l'audio, e i testi di IV, VI,
-VII, VIII e IX sono cambiati dopo la revisione, quindi i loro MP3 vanno rifatti.
-I, II, III e V sono allineati.
+Stato attuale: Prologo, Libro X ed Epilogo non hanno ancora l'audio, e i testi
+di IV, VI, VII, VIII e IX sono cambiati dopo la revisione, quindi i loro MP3
+vanno rifatti. I, II, III e V sono allineati. In una volta sola:
+
+```bash
+python3 generate_elevenlabs.py 00 04 06 07 08 09 10 11
+```
 
 Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
 alternativa gratuita, ma è stato sostituito da ElevenLabs perché la qualità della
