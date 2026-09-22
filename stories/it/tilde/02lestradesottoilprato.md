@@ -48,6 +48,10 @@ Tilde ci pensò.
 
 «Non erano uguali», disse.
 
+«Ma tu... ci vedi?» chiese Pino, che nel frattempo aveva notato gli occhiali.
+
+«Pochissimo», disse Tilde. «Anche con questi, se è per quello. Ma per andare in giro qua sotto non serve vedere: serve sentire.»
+
 E Pino, che era un maleducato ma per curiosità e non per cattiveria, disse: «Me lo fai vedere?»
 
 Così Tilde fece una cosa che non aveva mai fatto: portò qualcuno in giro per casa sua.

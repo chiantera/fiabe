@@ -28,7 +28,7 @@ And before she started, she did something that wasn't necessary.
 
 She went down.
 
-She went down into the cold water, swimming — moles swim, badly, but they swim — and went to see the old rooms one last time.
+She went down into the cold water, swimming — moles swim, badly, but they swim, and with her arthritis it hurt rather more than usual — and went to see the old rooms one last time.
 
 She went through the low chamber with the round ceiling, the first she had ever made on her own: it had taken her a whole summer and it had come out crooked, and you could still see where she had got the curve wrong.
 

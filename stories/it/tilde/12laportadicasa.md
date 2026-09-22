@@ -74,6 +74,8 @@ Non batté i tre colpetti. Non c'era più niente sopra a cui bussare.
 
 Ma restò lì lo stesso un momento, come si resta vicino a un posto che conta, anche quando non risponde più nessuno.
 
+Le capitava, ormai, di dimenticare il nome di un fiore che conosceva da una vita, o perché fosse entrata in una stanza. Ma quella sera, e tutte le sere dopo, non dimenticò mai una volta dove fosse la porta.
+
 Poi entrò, e per la prima volta in vita sua non ebbe bisogno di dirlo a nessuno: sapeva già di essere a casa.
 
 Casa non è dove ti hanno messo, amore mio.

@@ -14,6 +14,8 @@ Not wet: damp. Like a cellar wall.
 
 Tilde stood there for quite a while.
 
+It had happened to her before, lately: feeling a thing in her joints a few days before feeling it in the corridors — a dull little ache, right in her front legs, that the old moles of the meadow called «the barometer» among themselves. That morning the barometer had been right.
+
 That corridor had been dry for twenty years. She had dug it herself in good pale earth that didn't hold water, and in twenty years nothing had ever happened there, not even after the big storms.
 
 She ran her paw along the whole wall. Damp for four paces, then dry.

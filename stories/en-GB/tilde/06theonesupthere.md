@@ -16,7 +16,7 @@ It took her six days.
 
 Not because it was far, but because digging uphill is another business entirely: the earth comes down at you instead of going away, and you have to stop often, and a sloping tunnel dug in a hurry falls in.
 
-So she went: a stretch, a rest, a stretch, a rest. And at every stop she put her nose to the wall and checked she was still on the stripe.
+So she went: a stretch, a rest, a stretch, a rest — partly because that's how a climb is, partly because her legs, these days, asked for a rest even before she'd asked them for one. And at every stop she put her nose to the wall and checked she was still on the stripe.
 
 The earth changed as she went.
 

@@ -34,7 +34,7 @@ And she taught him the thing that moles know and nobody else does.
 
 *Two.* You dig one mole a day. Meaning: your own length, nose to tail, and then you stop. Not two. Not three.
 
-*Three.* You stop before you're tired.
+*Three.* You stop before you're tired. (Her joints, said Tilde, always got there first on this one.)
 
 *Four.* A thing done in a hurry falls in.
 

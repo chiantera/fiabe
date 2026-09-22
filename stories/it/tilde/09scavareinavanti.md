@@ -34,7 +34,7 @@ E gliela insegnò, la cosa che le talpe sanno e gli altri no.
 
 *Due.* Si scava una talpa al giorno. Cioè: la tua lunghezza, dal muso alla coda, e poi basta. Non due. Non tre.
 
-*Tre.* Ci si ferma prima di essere stanchi.
+*Tre.* Ci si ferma prima di essere stanchi. (Su questo, disse Tilde, le sue giunture avevano sempre ragione loro per prime.)
 
 *Quattro.* Una cosa fatta di fretta frana.
 

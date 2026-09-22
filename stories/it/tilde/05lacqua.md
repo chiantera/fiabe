@@ -14,6 +14,8 @@ Non bagnato: umido. Come una parete di cantina.
 
 Tilde rimase lì ferma un bel po'.
 
+Le era già capitato, negli ultimi tempi, di sentire una cosa nelle giunture qualche giorno prima di sentirla nei corridoi — un dolorino sordo, proprio nelle zampe davanti, che le talpe vecchie del prato chiamavano tra loro «il barometro». Quella mattina il barometro aveva ragione.
+
 Quel corridoio era asciutto da vent'anni. Lo aveva scavato lei in una terra buona e chiara che non teneva l'acqua, e in vent'anni non era mai successo niente, nemmeno dopo i temporali grossi.
 
 Passò la zampa su tutta la parete. Umida per quattro passi, poi asciutta.

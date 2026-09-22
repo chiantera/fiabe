@@ -38,6 +38,8 @@ Ma lì non passava nessuno da moltissimo tempo. Si sentiva.
 
 Tilde si mise una zampa sul petto e aspettò di smettere di avere paura.
 
+La testa, ultimamente, le faceva qualche scherzo — un nome che non arrivava, un pensiero lasciato a metà — ma le zampe no. Le zampe non dimenticavano mai niente, e anche in un posto tutto nuovo come quello sapevano benissimo dove mettersi.
+
 Poi, siccome era una talpa, andò a vedere.
 
 Il corridoio andava avanti. Poi si apriva in un incrocio a quattro strade, fatto bene, con gli spigoli arrotondati perché gli spigoli si consumano e franano.

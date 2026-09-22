@@ -18,7 +18,7 @@ Tilde non chiese pronta a cosa. Lo sapeva da sette anni.
 
 Sette cominciò a muoversi verso l'alto, piano, con un movimento che non aveva mai fatto: prima stava, e basta; adesso andava.
 
-Tilde la seguì.
+Tilde la seguì. Ma prima si sistemò gli occhiali sul naso, per bene — tanto per fare le cose come si deve, anche se lassù di occhiali non ne avrebbe avuto bisogno più che sotto: cioè, per niente.
 
 Salirono per i corridoi che Tilde conosceva a memoria, e più salivano, più l'aria cambiava — meno umida, poi fredda, poi con dentro qualcosa che a Tilde non piaceva per niente e che si chiama vento.
 

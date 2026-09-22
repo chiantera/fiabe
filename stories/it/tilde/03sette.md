@@ -20,6 +20,8 @@ Tilde la conosceva da sempre. L'aveva trovata che era grande come un chicco di r
 
 E quello era tutto.
 
+Tilde si sedeva sempre un momento prima di andarsene, perché rialzarsi di scatto, ultimamente, le costava un piccolo «ahi» alle zampe di dietro.
+
 Un giorno Tilde ci portò Pino, che quando seppe della cella volle vederla subito, e che davanti a Sette rimase zitto quasi due secondi interi.
 
 Poi disse: «E tu che fai?»

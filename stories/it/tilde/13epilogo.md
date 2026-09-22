@@ -14,6 +14,8 @@ Facciamo come l'altra volta: ti dico quello che è vero, pezzo per pezzo.
 
 Il prato è vero, e lo sai già. Le talpe sono vere, e scavano davvero così: una galleria al giorno, il muso sempre un pochino in su, perché l'acqua non tenga. Le cicale sono vere, e stanno davvero sottoterra per anni, ferme, prima di uscire una notte sola con le ali nuove.
 
+E anche gli occhiali di Tilde sono un po' veri: le talpe hanno davvero gli occhi, piccolissimi, che vedono giusto la differenza fra luce e buio. Mettergli su un paio di occhiali è uno scherzo, ma è uno scherzo onesto, perché non cambierebbe niente sul serio nemmeno a una talpa vera. E anche le giunture che si lamentano col freddo sono vere: succede alle talpe vecchie come succede a chiunque diventi vecchio.
+
 E ti ricordi quando, nell'altra fiaba, ti ho detto che sotto la radice della quercia, dalla parte dell'ombra, c'è per davvero un angolino di terra asciutta?
 
 Te l'ho detto che era vero. Non ti ho mai detto chi l'aveva fatto.

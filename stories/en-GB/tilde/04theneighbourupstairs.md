@@ -22,7 +22,7 @@ She had never known who it was.
 
 One night in July she decided to find out.
 
-She went up to the place where the ceiling trembled most, which was under the big root of the oak, and there she stopped. Then she lifted a paw and knocked. Three little knocks.
+She went up to the place where the ceiling trembled most, which was under the big root of the oak, and there she stopped. It had cost her a little more effort than it used to: her legs complained more often these days. Then she lifted a paw and knocked. Three little knocks.
 
 Above, the *frin frin* stopped dead.
 
