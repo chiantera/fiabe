@@ -239,6 +239,35 @@ SCENES['tilde:03'] = ('Sette cresce in silenzio nella cella accanto alla radice'
 SCENES['tilde:04'] = ('Tre colpetti attraverso la terra: Tilde e Rocco', neighbour)
 SCENES['tilde:05'] = ('La parete umida e la vena di acqua che cambia strada', water_warning)
 
+def foundation():
+    b=earth(80)+path('M479 0H620V323H479Z','#92947b')
+    b+=path('M479 80H620M479 153H620M479 226H620M535 0V80M572 80V153M524 153V226M571 226V323','none','#737866',4)
+    b+=tunnel('M0 470Q250 480 382 316H447',86)+mole(399,341,1.25)
+    b+=path('M689 0V560','none','#696e62',42)+path('M689 0V560','none','#304e43',20)
+    b+=path('M708 510Q770 456 800 476','none','#73938a',24)
+    b+=path('M654 363Q670 347 676 334M646 390Q665 378 676 362','none','#8d9e87',3)
+    return b
+
+def lost_room():
+    b=earth()+tunnel('M0 265H350Q397 265 432 360H700',87)+room(620,387,130,101)
+    b+=path('M494 369Q548 361 600 373 651 387 749 368C768 510 492 532 494 369Z','#73938a')
+    b+=path('M531 411Q590 401 641 413M642 446H695','none','#b1bfa1',3)
+    b+=path('M402 401 414 352 407 302 434 283 459 306 478 296 493 328 481 365 491 399Z','#b99b73')
+    b+=mole(326,289,1.2)+shrew(215,296,.9)
+    return b
+
+def dry_corner():
+    b=earth(130)+path('M480 0Q433 168 494 261 544 315 721 317','none','#6f5940',37)
+    b+=tunnel('M0 444H346Q432 444 477 346',80)+room(556,351,114,65)
+    b+=path('M507 387 539 377 526 393 563 382 548 397 587 387 574 400 612 389','none','#af965f',4)
+    b+=mole(471,389,1.25)
+    b+=path('M652 170Q684 243 728 250','none','#927651',5)
+    return b
+
+SCENES['tilde:06'] = ('Tilde scopre le fondamenta e il pozzo della casa', foundation)
+SCENES['tilde:07'] = ('Pino resta vicino a Tilde mentre chiudono le stanze allagate', lost_room)
+SCENES['tilde:08'] = ('Tilde prepara in segreto un angolino asciutto per Rocco', dry_corner)
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
