@@ -212,6 +212,33 @@ SCENES['tilde:00'] = ('La stessa casa vista da sotto: il pozzo e le strade', til
 SCENES['tilde:01'] = ('Tilde guida il piccolo riccio lungo la salita sicura', rescue)
 SCENES['tilde:02'] = ('Tilde mostra a Pino le strade sotto il prato', roads)
 
+def nymph(x,y,s=1):
+    b=ellipse(0,2,18,26,'#a98755')+circle(0,-23,16,'#b99b68')
+    b+=path('M-13-4-26-14-29-1M13-4 26-14 29-1M-14 9-28 16M14 9 28 16M-11 20-23 32M11 20 23 32M-13 6H13M-12 16H12','none','#785f3d',3)
+    return group(b,x,y,s)
+
+def seven_waits():
+    b=earth()+tunnel('M0 365H467',94)+room(542,338,99,117)
+    b+=path('M541 111Q505 177 552 255L548 323','none','#927651',8)+nymph(548,345,1.3)
+    return b+mole(362,390,1.3)+shrew(247,397,1)
+
+def neighbour():
+    b=earth(222)+tree(393,-80,.67)+cricket(430,204,1.25)
+    b+=tunnel('M0 410H367Q436 410 436 335',85)+room(424,370,92,61)+mole(431,396,1.15)
+    b+=path('M385 246Q425 276 471 246M388 269Q425 297 468 269M397 292Q425 314 458 292','none','#937649',3)
+    return b
+
+def water_warning():
+    b=earth()+tunnel('M0 378H481',105)
+    b+=path('M555 155Q523 226 559 284 587 329 547 390 513 450 553 560','none','#73938a',23)
+    b+=path('M488 284Q456 319 482 393','none','#8c9c84',11)
+    b+=mole(421,409,1.55)+shrew(273,415,1.1)
+    return b
+
+SCENES['tilde:03'] = ('Sette cresce in silenzio nella cella accanto alla radice', seven_waits)
+SCENES['tilde:04'] = ('Tre colpetti attraverso la terra: Tilde e Rocco', neighbour)
+SCENES['tilde:05'] = ('La parete umida e la vena di acqua che cambia strada', water_warning)
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
