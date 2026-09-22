@@ -599,7 +599,7 @@ def guscio(lingua, titolo_tab, descrizione, url, corpo, script, jsonld=None):
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="{lingua["base"]}manifest.json">
 <meta name="theme-color" content="#14241e">
 <meta property="og:type" content="{tipo_og}">
 <meta property="og:site_name" content="Fiabe">
@@ -925,24 +925,32 @@ with open(os.path.join(SRC, "sitemap.xml"), "w", encoding="utf-8") as fp:
 # manifest.json: non serve a essere installato come app, ma dà al sito
 # un'icona coerente su Android/Chrome e nella scheda "aggiungi alla
 # schermata Home", ed è un segnale in più di sito curato per i motori.
-manifesto = {
-    "name": "Fiabe della buonanotte",
-    "short_name": "Fiabe",
-    "description": "Storie da leggere ad alta voce, una per sera.",
-    "start_url": "/",
-    "scope": "/",
-    "display": "standalone",
-    "background_color": "#14241e",
-    "theme_color": "#14241e",
-    "lang": "it",
-    "icons": [
-        {"src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
-        {"src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-        {"src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
-    ],
-}
-with open(os.path.join(SRC, "manifest.json"), "w", encoding="utf-8") as fp:
-    json.dump(manifesto, fp, ensure_ascii=False, indent=2)
-    fp.write("\n")
+# Uno per lingua, con lo start_url giusto: un manifest solo, condiviso da
+# tutte le pagine, avrebbe fatto aprire lo scaffale italiano anche a chi
+# installa il sito da /en/.
+manifesti = []
+for codice, lingua in LINGUE.items():
+    manifesto = {
+        "name": lingua["scaffale"].replace("&rsquo;", "’"),
+        "short_name": "Fiabe",
+        "description": lingua["scaffale_intro"].replace("&rsquo;", "’").replace("&egrave;", "è"),
+        "start_url": lingua["base"],
+        "scope": lingua["base"],
+        "display": "standalone",
+        "background_color": "#14241e",
+        "theme_color": "#14241e",
+        "lang": lingua["lang"],
+        "icons": [
+            {"src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
+            {"src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+            {"src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+        ],
+    }
+    percorso = os.path.join(SRC, lingua["base"].strip("/").replace("/", os.sep), "manifest.json")
+    percorso = os.path.normpath(percorso)
+    with open(percorso, "w", encoding="utf-8") as fp:
+        json.dump(manifesto, fp, ensure_ascii=False, indent=2)
+        fp.write("\n")
+    manifesti.append(os.path.relpath(percorso, SRC))
 
-print("scritte: " + ", ".join(fatte) + ", sitemap.xml, manifest.json")
+print("scritte: " + ", ".join(fatte) + ", sitemap.xml, " + ", ".join(manifesti))

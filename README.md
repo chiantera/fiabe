@@ -285,8 +285,8 @@ La pagina è online su **https://fiabe.vercel.app**.
 Il progetto Vercel è collegato a questo repository: ogni push su `main`
 pubblica una nuova versione. Ricordarsi quindi di eseguire `python3 build.py`
 e committare anche le pagine rigenerate (`index.html`, `nina/index.html`,
-`tilde/index.html`, `en/…`, `sitemap.xml`, `manifest.json`), altrimenti il
-sito resta indietro rispetto ai testi.
+`tilde/index.html`, `en/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`),
+altrimenti il sito resta indietro rispetto ai testi.
 
 ## Autori
 
@@ -310,7 +310,9 @@ Ogni pagina generata da `build.py` porta, oltre al titolo e alla descrizione:
   scaffale, `Book` su ogni pagina di libro, con autore e collaboratore.
 - **Icone**: `assets/favicon.svg` (vettoriale, usata dai browser moderni),
   con fallback PNG (`favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`)
-  e un `manifest.json` generato da `build.py` per Android/Chrome.
+  e un `manifest.json` per lingua (`start_url` e `scope` locali, non uno
+  solo condiviso: altrimenti installare il sito da `/en/` avrebbe aperto lo
+  scaffale italiano) generato da `build.py` per Android/Chrome.
 - **hreflang**: sia nella `<head>` di ogni pagina (`<link rel="alternate">`)
   sia in `sitemap.xml` (`<xhtml:link>`), che è il formato che Google
   raccomanda per non indicizzare una lingua e perdere l'altra.
@@ -342,10 +344,10 @@ fiabe/
 ├── generate_elevenlabs.py      # sintesi vocale via API ElevenLabs (voce clonata)
 ├── launch.sh                   # lancia generate.py sganciato
 ├── robots.txt
-├── manifest.json                # generato da build.py: non modificare a mano
 ├── sitemap.xml                  # generato da build.py: non modificare a mano
+├── manifest.json                # generato da build.py: manifest italiano
 ├── index.html, nina/, tilde/    # italiano: generati, non modificare a mano
-├── en/                          # inglese (index.html, nina/, tilde/): generati
+├── en/                          # inglese: index.html, nina/, tilde/, manifest.json (generati)
 ├── assets/
 │   ├── fiabe.css                # stile condiviso da tutte le pagine
 │   ├── meadow.svg, burrow.svg    # illustrazioni dello scaffale (Nina, Tilde)
