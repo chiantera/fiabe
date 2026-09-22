@@ -298,13 +298,19 @@ def raccogli(lingua, libro):
                 f'        </figure>\n'
             )
 
+        illustrazione = ""
+        disegno = f'assets/chapters/{libro["cartella"]}/{f["numero"]}.svg'
+        if os.path.isfile(os.path.join(SRC, disegno)):
+            illustrazione = (f'      <img class="illustrazione-capitolo" src="/{disegno}" '
+                             f'width="800" height="560" alt="" loading="lazy" decoding="async">\n')
+
         articoli.append(
             f'    <article class="fiaba" id="{slug}" data-ripresa="{ripresa}">\n'
             f'      <header class="fiaba-testata">\n'
             f'        <p class="etichetta">{etichetta_numero} &middot; {minuti}</p>\n'
             f'        <h2>{inline(f["titolo"])}</h2>\n'
             f'        <p class="sottotitolo">{inline(f["sottotitolo"])}</p>\n'
-            f"      </header>\n" + lettore + "\n".join(corpo) + "\n"
+            f"      </header>\n" + illustrazione + lettore + "\n".join(corpo) + "\n"
             f'      <div class="divisorio">{lucciole()}</div>\n'
             f"    </article>"
         )

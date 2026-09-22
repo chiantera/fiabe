@@ -87,6 +87,7 @@ a:focus-visible, button:focus-visible, audio:focus-visible { outline: 3px solid 
 .fiaba p { margin: 0 0 1.3em; }
 .fiaba .etichetta, .fiaba .sottotitolo { margin: 0; }
 .sottotitolo { color: var(--muted); font-style: italic; font-size: 1.1rem; }
+.illustrazione-capitolo { display: block; width: 100%; height: auto; border-radius: .8rem; margin: 0 0 2rem; }
 .apertura::first-letter { float: left; font: 400 3.7em/.85 "Young Serif", Georgia, serif; padding: .08em .1em 0 0; color: var(--accent); }
 .congedo { color: var(--accent); font-style: italic; }
 .lettura { margin: 0 0 2rem; padding: 1rem; background: var(--soft); border-radius: .85rem; }
