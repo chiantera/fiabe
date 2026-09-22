@@ -303,6 +303,25 @@ SCENES['tilde:09'] = ('Una talpa al giorno: Tilde e Pino ricostruiscono in salit
 SCENES['tilde:10'] = ('Le strade larghe e le stanze della città antica', old_city)
 SCENES['tilde:11'] = ('Sette asciuga le ali nuove, Tilde resta al suo fianco', emergence)
 
+def front_door():
+    b=meadow()+tree(445,-185,1.6)
+    b+=ellipse(447,462,63,35,'#172d25')+path('M390 459Q405 397 449 410 493 405 509 460','none','#7f7957',12)
+    b+=mole(368,464,1.4)+shrew(227,481,1.15)
+    return b+grass()
+
+def tilde_epilogue():
+    b=earth(226)+path('M0 0H800V176Q529 138 342 192 163 222 0 172Z','#a9b497')
+    b+=circle(592,83,39,'#e8d6a0')+tree(164,-72,.65)
+    for x,y,s in [(300,226,1),(442,209,.7),(642,209,.9)]:
+        b+=group(path('M-37 0Q-20-32 0-23 23-33 42 0Z','#806d4e'),x,y,s)
+    b+=tunnel('M296 239V352H644V234',47)+tunnel('M449 351V459H268',45)+room(267,446,77,50)
+    b+=mole(270,465,.85)
+    b+=path('M204 471 233 461 225 475 254 463 248 478 282 468 278 480 310 470','none','#b29a65',3)
+    return b
+
+SCENES['tilde:12'] = ('La porta scelta da Tilde, vicino al ricordo di Rocco', front_door)
+SCENES['tilde:13'] = ('I mucchietti nel prato rivelano una città nascosta', tilde_epilogue)
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
