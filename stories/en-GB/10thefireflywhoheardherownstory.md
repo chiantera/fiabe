@@ -104,13 +104,51 @@ She just lit up.
 
 A golden light, warm, calm, that was no use to anything or anybody: the first time in her whole life that the light was only hers.
 
-It stayed on a moment.
+And it didn't go out.
 
-Then, slowly, the way a thing goes out when it has finished, it went out.
+It stayed on, calm, like a thing that has only just begun.
+
+Then she tried to lift off from the root.
+
+And she found, without being all that surprised, that her wings were carrying her. Not strongly, not fast: carrying her. Perhaps because for the first time she wasn't going out to work.
+
+«Bea,» she said. «Will you come part of the way with me?»
+
+They flew slowly to the hedge, the two of them, and there Nina stopped and looked over at the other side.
+
+Past the hedge, the grass ends.
+
+What begins is pale dry ground: no flowers, no water, not one leaf to shelter under. Fireflies never go there.
+
+«I'm going out there,» said Nina.
+
+Bea looked at that pale stretch.
+
+«There's nothing out there.»
+
+«I know.» Nina looked at her, with the face of somebody who has been thinking about a thing for several summers. «So there's a very great deal of dark, Bea. More than anywhere else. And nobody in all that dark who knows how to light up.»
+
+Bea didn't say *don't go*. She didn't say *you're old*. She didn't say *it's too far*.
+
+She had learned a long time ago, under a clover leaf, that certain things aren't said to anybody.
+
+She only asked: «Will you come back?»
+
+And Nina answered truthfully.
+
+«I don't know. I don't even know the way.»
+
+And then Bea said the sentence a cricket had once said, on a cold September stone, to a firefly whose light had gone out.
+
+«Then we'll sing,» she said. «Every evening. So you know which way it is.»
+
+Nina stayed still a moment.
+
+Then she went over the hedge.
 
 And that night the meadow didn't stay dark.
 
-They all lit up together — Bea first, and two hundred behind her — and they didn't go out until morning, because that was exactly what they had learned: that the dark comes back anyway, and that it's nobody's fault, and that in the meantime you make light.
+They all lit up together — Bea first, and two hundred behind her — and they didn't go out until morning. Because a lit thing can be seen from a long way off.
 
 Up at the top of the hill a yellow window went dark.
 
@@ -126,6 +164,12 @@ And she told it again, from the beginning.
 
 *Once upon a time, in a meadow at the foot of a hill, there was a little firefly called Nina…*
 
+In the meadow, from then on, the song has never missed an evening.
+
+And every so often, on the blackest nights, one of the very small ones says she has seen — past the hedge, where the grass stops — a gold dot about this big. It's too far off to be sure: it might be a low star.
+
+Nobody says yes and nobody says no. They just sing a little louder.
+
 You don't have to be any use, my love.
 
 You can light up because somebody needs you, and when that happens it's wonderful. But you can also light up on an evening when nobody needs you at all, just for the pleasure of being lit, and that's every bit as good — in fact, perhaps that's the one that counts.
@@ -137,6 +181,8 @@ There's only somebody who remembers what you were like.
 And now close your eyes, because it's late.
 
 The meadow is lit, the song is going round, somebody else knows the story now.
+
+And somebody, a long way off, can perhaps hear it.
 
 And tomorrow there will be light again.
 

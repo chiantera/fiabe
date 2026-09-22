@@ -30,7 +30,11 @@ in chi l'ha sentita. L'ottavo rifà il secondo con i ruoli scambiati: stavolta
 è Bea a spegnersi, e Nina a dire le parole che una volta le aveva detto Rocco.
 Nel nono le ali non la portano più, e le lucciole nuove — che Rocco non l'hanno
 mai conosciuto — vanno da lei a farsi raccontare le otto fiabe di prima. Nel
-decimo è Bea che racconta, e chi ascolta è Nina.
+decimo è Bea che racconta, e chi ascolta è Nina — che poi passa la siepe e se ne
+va verso la terra asciutta, dove c'è più buio che in qualunque altro posto e
+nessuno sa accendersi. Non torna, ma nessuno la vede spegnersi: la fine è aperta
+apposta, e la canzone che il prato canta ogni sera serve anche a farle sapere da
+che parte è casa.
 
 Il **Prologo** si legge per primo ed è scritto per ultimo: non racconta il prato,
 racconta chi lo guardava dalla finestra. È quella persona a dire «amore mio»
@@ -50,6 +54,9 @@ romano: nell'indice sono «Prologo» ed «Epilogo», e le loro ancore sono
 Il settimo è l'unico in cui muore qualcuno. Muore di vecchiaia, nel sonno, dopo
 aver avuto quello che voleva, e la fiaba non finisce lì — ma è bene saperlo
 prima di leggerlo ad alta voce a qualcuno che si è affezionato a Rocco.
+
+Nel decimo Nina se ne va e non torna. Se sia la stessa cosa la fiaba non lo dice,
+e l'Epilogo nemmeno: chi ascolta può tenersi la porta aperta quanto vuole.
 
 ## Come ci si rivolge a chi ascolta
 

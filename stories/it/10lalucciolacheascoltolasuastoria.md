@@ -104,13 +104,51 @@ Si accese e basta.
 
 Una luce dorata, calda, tranquilla, che non serviva a niente e a nessuno: la prima volta in tutta la sua vita che quella luce era soltanto sua.
 
-Restò accesa un momento.
+E non si spense.
 
-Poi, piano, come si spegne una cosa che ha finito, si spense.
+Restò accesa, tranquilla, come una cosa che ha appena cominciato.
+
+Poi provò ad alzarsi dalla radice.
+
+E si accorse, senza nemmeno stupirsi troppo, che le ali la portavano. Non forte, non veloce: la portavano. Forse perché per la prima volta non stava andando a lavorare.
+
+«Bea», disse. «Mi accompagni un pezzo?»
+
+Volarono piano fino alla siepe, tutte e due, e lì Nina si fermò e guardò dall'altra parte.
+
+Di là dalla siepe l'erba finisce.
+
+Comincia una terra chiara e asciutta: niente fiori, niente acqua, nemmeno una foglia dove ripararsi. Le lucciole non ci vanno mai.
+
+«Vado là», disse Nina.
+
+Bea guardò quella distesa pallida.
+
+«Là non c'è niente.»
+
+«Lo so.» Nina la guardò, e aveva la faccia di una che ha pensato a una cosa per parecchie estati. «E allora c'è un sacco di buio, Bea. Più che in qualunque altro posto. E nessuno, in tutto quel buio, che sappia accendersi.»
+
+Bea non disse *non andare*. Non disse *sei vecchia*. Non disse *ci vuole troppo*.
+
+Aveva imparato da tanto tempo, sotto una foglia di trifoglio, che certe cose non si dicono a nessuno.
+
+Chiese soltanto: «Torni?»
+
+E Nina rispose la verità.
+
+«Non lo so. Non so nemmeno la strada.»
+
+E allora Bea disse la frase che una volta aveva detto un grillo, su un sasso freddo di settembre, a una lucciola che si era spenta.
+
+«Allora cantiamo noi», disse. «Tutte le sere. Così sai da che parte è.»
+
+Nina rimase ferma un momento.
+
+Poi passò la siepe.
 
 E quella notte il prato non restò al buio.
 
-Si accesero tutte insieme — Bea per prima, e dietro di lei duecento — e non si spensero fino al mattino, perché quello era esattamente ciò che avevano imparato: che il buio torna comunque, e che non è colpa di nessuno, e che intanto si fa luce.
+Si accesero tutte insieme — Bea per prima, e dietro di lei duecento — e non si spensero fino al mattino. Perché una cosa accesa si vede da lontano.
 
 Lassù in cima alla collina una finestra gialla si spense.
 
@@ -126,6 +164,12 @@ E la raccontò ancora, dall'inizio.
 
 *C'era una volta, in un prato ai piedi di una collina, una piccola lucciola di nome Nina...*
 
+Da allora, nel prato, la canzone non ha saltato una sera.
+
+E ogni tanto, nelle notti più nere, una piccolissima dice di aver visto — oltre la siepe, dove l'erba finisce — un puntino d'oro piccolo così. È troppo lontano per esserne sicuri: potrebbe essere una stella bassa.
+
+Nessuno dice di sì e nessuno dice di no. Cantano un po' più forte, e basta.
+
 Tu non devi servire a niente, amore mio.
 
 Puoi accenderti perché qualcuno ha bisogno di te, e allora è bellissimo. Ma puoi accenderti anche una sera che non ha bisogno di te nessuno, per il gusto di essere acceso, e va bene uguale — anzi, forse è quella la volta che conta.
@@ -137,6 +181,8 @@ C'è soltanto qualcuno che si ricorda com'eri.
 E ora chiudi gli occhi, che è tardi.
 
 Il prato è acceso, la canzone gira, la storia la sa qualcun altro adesso.
+
+E qualcuno, molto lontano, forse la sente.
 
 E domani ci sarà di nuovo luce.
 
