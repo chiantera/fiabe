@@ -130,6 +130,31 @@ SCENES['nina:06'] = ('Una mano aperta, una lucciola, il prato acceso', nina_hand
 SCENES['nina:07'] = ('Quaranta lucciole portano Rocco sopra il prato', rocco_flight)
 SCENES['nina:08'] = ('Nina veglia dalla radice mentre Bea torna a brillare', lambda: root_scene()+fly(325,427,1.35,False)+fly(538,339,1.2,True,True)+clover(650,539,.85)+grass())
 
+def nina_story():
+    b=root_scene()+fly(390,416,1.25,False)
+    for x,y,s in [(202,476,.7),(274,505,.65),(361,516,.55),(456,505,.7),(538,469,.6),(572,410,.65)]: b+=fly(x,y,s)
+    return b+fly(620,480,.9,True,True)+grass()
+
+def nina_departure():
+    b=sky()+path('M0 350Q260 259 800 390V560H0Z','#a9a17e')
+    b+=path('M0 363Q171 315 335 390L439 560H0Z','#365f4c')
+    b+=path('M296 560Q352 478 289 422 268 391 321 374 372 343 369 302','none','#234d3d',54)
+    b+=fly(302,348,.85,True,True)+fly(484,279,.6)
+    b+=glow(606,248,22)+circle(606,248,2,'#edd88e')
+    return b+grass()
+
+def nina_epilogue():
+    b=window_scene()
+    # A smaller observer and an adult share the window, looking outward.
+    b+=path('M196 560V410Q196 381 233 381 270 381 270 416V560Z','#294538')+circle(233,359,28,'#294538')
+    b+=path('M301 560V447Q301 420 331 420 361 420 361 447V560Z','#365641')+circle(331,401,22,'#365641')
+    b+=path('M260 439Q289 459 308 444','none','#294538',16)
+    return b
+
+SCENES['nina:09'] = ('Le giovani lucciole ascoltano Nina raccontare', nina_story)
+SCENES['nina:10'] = ('Nina passa la siepe, Bea resta a cantare', nina_departure)
+SCENES['nina:11'] = ('Insieme alla finestra, senza accendere la luce', nina_epilogue)
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
