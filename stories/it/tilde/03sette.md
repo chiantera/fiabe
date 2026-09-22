@@ -110,7 +110,7 @@ E siccome ci mettono tanto, mentre succedono sembra che non stia succedendo nien
 
 Non è tempo buttato. È solo lungo.
 
-Anche stanotte, mentre dormi e non fai assolutamente niente, tu stai diventando.
+Anche stanotte, mentre dormi e non fai assolutamente niente, tu stai crescendo.
 
 E ora chiudi gli occhi.
 
