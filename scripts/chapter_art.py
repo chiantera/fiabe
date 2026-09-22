@@ -111,6 +111,25 @@ SCENES['nina:03'] = ('Nina e Bea si tengono compagnia sotto il trifoglio', lambd
 SCENES['nina:04'] = ('Rocco ascolta la canzone delle nuove lucciole', lambda: root_scene()+cricket(395,433,1.5,True)+fly(215,369,.8)+fly(547,351,.8,True,True)+fly(493,270,.65)+fly(299,291,.65)+fly(609,416,.6,True,True)+grass())
 SCENES['nina:05'] = ('Nina incontra la bambina dietro la finestra', nina_window)
 
+def nina_hand():
+    b=meadow()+house(670,250,.7,False)+girl(478,357,1.6)
+    b+=fly(326,353,.65)+fly(200,428,.5,True,True)
+    for x,y in [(119,400),(641,431),(601,351),(246,294),(541,495)]: b+=glow(x,y,20)+circle(x,y,3,'#edd88e')
+    return b+grass()
+
+def rocco_flight():
+    b=meadow()+creek()+tree(164,286,.42)+house(680,273,.4)
+    # Forty small carriers form a soft cloud under the old cricket.
+    for row in range(4):
+        for col in range(10):
+            b+=fly(266+col*28,256+row*15+(col%3)*3,.3,True,(row+col)%4==0)
+    b+=cricket(403,250,1.9,True)
+    return b+grass()
+
+SCENES['nina:06'] = ('Una mano aperta, una lucciola, il prato acceso', nina_hand)
+SCENES['nina:07'] = ('Quaranta lucciole portano Rocco sopra il prato', rocco_flight)
+SCENES['nina:08'] = ('Nina veglia dalla radice mentre Bea torna a brillare', lambda: root_scene()+fly(325,427,1.35,False)+fly(538,339,1.2,True,True)+clover(650,539,.85)+grass())
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
