@@ -106,7 +106,7 @@ And because they take so long, while they're happening it looks as though nothin
 
 It isn't wasted time. It's just long.
 
-Tonight as well, while you're asleep and doing absolutely nothing, you are becoming.
+Tonight as well, while you're asleep and doing absolutely nothing, you are growing.
 
 And now close your eyes.
 
