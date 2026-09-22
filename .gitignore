@@ -4,8 +4,15 @@ __pycache__/
 # voce di partenza e artefatti di sintesi vocale (dati personali / rigenerabili)
 *.opus
 ref/
-audio/*
-!audio/11l-*.mp3
+# gli MP3 finiti si versionano, i pezzi intermedi no. Da quando l'audio sta in
+# audio/<libro>/ servono anche le righe sulle cartelle: git non può ripescare un
+# file dentro una cartella esclusa.
+audio/**
+!audio/**/
+!audio/**/11l-*.mp3
 chunks/
 generation.log
 .env
+
+# appunti di lavoro (tracce, scalette): restano sulla macchina di chi scrive
+note/
