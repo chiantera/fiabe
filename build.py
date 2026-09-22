@@ -5,6 +5,7 @@ Il markdown delle fiabe usa solo quattro costrutti: '# titolo', una riga di
 sottotitolo in corsivo, il separatore '---' e paragrafi con *enfasi*.
 Quattro regole bastano: nessuna libreria.
 """
+import datetime
 import glob
 import html
 import json
@@ -16,6 +17,15 @@ SRC = os.path.dirname(os.path.abspath(__file__))
 STORIE = os.path.join(SRC, "stories")
 SITO = "https://fiabe.vercel.app"
 SPECIALI = {"prologo", "prologue", "epilogo", "epilogue"}
+
+# Persone dietro il progetto (nomi d'arte). Finiscono nei metadati della
+# pagina (autore, dati strutturati) perché aiutano la ricerca ad associare
+# il sito a chi lo fa, non perché servano a un lettore umano.
+AUTORE = "Fausto Chiantera"
+VOCE_E_SITO = "Deckard"
+
+# Mappa lingua -> locale nel formato che Open Graph vuole (con underscore).
+OG_LOCALE = {"it": "it_IT", "en-GB": "en_GB"}
 
 # Una lingua per cartella. "uscita" è il file generato, "base" il prefisso
 # degli URL. L'italiano sta alla radice perché era lì da prima.
@@ -29,6 +39,7 @@ LIBRI = [
             "occhiello": "Libro primo",
             "riassunto": ("Una lucciola che impara ad accendersi, a spegnersi e a lasciare "
                           "che sia un&rsquo;altra ad accendersi da sola."),
+            "descrizione": "{n} fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.",
         },
         "en-GB": {
             "titolo": "Nina&rsquo;s stories",
@@ -36,6 +47,7 @@ LIBRI = [
             "occhiello": "Book one",
             "riassunto": ("A firefly who learns to light up, to put herself out, and to let "
                           "someone else come to it on her own."),
+            "descrizione": "{n} bedtime stories about Nina, the firefly of the meadow at the foot of the hill.",
         },
     },
     {
@@ -46,6 +58,7 @@ LIBRI = [
             "occhiello": "Libro secondo",
             "riassunto": ("La vecchia talpa del prato, quella che non trovava mai la porta di "
                           "casa. Vista da sotto, dove la porta la trova benissimo."),
+            "descrizione": "{n} fiabe della buonanotte su Tilde, la vecchia talpa del prato ai piedi della collina.",
         },
         "en-GB": {
             "titolo": "Tilde&rsquo;s stories",
@@ -53,6 +66,7 @@ LIBRI = [
             "occhiello": "Book two",
             "riassunto": ("The old mole from the meadow, the one who could never find her own "
                           "front door. Seen from below, where she finds it perfectly well."),
+            "descrizione": "{n} bedtime stories about Tilde, the old mole of the meadow at the foot of the hill.",
         },
     },
 ]
@@ -70,7 +84,6 @@ LINGUE = {
         "intro": ("{n} storie di una lucciola che impara ad accendersi, a spegnersi e a "
                   "lasciare che sia un&rsquo;altra ad accendersi da sola. Da leggere ad alta "
                   "voce, una per sera, nell&rsquo;ordine in cui sono scritte."),
-        "descrizione": "{n} fiabe della buonanotte su Nina, la lucciola del prato ai piedi della collina.",
         "indice": "Indice",
         "in_tutto": "{m} minuti in tutto",
         "minuti_lettura": "{m} minuti di lettura",
@@ -119,7 +132,6 @@ LINGUE = {
         "intro": ("{n} stories about a firefly who learns to light up, to put herself out, and "
                   "to let someone else come to it on her own. To be read aloud, one a night, "
                   "in the order they were written."),
-        "descrizione": "{n} bedtime stories about Nina, the firefly of the meadow at the foot of the hill.",
         "indice": "Contents",
         "in_tutto": "{m} minutes in all",
         "minuti_lettura": "{m} minutes to read aloud",
@@ -555,12 +567,25 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
 
 
 
-def guscio(lingua, titolo_tab, descrizione, url, corpo, script):
+def guscio(lingua, titolo_tab, descrizione, url, corpo, script, jsonld=None):
     """Mette insieme una pagina completa."""
     alternative = "\n".join(
         f'<link rel="alternate" hreflang="{l["lang"]}" href="{SITO}{l["base"]}{url}">'
         for l in LINGUE.values()
     ) + f'\n<link rel="alternate" hreflang="x-default" href="{SITO}/{url}">'
+    canonico = f'{SITO}{lingua["base"]}{url}'
+    cartella = url.rstrip("/")
+    immagine = (f"{SITO}/assets/og-{cartella}.png" if cartella in {"nina", "tilde"}
+                else f"{SITO}/assets/og-default.png")
+    tipo_og = "book" if cartella in {"nina", "tilde"} else "website"
+    locale_alternative = "\n".join(
+        f'<meta property="og:locale:alternate" content="{OG_LOCALE.get(l["lang"], l["lang"])}">'
+        for l in LINGUE.values() if l["lang"] != lingua["lang"]
+    )
+    dati_strutturati = (
+        f'\n<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>'
+        if jsonld else ""
+    )
     return f"""<!doctype html>
 <html lang="{lingua["lang"]}">
 <head>
@@ -568,8 +593,28 @@ def guscio(lingua, titolo_tab, descrizione, url, corpo, script):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{titolo_tab}</title>
 <meta name="description" content="{descrizione}">
-<link rel="canonical" href="{SITO}{lingua["base"]}{url}">
+<meta name="author" content="{AUTORE}">
+<link rel="canonical" href="{canonico}">
 {alternative}
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="{tipo_og}">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="{titolo_tab}">
+<meta property="og:description" content="{descrizione}">
+<meta property="og:url" content="{canonico}">
+<meta property="og:image" content="{immagine}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{OG_LOCALE.get(lingua["lang"], lingua["lang"])}">
+{locale_alternative}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{titolo_tab}">
+<meta name="twitter:description" content="{descrizione}">
+<meta name="twitter:image" content="{immagine}">{dati_strutturati}
 {FONTS}
 <link rel="stylesheet" href="/assets/fiabe.css">
 <script>{PRESCRIPT}</script>
@@ -678,13 +723,30 @@ def pagina(codice, lingua, libro):
     script = SCRIPT.replace("/*TRADUZIONI*/",
                             traduzioni_js(lingua, {"memoria": "fiabe:" + libro["cartella"]}))
 
+    titolo_pulito = voce["titolo"].replace("&rsquo;", "\u2019")
+    descrizione = voce["descrizione"].format(n=numero_fiabe)
+    jsonld_libro = {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": titolo_pulito,
+        "description": descrizione,
+        "url": f'{SITO}{lingua["base"]}{libro["cartella"]}/',
+        "inLanguage": lingua["lang"],
+        "image": f'{SITO}/assets/og-{libro["cartella"]}.png',
+        "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8},
+        "author": {"@type": "Person", "name": AUTORE},
+        "contributor": {"@type": "Person", "name": VOCE_E_SITO,
+                        "description": "Voce narrante e sviluppo del sito"},
+    }
+
     html_pagina = guscio(
         lingua,
-        voce["titolo"].replace("&rsquo;", "\u2019"),
-        lingua["descrizione"].format(n=numero_fiabe),
+        titolo_pulito,
+        descrizione,
         libro["cartella"] + "/",
         corpo,
         script,
+        jsonld=jsonld_libro,
     )
     uscita = scrivi(lingua, libro["cartella"], html_pagina)
 
@@ -777,10 +839,27 @@ def scaffale(codice, lingua, schede):
     <footer class="scaffale-footer"><p>{lingua["firma"]}</p>{lucciole()}</footer>
   </main>"""
 
+    titolo_sito = lingua["scaffale"].replace("&rsquo;", "\u2019")
+    descrizione_sito = lingua["scaffale_intro"].replace("&rsquo;", "\u2019").replace("&egrave;", "\u00e8")
+    jsonld_sito = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": titolo_sito,
+        "description": descrizione_sito,
+        "url": f'{SITO}{lingua["base"]}',
+        "inLanguage": lingua["lang"],
+        "author": {"@type": "Person", "name": AUTORE},
+        "contributor": {"@type": "Person", "name": VOCE_E_SITO,
+                        "description": "Voce narrante e sviluppo del sito"},
+        "hasPart": [
+            {"@type": "Book", "name": s["titolo"].replace("&rsquo;", "\u2019"),
+             "url": f'{SITO}{lingua["base"]}{s["cartella"]}/'}
+            for s in schede if s["pronto"]
+        ],
+    }
+
     script = SCAFFALE_SCRIPT.replace("/*TRADUZIONI*/", traduzioni_js(lingua))
-    html_pagina = guscio(lingua, lingua["scaffale"].replace("&rsquo;", "\u2019"),
-                         lingua["scaffale_intro"].replace("&rsquo;", "\u2019").replace("&egrave;", "\u00e8"),
-                         "", corpo, script)
+    html_pagina = guscio(lingua, titolo_sito, descrizione_sito, "", corpo, script, jsonld=jsonld_sito)
     return scrivi(lingua, "", html_pagina)
 
 
@@ -808,20 +887,62 @@ for codice, lingua in LINGUE.items():
         continue
     fatte.append(scaffale(codice, lingua, schede))
 
-# sitemap: scaffale e libri di ogni lingua
+# sitemap: scaffale e libri di ogni lingua, con le alternative di lingua
+# scritte per esteso (xhtml:link) invece che lasciate solo al <link> nella
+# <head> di ogni pagina: è il formato che Google raccomanda per l'hreflang
+# e riduce il rischio che una lingua venga indicizzata e l'altra no.
+oggi = datetime.date.today().isoformat()
+percorsi = [""] + [libro["cartella"] + "/" for libro in LIBRI]
 voci = []
-for codice, lingua in LINGUE.items():
-    base = SITO + lingua["base"]
-    radice_lingua = os.path.normpath(os.path.join(SRC, lingua["base"].strip("/")))
-    if os.path.exists(os.path.join(radice_lingua, "index.html")):
-        voci.append(f"  <url>\n    <loc>{base}</loc>\n  </url>")
-    for libro in LIBRI:
-        if os.path.exists(os.path.join(radice_lingua, libro["cartella"], "index.html")):
-            voci.append(f"  <url>\n    <loc>{base}{libro['cartella']}/</loc>\n  </url>")
+for percorso in percorsi:
+    presenti = [
+        (codice, lingua) for codice, lingua in LINGUE.items()
+        if os.path.exists(os.path.join(
+            SRC, lingua["base"].strip("/").replace("/", os.sep), percorso, "index.html"))
+    ]
+    if not presenti:
+        continue
+    alternative = "\n".join(
+        f'    <xhtml:link rel="alternate" hreflang="{lingua["lang"]}" '
+        f'href="{SITO}{lingua["base"]}{percorso}"/>'
+        for _, lingua in presenti
+    )
+    for codice, lingua in presenti:
+        voci.append(
+            f"  <url>\n"
+            f"    <loc>{SITO}{lingua['base']}{percorso}</loc>\n"
+            f"    <lastmod>{oggi}</lastmod>\n"
+            f"{alternative}\n"
+            f"  </url>"
+        )
 
 with open(os.path.join(SRC, "sitemap.xml"), "w", encoding="utf-8") as fp:
     fp.write('<?xml version="1.0" encoding="UTF-8"?>\n'
-             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+             'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
              + "\n".join(voci) + "\n</urlset>\n")
 
-print("scritte: " + ", ".join(fatte) + ", sitemap.xml")
+# manifest.json: non serve a essere installato come app, ma dà al sito
+# un'icona coerente su Android/Chrome e nella scheda "aggiungi alla
+# schermata Home", ed è un segnale in più di sito curato per i motori.
+manifesto = {
+    "name": "Fiabe della buonanotte",
+    "short_name": "Fiabe",
+    "description": "Storie da leggere ad alta voce, una per sera.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#14241e",
+    "theme_color": "#14241e",
+    "lang": "it",
+    "icons": [
+        {"src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"},
+        {"src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+        {"src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+    ],
+}
+with open(os.path.join(SRC, "manifest.json"), "w", encoding="utf-8") as fp:
+    json.dump(manifesto, fp, ensure_ascii=False, indent=2)
+    fp.write("\n")
+
+print("scritte: " + ", ".join(fatte) + ", sitemap.xml, manifest.json")
