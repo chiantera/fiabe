@@ -7,7 +7,7 @@ ognuno si legge per conto suo.
 | | Libro | Stato |
 | --- | --- | --- |
 | I | **Le fiabe di Nina** — la lucciola | 10 fiabe, un prologo e un epilogo |
-| II | **Le fiabe di Tilde** — la vecchia talpa | in corso, 1 fiaba |
+| II | **Le fiabe di Tilde** — la vecchia talpa | 12 fiabe, un prologo e un epilogo |
 
 Tilde compare già nelle fiabe di Nina: è «la vecchia talpa che non trovava mai
 la porta di casa», nominata tre volte come una battuta ricorrente. Il suo libro
@@ -70,6 +70,72 @@ prima di leggerlo ad alta voce a qualcuno che si è affezionato a Rocco.
 Nel decimo Nina se ne va e non torna. Se sia la stessa cosa la fiaba non lo dice,
 e l'Epilogo nemmeno: chi ascolta può tenersi la porta aperta quanto vuole.
 
+## Le fiabe di Tilde
+
+| | Titolo | Lettura ad alta voce |
+|---|---|---|
+| — | Prologo | 4 min |
+| I | La talpa che non trovava la porta di casa | 6 min |
+| II | Le strade sotto il prato | 6 min |
+| III | Sette | 5 min |
+| IV | Il vicino di sopra | 5 min |
+| V | L'acqua | 5 min |
+| VI | Quelli di sopra | 6 min |
+| VII | La stanza che non c'è più | 5 min |
+| VIII | Il canto che si è fermato | 5 min |
+| IX | Scavare in avanti | 6 min |
+| X | La città di prima | 7 min |
+| XI | Sette esce | 8 min |
+| XII | La porta di casa | 6 min |
+| — | Epilogo | 4 min |
+
+Nina guarda il prato da sopra e parla di luce: farsi vedere, rendersi utili,
+avere il permesso di smettere. Tilde lo guarda da sotto e parla di un'altra
+cosa — sapere dove sei. Il libro corre lungo gli stessi anni di quello di Nina,
+e alcuni capitoli raccontano la stessa notte dall'altra parte: il quarto è
+l'estate in cui Rocco canta tutte le notti (Libro secondo di Nina, ma sotto è
+una vibrazione nel pavimento, non un suono); il sesto è la finestra gialla che
+per chi sta sopra è meraviglia e per chi sta sotto è il momento in cui l'acqua
+cambia strada; l'ottavo è la notte in cui il canto si ferma, vista dal
+soffitto invece che dall'erba; l'undicesimo è la notte del prato tutto acceso,
+vista da chi non può vederlo.
+
+Il libro di Tilde non è la storia di una vita, come quello di Nina: lei è già
+vecchia al primo capitolo e lo resta. È un cantiere — un problema che comincia,
+peggiora e si risolve scavando. Il motore è l'acqua: quando in cima alla
+collina scavano un pozzo per la casa, l'acqua sotto il prato cambia strada, e
+per Tilde è un piccolo terremoto lento che regge i capitoli V–X. Chi ha
+costruito quella casa non è il cattivo della storia: il danno è vero, ma
+nessuno lassù sa che il prato ha anche un sotto, e il libro non chiede a un
+bambino di avere qualcuno da odiare — solo di capire che le persone buone
+possono fare un male vero senza saperlo.
+
+Vanno letti in ordine: il primo mostra che c'è sempre un posto in cui si è
+bravissimi, anche se non è quello dove ti guardano tutti; il secondo insegna
+che le cose lunghe non si vedono mentre succedono; il quarto lega Tilde e
+Rocco con un rituale di tre colpetti sul soffitto che torna fino alla fine del
+libro. Dal quinto al settimo l'acqua arriva, sposta le vicine di Tilde e le
+allaga metà casa: non si può tappare, si può solo chiudere e ricominciare.
+L'ottavo è il capitolo per cui il libro è stato costruito — Rocco perde la
+voce, e Tilde gli scava di nascosto l'angolino di terra asciutta sotto la
+radice della quercia che i lettori delle fiabe di Nina già conoscono, senza
+sapere chi l'avesse fatto. Il nono e il decimo rifanno la casa: prima da capo,
+una talpa al giorno, poi trovando una città intera scavata da talpe morte da
+prima che Tilde nascesse, e imparando a viverci dentro senza cancellare quello
+che hanno lasciato. L'undicesimo lascia andare Sette, la ninfa di cicala
+cresciuta per sette anni nel terzo capitolo, in un posto dove Tilde non può
+seguirla. Il dodicesimo chiude il libro: la casa nuova ha bisogno di una porta,
+e Tilde la mette accanto al ricordo di Rocco — per la prima volta in vita sua
+la trova al primo colpo, perché l'ha scelta lei.
+
+Il **Prologo** usa la stessa voce di quello di Nina, ma fa un'ammissione che
+l'altro non fa: il pozzo che ha cambiato la strada dell'acqua sotto il prato è
+lo stesso della casa in cima alla collina, e la gente buona che ci abitava ha
+fatto un danno vero senza saperlo. L'**Epilogo** chiude il cerchio con quello
+di Nina — lì si diceva già che l'angolino di terra asciutta sotto la radice è
+vero, senza dire chi l'avesse fatto; qui si dice chi, e cosa è stato fatto
+(poco, e tardi, ma qualcosa) una volta scoperto il danno.
+
 ## Come ci si rivolge a chi ascolta
 
 Ogni fiaba si chiude parlando direttamente a chi ascolta. La formula è
@@ -92,12 +158,19 @@ Il numero dell'MP3 viene dal nome del file della fiaba, non dalla sua posizione:
 `stories/it/nina/07….md` cerca `audio/nina/11l-07-*.mp3`. Per questo il Prologo ha potuto
 prendere il numero `00` senza rinumerare niente.
 
-Stato attuale: Prologo, Libro X ed Epilogo non hanno ancora l'audio, e i testi
-di IV, VI, VII, VIII e IX sono cambiati dopo la revisione, quindi i loro MP3
-vanno rifatti. I, II, III e V sono allineati. In una volta sola:
+Stato attuale: per **Nina**, Prologo, Libro X ed Epilogo non hanno ancora
+l'audio, e i testi di IV, VI, VII, VIII e IX sono cambiati dopo la revisione,
+quindi i loro MP3 vanno rifatti. I, II, III e V sono allineati. In una volta
+sola:
 
 ```bash
 python3 generate_elevenlabs.py nina 00 04 06 07 08 09 10 11
+```
+
+Per **Tilde** l'audio non è ancora stato registrato per nessun capitolo:
+
+```bash
+python3 generate_elevenlabs.py tilde
 ```
 
 Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
@@ -140,8 +213,9 @@ Una cartella per lingua sotto `stories/`, e una pagina per lingua:
 | Italiano | `stories/it/<libro>/` | `/` | `/nina/`, `/tilde/` |
 | English (UK) | `stories/en-GB/<libro>/` | `/en/` | `/en/nina/`, `/en/tilde/` |
 
-I libri stanno in `LIBRI`, in `build.py`, con titolo e riassunto per lingua. Un
-libro senza file `.md` in una lingua non sparisce: compare sullo scaffale come
+I libri stanno in `LIBRI`, in `build.py`, con titolo, riassunto e descrizione
+(quella che va nel meta-tag e nell'anteprima social) per lingua. Un libro
+senza file `.md` in una lingua non sparisce: compare sullo scaffale come
 «in preparazione».
 
 `build.py` genera tutte le lingue in `LINGUE`, dove stanno anche le stringhe
@@ -210,31 +284,83 @@ La pagina è online su **https://fiabe.vercel.app**.
 
 Il progetto Vercel è collegato a questo repository: ogni push su `main`
 pubblica una nuova versione. Ricordarsi quindi di eseguire `python3 build.py`
-e committare anche `index.html` rigenerato, altrimenti il sito resta indietro
-rispetto ai testi.
+e committare anche le pagine rigenerate (`index.html`, `nina/index.html`,
+`tilde/index.html`, `en/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`),
+altrimenti il sito resta indietro rispetto ai testi.
+
+## Autori
+
+**Fausto Chiantera** scrive i testi. **Deckard** presta la voce clonata per
+l'audio e cura il sito. Sono nomi d'arte, ma compaiono per esteso nei
+metadati della pagina (autore, dati strutturati) perché aiutano la ricerca ad
+associare le fiabe a chi le fa — vedi `AUTORE` e `VOCE_E_SITO` in `build.py`.
+
+## SEO e presenza nei motori di ricerca
+
+Ogni pagina generata da `build.py` porta, oltre al titolo e alla descrizione:
+
+- **Open Graph e Twitter Card** (`og:*`, `twitter:*`): titolo, descrizione,
+  URL, lingua e un'immagine di anteprima 1200&times;630 diversa per libro
+  (`assets/og-nina.png`, `assets/og-tilde.png`) o generica per lo scaffale
+  (`assets/og-default.png`). Le immagini sono ritagliate dalle stesse
+  illustrazioni SVG dello scaffale (`assets/meadow.svg`, `assets/burrow.svg`)
+  con `cairosvg` + Pillow, non disegnate a mano: se le illustrazioni cambiano,
+  vanno rigenerate allo stesso modo.
+- **Dati strutturati JSON-LD** (schema.org): `WebSite` con `hasPart` sullo
+  scaffale, `Book` su ogni pagina di libro, con autore e collaboratore.
+- **Icone**: `assets/favicon.svg` (vettoriale, usata dai browser moderni),
+  con fallback PNG (`favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`)
+  e un `manifest.json` per lingua (`start_url` e `scope` locali, non uno
+  solo condiviso: altrimenti installare il sito da `/en/` avrebbe aperto lo
+  scaffale italiano) generato da `build.py` per Android/Chrome.
+- **hreflang**: sia nella `<head>` di ogni pagina (`<link rel="alternate">`)
+  sia in `sitemap.xml` (`<xhtml:link>`), che è il formato che Google
+  raccomanda per non indicizzare una lingua e perdere l'altra.
+- `sitemap.xml` include anche `<lastmod>`, aggiornato a ogni build.
+
+Ogni libro ha la propria descrizione (`descrizione` dentro `LIBRI`, in
+`build.py`): occhio a non farla combaciare per tutti i libri se se ne
+aggiunge uno nuovo, perché è quello il testo che va nei risultati di ricerca
+e nell'anteprima social di quella pagina specifica.
+
+Per farsi scansionare rapidamente da Google, la generazione automatica di
+`sitemap.xml` e `robots.txt` (con `Sitemap:` che punta a esso) non basta da
+sola: bisogna registrare **https://fiabe.vercel.app** in
+[Google Search Console](https://search.google.com/search-console), inviare
+la sitemap da lì una volta, e poi usare "Controllo URL &rarr; Richiedi
+indicizzazione" sulle pagine nuove o molto cambiate. Google ha ritirato il
+vecchio ping automatico (`google.com/ping?sitemap=…`), quindi quel passaggio
+va fatto a mano da chi possiede il sito; Bing invece accetta ancora
+`https://www.bing.com/ping?sitemap=https://fiabe.vercel.app/sitemap.xml`.
 
 ## Struttura del progetto
 
 ```text
 fiabe/
-├── .gitignore                              # esclude voce e artefatti di sintesi
+├── .gitignore                 # esclude voce, artefatti di sintesi e note di lavoro
 ├── README.md
-├── build.py                                # genera index.html dai file .md
-├── index.html                              # generato: non modificare a mano
-├── generate.py                             # sintesi vocale locale (XTTS-v2, alternativa)
-├── generate_elevenlabs.py                  # sintesi vocale via API ElevenLabs
-├── launch.sh                               # lancia generate.py sganciato
-├── stories/                                # testi sorgente, ordinati per libro
-│   ├── 01lalucciolacheavevapauradelbuio.md # Libro I
-│   ├── 02lalucciolaelalanternastanca.md    # Libro II
-│   ├── 03lalucciolaelapiccolachenonvolevaaccendersi.md  # Libro III
-│   └── 04lalucciolaeilgrillocheperselavoce.md  # Libro IV
-├── ref/                                    # (ignorato) campione voce di riferimento
-├── audio/                                  # (ignorato, tranne gli MP3 finali)
-│   └── 11l-*.mp3                           # fiabe lette ad alta voce (versionate)
-└── chunks/                                 # (ignorato) blocchi intermedi
+├── build.py                   # genera tutte le pagine dai file .md, più sitemap e manifest
+├── generate.py                 # sintesi vocale locale (XTTS-v2, alternativa gratuita)
+├── generate_elevenlabs.py      # sintesi vocale via API ElevenLabs (voce clonata)
+├── launch.sh                   # lancia generate.py sganciato
+├── robots.txt
+├── sitemap.xml                  # generato da build.py: non modificare a mano
+├── manifest.json                # generato da build.py: manifest italiano
+├── index.html, nina/, tilde/    # italiano: generati, non modificare a mano
+├── en/                          # inglese: index.html, nina/, tilde/, manifest.json (generati)
+├── assets/
+│   ├── fiabe.css                # stile condiviso da tutte le pagine
+│   ├── meadow.svg, burrow.svg    # illustrazioni dello scaffale (Nina, Tilde)
+│   ├── favicon.svg, favicon-32.png, apple-touch-icon.png, icon-512.png
+│   └── og-nina.png, og-tilde.png, og-default.png  # anteprime social, 1200×630
+├── stories/
+│   ├── it/{nina,tilde}/NN<titolo-attaccato>.md
+│   └── en-GB/{nina,tilde}/NN<title-stuck-together>.md
+├── note/                        # (ignorato) tracce e scalette di lavoro
+├── ref/                         # (ignorato) campione voce di riferimento
+└── audio/                       # (ignorato, tranne gli MP3 finali 11l-*.mp3)
 ```
 
-I file `.opus` (il vocale di partenza), `ref/`, `audio/` e `chunks/` contengono
-la voce e gli artefatti di sintesi: restano fuori dal repository perché sono dati
-personali e/o rigenerabili.
+I file `.opus` (il vocale di partenza), `ref/`, `audio/` e `note/` restano
+fuori dal repository perché sono dati personali, rigenerabili, o appunti di
+lavoro che non servono a chi legge il sito.

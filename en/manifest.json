@@ -1,0 +1,30 @@
+{
+  "name": "Bedtime stories",
+  "short_name": "Fiabe",
+  "description": "Stories to be read aloud, one a night. Each book reads in the order it was written.",
+  "start_url": "/en/",
+  "scope": "/en/",
+  "display": "standalone",
+  "background_color": "#14241e",
+  "theme_color": "#14241e",
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
