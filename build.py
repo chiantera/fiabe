@@ -157,6 +157,21 @@ LINGUE = {
         "apri": "Open",
     },
 }
+LINGUE["it"].update({
+    "inizia": "Comincia a leggere", "prossima": "La prossima storia", "fine": "Buonanotte, a domani",
+    "hero": "Le storie belle.<br><em>Le sere insieme.</em>", "scopri": "Scegli una storia",
+    "biblioteca": "Il nostro piccolo scaffale",
+    "scaffale_nota": "Un prato, tante storie", "firma": "Dal prato ai piedi della collina. Con amore.",
+    "leggi_libro": "Entra nella storia",
+})
+LINGUE["en-GB"].update({
+    "inizia": "Start reading", "prossima": "The next story", "fine": "Goodnight, see you tomorrow",
+    "hero": "Little stories.<br><em>Evenings together.</em>", "scopri": "Choose a story",
+    "biblioteca": "Our little bookshelf",
+    "scaffale_nota": "One meadow, many stories", "firma": "From the meadow at the foot of the hill. With love.",
+    "leggi_libro": "Step into the story",
+})
+
 ROMANI = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
 PAROLE_AL_MINUTO = 130  # ritmo di lettura ad alta voce, non di lettura silenziosa
 
@@ -241,6 +256,7 @@ def raccogli(lingua, libro):
             ripresa = lingua["da_libro"].format(r=ROMANI[conta])
             conta += 1
 
+        f["slug"] = slug
         minuti = lingua["minuti_lettura"].format(m=f["minuti"])
         indice.append(
             f'<li><a href="#{slug}"><span class="numero">{numero_indice}</span>'
@@ -280,481 +296,24 @@ def raccogli(lingua, libro):
             f'      <div class="divisorio">{lucciole()}</div>\n'
             f"    </article>"
         )
+    for i, articolo in enumerate(articoli):
+        if i + 1 < len(articoli):
+            destinazione = "#" + fiabe[i + 1]["slug"]
+            titolo = inline(fiabe[i + 1]["titolo"])
+            testo = lingua["prossima"]
+        else:
+            destinazione = lingua["base"]
+            titolo = lingua["tutti_i_libri"]
+            testo = lingua["fine"]
+        navigazione = (f'<nav class="prossima" aria-label="{testo}">'
+                       f'<span class="etichetta">{testo}</span>'
+                       f'<a href="{destinazione}">{titolo} <span aria-hidden="true">&rarr;</span></a></nav>')
+        articoli[i] = articolo.replace('    </article>', navigazione + '\n    </article>')
     return fiabe, indice, articoli
 
 
-STILE = """
-  :root {
-    --ground: #edf0e6;
-    --paper: #f8faf3;
-    --ink: #1c241b;
-    --muted: #5f6a56;
-    --rule: #d5dbc8;
-    --accent: #6b7a1c;
-    --glow: #8c9e22;
-    --alone: rgba(140, 158, 34, 0.22);
-    --ombra: 0 1px 2px rgba(28, 36, 27, 0.05), 0 12px 32px -20px rgba(28, 36, 27, 0.35);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground: #0c1310;
-      --paper: #111a15;
-      --ink: #e4e9dc;
-      --muted: #8d9b86;
-      --rule: #22302a;
-      --accent: #c3d75f;
-      --glow: #d8ec6b;
-      --alone: rgba(216, 236, 107, 0.3);
-      --ombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 18px 40px -24px rgba(0, 0, 0, 0.8);
-    }
-  }
-  :root[data-theme="dark"] {
-    --ground: #0c1310;
-    --paper: #111a15;
-    --ink: #e4e9dc;
-    --muted: #8d9b86;
-    --rule: #22302a;
-    --accent: #c3d75f;
-    --glow: #d8ec6b;
-    --alone: rgba(216, 236, 107, 0.3);
-    --ombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 18px 40px -24px rgba(0, 0, 0, 0.8);
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    background: var(--ground);
-    color: var(--ink);
-    font-family: "Newsreader", Georgia, "Times New Roman", serif;
-    font-size: 1.1875rem;
-    line-height: 1.75;
-    font-optical-sizing: auto;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .pagina {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
-    max-width: 42rem;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem 5rem;
-  }
-
-  .etichetta {
-    margin: 0;
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* --- testata ------------------------------------------------------ */
-  .testata { display: flex; flex-direction: column; gap: 1rem; }
-  .testata-alto {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .testata h1 {
-    margin: 0;
-    font-family: "Young Serif", Georgia, serif;
-    font-weight: 400;
-    font-size: clamp(2.5rem, 9vw, 3.75rem);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .occhiello { display: flex; align-items: center; gap: 0.6rem; }
-  .testata .intro {
-    margin: 0;
-    max-width: 32rem;
-    color: var(--muted);
-    font-size: 1.0625rem;
-  }
-
-  .testata-azioni {
-    flex: none;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.75rem;
-  }
-  .lingua {
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 0.1rem;
-  }
-  .lingua:hover { color: var(--accent); border-color: var(--accent); }
-  .lingua:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-
-  .interruttore {
-    flex: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 0.85rem;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    background: var(--paper);
-    color: var(--muted);
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease;
-  }
-  .interruttore:hover { color: var(--accent); border-color: var(--accent); }
-  .interruttore::before {
-    content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--glow);
-    box-shadow: 0 0 0 4px var(--alone);
-  }
-
-  /* --- indice ------------------------------------------------------- */
-  .indice { display: flex; flex-direction: column; gap: 0.75rem; }
-  .indice ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
-  .indice li + li { border-top: 1px solid var(--rule); }
-  .indice a {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.7rem 0;
-    color: inherit;
-    text-decoration: none;
-  }
-  .indice a:hover .voce-titolo { color: var(--accent); }
-  .numero {
-    flex: none;
-    min-width: 2.75rem;
-    white-space: nowrap;
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--glow);
-  }
-  .voce-titolo { flex: 1; font-size: 1.0625rem; transition: color 0.2s ease; }
-  .voce-durata {
-    flex: none;
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* --- fiabe -------------------------------------------------------- */
-  .fiaba {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    box-shadow: var(--ombra);
-    padding: clamp(1.75rem, 6vw, 3.25rem);
-    scroll-margin-top: 1.5rem;
-  }
-  .fiaba-testata { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2.25rem; }
-  .fiaba h2 {
-    margin: 0;
-    font-family: "Young Serif", Georgia, serif;
-    font-weight: 400;
-    font-size: clamp(1.75rem, 5.5vw, 2.25rem);
-    line-height: 1.15;
-    text-wrap: balance;
-  }
-  .sottotitolo { margin: 0; color: var(--muted); font-style: italic; font-size: 1rem; }
-  .fiaba p { margin: 0 0 1.35em; }
-  .fiaba p:last-of-type { margin-bottom: 0; }
-
-  /* --- lettore audio ------------------------------------------------- */
-  .lettura {
-    margin: 0 0 2.25rem;
-    padding: 1rem 1.15rem;
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    background: var(--ground);
-  }
-  .lettura figcaption {
-    margin-bottom: 0.6rem;
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .lettura audio {
-    display: block;
-    width: 100%;
-    height: 2.4rem;
-  }
-  .lettura audio::-webkit-media-controls-panel {
-    background: transparent;
-  }
-
-  .apertura::first-letter {
-    float: left;
-    font-family: "Young Serif", Georgia, serif;
-    font-size: 3.6em;
-    line-height: 0.82;
-    padding: 0.06em 0.09em 0 0;
-    color: var(--accent);
-  }
-
-  .congedo {
-    font-family: "Young Serif", Georgia, serif;
-    font-size: 1.25rem;
-    color: var(--accent);
-  }
-
-  .divisorio { display: flex; justify-content: center; padding-top: 2.5rem; }
-  .lucciole { display: inline-flex; gap: 0.9rem; }
-  .lucciola {
-    width: 0.4rem;
-    height: 0.4rem;
-    border-radius: 50%;
-    background: var(--glow);
-    box-shadow: 0 0 0 5px var(--alone);
-    animation: respiro 4.4s ease-in-out infinite;
-    animation-delay: var(--ritardo);
-  }
-  @keyframes respiro {
-    0%, 100% { opacity: 0.22; transform: scale(0.85); }
-    45% { opacity: 1; transform: scale(1); }
-  }
-
-  .colophon {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: var(--muted);
-    font-size: 0.9375rem;
-  }
-  .colophon p { margin: 0; }
-
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  /* --- scala del testo: si legge ad alta voce, spesso al buio -------- */
-  :root { --scala: 1; }
-  body { font-size: calc(1.1875rem * var(--scala)); }
-
-  /* --- barra di servizio: compare quando si è dentro una fiaba ------- */
-  .barra {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem max(1.5rem, calc(50vw - 21rem + 1.5rem));
-    background: var(--ground);
-    background: color-mix(in srgb, var(--ground) 97%, transparent);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--rule);
-    transform: translateY(-105%);
-    transition: transform 0.22s ease;
-  }
-  .barra[data-visibile="si"] { transform: none; }
-  .barra .dove {
-    flex: 1 1 auto;
-    min-width: 0;
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.8125rem;
-    color: var(--muted);
-  }
-  .barra .dove-numero { font-weight: 600; color: var(--accent); flex: none; }
-  .barra .dove-titolo {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .barra-azioni { display: flex; align-items: center; gap: 0.25rem; flex: none; }
-
-  .tasto {
-    appearance: none;
-    border: 1px solid transparent;
-    background: none;
-    color: var(--muted);
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    line-height: 1;
-    padding: 0.5rem 0.6rem;
-    border-radius: 999px;
-    cursor: pointer;
-    min-height: 2.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-  .tasto:hover { color: var(--accent); border-color: var(--rule); }
-  .tasto:focus-visible,
-  .interruttore:focus-visible,
-  .indice a:focus-visible,
-  .riprendi a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 6px;
-  }
-  .tasto .aa-piccola { font-size: 0.7em; }
-
-  /* --- riprendi da dove si era rimasti ------------------------------- */
-  .riprendi {
-    display: none;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    background: var(--paper);
-    box-shadow: var(--ombra);
-  }
-  .riprendi[data-visibile="si"] { display: flex; }
-  .riprendi a {
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    flex: 1 1 auto;
-  }
-  .riprendi a:hover { text-decoration: underline; }
-
-  /* --- segno sulle fiabe già raggiunte ------------------------------- */
-  .indice li[data-letta="si"] .numero::after {
-    content: "";
-    display: inline-block;
-    width: 0.3rem;
-    height: 0.3rem;
-    margin-left: 0.35rem;
-    border-radius: 50%;
-    background: var(--accent);
-    vertical-align: 0.15em;
-  }
-  .indice li[data-letta="si"] .voce-titolo { color: var(--muted); }
-
-  /* --- lo scaffale -------------------------------------------------- */
-  .pagina-scaffale { gap: 2.5rem; }
-  .scaffale {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-  .scheda {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 1.5rem;
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    background: var(--paper);
-    box-shadow: var(--ombra);
-  }
-  .scheda h2 {
-    margin: 0;
-    font-family: "Young Serif", Georgia, serif;
-    font-weight: 400;
-    font-size: clamp(1.6rem, 5vw, 2.1rem);
-    line-height: 1.1;
-    text-wrap: balance;
-  }
-  .scheda h2 a { color: inherit; text-decoration: none; }
-  .scheda h2 a:hover { color: var(--accent); }
-  .scheda h2 a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-  .scheda .riassunto { margin: 0; color: var(--muted); font-size: 1.0625rem; }
-  .scheda .quante {
-    margin: 0.35rem 0 0;
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .scheda-attesa { opacity: 0.66; border-style: dashed; box-shadow: none; }
-  .ripresa-libro { display: none; margin: 0.5rem 0 0; }
-  .ripresa-libro[data-visibile="si"] { display: block; }
-  .ripresa-libro a {
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .ripresa-libro a:hover { text-decoration: underline; }
-
-  /* --- ritorno allo scaffale ---------------------------------------- */
-  .briciola { margin: 0 0 -0.35rem; }
-  .briciola a, .dove-libro {
-    font-family: "Karla", system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-  }
-  .briciola a:hover, .dove-libro:hover { color: var(--accent); }
-  .dove-libro { flex: none; padding-right: 0.25rem; }
-  .briciola a:focus-visible, .dove-libro:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-
-  /* --- ancore: non finire sotto la barra ----------------------------- */
-  .fiaba { scroll-margin-top: 4.25rem; }
-  .indice { scroll-margin-top: 4.25rem; }
-
-  /* --- il lettore audio è il comando più usato al buio --------------- */
-  .lettura audio { width: 100%; min-height: 2.75rem; }
-
-  @media (max-width: 30rem) {
-    .barra { padding-left: 1rem; padding-right: 1rem; gap: 0.5rem; }
-    .barra .dove-titolo { display: none; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .barra { transition: none; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .lucciola { animation: none; opacity: 0.9; }
-    * { transition-duration: 0.01ms !important; }
-  }
-"""
+with open(os.path.join(SRC, "assets", "fiabe.css"), encoding="utf-8") as fp:
+    STILE = fp.read()
 
 SCAFFALE_SCRIPT = """
   (function () {
@@ -968,10 +527,11 @@ SCRIPT = """
     }
 
     // la barra serve dentro le fiabe, non in cima alla pagina
-    var soglia = document.querySelector(".indice");
     function aggiornaBarra() {
-      var dentro = soglia.getBoundingClientRect().bottom < 0;
-      barra.setAttribute("data-visibile", dentro && corrente ? "si" : "no");
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
     }
     window.addEventListener("scroll", aggiornaBarra, { passive: true });
     aggiornaBarra();
@@ -1005,13 +565,13 @@ def guscio(lingua, titolo_tab, descrizione, url, corpo, script):
 <html lang="{lingua["lang"]}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{titolo_tab}</title>
 <meta name="description" content="{descrizione}">
 <link rel="canonical" href="{SITO}{lingua["base"]}{url}">
 {alternative}
 {FONTS}
-<style>{STILE}</style>
+<link rel="stylesheet" href="/assets/fiabe.css">
 <script>{PRESCRIPT}</script>
 </head>
 <body>
@@ -1062,7 +622,8 @@ def pagina(codice, lingua, libro):
 
     scambio = cambio_lingua(codice, libro["cartella"] + "/")
     titolo_sito = voce["titolo"]
-    corpo = f"""<div class="barra" id="barra" data-visibile="no">
+    corpo = f'''<a class="skip-link" href="#indice">{lingua["indice"]}</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
     <a class="tasto" href="#indice">&#9650;&nbsp;{lingua["indice"]}</a>
     <p class="dove" id="dove">
       <a class="dove-libro" href="{lingua["base"]}" title="{lingua["tutti_i_libri"]}">{voce["nome_breve"]}</a>
@@ -1076,13 +637,10 @@ def pagina(codice, lingua, libro):
     </span>
   </div>
 
-  <div class="pagina">
+  <main class="pagina">
     <header class="testata">
       <div class="testata-alto">
-        <div class="occhiello">
-          {lucciole()}
-          <p class="etichetta">{lingua["occhiello"]}</p>
-        </div>
+        <a class="marchio" href="{lingua["base"]}" aria-label="{lingua["tutti_i_libri"]}">fiabe</a>
         <span class="testata-azioni">
           {scambio}
           <button class="interruttore" id="interruttore" type="button">{lingua["spegni"]}</button>
@@ -1091,6 +649,10 @@ def pagina(codice, lingua, libro):
       <p class="briciola"><a href="{lingua["base"]}">{lingua["torna_scaffale"]}</a></p>
       <h1>{titolo_sito}</h1>
       <p class="intro">{voce["riassunto"]}</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#{fiabe[0]['slug']}">{lingua["inizia"]} <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">{lingua["in_tutto"].format(m=totale_minuti)}</p>
+      </div>
     </header>
 
     <p class="riprendi" id="riprendi" data-visibile="no">
@@ -1111,7 +673,7 @@ def pagina(codice, lingua, libro):
       <p class="etichetta">{lingua["colophon"]}</p>
       <p>{lingua["colophon_testo"].format(n=numero_fiabe, coda=coda, p=parole, wpm=PAROLE_AL_MINUTO)}</p>
     </footer>
-  </div>"""
+  </main>'''
 
     script = SCRIPT.replace("/*TRADUZIONI*/",
                             traduzioni_js(lingua, {"memoria": "fiabe:" + libro["cartella"]}))
@@ -1164,47 +726,56 @@ def scaffale(codice, lingua, schede):
                 n=s["quante"], m=s["minuti"])
             righe.append(
                 f'      <li class="scheda">\n'
-                f'        <p class="etichetta">{s["occhiello"]}</p>\n'
+                f'        <a class="copertina" href="{lingua["base"]}{s["cartella"]}/" tabindex="-1" aria-hidden="true">'
+                f'<img src="/assets/{"meadow" if s["cartella"] == "nina" else "burrow"}.svg" width="800" height="560" alt="" loading="lazy"></a>\n'
+                f'        <div class="scheda-corpo"><p class="etichetta">{s["occhiello"]}</p>\n'
                 f'        <h2><a href="{lingua["base"]}{s["cartella"]}/">{s["titolo"]}</a></h2>\n'
                 f'        <p class="riassunto">{s["riassunto"]}</p>\n'
                 f'        <p class="quante">{quante}</p>\n'
                 f'        <p class="ripresa-libro" data-libro="fiabe:{s["cartella"]}"'
                 f' data-base="{lingua["base"]}{s["cartella"]}/" data-testo="{lingua["sei_a"]}"'
                 f' data-etichette="{html.escape(json.dumps(s["etichette"], ensure_ascii=False), quote=True)}"></p>\n'
+                f'        <a class="scheda-link" href="{lingua["base"]}{s["cartella"]}/">{lingua["leggi_libro"]} <span aria-hidden="true">&rarr;</span></a></div>\n'
                 f'      </li>'
             )
         else:
             righe.append(
-                f'      <li class="scheda scheda-attesa">\n'
+                f'      <li class="scheda scheda-attesa"><div class="scheda-corpo">\n'
                 f'        <p class="etichetta">{s["occhiello"]}</p>\n'
                 f'        <h2>{s["titolo"]}</h2>\n'
                 f'        <p class="riassunto">{s["riassunto"]}</p>\n'
-                f'        <p class="quante">{lingua["in_preparazione"]}</p>\n'
+                f'        <p class="quante">{lingua["in_preparazione"]}</p></div>\n'
                 f'      </li>'
             )
 
-    corpo = f"""<div class="pagina pagina-scaffale">
+    corpo = f"""<a class="skip-link" href="#scaffale">{lingua["tutti_i_libri"]}</a>
+  <main class="pagina pagina-scaffale">
     <header class="testata">
       <div class="testata-alto">
-        <div class="occhiello">
-          {lucciole()}
-          <p class="etichetta">{lingua["occhiello"]}</p>
-        </div>
+        <a class="marchio" href="{lingua["base"]}" aria-label="{lingua["tutti_i_libri"]}">fiabe</a>
         <span class="testata-azioni">
           {cambio_lingua(codice, "")}
           <button class="interruttore" id="interruttore" type="button">{lingua["spegni"]}</button>
         </span>
       </div>
-      <h1>{lingua["scaffale"]}</h1>
-      <p class="intro">{lingua["scaffale_intro"]}</p>
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="etichetta">{lingua["occhiello"]}</p>
+          <h1>{lingua["hero"]}</h1>
+          <p class="intro">{lingua["scaffale_intro"]}</p>
+          <a class="bottone" href="#scaffale">{lingua["scopri"]} <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
     </header>
 
-    <nav aria-label="{lingua["tutti_i_libri"]}">
+    <nav id="scaffale" aria-label="{lingua["tutti_i_libri"]}">
+      <div class="sezione-titolo"><h2>{lingua["biblioteca"]}</h2><span>{lingua["scaffale_nota"]}</span></div>
       <ol class="scaffale">
 {chr(10).join(righe)}
       </ol>
     </nav>
-  </div>"""
+    <footer class="scaffale-footer"><p>{lingua["firma"]}</p>{lucciole()}</footer>
+  </main>"""
 
     script = SCAFFALE_SCRIPT.replace("/*TRADUZIONI*/", traduzioni_js(lingua))
     html_pagina = guscio(lingua, lingua["scaffale"].replace("&rsquo;", "\u2019"),

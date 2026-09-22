@@ -121,6 +121,10 @@ Note:
 python3 build.py
 ```
 
+Lo stile condiviso si modifica in `assets/fiabe.css`; le illustrazioni dello
+scaffale sono `assets/meadow.svg` e `assets/burrow.svg`. Tutte le pagine usano
+gli stessi asset, senza dipendenze di compilazione aggiuntive.
+
 Lo script rilegge tutti i file `stories/<lingua>/<libro>/[0-9][0-9]*.md` in ordine e ricostruisce indice,
 tempi di lettura e colophon. Per aggiungere una fiaba basta creare in `stories/`
 in `stories/<lingua>/<libro>/` un file `NN<titolo-attaccato-minuscolo>.md` (`00` è il prologo) con la stessa
@@ -167,9 +171,11 @@ python3 -m http.server 8000
 Chi legge lo fa quasi sempre di sera, col telefono in mano e la luce bassa, una
 fiaba per volta. La pagina tiene conto di questo:
 
-- **Barra in alto**: compare quando si è dentro una fiaba e dice a quale si è
-  arrivati. Da lì si torna all'indice, si cambia la dimensione del testo e si
-  cambia il tema, senza dover risalire.
+- **Barra in basso**: compare quando si è dentro una fiaba, a portata di pollice,
+  e rispetta l'area sicura del telefono. Da lì si torna all'indice, si cambia la
+  dimensione del testo e si cambia il tema, senza dover risalire.
+- **Comincia a leggere**: apre la prima storia direttamente; alla fine di ogni
+  capitolo un collegamento porta al successivo, e alla fine del libro allo scaffale.
 - **Riprendi**: ogni libro ricorda per conto suo l'ultima fiaba raggiunta e la
   propone in cima alla visita dopo. Nell'indice le fiabe già passate hanno un
   pallino, e sullo scaffale ogni libro dice dove si era rimasti.
