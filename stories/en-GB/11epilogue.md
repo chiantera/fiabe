@@ -50,9 +50,15 @@ Now, down at the bottom.
 
 Can you see them?
 
-Nina and Rocco aren't there any more, and neither is Bea, because a great deal of time has passed. Those are their granddaughters, and their granddaughters' granddaughters, and they know nothing at all about the two of us watching them through the glass.
+Rocco has been gone a very long time, and so has Bea. Those are their granddaughters, and their granddaughters' granddaughters, and they know nothing at all about the two of us watching them through the glass.
 
-But the song you can hear — the crooked thin one, that everybody gets wrong in their own way — is still his.
+About Nina, though, nobody knows.
+
+One September night she went over the hedge and never came back. But nobody saw her go out, and that isn't the same thing.
+
+When I was your age, some evenings I used to look down there — not at the meadow: at the dark part after it, where the grass stops. Just in case.
+
+And the song you can hear now — the crooked thin one, that everybody gets wrong in their own way — is still his. But they sing it every evening for another reason too, and now you know what it is.
 
 Look as long as you like. They won't run off.
 

@@ -50,9 +50,15 @@ Adesso, giù in fondo.
 
 Li vedi?
 
-Non ci sono più Nina e Rocco, e non c'è più nemmeno Bea, perché è passato tanto tempo. Quelle sono le loro nipoti, e le nipoti delle loro nipoti, e non sanno niente di noi due che le guardiamo dal vetro.
+Rocco non c'è più da tantissimo tempo, e nemmeno Bea. Quelle sono le loro nipoti, e le nipoti delle loro nipoti, e non sanno niente di noi due che le guardiamo dal vetro.
 
-Ma la canzone che senti — quella storta, sottile, che ognuno sbaglia a modo suo — è ancora la sua.
+Di Nina, invece, non lo sa nessuno.
+
+Una notte di settembre ha passato la siepe e non è più tornata. Ma nessuno l'ha vista spegnersi, e non è la stessa cosa.
+
+Quando avevo la tua età, certe sere guardavo laggiù in fondo — non il prato: il pezzo scuro dopo, dove l'erba finisce. Così, per sicurezza.
+
+E la canzone che senti adesso — quella storta, sottile, che ognuno sbaglia a modo suo — è ancora la sua. Ma la cantano tutte le sere anche per un'altra ragione, e adesso la sai.
 
 Guarda quanto vuoi. Non scappano.
 
