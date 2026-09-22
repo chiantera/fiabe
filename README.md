@@ -86,9 +86,11 @@ e l'Epilogo nemmeno: chi ascolta può tenersi la porta aperta quanto vuole.
   (Libro III); Nina la aiuta come Rocco aveva aiutato lei. Cresce, diventa una
   guida per tutto il prato, e nel Libro ottavo è la sua luce a spegnersi —
   stavolta è Nina a ritrovarla al buio.
-- **Chi scese dalla collina** — mai nominato: il bambino della casa in cima
-  alla collina, la stessa voce che racconta tutte le fiabe da grande. Compare
-  di persona nel Libro sesto, sceso a vedere il prato acceso da vicino.
+- **Chi scese dalla collina** — mai nominata nelle fiabe di Nina, ma una
+  lucciola la chiama «una bambina» nel Libro undicesimo di Tilde: è lei la
+  bambina della casa in cima alla collina, la stessa voce che racconta tutte
+  le fiabe da grande. Compare di persona nel Libro sesto, scesa a vedere il
+  prato acceso da vicino.
 - **Le lucciole nuove** — le generazioni che non hanno mai conosciuto Rocco,
   ma cantano ancora la sua canzone senza sapere perché; nel Libro nono lo
   chiedono a Nina, e lei gliela racconta.
