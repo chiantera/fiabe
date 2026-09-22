@@ -88,6 +88,29 @@ SCENES['nina:00'] = ('La finestra e il prato', window_scene)
 SCENES['nina:01'] = ('Nina accompagna Rocco lungo il ruscello', lambda: meadow()+creek()+tree(675,80,.65)+clover(150,485,1.3)+fly(320,350,1.5)+cricket(395,438,1.2)+grass())
 SCENES['nina:02'] = ('Due amici guardano le stelle, sul sasso', lambda: meadow()+creek()+stone(335,459,1.4)+fly(289,361,1.25,False)+cricket(382,371,1.25)+grass())
 
+def root_scene():
+    return meadow(False)+tree(410,-195,1.65)+path('M196 505Q394 375 615 506Z','#50694e')
+
+def girl(x,y,s=1):
+    b=path('M-32-35Q-47-91 0-100 47-95 34-35Z','#4b4938')
+    b+=ellipse(0,-61,27,31,'#c9aa80')+path('M-29-68Q-26-105 17-91L32-66Q4-70-7-86-15-68-29-68Z','#4b4938')
+    b+=path('M-25-30Q-43 3-36 42H40Q45 0 23-30Z','#8f9a78')
+    b+=path('M-28 2Q-65 36-96 29','none','#c9aa80',12)
+    b+=path('M-30 41Q-53 68-78 63M31 40Q57 70 81 64','none','#64755a',19)
+    return group(b,x,y,s)
+
+def nina_window():
+    b=sky(False)+path('M170 0H800V560H170Z','#536450')
+    b+=path('M280 70H694V473H280Z','#a99b73')+path('M299 90H675V450H299Z','#d4bd88')
+    b+=girl(540,343,1.25)+path('M302 381Q440 327 675 390V451H302Z','#7f9478')
+    b+=path('M481 87V453M300 254H678','none','#8d815f',13)
+    b+=path('M256 456H717V484H256Z','#b6a27a')+fly(411,281,1.4)
+    return b+clover(106,590,1.2)
+
+SCENES['nina:03'] = ('Nina e Bea si tengono compagnia sotto il trifoglio', lambda: meadow(False)+clover(411,510,2.4)+fly(333,445,1.1,False)+fly(423,455,.75,False,True)+grass())
+SCENES['nina:04'] = ('Rocco ascolta la canzone delle nuove lucciole', lambda: root_scene()+cricket(395,433,1.5,True)+fly(215,369,.8)+fly(547,351,.8,True,True)+fly(493,270,.65)+fly(299,291,.65)+fly(609,416,.6,True,True)+grass())
+SCENES['nina:05'] = ('Nina incontra la bambina dietro la finestra', nina_window)
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
