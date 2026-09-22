@@ -19,6 +19,44 @@ SPECIALI = {"prologo", "prologue", "epilogo", "epilogue"}
 
 # Una lingua per cartella. "uscita" è il file generato, "base" il prefisso
 # degli URL. L'italiano sta alla radice perché era lì da prima.
+# Un libro per cartella. L'ordine è quello dello scaffale.
+LIBRI = [
+    {
+        "cartella": "nina",
+        "it": {
+            "titolo": "Le fiabe di Nina",
+            "nome_breve": "Nina",
+            "occhiello": "Libro primo",
+            "riassunto": ("Una lucciola che impara ad accendersi, a spegnersi e a lasciare "
+                          "che sia un&rsquo;altra ad accendersi da sola."),
+        },
+        "en-GB": {
+            "titolo": "Nina&rsquo;s stories",
+            "nome_breve": "Nina",
+            "occhiello": "Book one",
+            "riassunto": ("A firefly who learns to light up, to put herself out, and to let "
+                          "someone else come to it on her own."),
+        },
+    },
+    {
+        "cartella": "tilde",
+        "it": {
+            "titolo": "Le fiabe di Tilde",
+            "nome_breve": "Tilde",
+            "occhiello": "Libro secondo",
+            "riassunto": ("La vecchia talpa del prato, quella che non trovava mai la porta di "
+                          "casa. Vista da sotto, dove la porta la trova benissimo."),
+        },
+        "en-GB": {
+            "titolo": "Tilde&rsquo;s stories",
+            "nome_breve": "Tilde",
+            "occhiello": "Book two",
+            "riassunto": ("The old mole from the meadow, the one who could never find her own "
+                          "front door. Seen from below, where she finds it perfectly well."),
+        },
+    },
+]
+
 LINGUE = {
     "it": {
         "cartella": "it",
@@ -58,6 +96,16 @@ LINGUE = {
         "testo_piu": "Testo pi&ugrave; grande",
         "cambia_tema": "Cambia tema",
         "altra_lingua": "English",
+        "scaffale": "Le fiabe della buonanotte",
+        "scaffale_intro": ("Storie da leggere ad alta voce, una per sera. Ogni libro si legge "
+                           "nell&rsquo;ordine in cui &egrave; scritto."),
+        "tutti_i_libri": "Tutti i libri",
+        "torna_scaffale": "&#9664;&nbsp;I libri",
+        "quante": "{n} fiabe &middot; {m} minuti",
+        "una_fiaba": "1 fiaba &middot; {m} minuti",
+        "in_preparazione": "In preparazione",
+        "sei_a": "Riprendi {d}",
+        "apri": "Apri",
     },
     "en-GB": {
         "cartella": "en-GB",
@@ -97,6 +145,16 @@ LINGUE = {
         "testo_piu": "Larger text",
         "cambia_tema": "Change theme",
         "altra_lingua": "Italiano",
+        "scaffale": "Bedtime stories",
+        "scaffale_intro": ("Stories to be read aloud, one a night. Each book reads in the order "
+                           "it was written."),
+        "tutti_i_libri": "All the books",
+        "torna_scaffale": "&#9664;&nbsp;The books",
+        "quante": "{n} stories &middot; {m} minutes",
+        "una_fiaba": "1 story &middot; {m} minutes",
+        "in_preparazione": "In preparation",
+        "sei_a": "Resume {d}",
+        "apri": "Open",
     },
 }
 ROMANI = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
@@ -159,9 +217,9 @@ def audio_per(cartella_audio, numero):
     return None
 
 
-def raccogli(lingua):
-    """Legge le fiabe di una lingua e prepara indice e articoli."""
-    cartella = os.path.join(STORIE, lingua["cartella"])
+def raccogli(lingua, libro):
+    """Legge le fiabe di un libro in una lingua e prepara indice e articoli."""
+    cartella = os.path.join(STORIE, lingua["cartella"], libro["cartella"])
     fiabe = [leggi(f) for f in sorted(glob.glob(os.path.join(cartella, "[0-9][0-9]*.md")))]
 
     indice, articoli = [], []
@@ -200,7 +258,7 @@ def raccogli(lingua):
             attr = f' class="{" ".join(classi)}"' if classi else ""
             corpo.append(f"      <p{attr}>{inline(par)}</p>")
 
-        audio = audio_per(lingua["audio"], f["numero"])
+        audio = audio_per(os.path.join(lingua["audio"], libro["cartella"]), f["numero"])
         lettore = ""
         if audio:
             lettore = (
@@ -601,6 +659,82 @@ STILE = """
   }
   .indice li[data-letta="si"] .voce-titolo { color: var(--muted); }
 
+  /* --- lo scaffale -------------------------------------------------- */
+  .pagina-scaffale { gap: 2.5rem; }
+  .scaffale {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .scheda {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    background: var(--paper);
+    box-shadow: var(--ombra);
+  }
+  .scheda h2 {
+    margin: 0;
+    font-family: "Young Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  .scheda h2 a { color: inherit; text-decoration: none; }
+  .scheda h2 a:hover { color: var(--accent); }
+  .scheda h2 a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .scheda .riassunto { margin: 0; color: var(--muted); font-size: 1.0625rem; }
+  .scheda .quante {
+    margin: 0.35rem 0 0;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scheda-attesa { opacity: 0.66; border-style: dashed; box-shadow: none; }
+  .ripresa-libro { display: none; margin: 0.5rem 0 0; }
+  .ripresa-libro[data-visibile="si"] { display: block; }
+  .ripresa-libro a {
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .ripresa-libro a:hover { text-decoration: underline; }
+
+  /* --- ritorno allo scaffale ---------------------------------------- */
+  .briciola { margin: 0 0 -0.35rem; }
+  .briciola a, .dove-libro {
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .briciola a:hover, .dove-libro:hover { color: var(--accent); }
+  .dove-libro { flex: none; padding-right: 0.25rem; }
+  .briciola a:focus-visible, .dove-libro:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
   /* --- ancore: non finire sotto la barra ----------------------------- */
   .fiaba { scroll-margin-top: 4.25rem; }
   .indice { scroll-margin-top: 4.25rem; }
@@ -620,6 +754,56 @@ STILE = """
     .lucciola { animation: none; opacity: 0.9; }
     * { transition-duration: 0.01ms !important; }
   }
+"""
+
+SCAFFALE_SCRIPT = """
+  (function () {
+    var T = /*TRADUZIONI*/;
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var interruttore = document.getElementById("interruttore");
+
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    interruttore.addEventListener("click", function () {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    });
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    // per ogni libro, dove si era arrivati
+    var righe = document.querySelectorAll(".ripresa-libro");
+    Array.prototype.forEach.call(righe, function (riga) {
+      var ancora = leggi(riga.getAttribute("data-libro") + ":ultima");
+      if (!ancora) { return; }
+      var a = document.createElement("a");
+      a.setAttribute("href", riga.getAttribute("data-base") + "#" + ancora);
+      var etichette = {};
+      try { etichette = JSON.parse(riga.getAttribute("data-etichette") || "{}"); } catch (e) { etichette = {}; }
+      var dove = etichette[ancora];
+      if (!dove) { return; }
+      a.textContent = riga.getAttribute("data-testo").replace("{d}", dove);
+      riga.appendChild(a);
+      riga.setAttribute("data-visibile", "si");
+    });
+  })();
 """
 
 PRESCRIPT = """
@@ -726,12 +910,12 @@ SCRIPT = """
       });
     }
 
-    var arrivata = parseInt(leggi("fiabe:arrivata"), 10);
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
     if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
     segnaLette(arrivata);
 
     // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
-    var ultima = leggi("fiabe:ultima");
+    var ultima = leggi(T.memoria + ":ultima");
     if (ultima) {
       var bersaglio = document.getElementById(ultima);
       if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
@@ -766,12 +950,12 @@ SCRIPT = """
         doveNumero.textContent = d.numero;
         // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
         doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
-        scrivi("fiabe:ultima", d.id);
+        scrivi(T.memoria + ":ultima", d.id);
 
         var indice = fiabe.indexOf(attiva);
         if (indice > arrivata) {
           arrivata = indice;
-          scrivi("fiabe:arrivata", String(arrivata));
+          scrivi(T.memoria + ":arrivata", String(arrivata));
           segnaLette(arrivata);
         }
 
@@ -811,10 +995,60 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
 
 
 
-def pagina(codice, lingua):
-    fiabe, indice, articoli = raccogli(lingua)
+def guscio(lingua, titolo_tab, descrizione, url, corpo, script):
+    """Mette insieme una pagina completa."""
+    alternative = "\n".join(
+        f'<link rel="alternate" hreflang="{l["lang"]}" href="{SITO}{l["base"]}{url}">'
+        for l in LINGUE.values()
+    ) + f'\n<link rel="alternate" hreflang="x-default" href="{SITO}/{url}">'
+    return f"""<!doctype html>
+<html lang="{lingua["lang"]}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{titolo_tab}</title>
+<meta name="description" content="{descrizione}">
+<link rel="canonical" href="{SITO}{lingua["base"]}{url}">
+{alternative}
+{FONTS}
+<style>{STILE}</style>
+<script>{PRESCRIPT}</script>
+</head>
+<body>
+{corpo}
+<script>{script}</script>
+</body>
+</html>
+"""
+
+
+def traduzioni_js(lingua, extra=None):
+    d = {
+        "accendi": lingua["accendi"],
+        "spegni": lingua["spegni"],
+        "temaChiaro": lingua["tema_chiaro"],
+        "temaScuro": lingua["tema_scuro"],
+        "riprendi": lingua["riprendi"],
+    }
+    if extra:
+        d.update(extra)
+    return json.dumps(d, ensure_ascii=False)
+
+
+def scrivi(lingua, url, html_pagina):
+    destinazione = os.path.join(SRC, lingua["base"].strip("/").replace("/", os.sep), url, "index.html")
+    destinazione = os.path.normpath(destinazione)
+    os.makedirs(os.path.dirname(destinazione), exist_ok=True)
+    with open(destinazione, "w", encoding="utf-8") as fp:
+        fp.write(html_pagina)
+    return os.path.relpath(destinazione, SRC)
+
+
+def pagina(codice, lingua, libro):
+    fiabe, indice, articoli = raccogli(lingua, libro)
     if not fiabe:
         return None
+    voce = libro[codice]
 
     totale_minuti = sum(f["minuti"] for f in fiabe)
     numero_fiabe = sum(1 for f in fiabe if not f["speciale"])
@@ -826,16 +1060,12 @@ def pagina(codice, lingua):
              if f["speciale"] and f["chiave"] in lingua["extra_nome"]]
     coda = ", " + lingua["extra_giunzione"].join(pezzi) if pezzi else ""
 
-    altre = [(c, l) for c, l in LINGUE.items() if c != codice]
-    scambio = "".join(
-        f'<a class="lingua" href="{l["base"]}" hreflang="{l["lang"]}" lang="{l["lang"]}">{l["nome"]}</a>'
-        for _, l in altre
-    )
-
-    titolo_sito = lingua["sito"]
+    scambio = cambio_lingua(codice, libro["cartella"] + "/")
+    titolo_sito = voce["titolo"]
     corpo = f"""<div class="barra" id="barra" data-visibile="no">
     <a class="tasto" href="#indice">&#9650;&nbsp;{lingua["indice"]}</a>
     <p class="dove" id="dove">
+      <a class="dove-libro" href="{lingua["base"]}" title="{lingua["tutti_i_libri"]}">{voce["nome_breve"]}</a>
       <span class="dove-numero" id="dove-numero"></span>
       <span class="dove-titolo" id="dove-titolo"></span>
     </p>
@@ -858,8 +1088,9 @@ def pagina(codice, lingua):
           <button class="interruttore" id="interruttore" type="button">{lingua["spegni"]}</button>
         </span>
       </div>
+      <p class="briciola"><a href="{lingua["base"]}">{lingua["torna_scaffale"]}</a></p>
       <h1>{titolo_sito}</h1>
-      <p class="intro">{lingua["intro"].format(n=numero_fiabe)}</p>
+      <p class="intro">{voce["riassunto"]}</p>
     </header>
 
     <p class="riprendi" id="riprendi" data-visibile="no">
@@ -882,77 +1113,144 @@ def pagina(codice, lingua):
     </footer>
   </div>"""
 
-    # le stringhe che servono al JavaScript
-    tr = json.dumps({
-        "accendi": lingua["accendi"],
-        "spegni": lingua["spegni"],
-        "temaChiaro": lingua["tema_chiaro"],
-        "temaScuro": lingua["tema_scuro"],
-        "riprendi": lingua["riprendi"],
-    }, ensure_ascii=False)
-    script = SCRIPT.replace("/*TRADUZIONI*/", tr)
+    script = SCRIPT.replace("/*TRADUZIONI*/",
+                            traduzioni_js(lingua, {"memoria": "fiabe:" + libro["cartella"]}))
 
-    titolo = f"<title>{titolo_sito}</title>"
-    canonico = SITO + lingua["base"]
-    alternative = "\n".join(
-        f'<link rel="alternate" hreflang="{l["lang"]}" href="{SITO}{l["base"]}">'
-        for l in LINGUE.values()
-    ) + f'\n<link rel="alternate" hreflang="x-default" href="{SITO}/">'
+    html_pagina = guscio(
+        lingua,
+        voce["titolo"].replace("&rsquo;", "\u2019"),
+        lingua["descrizione"].format(n=numero_fiabe),
+        libro["cartella"] + "/",
+        corpo,
+        script,
+    )
+    uscita = scrivi(lingua, libro["cartella"], html_pagina)
 
-    pagina_html = f"""<!doctype html>
-<html lang="{lingua["lang"]}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{titolo}
-<meta name="description" content="{lingua["descrizione"].format(n=numero_fiabe)}">
-<link rel="canonical" href="{canonico}">
-{alternative}
-{FONTS}
-<style>{STILE}</style>
-<script>{PRESCRIPT}</script>
-</head>
-<body>
-{corpo}
-<script>{script}</script>
-</body>
-</html>
-"""
-    destinazione = os.path.join(SRC, lingua["uscita"])
-    os.makedirs(os.path.dirname(destinazione) or SRC, exist_ok=True)
-    with open(destinazione, "w", encoding="utf-8") as fp:
-        fp.write(pagina_html)
-
-    # versione per l'Artifact, solo per la lingua principale
     fuori = os.environ.get("SCRATCH")
-    if fuori and codice == "it":
+    if fuori and codice == "it" and libro["cartella"] == "nina":
         with open(os.path.join(fuori, "fiabe-di-nina.html"), "w", encoding="utf-8") as fp:
-            fp.write(f"{titolo}\n{FONTS}\n<style>{STILE}</style>\n<script>{PRESCRIPT}</script>\n{corpo}\n<script>{script}</script>\n")
+            fp.write(f"<title>{voce['titolo']}</title>\n{FONTS}\n<style>{STILE}</style>\n"
+                     f"<script>{PRESCRIPT}</script>\n{corpo}\n<script>{script}</script>\n")
 
-    return fiabe, lingua["uscita"]
+    etichette = {}
+    conta2 = 0
+    for f in fiabe:
+        if f["speciale"]:
+            ep = "epilog" in f["chiave"]
+            etichette["epilogo" if ep else "prologo"] = lingua["da_epilogo" if ep else "da_prologo"]
+        else:
+            etichette[f"libro-{conta2 + 1}"] = lingua["da_libro"].format(r=ROMANI[conta2])
+            conta2 += 1
+
+    return {"fiabe": fiabe, "uscita": uscita, "minuti": totale_minuti, "etichette": etichette,
+            "quante": numero_fiabe, "titolo": voce["titolo"],
+            "riassunto": voce["riassunto"], "occhiello": voce["occhiello"],
+            "cartella": libro["cartella"]}
+
+
+def cambio_lingua(codice, url):
+    return "".join(
+        f'<a class="lingua" href="{l["base"]}{url}" hreflang="{l["lang"]}" lang="{l["lang"]}">{l["nome"]}</a>'
+        for c, l in LINGUE.items() if c != codice
+    )
+
+
+def scaffale(codice, lingua, schede):
+    """La pagina che elenca i libri."""
+    righe = []
+    for s in schede:
+        if s["pronto"]:
+            quante = (lingua["una_fiaba"] if s["quante"] == 1 else lingua["quante"]).format(
+                n=s["quante"], m=s["minuti"])
+            righe.append(
+                f'      <li class="scheda">\n'
+                f'        <p class="etichetta">{s["occhiello"]}</p>\n'
+                f'        <h2><a href="{lingua["base"]}{s["cartella"]}/">{s["titolo"]}</a></h2>\n'
+                f'        <p class="riassunto">{s["riassunto"]}</p>\n'
+                f'        <p class="quante">{quante}</p>\n'
+                f'        <p class="ripresa-libro" data-libro="fiabe:{s["cartella"]}"'
+                f' data-base="{lingua["base"]}{s["cartella"]}/" data-testo="{lingua["sei_a"]}"'
+                f' data-etichette="{html.escape(json.dumps(s["etichette"], ensure_ascii=False), quote=True)}"></p>\n'
+                f'      </li>'
+            )
+        else:
+            righe.append(
+                f'      <li class="scheda scheda-attesa">\n'
+                f'        <p class="etichetta">{s["occhiello"]}</p>\n'
+                f'        <h2>{s["titolo"]}</h2>\n'
+                f'        <p class="riassunto">{s["riassunto"]}</p>\n'
+                f'        <p class="quante">{lingua["in_preparazione"]}</p>\n'
+                f'      </li>'
+            )
+
+    corpo = f"""<div class="pagina pagina-scaffale">
+    <header class="testata">
+      <div class="testata-alto">
+        <div class="occhiello">
+          {lucciole()}
+          <p class="etichetta">{lingua["occhiello"]}</p>
+        </div>
+        <span class="testata-azioni">
+          {cambio_lingua(codice, "")}
+          <button class="interruttore" id="interruttore" type="button">{lingua["spegni"]}</button>
+        </span>
+      </div>
+      <h1>{lingua["scaffale"]}</h1>
+      <p class="intro">{lingua["scaffale_intro"]}</p>
+    </header>
+
+    <nav aria-label="{lingua["tutti_i_libri"]}">
+      <ol class="scaffale">
+{chr(10).join(righe)}
+      </ol>
+    </nav>
+  </div>"""
+
+    script = SCAFFALE_SCRIPT.replace("/*TRADUZIONI*/", traduzioni_js(lingua))
+    html_pagina = guscio(lingua, lingua["scaffale"].replace("&rsquo;", "\u2019"),
+                         lingua["scaffale_intro"].replace("&rsquo;", "\u2019").replace("&egrave;", "\u00e8"),
+                         "", corpo, script)
+    return scrivi(lingua, "", html_pagina)
 
 
 fatte = []
 for codice, lingua in LINGUE.items():
-    esito = pagina(codice, lingua)
-    if esito is None:
-        print(f"[{codice}] nessuna fiaba in stories/{lingua['cartella']}/: saltata")
-        continue
-    fiabe, uscita = esito
-    print(f"[{codice}] -> {uscita}")
-    for f in fiabe:
-        print(f"    {f['titolo']}: {f['parole']} parole, {f['minuti']} min")
-    fatte.append(uscita)
+    schede = []
+    for libro in LIBRI:
+        esito = pagina(codice, lingua, libro)
+        if esito is None:
+            schede.append({"pronto": False, "cartella": libro["cartella"],
+                           "titolo": libro[codice]["titolo"],
+                           "riassunto": libro[codice]["riassunto"],
+                           "occhiello": libro[codice]["occhiello"]})
+            print(f"[{codice}/{libro['cartella']}] nessuna fiaba: scheda in preparazione")
+            continue
+        esito["pronto"] = True
+        schede.append(esito)
+        fatte.append(esito["uscita"])
+        print(f"[{codice}/{libro['cartella']}] -> {esito['uscita']}")
+        for f in esito["fiabe"]:
+            print(f"    {f['titolo']}: {f['parole']} parole, {f['minuti']} min")
 
-# sitemap: una voce per lingua generata
-voci = "\n".join(
-    f"  <url>\n    <loc>{SITO}{l['base']}</loc>\n  </url>"
-    for c, l in LINGUE.items()
-    if os.path.exists(os.path.join(SRC, l["uscita"]))
-)
+    if not any(s["pronto"] for s in schede):
+        print(f"[{codice}] nessun libro: pagina saltata")
+        continue
+    fatte.append(scaffale(codice, lingua, schede))
+
+# sitemap: scaffale e libri di ogni lingua
+voci = []
+for codice, lingua in LINGUE.items():
+    base = SITO + lingua["base"]
+    radice_lingua = os.path.normpath(os.path.join(SRC, lingua["base"].strip("/")))
+    if os.path.exists(os.path.join(radice_lingua, "index.html")):
+        voci.append(f"  <url>\n    <loc>{base}</loc>\n  </url>")
+    for libro in LIBRI:
+        if os.path.exists(os.path.join(radice_lingua, libro["cartella"], "index.html")):
+            voci.append(f"  <url>\n    <loc>{base}{libro['cartella']}/</loc>\n  </url>")
+
 with open(os.path.join(SRC, "sitemap.xml"), "w", encoding="utf-8") as fp:
     fp.write('<?xml version="1.0" encoding="UTF-8"?>\n'
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-             + voci + "\n</urlset>\n")
+             + "\n".join(voci) + "\n</urlset>\n")
 
 print("scritte: " + ", ".join(fatte) + ", sitemap.xml")

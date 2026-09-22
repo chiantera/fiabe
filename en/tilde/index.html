@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="it">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Le fiabe della buonanotte</title>
-<meta name="description" content="Storie da leggere ad alta voce, una per sera. Ogni libro si legge nell’ordine in cui è scritto.">
-<link rel="canonical" href="https://fiabe.vercel.app/">
-<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/">
-<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/">
-<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/">
+<title>Tilde’s stories</title>
+<meta name="description" content="1 bedtime stories about Nina, the firefly of the meadow at the foot of the hill.">
+<link rel="canonical" href="https://fiabe.vercel.app/en/tilde/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/tilde/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/tilde/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/tilde/">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
 <style>
@@ -500,54 +500,134 @@
 </script>
 </head>
 <body>
-<div class="pagina pagina-scaffale">
+<div class="barra" id="barra" data-visibile="no">
+    <a class="tasto" href="#indice">&#9650;&nbsp;Contents</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/en/" title="All the books">Tilde</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="Smaller text"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="Larger text">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="Change theme">&#9681;</button>
+    </span>
+  </div>
+
+  <div class="pagina">
     <header class="testata">
       <div class="testata-alto">
         <div class="occhiello">
           <span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span>
-          <p class="etichetta">Fiabe della buonanotte</p>
+          <p class="etichetta">Bedtime stories</p>
         </div>
         <span class="testata-azioni">
-          <a class="lingua" href="/en/" hreflang="en-GB" lang="en-GB">English</a>
-          <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
+          <a class="lingua" href="/tilde/" hreflang="it" lang="it">Italiano</a>
+          <button class="interruttore" id="interruttore" type="button">Turn the light off</button>
         </span>
       </div>
-      <h1>Le fiabe della buonanotte</h1>
-      <p class="intro">Storie da leggere ad alta voce, una per sera. Ogni libro si legge nell&rsquo;ordine in cui &egrave; scritto.</p>
+      <p class="briciola"><a href="/en/">&#9664;&nbsp;The books</a></p>
+      <h1>Tilde&rsquo;s stories</h1>
+      <p class="intro">The old mole from the meadow, the one who could never find her own front door. Seen from below, where she finds it perfectly well.</p>
     </header>
 
-    <nav aria-label="Tutti i libri">
-      <ol class="scaffale">
-      <li class="scheda">
-        <p class="etichetta">Libro primo</p>
-        <h2><a href="/nina/">Le fiabe di Nina</a></h2>
-        <p class="riassunto">Una lucciola che impara ad accendersi, a spegnersi e a lasciare che sia un&rsquo;altra ad accendersi da sola.</p>
-        <p class="quante">10 fiabe &middot; 75 minuti</p>
-        <p class="ripresa-libro" data-libro="fiabe:nina" data-base="/nina/" data-testo="Riprendi {d}" data-etichette="{&quot;prologo&quot;: &quot;dal Prologo&quot;, &quot;libro-1&quot;: &quot;dal Libro I&quot;, &quot;libro-2&quot;: &quot;dal Libro II&quot;, &quot;libro-3&quot;: &quot;dal Libro III&quot;, &quot;libro-4&quot;: &quot;dal Libro IV&quot;, &quot;libro-5&quot;: &quot;dal Libro V&quot;, &quot;libro-6&quot;: &quot;dal Libro VI&quot;, &quot;libro-7&quot;: &quot;dal Libro VII&quot;, &quot;libro-8&quot;: &quot;dal Libro VIII&quot;, &quot;libro-9&quot;: &quot;dal Libro IX&quot;, &quot;libro-10&quot;: &quot;dal Libro X&quot;, &quot;epilogo&quot;: &quot;dall&amp;rsquo;Epilogo&quot;}"></p>
-      </li>
-      <li class="scheda">
-        <p class="etichetta">Libro secondo</p>
-        <h2><a href="/tilde/">Le fiabe di Tilde</a></h2>
-        <p class="riassunto">La vecchia talpa del prato, quella che non trovava mai la porta di casa. Vista da sotto, dove la porta la trova benissimo.</p>
-        <p class="quante">1 fiaba &middot; 6 minuti</p>
-        <p class="ripresa-libro" data-libro="fiabe:tilde" data-base="/tilde/" data-testo="Riprendi {d}" data-etichette="{&quot;libro-1&quot;: &quot;dal Libro I&quot;}"></p>
-      </li>
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">Resume</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Hide the resume prompt">Close</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="Contents">
+      <p class="etichetta">Contents &middot; 7 minutes in all</p>
+      <ol>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">The mole who couldn't find her front door</span><span class="voce-durata">7 min</span></a></li>
       </ol>
     </nav>
+
+    <article class="fiaba" id="libro-1" data-ripresa="from Book I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 7 minutes to read aloud</p>
+        <h2>The mole who couldn't find her front door</h2>
+        <p class="sottotitolo">A bedtime story — Book One</p>
+      </header>
+      <p class="apertura">In the meadow at the foot of the hill, under the grass, there lived a mole called Tilde.</p>
+      <p>Tilde was old, her coat was like worn velvet, and everybody in the meadow was fond of her. But everybody, absolutely everybody, knew one other thing about her:</p>
+      <p>that Tilde could never find her front door.</p>
+      <p>She would come out in the evening for a bit of air, take four steps, turn round, and find herself looking at three tufts of grass that were exactly the same.</p>
+      <p>«Was it this one?»</p>
+      <p>It was not that one.</p>
+      <p>«Then it was that one.»</p>
+      <p>Nor that.</p>
+      <p>It always ended with somebody walking her home: the ants, or a snail, or a firefly passing by who made her some light. And Tilde would thank them, and slip underground, and after that not a sound came up from down there.</p>
+      <p>The fireflies, among themselves, said she was a bit scatty. They said it fondly, but they said it.</p>
+      <p>Then came the night of the storm.</p>
+      <p>It rained for hours, hard, and when it stopped the meadow was full of puddles, and at one spot near the hedge the ground had opened: a narrow deep crack, with crumbling edges.</p>
+      <p>A young hedgehog had fallen into it.</p>
+      <p>He was crying very quietly, because nothing else would come out.</p>
+      <p>Everybody came. The fireflies gathered over the crack and made light, all of them together, as hard as they could.</p>
+      <p>And for the first time, the light was no use at all.</p>
+      <p>You could see the hedgehog perfectly well down there. That was precisely the problem: you could see him, and there was nothing to be done. The crack was too narrow to fly into and too deep to reach, and every time somebody leaned over the edge another piece of earth slid down.</p>
+      <p>Nobody knew what to do.</p>
+      <p>Then a firefly said: «Fetch the mole.»</p>
+      <p>And somebody answered: «Tilde? Tilde can't even find her own house.»</p>
+      <p>They fetched her anyway.</p>
+      <p>Tilde came trotting up, listened, and set off decisively in the wrong direction.</p>
+      <p>There was a very awkward silence.</p>
+      <p>Then Tilde stopped. She lowered her nose, rested it on the ground, and stayed like that.</p>
+      <p>And she stopped being funny.</p>
+      <p>«Ah,» she said. «We're above the root of the oak. So the crack is over that way.»</p>
+      <p>And she began to dig.</p>
+      <p>She was gone in three seconds, and from then on the story happened in a place where nobody from the meadow had ever been.</p>
+      <p>Because under the meadow it isn't dark: under the meadow the dark has nothing to do with anything.</p>
+      <p>Under the meadow there are roads. There are the corridors Tilde has dug all her life, and she knows them one by one, and she knows where they go the way you know where your own room is with your eyes shut. There's the smell of wet earth, which changes every two steps and tells her everything: clay this way, sand that way, a big stone above there, water running below.</p>
+      <p>And there are the roots. Tilde knows them by name: the oak's root is thick and knotted, the hedge's is thin and dense as hair, and if you follow that one you come to the crack.</p>
+      <p>Tilde followed that one.</p>
+      <p>She came up beside the hedgehog from underneath, where the earth wasn't crumbling. She dug a wide, comfortable slope, taking her time, because a thing done in a hurry falls in.</p>
+      <p>And then she said: «Come on, walk slowly. Put your feet where I put mine.»</p>
+      <p>Up above, in the meadow, they were all waiting round the crack.</p>
+      <p>But the hedgehog didn't come out of the crack.</p>
+      <p>He came out of a new hole, three metres further on, in the middle of the grass, covered in earth and alive.</p>
+      <p>And Tilde came out behind him.</p>
+      <p>«But how did you do it?» asked a firefly.</p>
+      <p>Tilde thought about it, as though she had never considered it before.</p>
+      <p>«From underneath it's all different,» she said. «From underneath I never get lost.»</p>
+      <p>Then she said goodnight to everybody, took four steps, turned round, and found herself looking at three tufts of grass that were exactly the same.</p>
+      <p>«Was it this one?»</p>
+      <p>It was not that one.</p>
+      <p>And so two fireflies walked her home, making light for her, and neither of them said she was scatty.</p>
+      <p>There's always somewhere you're very good indeed, my love.</p>
+      <p>It may not be the place where everybody is watching.</p>
+      <p>And if there's a place where you always get lost, that means nothing at all: it only means that isn't the place where you know your way.</p>
+      <p>And now close your eyes.</p>
+      <p>Under the meadow everything is quiet, the roads are where they should be, and tomorrow there will be light again.</p>
+      <p class="congedo">Goodnight. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">Colophon</p>
+      <p>1 stories, 800 words. Reading times are worked out at 130 words a minute: the pace of someone reading aloud, not of someone reading alone.</p>
+    </footer>
   </div>
 <script>
   (function () {
-    var T = {"accendi": "Accendi la luce", "spegni": "Spegni la luce", "temaChiaro": "Passa al tema chiaro", "temaScuro": "Passa al tema scuro", "riprendi": "Riprendi"};
+    var T = {"accendi": "Turn the light on", "spegni": "Turn the light off", "temaChiaro": "Switch to the light theme", "temaScuro": "Switch to the dark theme", "riprendi": "Resume", "memoria": "fiabe:tilde"};
     var radice = document.documentElement;
     var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
-    var interruttore = document.getElementById("interruttore");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
 
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
     function leggi(chiave) {
       try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
     }
     function scrivi(chiave, valore) {
       try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
     }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
 
     function scuroAdesso() {
       var scelta = radice.getAttribute("data-theme");
@@ -558,30 +638,139 @@
       interruttore.textContent = scuro ? T.accendi : T.spegni;
       interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
     }
-    interruttore.addEventListener("click", function () {
+    function cambiaTema() {
       var prossimo = scuroAdesso() ? "light" : "dark";
       radice.setAttribute("data-theme", prossimo);
       scrivi("fiabe:tema", prossimo);
       aggiornaEtichetta();
-    });
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
     sistemaScuro.addEventListener("change", aggiornaEtichetta);
     aggiornaEtichetta();
 
-    // per ogni libro, dove si era arrivati
-    var righe = document.querySelectorAll(".ripresa-libro");
-    Array.prototype.forEach.call(righe, function (riga) {
-      var ancora = leggi(riga.getAttribute("data-libro") + ":ultima");
-      if (!ancora) { return; }
-      var a = document.createElement("a");
-      a.setAttribute("href", riga.getAttribute("data-base") + "#" + ancora);
-      var etichette = {};
-      try { etichette = JSON.parse(riga.getAttribute("data-etichette") || "{}"); } catch (e) { etichette = {}; }
-      var dove = etichette[ancora];
-      if (!dove) { return; }
-      a.textContent = riga.getAttribute("data-testo").replace("{d}", dove);
-      riga.appendChild(a);
-      riga.setAttribute("data-visibile", "si");
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
     });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    var soglia = document.querySelector(".indice");
+    function aggiornaBarra() {
+      var dentro = soglia.getBoundingClientRect().bottom < 0;
+      barra.setAttribute("data-visibile", dentro && corrente ? "si" : "no");
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
   })();
 </script>
 </body>

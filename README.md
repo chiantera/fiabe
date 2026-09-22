@@ -1,8 +1,20 @@
 # Fiabe
 
-Fiabe della buonanotte su **Nina**, la lucciola del prato ai piedi della collina.
+Fiabe della buonanotte dal prato ai piedi della collina. Ogni personaggio ha il
+suo libro, e i libri stanno su uno scaffale: la pagina iniziale li elenca, e
+ognuno si legge per conto suo.
 
-## I libri
+| | Libro | Stato |
+| --- | --- | --- |
+| I | **Le fiabe di Nina** — la lucciola | 10 fiabe, un prologo e un epilogo |
+| II | **Le fiabe di Tilde** — la vecchia talpa | in corso, 1 fiaba |
+
+Tilde compare già nelle fiabe di Nina: è «la vecchia talpa che non trovava mai
+la porta di casa», nominata tre volte come una battuta ricorrente. Il suo libro
+sta sotto il prato e corre lungo gli stessi anni, quindi ogni tanto i due libri
+raccontano la stessa notte da due parti diverse.
+
+## Le fiabe di Nina
 
 | | Titolo | Lettura ad alta voce |
 |---|---|---|
@@ -77,7 +89,7 @@ lettori audio sulla pagina (`index.html`): ogni fiaba che ha il suo MP3 mostra u
 riquadro "Ascolta" subito sotto il titolo.
 
 Il numero dell'MP3 viene dal nome del file della fiaba, non dalla sua posizione:
-`stories/07...md` cerca `audio/11l-07-*.mp3`. Per questo il Prologo ha potuto
+`stories/it/nina/07….md` cerca `audio/nina/11l-07-*.mp3`. Per questo il Prologo ha potuto
 prendere il numero `00` senza rinumerare niente.
 
 Stato attuale: Prologo, Libro X ed Epilogo non hanno ancora l'audio, e i testi
@@ -85,7 +97,7 @@ di IV, VI, VII, VIII e IX sono cambiati dopo la revisione, quindi i loro MP3
 vanno rifatti. I, II, III e V sono allineati. In una volta sola:
 
 ```bash
-python3 generate_elevenlabs.py 00 04 06 07 08 09 10 11
+python3 generate_elevenlabs.py nina 00 04 06 07 08 09 10 11
 ```
 
 Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
@@ -109,9 +121,9 @@ Note:
 python3 build.py
 ```
 
-Lo script rilegge tutti i file `stories/<lingua>/[0-9][0-9]*.md` in ordine e ricostruisce indice,
+Lo script rilegge tutti i file `stories/<lingua>/<libro>/[0-9][0-9]*.md` in ordine e ricostruisce indice,
 tempi di lettura e colophon. Per aggiungere una fiaba basta creare in `stories/`
-in `stories/<lingua>/` un file `NN<titolo-attaccato-minuscolo>.md` (`00` è il prologo) con la stessa
+in `stories/<lingua>/<libro>/` un file `NN<titolo-attaccato-minuscolo>.md` (`00` è il prologo) con la stessa
 struttura degli altri:
 titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
 
@@ -119,10 +131,14 @@ titolo `#`, sottotitolo in corsivo, separatore `---`, paragrafi.
 
 Una cartella per lingua sotto `stories/`, e una pagina per lingua:
 
-| Lingua | Testi | Pagina | URL |
+| Lingua | Testi | Scaffale | Un libro |
 | --- | --- | --- | --- |
-| Italiano | `stories/it/` | `index.html` | `/` |
-| English (UK) | `stories/en-GB/` | `en/index.html` | `/en/` |
+| Italiano | `stories/it/<libro>/` | `/` | `/nina/`, `/tilde/` |
+| English (UK) | `stories/en-GB/<libro>/` | `/en/` | `/en/nina/`, `/en/tilde/` |
+
+I libri stanno in `LIBRI`, in `build.py`, con titolo e riassunto per lingua. Un
+libro senza file `.md` in una lingua non sparisce: compare sullo scaffale come
+«in preparazione».
 
 `build.py` genera tutte le lingue in `LINGUE`, dove stanno anche le stringhe
 dell'interfaccia. Una lingua senza file `.md` viene saltata con un avviso, quindi
@@ -136,7 +152,7 @@ sulla prima parola. In inglese si userebbe anche il maiuscolo su tutte le
 parole: è una scelta, non una dimenticanza.
 
 L'audio è per ora solo italiano. `build.py` cerca gli MP3 di ogni lingua in
-`audio/` per l'italiano e in `audio/<lingua>/` per le altre: la pagina inglese
+`audio/<libro>/` per l'italiano e in `audio/<lingua>/<libro>/` per le altre: la pagina inglese
 semplicemente non mostra nessun riquadro "Ascolta".
 
 I percorsi nelle pagine sono assoluti (`/audio/…`, `/en/`), quindi per
@@ -154,8 +170,11 @@ fiaba per volta. La pagina tiene conto di questo:
 - **Barra in alto**: compare quando si è dentro una fiaba e dice a quale si è
   arrivati. Da lì si torna all'indice, si cambia la dimensione del testo e si
   cambia il tema, senza dover risalire.
-- **Riprendi**: la pagina ricorda l'ultima fiaba raggiunta e la propone in cima
-  alla visita dopo. Nell'indice le fiabe già passate hanno un pallino.
+- **Riprendi**: ogni libro ricorda per conto suo l'ultima fiaba raggiunta e la
+  propone in cima alla visita dopo. Nell'indice le fiabe già passate hanno un
+  pallino, e sullo scaffale ogni libro dice dove si era rimasti.
+- **Scaffale**: dalla barra e dalla testata si torna all'elenco dei libri; nella
+  barra il nome del libro dice anche dove ci si trova.
 - **Tema e dimensione del testo** restano come li si è lasciati, anche
   riaprendo la pagina. Vengono applicati prima del disegno, così non si vede il
   tema chiaro lampeggiare al buio.

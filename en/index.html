@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nina&rsquo;s Bedtime Stories</title>
-<meta name="description" content="10 bedtime stories about Nina, the firefly of the meadow at the foot of the hill.">
+<title>Bedtime stories</title>
+<meta name="description" content="Stories to be read aloud, one a night. Each book reads in the order it was written.">
 <link rel="canonical" href="https://fiabe.vercel.app/en/">
 <link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/">
 <link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/">
@@ -387,6 +387,82 @@
   }
   .indice li[data-letta="si"] .voce-titolo { color: var(--muted); }
 
+  /* --- lo scaffale -------------------------------------------------- */
+  .pagina-scaffale { gap: 2.5rem; }
+  .scaffale {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .scheda {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    background: var(--paper);
+    box-shadow: var(--ombra);
+  }
+  .scheda h2 {
+    margin: 0;
+    font-family: "Young Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  .scheda h2 a { color: inherit; text-decoration: none; }
+  .scheda h2 a:hover { color: var(--accent); }
+  .scheda h2 a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .scheda .riassunto { margin: 0; color: var(--muted); font-size: 1.0625rem; }
+  .scheda .quante {
+    margin: 0.35rem 0 0;
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scheda-attesa { opacity: 0.66; border-style: dashed; box-shadow: none; }
+  .ripresa-libro { display: none; margin: 0.5rem 0 0; }
+  .ripresa-libro[data-visibile="si"] { display: block; }
+  .ripresa-libro a {
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .ripresa-libro a:hover { text-decoration: underline; }
+
+  /* --- ritorno allo scaffale ---------------------------------------- */
+  .briciola { margin: 0 0 -0.35rem; }
+  .briciola a, .dove-libro {
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .briciola a:hover, .dove-libro:hover { color: var(--accent); }
+  .dove-libro { flex: none; padding-right: 0.25rem; }
+  .briciola a:focus-visible, .dove-libro:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
   /* --- ancore: non finire sotto la barra ----------------------------- */
   .fiaba { scroll-margin-top: 4.25rem; }
   .indice { scroll-margin-top: 4.25rem; }
@@ -424,20 +500,7 @@
 </script>
 </head>
 <body>
-<div class="barra" id="barra" data-visibile="no">
-    <a class="tasto" href="#indice">&#9650;&nbsp;Contents</a>
-    <p class="dove" id="dove">
-      <span class="dove-numero" id="dove-numero"></span>
-      <span class="dove-titolo" id="dove-titolo"></span>
-    </p>
-    <span class="barra-azioni">
-      <button class="tasto" id="testo-meno" type="button" aria-label="Smaller text"><span class="aa-piccola">A</span>&minus;</button>
-      <button class="tasto" id="testo-piu" type="button" aria-label="Larger text">A&plus;</button>
-      <button class="tasto" id="tema-barra" type="button" aria-label="Change theme">&#9681;</button>
-    </span>
-  </div>
-
-  <div class="pagina">
+<div class="pagina pagina-scaffale">
     <header class="testata">
       <div class="testata-alto">
         <div class="occhiello">
@@ -449,779 +512,42 @@
           <button class="interruttore" id="interruttore" type="button">Turn the light off</button>
         </span>
       </div>
-      <h1>Nina&rsquo;s Bedtime Stories</h1>
-      <p class="intro">10 stories about a firefly who learns to light up, to put herself out, and to let someone else come to it on her own. To be read aloud, one a night, in the order they were written.</p>
+      <h1>Bedtime stories</h1>
+      <p class="intro">Stories to be read aloud, one a night. Each book reads in the order it was written.</p>
     </header>
 
-    <p class="riprendi" id="riprendi" data-visibile="no">
-      <a href="#" id="riprendi-link">Resume</a>
-      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Hide the resume prompt">Close</button>
-    </p>
-
-    <nav class="indice" id="indice" aria-label="Contents">
-      <p class="etichetta">Contents &middot; 79 minutes in all</p>
-      <ol>
-        <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">Prologue</span><span class="voce-durata">4 min</span></a></li>
-        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">The firefly who was afraid of the dark</span><span class="voce-durata">3 min</span></a></li>
-        <li><a href="#libro-2"><span class="numero">II</span><span class="voce-titolo">The firefly and the tired lantern</span><span class="voce-durata">5 min</span></a></li>
-        <li><a href="#libro-3"><span class="numero">III</span><span class="voce-titolo">The firefly and the little one who wouldn't light up</span><span class="voce-durata">7 min</span></a></li>
-        <li><a href="#libro-4"><span class="numero">IV</span><span class="voce-titolo">The firefly and the cricket who lost his voice</span><span class="voce-durata">9 min</span></a></li>
-        <li><a href="#libro-5"><span class="numero">V</span><span class="voce-titolo">The firefly and the light in the window</span><span class="voce-durata">7 min</span></a></li>
-        <li><a href="#libro-6"><span class="numero">VI</span><span class="voce-titolo">The firefly and whoever came down the hill</span><span class="voce-durata">6 min</span></a></li>
-        <li><a href="#libro-7"><span class="numero">VII</span><span class="voce-titolo">The firefly and the cricket who flew</span><span class="voce-durata">7 min</span></a></li>
-        <li><a href="#libro-8"><span class="numero">VIII</span><span class="voce-titolo">The firefly who stayed on the root</span><span class="voce-durata">7 min</span></a></li>
-        <li><a href="#libro-9"><span class="numero">IX</span><span class="voce-titolo">The firefly who told the stories</span><span class="voce-durata">8 min</span></a></li>
-        <li><a href="#libro-10"><span class="numero">X</span><span class="voce-titolo">The firefly who heard her own story</span><span class="voce-durata">11 min</span></a></li>
-        <li><a href="#epilogo"><span class="numero">&mdash;</span><span class="voce-titolo">Epilogue</span><span class="voce-durata">5 min</span></a></li>
+    <nav aria-label="All the books">
+      <ol class="scaffale">
+      <li class="scheda">
+        <p class="etichetta">Book one</p>
+        <h2><a href="/en/nina/">Nina&rsquo;s stories</a></h2>
+        <p class="riassunto">A firefly who learns to light up, to put herself out, and to let someone else come to it on her own.</p>
+        <p class="quante">10 stories &middot; 79 minutes</p>
+        <p class="ripresa-libro" data-libro="fiabe:nina" data-base="/en/nina/" data-testo="Resume {d}" data-etichette="{&quot;prologo&quot;: &quot;from the Prologue&quot;, &quot;libro-1&quot;: &quot;from Book I&quot;, &quot;libro-2&quot;: &quot;from Book II&quot;, &quot;libro-3&quot;: &quot;from Book III&quot;, &quot;libro-4&quot;: &quot;from Book IV&quot;, &quot;libro-5&quot;: &quot;from Book V&quot;, &quot;libro-6&quot;: &quot;from Book VI&quot;, &quot;libro-7&quot;: &quot;from Book VII&quot;, &quot;libro-8&quot;: &quot;from Book VIII&quot;, &quot;libro-9&quot;: &quot;from Book IX&quot;, &quot;libro-10&quot;: &quot;from Book X&quot;, &quot;epilogo&quot;: &quot;from the Epilogue&quot;}"></p>
+      </li>
+      <li class="scheda">
+        <p class="etichetta">Book two</p>
+        <h2><a href="/en/tilde/">Tilde&rsquo;s stories</a></h2>
+        <p class="riassunto">The old mole from the meadow, the one who could never find her own front door. Seen from below, where she finds it perfectly well.</p>
+        <p class="quante">1 story &middot; 7 minutes</p>
+        <p class="ripresa-libro" data-libro="fiabe:tilde" data-base="/en/tilde/" data-testo="Resume {d}" data-etichette="{&quot;libro-1&quot;: &quot;from Book I&quot;}"></p>
+      </li>
       </ol>
     </nav>
-
-    <article class="fiaba" id="prologo" data-ripresa="from the Prologue">
-      <header class="fiaba-testata">
-        <p class="etichetta">Prologue &middot; 4 minutes to read aloud</p>
-        <h2>Prologue</h2>
-        <p class="sottotitolo">Nina's stories — to be read before all the others</p>
-      </header>
-      <p class="apertura">Turn the big light off. Leave just the little one on.</p>
-      <p>There.</p>
-      <p>Now I'm going to tell you a story. It's a long one: there are ten nights in it, one at a time, not all of them tonight.</p>
-      <p>It's about a firefly.</p>
-      <p>But first I have to tell you one thing, and then I'll start.</p>
-      <p>When I was your age I couldn't sleep in the dark.</p>
-      <p>That isn't a figure of speech: I really couldn't. I kept the lamp on all night, and I kept it on even when they told me there was nothing there, that everything was fine, that I could turn it off.</p>
-      <p>We lived in a house at the top of a hill. Down at the bottom, at the foot of the hill, there was a meadow.</p>
-      <p>For the first few months I never saw that meadow. Because at night, with the lamp on, what you see from the window isn't the meadow. It's the window.</p>
-      <p>Then one evening a little gold dot settled on the glass.</p>
-      <p>It was tiny. And it was breathing: lighting up and going out, slowly, the way a living thing does when it's in no hurry at all.</p>
-      <p>I looked at it for a very long time.</p>
-      <p>And then I did the thing I had never done in my life: I reached out my hand and turned off the lamp.</p>
-      <p>And the meadow, down at the bottom, lit up all at once.</p>
-      <p>I can't explain it properly. It looked like a city seen from a plane, but alive, and all of it gold, and without a sound.</p>
-      <p>It had always been there. Every night, all along, while I sat on my side of the glass with the light on, seeing nothing.</p>
-      <p>All it took was a bit of dark.</p>
-      <p>Much later — when my legs had grown long — I opened the front door one evening and went down the hill to see it close up. I had a torch with me, and with the torch I found nothing at all: only grass, and stones, and my own white light banging about everywhere.</p>
-      <p>So I turned that off too, and waited in the wet grass without moving.</p>
-      <p>It took a while. It's the hardest thing in the world, keeping still.</p>
-      <p>Then one firefly lit up, two steps away from me. Then another. Then the whole meadow.</p>
-      <p>And one of them settled on my open hand, and stayed there until they called me in from the house.</p>
-      <p>So: the stories I'm going to tell you from here on, I know them because that yellow window was mine.</p>
-      <p>Now the house is this one, and the window is yours, and the person tucking you in is me.</p>
-      <p>When you're grown up, if you ever get the chance, take someone out to a meadow in the dark yourself.</p>
-      <p>Now close your eyes, because the story is starting.</p>
-      <p>It starts like this:</p>
-      <p><em>Once upon a time, in a meadow at the foot of a hill, there was a little firefly called Nina.</em></p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-1" data-ripresa="from Book I">
-      <header class="fiaba-testata">
-        <p class="etichetta">I &middot; 3 minutes to read aloud</p>
-        <h2>The firefly who was afraid of the dark</h2>
-        <p class="sottotitolo">A bedtime story — Book One</p>
-      </header>
-      <p class="apertura">Once upon a time, in a meadow at the foot of a hill, there was a little firefly called Nina.</p>
-      <p>Nina had a very strange problem for a firefly: she was afraid of the dark.</p>
-      <p>Every evening, when the sun went down behind the trees and the shadows stretched out across the grass, Nina hid under a clover leaf and shut her eyes.</p>
-      <p>«Don't go out, don't go out,» she whispered to herself.</p>
-      <p>Her sisters, meanwhile, flew happily over the meadow, switching their golden lanterns on and off. They looked like stars that had fallen out of the sky and decided to stay.</p>
-      <p>One night, while Nina was trembling under her leaf, she heard a small voice crying down by the brook.</p>
-      <p>It was a little cricket who had got lost.</p>
-      <p>«I can't find the way home,» the cricket sobbed. «It's too dark.»</p>
-      <p>Nina forgot her fear completely. She came out from under the leaf, and without even noticing, her lantern came on: a warm golden glow that lit up the grass, the pebbles and the frightened little cricket.</p>
-      <p>«Oh!» said the cricket, wiping his eyes. «Aren't you bright!»</p>
-      <p>Nina looked down and saw her own light reflected in the water of the brook. It was beautiful.</p>
-      <p>«Come on,» said Nina. «I'll take you.»</p>
-      <p>And so, flying very slowly, the firefly led the cricket across the meadow, past the sleeping flowers, all the way to his little house under the root of the old oak.</p>
-      <p>From that night on, Nina was never afraid of the dark again.</p>
-      <p>Because she had discovered a secret: the dark is never really dark, so long as somebody is willing to switch their own light on.</p>
-      <p>And now, my love, close your eyes. The fireflies are keeping watch over you.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-2" data-ripresa="from Book II">
-      <header class="fiaba-testata">
-        <p class="etichetta">II &middot; 5 minutes to read aloud</p>
-        <h2>The firefly and the tired lantern</h2>
-        <p class="sottotitolo">A bedtime story — Book Two, following “The firefly who was afraid of the dark”</p>
-      </header>
-      <p class="apertura">A whole summer went by, and in the meadow at the foot of the hill everybody now knew the story of Nina, the firefly who had learned to light up.</p>
-      <p>Every night she flew from one end of the meadow to the other. She lit the path for the ants coming home late. She made light for the old mole who could never find her own front door. She saw home the lost snails, the muddled moths, the dandelion seeds that had lost the wind.</p>
-      <p>And the cricket — who had a name now, he was called Rocco — watched her go past from his little house under the root of the oak.</p>
-      <p>«Nina,» he said to her one evening, «do you ever rest?»</p>
-      <p>«I can't,» she answered, already flying off. «Somebody might need me.»</p>
-      <p>But then September came.</p>
-      <p>The nights grew longer and colder. The brook slowed down. The flowers closed up and didn't open again.</p>
-      <p>And one night something happened that frightened Nina more than all the dark in the world.</p>
-      <p>Her lantern went out.</p>
-      <p>Not slowly, the way it does when a firefly breathes. It just went out, like a candle in the wind.</p>
-      <p>Nina landed, shaking, on a stone by the brook.</p>
-      <p>«Oh no,» she whispered. «Oh no, oh no.»</p>
-      <p>She tried to light up again. She screwed her eyes shut, held her breath, put everything she had into it.</p>
-      <p>Nothing. Just grey.</p>
-      <p>«There,» she wept. «Now I'm no use to anyone.»</p>
-      <p>That was when she heard a small <em>frin frin</em> in the grass.</p>
-      <p>It was Rocco, climbing up the stone on his little legs, puffing a bit, because it was quite a climb for a cricket.</p>
-      <p>«I saw you from down there,» he said.</p>
-      <p>«But… how? I'm out.»</p>
-      <p>Rocco sat down next to her.</p>
-      <p>«Nina,» he said gently, «I never looked for your light. I looked for <em>you</em>.»</p>
-      <p>Nina didn't know what to say.</p>
-      <p>«Do you know why your lantern went out?» the cricket went on. «Not because it's broken. Because it's tired. You've lit this whole meadow all summer long and you haven't stopped for a single night.»</p>
-      <p>«But if I stop, the dark comes back.»</p>
-      <p>«The dark comes back anyway,» said Rocco. «It comes back every evening. It isn't your fault and it isn't your job. You're a firefly, not the sun.»</p>
-      <p>Nina sat quietly for a long time, listening to the water.</p>
-      <p>«So what do I do?»</p>
-      <p>«Now?» Rocco lifted his antennae towards the sky. «Now we look at the stars. And tomorrow you sleep. And the day after that you sleep some more, if you like.»</p>
-      <p>«And if someone gets lost?»</p>
-      <p>«Then I'll sing,» said the cricket. «I can't make light. But I can make a noise, and in the dark a voice is sometimes all you need to know which way to go.»</p>
-      <p>And so, for the first time in months, Nina didn't fly.</p>
-      <p>She stayed on the stone, beside her friend, and together they looked at the September sky, which was full, full, full of stars — the stars she had never had time to look at, because she was always too busy making light.</p>
-      <p>And while Rocco sang quietly in the cold grass, Nina fell asleep.</p>
-      <p>She slept all autumn. She slept all winter, curled up in the warm heart of the old oak, and the cricket slept nearby, and the snow covered the meadow like a white blanket.</p>
-      <p>Then one day the air turned soft, the brook started singing again, and the first clover came up out of the ground.</p>
-      <p>Nina opened her eyes.</p>
-      <p>And with no effort, no fear, without even thinking about it —</p>
-      <p>she lit up.</p>
-      <p>Brighter than before.</p>
-      <p>Because even the loveliest lights need to rest, my love.</p>
-      <p>Yours too.</p>
-      <p>And now close your eyes: the meadow is safe, the cricket is on watch, and tomorrow there will be light again.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-3" data-ripresa="from Book III">
-      <header class="fiaba-testata">
-        <p class="etichetta">III &middot; 7 minutes to read aloud</p>
-        <h2>The firefly and the little one who wouldn't light up</h2>
-        <p class="sottotitolo">A bedtime story — Book Three, following “The firefly and the tired lantern”</p>
-      </header>
-      <p class="apertura">Summer came back to the meadow at the foot of the hill.</p>
-      <p>Nina was flying again, and her lantern was golden and warm as before. But one thing had changed: every night, at some point, she landed on a blade of grass and stayed there doing nothing, looking at the stars.</p>
-      <p>Rocco the cricket saw her sitting still from his little house under the root of the oak, and sang away happily.</p>
-      <p>It was on one of those nights that the new fireflies were born.</p>
-      <p>There were ever so many of them, ever so small, and one after another they lit up the way embers catch in a fire. Plip. Plip. Plip.</p>
-      <p>All except one.</p>
-      <p>She stayed in the shade of a clover leaf, with her eyes screwed tight shut, and she didn't shine at all.</p>
-      <p>Her name was Bea.</p>
-      <p>Nina went over slowly, and felt a strange thing in her chest: the thing you feel when you recognise an old song.</p>
-      <p>«Hello,» she said. «Why don't you come and fly with the others?»</p>
-      <p>«Because it's dark,» said Bea.</p>
-      <p>And Nina thought: <em>ah, but this I can do. This I can do beautifully.</em></p>
-      <p>«Watch me,» she said on the first night, and lit up as hard as she could. «That's how it's done.»</p>
-      <p>Bea watched. Nothing happened.</p>
-      <p>«Do what I do,» she said on the second night. «Hold your breath, screw your eyes shut and push.»</p>
-      <p>Bea held her breath, screwed her eyes shut and pushed. She only went slightly greyer.</p>
-      <p>«You have to try harder,» said Nina on the third night, and without noticing, her voice had gone a bit hard.</p>
-      <p>And then Bea did the thing everybody does when somebody tells them to try harder: she hid even better under her leaf, and didn't come out for two whole nights.</p>
-      <p>Nina landed on her stone by the brook, cross.</p>
-      <p>«I don't understand,» she said to Rocco. «I'm teaching her. I'm teaching her beautifully!»</p>
-      <p>«Nina,» said the cricket, «may I ask you something?»</p>
-      <p>«Ask.»</p>
-      <p>«Who taught you?»</p>
-      <p>Nina opened her mouth. And closed it again.</p>
-      <p>Because nobody had taught her. That night, long ago, there had been no big firefly telling her <em>watch me</em>, or <em>push</em>, or <em>try harder</em>.</p>
-      <p>There had only been a cricket crying in the grass, because he couldn't find the way home.</p>
-      <p>«There you are,» said Rocco quietly. «You didn't light up because somebody explained it to you. You lit up because somebody needed you.»</p>
-      <p>«So what do I do?»</p>
-      <p>«Nothing,» said the cricket. «For once, nothing.»</p>
-      <p>The next night Nina went back to the clover leaf. She didn't say <em>watch me</em>. She didn't say <em>try</em>.</p>
-      <p>She sat down next to Bea.</p>
-      <p>And then she did something a firefly almost never does: she put out her own lantern.</p>
-      <p>«What are you doing?» asked Bea, frightened.</p>
-      <p>«Keeping you company,» said Nina. «The dark is easier with two.»</p>
-      <p>And they stayed there, two unlit fireflies under a leaf, as quiet as two little stones.</p>
-      <p>Then the wind came.</p>
-      <p>It came all at once, from behind the hill, and it bent the grass and shook the branches of the oak. The big fireflies rushed for shelter under the leaves, and their lanterns went out one after another.</p>
-      <p>The meadow went darker than it had ever been.</p>
-      <p>And in that dark, from deep in the grass, came the sound of crying.</p>
-      <p>It was the smallest voice of all — smaller even than Bea. It was a ladybird the wind had carried off her leaf, and now she didn't know where she was.</p>
-      <p>Bea waited for somebody to go.</p>
-      <p>Nobody went: they were all under cover.</p>
-      <p>And then — without holding her breath, without screwing her eyes shut, without pushing, without thinking about it for so much as a second —</p>
-      <p>Bea lit up.</p>
-      <p>It was a small, trembling light, green as the first shoots of March. But it was enough.</p>
-      <p>Enough to cross the flattened grass, to find the soaking ladybird, and to walk her back to her leaf against the wind, one step at a time.</p>
-      <p>Nina watched her go past from under her shelter, and said nothing.</p>
-      <p>She only smiled.</p>
-      <p>Because she knew exactly what it was like.</p>
-      <p>Somebody else's light can't be switched on, my love. Not with explanations, not by force, not by saying <em>try harder</em>.</p>
-      <p>All you can do is sit beside them, in the dark, until it comes on by itself.</p>
-      <p>And now close your eyes.</p>
-      <p>If it ever feels to you as though you haven't got any light, that isn't true: you have. It's only that the night you'll need it hasn't come yet.</p>
-      <p>And when it does, you won't have to do a thing to light up.</p>
-      <p>It will just happen.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-4" data-ripresa="from Book IV">
-      <header class="fiaba-testata">
-        <p class="etichetta">IV &middot; 9 minutes to read aloud</p>
-        <h2>The firefly and the cricket who lost his voice</h2>
-        <p class="sottotitolo">A bedtime story — Book Four, following “The firefly and the little one who wouldn't light up”</p>
-      </header>
-      <p class="apertura">September came back without a sound, the way it always does.</p>
-      <p>In the meadow at the foot of the hill the evenings drew in, and the fireflies began to fly lower, close to the warm grass.</p>
-      <p>Bea had grown up. Her light wasn't trembling any more: it was a small, precise little green light, and some nights it was she who guided the lost ones — the muddled moths, the wandering snails, the dandelion seeds that had lost the wind.</p>
-      <p>And Nina, who had learned the lesson of the tired lantern, stopped early. She landed on her stone by the brook, put out her light and listened.</p>
-      <p>Because there was always something to listen to in that meadow: from the root of the old oak came Rocco's song.</p>
-      <p><em>Frin frin. Frin frin.</em></p>
-      <p>It was the most familiar sound in the world. It had been there every night, for all the summers Nina could remember.</p>
-      <p>But that September the song got shorter.</p>
-      <p>Rocco used to sing from sunset until the stars were all out. Then he began stopping halfway. Then there were nights when he managed only one <em>frin</em>, just the once, as if to say <em>I'm here</em>, and then silence.</p>
-      <p>«My voice has got old,» he'd say, when Nina asked him. «It happens.»</p>
-      <p>And he'd laugh, and change the subject.</p>
-      <p>Then came a night when the meadow made no sound at all.</p>
-      <p>Nina noticed at once, the way you notice a missing tooth. She got up off her stone and flew towards the oak, and as she flew she realised something she had never once thought about in her whole life:</p>
-      <p>she had always found Rocco by listening.</p>
-      <p>Always. Every time. All you had to do was stop, turn your head, and go where the <em>frin frin</em> was.</p>
-      <p>Now there was nothing.</p>
-      <p>«Rocco?» she called.</p>
-      <p>Nothing.</p>
-      <p>«Rocco, where are you?»</p>
-      <p>The wind in the grass, and that was all.</p>
-      <p>So Nina landed on the ground and did the hardest thing: she stopped looking for the voice and started looking for <em>him</em>. The folds of the bark. The hollow between the two big roots. The stone that always had shade under it in summer.</p>
-      <p>And there behind it, in a little corner of dry earth, was Rocco, with his antennae down and his head turned away.</p>
-      <p>«There you are,» said Nina, her voice shaking with relief. «Why didn't you answer?»</p>
-      <p>Rocco didn't turn round.</p>
-      <p>«I can't any more,» he said.</p>
-      <p>He said it so quietly that it took Nina a moment to understand that this was all of it: that this was the voice he had left.</p>
-      <p>«I tried all evening,» the cricket went on. «Nothing comes out. And I thought it was better if you didn't see me like this.»</p>
-      <p>«Rocco…»</p>
-      <p>«I can't make light, Nina.» Now he turned round, and his eyes were wet. «I never could. There was one thing I knew how to do, and now I can't do it.»</p>
-      <p>And then he said the sentence Nina knew better than any other in the world, because she had said it herself, years before, on a cold stone in September:</p>
-      <p>«I'm no use to anyone.»</p>
-      <p>Nina sat down next to him.</p>
-      <p>She didn't say <em>that isn't true</em>. She didn't say <em>you need to rest</em>. She didn't say <em>try again tomorrow</em>.</p>
-      <p>She waited, the way he had taught her. The way she had learned with Bea.</p>
-      <p>Then she said:</p>
-      <p>«Rocco. I never listened for your voice.»</p>
-      <p>The cricket lifted his antennae.</p>
-      <p>«I looked for <em>you</em>.»</p>
-      <p>And they both sat there in silence, under the root of the oak, because some sentences need silence around them.</p>
-      <p>That was when a cry came from the far end of the meadow.</p>
-      <p>It was a may bug who had fallen on his back, waving his legs and unable to turn over, and he no longer knew where his hedge was.</p>
-      <p>Rocco went stiff. He tried to open his wings. He tried to make a <em>frin</em>.</p>
-      <p>Nothing came out, and he put his head down.</p>
-      <p>«There,» he whispered. «You see.»</p>
-      <p>But in the grass above them, something moved.</p>
-      <p>It was Bea.</p>
-      <p>She landed on the edge of the root, looked at the old cricket, and said something very simple:</p>
-      <p>«Rocco, I know it.»</p>
-      <p>«Know what?»</p>
-      <p>«Your song.» Bea seemed almost embarrassed. «I've heard it every night since I was born. I never learned it on purpose. I just have it.»</p>
-      <p>And then Bea rubbed her little wings together — which were not cricket wings, and didn't make the right sound at all: she made a crooked, off-key <em>fri</em>, like a rusty door.</p>
-      <p>Rocco pulled a face.</p>
-      <p>«Softer,» he said. «And longer. It isn't a thing you push. It's a thing you let go of.»</p>
-      <p>Bea tried again.</p>
-      <p><em>Frin.</em></p>
-      <p>It wasn't Rocco's voice. It was thinner, higher, a little uncertain at the end.</p>
-      <p>But it was the song.</p>
-      <p>And from the grass, straight away, came a small voice: «Who's there? Where are you?»</p>
-      <p>Bea lit up and flew to the may bug, and singing crookedly all the way she got him back onto his feet and walked him home to the hedge.</p>
-      <p>When she came back, all the new fireflies were gathered round the root, waiting.</p>
-      <p>«Teach us as well,» said one.</p>
-      <p>And Rocco — who couldn't sing a single note that night — spent every hour until dawn saying <em>softer</em>, <em>longer</em>, <em>no, don't push</em>, with that thread of voice he had left.</p>
-      <p>By dawn the meadow was full of small wrong <em>frin</em>s, every one of them wrong in a different way.</p>
-      <p>It was the most beautiful sound Nina had ever heard.</p>
-      <p>Then winter came, the way it always does.</p>
-      <p>The brook slowed and the snow covered the meadow like a white blanket. But that year Nina didn't sleep in the warm heart of the oak: she curled up in the little corner of dry earth under the root, beside her friend, and stayed near him the whole time.</p>
-      <p>And when the air turned soft and the first clover came up out of the ground, the meadow woke.</p>
-      <p>Rocco woke with it. He was old, and his voice didn't come back.</p>
-      <p>But he didn't need it any more.</p>
-      <p>Because as soon as evening fell, from all across the grass, from under every leaf, from behind every stone, his song went up — sung by twenty small voices that had learned it without noticing, simply by being there.</p>
-      <p>And he sat on the root and listened, with his antennae straight up, happier than he had ever been.</p>
-      <p>The things you know how to do, one day it may be that you can't do them any more, my love.</p>
-      <p>Never mind, because they aren't what people love you for.</p>
-      <p>And besides, they don't get lost: they stay inside whoever was near you while you were doing them.</p>
-      <p>And now close your eyes.</p>
-      <p>The meadow sings by itself, the firefly is watching over the cricket, and tomorrow there will be light again.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-5" data-ripresa="from Book V">
-      <header class="fiaba-testata">
-        <p class="etichetta">V &middot; 7 minutes to read aloud</p>
-        <h2>The firefly and the light in the window</h2>
-        <p class="sottotitolo">A bedtime story — Book Five, following “The firefly and the cricket who lost his voice”</p>
-      </header>
-      <p class="apertura">That summer, at the top of the hill, something happened that had never happened to the meadow before.</p>
-      <p>A light came on.</p>
-      <p>It wasn't the moon and it wasn't a star. It was a window: yellow and square, in a house that hadn't been there before. And it stayed on all night.</p>
-      <p>The fireflies stopped in mid-air to look at it.</p>
-      <p>«How pretty,» said one of the little ones.</p>
-      <p>But the next night the window was still on. And the night after that. And the night after that.</p>
-      <p>And the meadow began to change colour.</p>
-      <p>It didn't go dark: it went <em>pale</em>. The grass wasn't black any more, it was grey. The brook didn't glitter, it just glinted. And the fireflies — every one of them, even the strongest — flew and flew, and couldn't be seen.</p>
-      <p>They were still lit. But next to that window their light was nothing at all.</p>
-      <p>One night a snail got lost two steps from her own house. Bea flew round her for half an hour making all the light she had, and the snail didn't even see her.</p>
-      <p>Bea went back to the oak and landed beside Nina.</p>
-      <p>«Nina,» she said. «What's the use of lighting up, if nobody can see us?»</p>
-      <p>And Nina — who had an answer for everything, who always knew what to say — opened her mouth and said nothing.</p>
-      <p>It was the first time in her whole life that she didn't know.</p>
-      <p>They both sat quietly, looking at the yellow window.</p>
-      <p>Then something moved in the grass. It was Rocco, who had climbed all the way up there slowly, the way he did now.</p>
-      <p>He couldn't speak. Nothing had come out of him for two summers.</p>
-      <p>But he raised one leg, and pointed at the hill.</p>
-      <p>«Up there?» said Nina.</p>
-      <p>Rocco said yes with his antennae.</p>
-      <p>«But no firefly has ever left the meadow.»</p>
-      <p>Rocco just looked at her, with those old eyes, and Nina understood that this was exactly the point.</p>
-      <p>She left that same night.</p>
-      <p>She flew over the brook, then over the hedge, then over the long grass she had never crossed. The window got bigger and yellower, and at a certain point Nina could no longer see the meadow behind her.</p>
-      <p>She was frightened. But she kept going.</p>
-      <p>When she reached the glass she landed, and looked in.</p>
-      <p>There was a room. In the room there was a bed. And in the bed there was somebody small, wide awake, with the covers pulled up to their nose and their eyes open.</p>
-      <p>Beside the bed there was a lamp, switched on.</p>
-      <p>Nina clung to the glass without understanding.</p>
-      <p>Then she understood.</p>
-      <p><em>Ah</em>, she thought. <em>But this I know about.</em></p>
-      <p><em>This I know all about.</em></p>
-      <p>Because that lamp wasn't on out of spite, and it wasn't on against the meadow.</p>
-      <p>It was on because on the other side of the glass, somebody was afraid of the dark.</p>
-      <p>And so Nina did the only thing she had ever known how to do.</p>
-      <p>She lit up.</p>
-      <p>Not hard. Softly: a little golden warm light, resting on the glass, breathing.</p>
-      <p>And she was seen.</p>
-      <p>The covers came down. Nobody called out, nobody was frightened. That gold dot on the glass was looked at for a very long time.</p>
-      <p>Then a hand reached out — slowly, the way you do when you're still a bit afraid, but not very —</p>
-      <p>and turned off the lamp.</p>
-      <p>And something happened.</p>
-      <p>The meadow, down at the bottom, lit up all at once.</p>
-      <p>Two hundred fireflies, who had been there all along and had never once gone out, appeared in the grass in an instant, like a city. The brook began to shine again. The oak went black again.</p>
-      <p>And from the window something was seen that had never been seen, because to see it you had to make it dark.</p>
-      <p>Against the glass, a finger's width away, was Nina.</p>
-      <p>And they looked at each other.</p>
-      <p>From that night the meadow knew something it hadn't known before: that there was somebody up there.</p>
-      <p>And on the other side of the glass, now, somebody knew there was somebody down here.</p>
-      <p>And every evening, when the light in the window went out, the whole meadow lit up.</p>
-      <p>It had become a way of saying goodnight.</p>
-      <p>You've got a lamp beside your bed too, my love.</p>
-      <p>And it's absolutely fine to keep it on, if you need it tonight: nobody down here takes it badly.</p>
-      <p>But if one time you feel up to turning it off, try looking outside.</p>
-      <p>Because some things have always been there, and they're only waiting for you to make a bit of dark so they can be seen.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-6" data-ripresa="from Book VI">
-      <header class="fiaba-testata">
-        <p class="etichetta">VI &middot; 6 minutes to read aloud</p>
-        <h2>The firefly and whoever came down the hill</h2>
-        <p class="sottotitolo">A bedtime story — Book Six, following “The firefly and the light in the window”</p>
-      </header>
-      <p class="apertura">From that night on, a habit began in the meadow at the foot of the hill.</p>
-      <p>Every evening the fireflies waited. They sat in the grass with their lanterns out and looked up, towards the yellow window.</p>
-      <p>And every evening, at some point, the window went dark.</p>
-      <p>Then the whole meadow lit up at once — two hundred fireflies in one go — and for a moment, up there in the unlit window, you could see a small face pressed against the glass.</p>
-      <p>Then the face disappeared. And the meadow stayed lit a little longer, just in case. In case it was needed.</p>
-      <p>It went on like that all summer.</p>
-      <p>Then, one evening in July, something different happened.</p>
-      <p>The window went dark as always. The meadow lit up as always.</p>
-      <p>And a moment later, at the top of the hill, a door opened.</p>
-      <p>The fireflies stopped in mid-air.</p>
-      <p>Something was coming down. Something enormous.</p>
-      <p>The grass bent at every step. The ground shook. And the meadow, which was always full of small noises, stopped making them all at once, the way a radio does when you switch it off.</p>
-      <p>And then the meadow did something it had never done in its whole history.</p>
-      <p>It went out.</p>
-      <p>All of them, together: two hundred lanterns gone in a second. Not from tiredness, not from fear of the dark. From fear, full stop.</p>
-      <p>Nina squeezed under a clover leaf — under a clover leaf, after all those years — and felt her heart going terribly fast.</p>
-      <p>The footsteps came as far as the middle of the meadow. And stopped.</p>
-      <p>Then the dark opened in two.</p>
-      <p>A hard, white, straight light, sweeping the grass back and forth.</p>
-      <p>A torch.</p>
-      <p>And under that light the fireflies became invisible again — exactly as they had been under the window.</p>
-      <p>The torch searched everywhere. In the grass, inside the hedge, over the stones of the brook. It searched for a very long time.</p>
-      <p>It found nothing. Obviously.</p>
-      <p>Then there was a rustle: somebody had let themselves drop down to sit in the wet grass.</p>
-      <p>The torch stayed on a moment longer.</p>
-      <p>And then it went off.</p>
-      <p>And nothing happened.</p>
-      <p>Nothing happened for a very long time. Only the wind in the grass, the water in the brook, and the breathing of somebody sitting there without moving.</p>
-      <p>Under her leaf, Nina waited. And waited some more. And then she understood something that almost made her laugh.</p>
-      <p><em>Well, look at that</em>, she thought. <em>They're doing what I did with Bea.</em></p>
-      <p><em>Sitting there. Doing nothing. Just waiting.</em></p>
-      <p><em>They've turned off their own light so they can see ours.</em></p>
-      <p>So Nina came out from under the leaf.</p>
-      <p>And lit up.</p>
-      <p>One firefly alone in the middle of all that black: a small golden light rising slowly, like a bubble rising through water.</p>
-      <p>Then Bea lit up, green, two steps further on.</p>
-      <p>Then three together. Then ten. Then the whole meadow, the way a city comes on when evening falls: a piece at a time, until it's all light.</p>
-      <p>And there in the middle of it, in the grass, was somebody not moving at all, with their eyes wide and their mouth open.</p>
-      <p>Nina flew very slowly up to them.</p>
-      <p>And landed on an open hand.</p>
-      <p>Then, from deep in the grass, came a <em>frin</em>. And another. And then twenty all together, crooked and thin and wrong each in its own way: Rocco's song, sung by the new fireflies who had learned it without meaning to.</p>
-      <p>And Rocco, from his root, lifted his antennae and listened.</p>
-      <p>They stayed like that — the still hand, the firefly on top of it, the meadow lit all around and the song everywhere — until somebody called from the house at the top of the hill.</p>
-      <p>Fireflies can't be caught, my love.</p>
-      <p>You don't find them by looking, you can't call them, and with a torch on you can't even see them.</p>
-      <p>You keep still. You stay in the dark. You wait without doing anything, which is the hardest thing in the world.</p>
-      <p>And then they come.</p>
-      <p>And now close your eyes: if you keep still long enough, perhaps they'll come to you too.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-7" data-ripresa="from Book VII">
-      <header class="fiaba-testata">
-        <p class="etichetta">VII &middot; 7 minutes to read aloud</p>
-        <h2>The firefly and the cricket who flew</h2>
-        <p class="sottotitolo">A bedtime story — Book Seven, following “The firefly and whoever came down the hill”</p>
-      </header>
-      <p class="apertura">Another September came, and Rocco had grown very old.</p>
-      <p>He hardly ever came out of his little house under the root of the oak. His legs didn't hold him well, and the walk down to the brook, which he used to do in a single night, was too far now.</p>
-      <p>So it was Nina who went to him.</p>
-      <p>She went every evening, as soon as the sun disappeared behind the trees. She landed on the root, put out her lantern and sat there.</p>
-      <p>She did nothing: that was exactly the point. He had taught her that, years before, on a cold stone beside the water.</p>
-      <p>They talked all the same, in their own way. Nina asked, and Rocco answered with his antennae: up meant yes, down meant no.</p>
-      <p>«Are you cold?»</p>
-      <p>Down.</p>
-      <p>«Shall I call Bea?»</p>
-      <p>Down.</p>
-      <p>«Do you want anything?»</p>
-      <p>And that evening, for the first time in a long while, the antennae went up.</p>
-      <p>Nina sat up.</p>
-      <p>«Tell me.»</p>
-      <p>Rocco slowly lifted one leg, and pointed upwards.</p>
-      <p>«The hill?» said Nina. «Do you want to see the window?»</p>
-      <p>Down.</p>
-      <p>Rocco insisted, and raised his leg a little higher still. Not the hill. Not the window.</p>
-      <p><em>Above.</em></p>
-      <p>And then Nina understood, and felt something tighten in her chest.</p>
-      <p>Rocco wanted to see the meadow.</p>
-      <p>The meadow he was born in, the one he had sung in every night of every summer of his life, and had never once seen — because crickets live in the grass, and from the grass all you can see is more grass.</p>
-      <p>«Wait here,» said Nina, which was a slightly silly thing to say. «Don't move.»</p>
-      <p>She came back with Bea. Bea came back with the others. And they came back with all of them.</p>
-      <p>It took a great many. An old cricket weighs almost nothing, but a firefly weighs even less, and it took forty of them: under his legs, under his belly, at the sides, holding him gently the way you hold a thing that can break.</p>
-      <p>«Rocco,» said Nina. «Don't be afraid.»</p>
-      <p>And they lifted him.</p>
-      <p>They passed the blades of grass, which from below looked like a forest and from above were only grass. They passed the flowers closed up for the night. And then there was nothing above them at all, only air, and the meadow opened out all at once below.</p>
-      <p>Rocco looked.</p>
-      <p>He saw the brook, making a silver curve and disappearing behind the hedge.</p>
-      <p>He saw the old oak from outside, black and enormous, and in among the roots that little dot of dry earth that was his house.</p>
-      <p>He saw the flat stone where Nina had gone out, one September night many years before.</p>
-      <p>He saw, far away at the top of the hill, a yellow square window.</p>
-      <p>And he saw the fireflies: two hundred of them, spread across the whole meadow, on and off, on and off, like a city breathing.</p>
-      <p>Then, from below, came the song.</p>
-      <p>It was the new fireflies, still down in the grass: twenty thin crooked <em>frin</em>s, each wrong in its own way, rising out of the grass all together.</p>
-      <p>His song.</p>
-      <p>Rocco listened to it with his antennae straight up, high above the meadow, carried by forty fireflies.</p>
-      <p>Then they brought him back down, very slowly, to the root.</p>
-      <p>Nina stayed with him.</p>
-      <p>The cricket turned his head and looked at her, and said nothing, because he hadn't been able to say anything for three summers.</p>
-      <p>«I know,» said Nina.</p>
-      <p>That night Rocco fell asleep under his root, the way he did every night.</p>
-      <p>And in the morning he didn't wake up.</p>
-      <p>The following evening, in the meadow at the foot of the hill, nobody lit up.</p>
-      <p>The dark came down, and the meadow stayed dark. The fireflies sat in the grass, still, with their lanterns out, and not one of them felt like switching hers on.</p>
-      <p>Up at the top of the hill, at a certain point, a yellow window went dark. And somebody stayed waiting behind the glass, the way they did every evening.</p>
-      <p>But the meadow didn't light up.</p>
-      <p>Then, from deep in the grass, came a <em>frin</em>.</p>
-      <p>It was Bea. On her own, crooked, wrong as always.</p>
-      <p>Then another. Then three. Then twenty all together, each wrong in its own way, and Rocco's song filled the meadow from one side to the other.</p>
-      <p>And then, one at a time, the fireflies lit up.</p>
-      <p>Nina first. Then Bea. Then ten, then a hundred, then the whole meadow, the way a city comes on when evening falls.</p>
-      <p>And on the other side of the glass, up there, somebody saw.</p>
-      <p>From that night the song has never stopped, and every evening Nina spends a moment on the root, unlit, doing nothing.</p>
-      <p>One day somebody who taught you something won't be there any more, my love.</p>
-      <p>It happens, and it hurts, and there's no way at all of making it not happen.</p>
-      <p>But you'll still know how to do that thing.</p>
-      <p>And every time you do it — even if it comes out crooked, even if you get it wrong in your own way — that somebody is there, a little bit.</p>
-      <p>And now close your eyes. The meadow is singing, the oak is on watch, and tomorrow there will be light again.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-8" data-ripresa="from Book VIII">
-      <header class="fiaba-testata">
-        <p class="etichetta">VIII &middot; 7 minutes to read aloud</p>
-        <h2>The firefly who stayed on the root</h2>
-        <p class="sottotitolo">A bedtime story — Book Eight, following “The firefly and the cricket who flew”</p>
-      </header>
-      <p class="apertura">The following summer, the meadow at the foot of the hill was fuller of fireflies than it had ever been.</p>
-      <p>And the one everybody called was Bea.</p>
-      <p>She had become the fastest of all of them, and her green light could be seen from one end of the meadow to the other. She lit the path for the ants coming home late. She made light for the old mole who could never find her own front door. She saw home the lost snails, the muddled moths, the dandelion seeds that had lost the wind.</p>
-      <p>Nina, meanwhile, had grown old.</p>
-      <p>She hadn't noticed it all at once. She had noticed it a piece at a time: first the brook seeming further away, then the hedge becoming hard work, then certain evenings when she lit up and the light came on slowly, like a thing that has to think about it for a moment.</p>
-      <p>And so, almost without deciding to, she had got into the habit of staying on the root of the oak.</p>
-      <p>At first she went because she missed Rocco.</p>
-      <p>Then she went anyway, because it had become her place.</p>
-      <p>She sat there every evening, unlit, and watched the meadow work.</p>
-      <p>And watching, one evening, she saw something she recognised.</p>
-      <p>She saw Bea cross the meadow six times in an hour. She saw her never stop. She saw her light up harder when she was tired, so as to manage all the same.</p>
-      <p>And Nina said nothing.</p>
-      <p>She didn't say <em>stop</em>, she didn't say <em>rest</em>, she didn't say <em>watch me</em>. Because there was something she had learned many years before, under a clover leaf, and it had cost her dearly: that certain things can't be said to somebody. All you can do is sit there and wait for them to arrive on their own.</p>
-      <p>She waited all summer.</p>
-      <p>Then September came.</p>
-      <p>The nights drew out and turned cold. The brook slowed down. The flowers closed up and didn't open again.</p>
-      <p>And one night, in the middle of the meadow, Bea's light went out.</p>
-      <p>Not slowly, the way it does when a firefly breathes. It just went out, like a candle in the wind.</p>
-      <p>Nina saw it from the root. And she knew at once where she had ended up, because she knew: there's a flat stone by the brook where you end up when that happens.</p>
-      <p>It took her an age to get there.</p>
-      <p>Once it had been a moment's flight. That night it was quite another matter: she stopped twice in the grass to get her breath, and when she finally landed on the stone she was puffing, because it was quite a journey for an old firefly.</p>
-      <p>Bea was there, grey, with her face turned away.</p>
-      <p>«Go away,» she said. «I'm out.»</p>
-      <p>Nina sat down next to her.</p>
-      <p>«I saw you from up there,» she said.</p>
-      <p>«But how? I'm not making any light.»</p>
-      <p>And then Nina said something that wasn't hers. She said it quietly, and as she said it she felt a kind of warmth in her chest, because it was the first time she had been the one saying it.</p>
-      <p>«I never looked for your light, Bea. I looked for <em>you</em>.»</p>
-      <p>Bea turned round.</p>
-      <p>«Your lantern isn't broken,» Nina went on. «It's tired. You've lit this whole meadow all summer long and you haven't stopped for a single night.»</p>
-      <p>«But if I stop, the dark comes back.»</p>
-      <p>«The dark comes back anyway,» said Nina. «It comes back every evening. It isn't your fault and it isn't your job. You're a firefly, not the sun.»</p>
-      <p>Bea sat quietly for a long time, listening to the water.</p>
-      <p>«And if someone gets lost?» she said at last.</p>
-      <p>And that was the question a cricket had once answered.</p>
-      <p>Nina didn't answer. She lifted her antennae towards the grass.</p>
-      <p>And out of the grass, softly, came a <em>frin</em>. And another. And then twenty together, crooked and thin and wrong each in its own way.</p>
-      <p>«There,» said Nina. «They'll see to it.»</p>
-      <p>Bea cried a little, the sort of crying that comes when somebody can finally stop.</p>
-      <p>And then, for the first time in months, she didn't fly.</p>
-      <p>She stayed on the stone, beside her friend, and together they looked at the September sky, which was full, full, full of stars.</p>
-      <p>Bea slept all autumn and all winter, in the warm heart of the old oak.</p>
-      <p>And in spring she lit up by herself, with no effort, brighter than before.</p>
-      <p>Nina watched her light up from the root, unlit, doing nothing.</p>
-      <p>And she didn't even feel like flying.</p>
-      <p>One day you'll say a sentence to somebody, my love, and halfway through you'll realise the sentence isn't yours.</p>
-      <p>It belongs to somebody who said it to you when you needed it, a long time ago.</p>
-      <p>Never mind: it's yours as well now. It works just the same. It works better.</p>
-      <p>That's how people stay, once they're gone.</p>
-      <p>And now close your eyes. The meadow is singing, the old firefly is on watch, and tomorrow there will be light again.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-9" data-ripresa="from Book IX">
-      <header class="fiaba-testata">
-        <p class="etichetta">IX &middot; 8 minutes to read aloud</p>
-        <h2>The firefly who told the stories</h2>
-        <p class="sottotitolo">A bedtime story — Book Nine, following “The firefly who stayed on the root”</p>
-      </header>
-      <p class="apertura">More summers went by, and something happened in the meadow at the foot of the hill that you can't see while it's happening.</p>
-      <p>The fireflies who were there now had never known Rocco.</p>
-      <p>They had all been born afterwards. They sang his song every night, crooked and thin the way it's always sung, but they sang it the way you sing something that has always been sung: without knowing why.</p>
-      <p>It was one of the very small ones, one evening, who asked.</p>
-      <p>She landed on the root of the oak, where Nina always sat now, and said:</p>
-      <p>«Excuse me. But why do we do that thing with our wings?»</p>
-      <p>«What thing with our wings?»</p>
-      <p>«The crooked one. The <em>frin</em>.»</p>
-      <p>And Nina stayed quiet for so long that the little one thought she had offended her.</p>
-      <p>Because in that moment she had understood something: that of the whole meadow, she was the only one left who had seen how it began. Bea had come afterwards. They had all come afterwards.</p>
-      <p>And there was another thing, which Nina had known for some summers and hadn't told anybody: that her wings didn't carry her any more.</p>
-      <p>She could still get as far as the brook, slowly, stopping twice. Past the brook, no. The meadow she had once crossed in a moment ended there now.</p>
-      <p>So she couldn't go to the others any more.</p>
-      <p>They had to come to her.</p>
-      <p>«Sit down,» she said to the little one. «I'll tell you.»</p>
-      <p>And she began to tell her about the cricket.</p>
-      <p>She told her about a night long ago, about a firefly who was afraid of the dark and hid under a clover leaf, and about a small voice crying by the brook because it couldn't find the way home.</p>
-      <p>The little one didn't make a sound the whole time.</p>
-      <p>When Nina finished, all she said was: «And what was that firefly called?»</p>
-      <p>«Nina,» said Nina.</p>
-      <p>The next night there were four fireflies on the root.</p>
-      <p>The night after that, eleven.</p>
-      <p>Then she stopped counting them.</p>
-      <p>They all came, and settled in the grass around the oak with their lanterns low, and Nina told the stories.</p>
-      <p>She told them about the lantern that went out in September, and about the cricket who climbed the stone out of breath to say that he had never looked for her light.</p>
-      <p>She told them about the tiny one under the clover leaf who wouldn't light up, and how she had got it all wrong, and how the little one had lit up by herself when the wind came.</p>
-      <p>At that point Bea, who sat at the back and never said anything, said very quietly: «That was me.»</p>
-      <p>And all the little ones turned to look at her, and looked at her differently from before.</p>
-      <p>And then she told them about the evening the cricket had tried to sing and nothing had come out, and a firefly had landed on the root and told him <em>I know it</em>.</p>
-      <p>«And who was that?» asked one of the little ones.</p>
-      <p>«Her again,» said Nina.</p>
-      <p>And Bea, at the back, looked at the ground.</p>
-      <p>«And the cricket taught her how it's done,» Nina went on. «All night long, with that thread of voice he had left. <em>Softer. Longer. It isn't a thing you push.</em>»</p>
-      <p>The little ones looked at each other, because they knew those words: they said them to one another, every time one of them got it wrong.</p>
-      <p>«That's why we do it,» said Nina. «Now you know.»</p>
-      <p>She told them about the yellow window at the top of the hill, and about the time she left the meadow: something no firefly had ever done.</p>
-      <p>She told them about the torch, and how dark the meadow was that night, and about a still hand in the grass.</p>
-      <p>And she told them about forty fireflies who carried a very old cricket up above the blades of grass, so that he could see, just once, the place he had sung in all his life.</p>
-      <p>When she got to the end of that one, nothing in the grass was moving.</p>
-      <p>Then a voice asked: «Will you tell it again tomorrow?»</p>
-      <p>And the next day she told it again. And the day after that too.</p>
-      <p>Always that one. Always the same words, because if she changed one they corrected her at once: <em>no, wait, first he lifted his leg</em>.</p>
-      <p>And so Nina discovered something.</p>
-      <p>She wasn't the one who made light any more. She hadn't been for a while.</p>
-      <p>She was the one who told the stories.</p>
-      <p>And that was perfectly all right.</p>
-      <p>Then, one of those evenings, halfway through the story of the wind and the ladybird, a tiredness came over her that she had never felt before, and she had to stop in the middle of a sentence.</p>
-      <p>Nobody in the grass moved. They waited.</p>
-      <p>And from the back, quietly, Bea picked the sentence up from where it had broken off.</p>
-      <p>She knew all of it. Word for word. Even the parts she hadn't been there to hear.</p>
-      <p>Nina listened to her right to the end, with her antennae straight up, without saying anything.</p>
-      <p>And when Bea finished, and the little ones went off to sleep in the grass, Nina stayed on the root thinking that perhaps, now, she was allowed to get tired.</p>
-      <p>The stories people tell you are never the first time, my love.</p>
-      <p>Somebody heard them before you, and somebody told them to that person, and that person had heard them from somebody else again, all the way back to somebody who was really there.</p>
-      <p>That's why you mustn't change the words.</p>
-      <p>And that's why, when you're grown up and some small person asks you for one, you'll remember the whole thing. Even now, while you're falling asleep. Even though you aren't paying attention.</p>
-      <p>And now close your eyes. The meadow is telling stories, the oak is on watch, and tomorrow there will be light again.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="libro-10" data-ripresa="from Book X">
-      <header class="fiaba-testata">
-        <p class="etichetta">X &middot; 11 minutes to read aloud</p>
-        <h2>The firefly who heard her own story</h2>
-        <p class="sottotitolo">A bedtime story — Book Ten, following “The firefly who told the stories”</p>
-      </header>
-      <p class="apertura">Another summer came, and Nina didn't fly at all any more.</p>
-      <p>It wasn't a sad thing and it wasn't a decided thing. It happened the way these things happen: one evening she tried to lift off from the root, felt that the air wasn't for her, and settled back down.</p>
-      <p>The meadow got on perfectly well without her.</p>
-      <p>There was Bea, crossing the dark like a green line. There were the new fireflies, so many of them now, and all of them knowing what to do. And there was the song, which started up by itself as soon as evening fell, crooked and thin in twenty different ways.</p>
-      <p>Nina sat on the root and watched. Now and then she told a story. It was all right like that.</p>
-      <p>Then one night, from the far end of the meadow, came a cry.</p>
-      <p>It was a very small voice, on the other side of the brook, where the grass is taller. It was saying it couldn't find the way home. It was saying it was too dark.</p>
-      <p>It was a cricket.</p>
-      <p>And Nina did the thing she had done every night of her life: she lit up and set off to go.</p>
-      <p>She got as far as the edge of the root.</p>
-      <p>And there she stopped.</p>
-      <p>Not because she had decided to stop. Because she couldn't get any further.</p>
-      <p>She stood there a moment with her wings open, ridiculous, on the lip of that little piece of wood, and for the first time since she was born she had to say a word she had never said.</p>
-      <p>«Bea,» she called. «You go.»</p>
-      <p>And Bea went.</p>
-      <p>Nina watched her leave from the root: she saw her cross over the brook, get smaller, become a green dot in the middle of the tall grass, stop where the crying was.</p>
-      <p>Then she saw the green dot come back very slowly, at the height of the grass, the way you fly when you're walking somebody home.</p>
-      <p>It took an age. It took all the patience in the world.</p>
-      <p>She did it perfectly.</p>
-      <p>And Nina, on the root, waited to feel the horrible thing you feel when somebody else does the thing you were the one who could do.</p>
-      <p>It didn't come.</p>
-      <p>What came instead was something strange and warm, that hardly resembled it at all, and that was simply this: <em>thank goodness.</em></p>
-      <p>When Bea got back she was half out with tiredness.</p>
-      <p>«Sorted,» she said. «He lives under the hedge. He didn't know how to get back in the dark yet.»</p>
-      <p>«Bea,» said Nina. «From tonight it's you.»</p>
-      <p>Bea settled on the root, beside her.</p>
-      <p>«Nina,» she said. «It's been me for ages.»</p>
-      <p>«I know.» Nina was looking at the meadow. «I wanted to say it anyway.»</p>
-      <p>And they sat quietly, because some sentences need silence around them.</p>
-      <p>Then September came back, the way it always does.</p>
-      <p>The nights drew out. The brook slowed down. The flowers closed up and didn't open again.</p>
-      <p>And on one of those evenings Nina said: «Bea. Will you tell me a story?»</p>
-      <p>Bea lifted her head.</p>
-      <p>«Which one?»</p>
-      <p>«The one about the firefly who was afraid of the dark.»</p>
-      <p>Bea didn't say <em>but you know that one</em>. She didn't say <em>that's you</em>.</p>
-      <p>She only said: «All right.»</p>
-      <p>She sat down on the root, and began.</p>
-      <p><em>Once upon a time, in a meadow at the foot of a hill, there was a little firefly called Nina.</em></p>
-      <p>In the grass around the oak the fireflies settled one after another, lanterns low, the way they did every evening. Not one of them made a sound.</p>
-      <p>Bea told about the fear. About the clover leaf. About the <em>don't go out, don't go out</em> whispered to herself.</p>
-      <p>And when she got to the small voice crying by the brook, Nina closed her eyes.</p>
-      <p>Bea went on all the same, without changing a word, because you don't change them.</p>
-      <p>She told about the lantern that came on without anybody having taught it how. About the cricket wiping his eyes. About the <em>come on, I'll take you</em>. About the road through the dark, past the sleeping flowers, all the way to the little house under the root of the old oak.</p>
-      <p>And she got to the end, which is this:</p>
-      <p><em>From that night on, Nina was never afraid of the dark again.</em></p>
-      <p>And that was when Nina lit up.</p>
-      <p>There was nobody lost. Nobody was calling her. Nobody in the whole meadow needed her, not even a little.</p>
-      <p>She just lit up.</p>
-      <p>A golden light, warm, calm, that was no use to anything or anybody: the first time in her whole life that the light was only hers.</p>
-      <p>And it didn't go out.</p>
-      <p>It stayed on, calm, like a thing that has only just begun.</p>
-      <p>Then she tried to lift off from the root.</p>
-      <p>And she found, without being all that surprised, that her wings were carrying her. Not strongly, not fast: carrying her. Perhaps because for the first time she wasn't going out to work.</p>
-      <p>«Bea,» she said. «Will you come part of the way with me?»</p>
-      <p>They flew slowly to the hedge, the two of them, and there Nina stopped and looked over at the other side.</p>
-      <p>Past the hedge, the grass ends.</p>
-      <p>What begins is pale dry ground: no flowers, no water, not one leaf to shelter under. Fireflies never go there.</p>
-      <p>«I'm going out there,» said Nina.</p>
-      <p>Bea looked at that pale stretch.</p>
-      <p>«There's nothing out there.»</p>
-      <p>«I know.» Nina looked at her, with the face of somebody who has been thinking about a thing for several summers. «So there's a very great deal of dark, Bea. More than anywhere else. And nobody in all that dark who knows how to light up.»</p>
-      <p>Bea didn't say <em>don't go</em>. She didn't say <em>you're old</em>. She didn't say <em>it's too far</em>.</p>
-      <p>She had learned a long time ago, under a clover leaf, that certain things aren't said to anybody.</p>
-      <p>She only asked: «Will you come back?»</p>
-      <p>And Nina answered truthfully.</p>
-      <p>«I don't know. I don't even know the way.»</p>
-      <p>And then Bea said the sentence a cricket had once said, on a cold September stone, to a firefly whose light had gone out.</p>
-      <p>«Then we'll sing,» she said. «Every evening. So you know which way it is.»</p>
-      <p>Nina stayed still a moment.</p>
-      <p>Then she went over the hedge.</p>
-      <p>And that night the meadow didn't stay dark.</p>
-      <p>They all lit up together — Bea first, and two hundred behind her — and they didn't go out until morning. Because a lit thing can be seen from a long way off.</p>
-      <p>Up at the top of the hill a yellow window went dark.</p>
-      <p>And somebody, behind the glass, saw the whole meadow burning like a city, and stayed there looking at it for a very long time, without knowing why that night was different.</p>
-      <p>Bea finished the story right to the end, out loud, even though by then she was telling it to the others.</p>
-      <p>And then, from deep in the grass, a very small one asked: «Will you tell it again tomorrow?»</p>
-      <p>«Yes,» said Bea. «Tomorrow and every evening.»</p>
-      <p>And she told it again, from the beginning.</p>
-      <p><em>Once upon a time, in a meadow at the foot of a hill, there was a little firefly called Nina…</em></p>
-      <p>In the meadow, from then on, the song has never missed an evening.</p>
-      <p>And every so often, on the blackest nights, one of the very small ones says she has seen — past the hedge, where the grass stops — a gold dot about this big. It's too far off to be sure: it might be a low star.</p>
-      <p>Nobody says yes and nobody says no. They just sing a little louder.</p>
-      <p>You don't have to be any use, my love.</p>
-      <p>You can light up because somebody needs you, and when that happens it's wonderful. But you can also light up on an evening when nobody needs you at all, just for the pleasure of being lit, and that's every bit as good — in fact, perhaps that's the one that counts.</p>
-      <p>Nobody is keeping score of how useful you've been.</p>
-      <p>There's only somebody who remembers what you were like.</p>
-      <p>And now close your eyes, because it's late.</p>
-      <p>The meadow is lit, the song is going round, somebody else knows the story now.</p>
-      <p>And somebody, a long way off, can perhaps hear it.</p>
-      <p>And tomorrow there will be light again.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-    <article class="fiaba" id="epilogo" data-ripresa="from the Epilogue">
-      <header class="fiaba-testata">
-        <p class="etichetta">Epilogue &middot; 5 minutes to read aloud</p>
-        <h2>Epilogue</h2>
-        <p class="sottotitolo">Nina's stories — to be read after all the others</p>
-      </header>
-      <p class="apertura">There. It's finished.</p>
-      <p>Ten nights, one at a time, and now you know the whole story of the firefly.</p>
-      <p>And I know exactly what you're about to ask me, because I used to ask it too at your age, every time somebody finished telling me something.</p>
-      <p><em>But is it true?</em></p>
-      <p>All right, let's do this: I'll tell you what's true, piece by piece, and then you can decide.</p>
-      <p>The meadow is true. It's still down there, at the foot of the hill, and if we go tomorrow morning you'll see it: an ordinary meadow, with long grass, a brook that makes a curve, a hedge and a big oak at the far end.</p>
-      <p>The oak is true. So are the roots, and under one root, on the shady side, there really is a little corner of dry earth.</p>
-      <p>The fireflies are true. They make light for real, no tricks, and when there are a lot of them the grass looks as though it's lit from underneath.</p>
-      <p>The crickets are true, and they really do sing like that: if one summer night you're quiet for long enough, you'll hear them all stop together and then start again.</p>
-      <p>The dark is true. And being afraid of the dark is the truest thing of all.</p>
-      <p>Nina, on the other hand, is the name I gave her.</p>
-      <p>Because that night a firefly really did settle on the glass of my window, while I couldn't sleep. And I really did turn off the lamp. And what I saw afterwards was so big that it wouldn't fit into one sentence, and so it took me ten nights.</p>
-      <p>That's what stories are for: to hold on to something you've seen, when it's too big to hold in your hands.</p>
-      <p>Now sit up a moment. Come here.</p>
-      <p>No, don't turn anything on.</p>
-      <p>Kneel up on the bed, face against the glass, hands round your eyes to make a curtain — like that, the way I used to.</p>
-      <p>And now wait.</p>
-      <p>I know you can't see anything. At the start you never can: eyes take a while to stop remembering the light.</p>
-      <p>You have to keep still. Which is the hardest thing in the world, as we know.</p>
-      <p>Wait just a little longer.</p>
-      <p>There.</p>
-      <p>Now, down at the bottom.</p>
-      <p>Can you see them?</p>
-      <p>Rocco has been gone a very long time, and so has Bea. Those are their granddaughters, and their granddaughters' granddaughters, and they know nothing at all about the two of us watching them through the glass.</p>
-      <p>About Nina, though, nobody knows.</p>
-      <p>One September night she went over the hedge and never came back. But nobody saw her go out, and that isn't the same thing.</p>
-      <p>When I was your age, some evenings I used to look down there — not at the meadow: at the dark part after it, where the grass stops. Just in case.</p>
-      <p>And the song you can hear now — the crooked thin one, that everybody gets wrong in their own way — is still his. But they sing it every evening for another reason too, and now you know what it is.</p>
-      <p>Look as long as you like. They won't run off.</p>
-      <p>And when you're grown up, if you ever get the chance, take somebody to a window in the dark yourself. There's no need to explain anything. You just turn off the light and stay there beside them, until it comes on by itself.</p>
-      <p>Now get back under the covers, because it's terribly late and your eyes are closing.</p>
-      <p>I'll leave the lamp on for you if you want it. That's absolutely fine: nobody down there takes it badly.</p>
-      <p><em>«Will you tell it again tomorrow?»</em></p>
-      <p>Yes, my love.</p>
-      <p>Tomorrow and every evening.</p>
-      <p class="congedo">Goodnight. 🌙✨</p>
-      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
-    </article>
-
-    <footer class="colophon">
-      <p class="etichetta">Colophon</p>
-      <p>10 stories, a prologue and an epilogue, 9671 words. Reading times are worked out at 130 words a minute: the pace of someone reading aloud, not of someone reading alone.</p>
-    </footer>
   </div>
 <script>
   (function () {
     var T = {"accendi": "Turn the light on", "spegni": "Turn the light off", "temaChiaro": "Switch to the light theme", "temaScuro": "Switch to the dark theme", "riprendi": "Resume"};
     var radice = document.documentElement;
     var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
-    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var SCALE = [0.92, 1, 1.12, 1.26];
+    var interruttore = document.getElementById("interruttore");
 
-    // localStorage puo' mancare (navigazione privata, cookie bloccati):
-    // la pagina deve funzionare comunque, solo senza memoria.
     function leggi(chiave) {
       try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
     }
     function scrivi(chiave, valore) {
       try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
     }
-
-    /* ---------- tema ---------- */
-    var interruttore = document.getElementById("interruttore");
-    var temaBarra = document.getElementById("tema-barra");
 
     function scuroAdesso() {
       var scelta = radice.getAttribute("data-theme");
@@ -1232,139 +558,30 @@
       interruttore.textContent = scuro ? T.accendi : T.spegni;
       interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
     }
-    function cambiaTema() {
+    interruttore.addEventListener("click", function () {
       var prossimo = scuroAdesso() ? "light" : "dark";
       radice.setAttribute("data-theme", prossimo);
       scrivi("fiabe:tema", prossimo);
       aggiornaEtichetta();
-    }
-    interruttore.addEventListener("click", cambiaTema);
-    temaBarra.addEventListener("click", cambiaTema);
+    });
     sistemaScuro.addEventListener("change", aggiornaEtichetta);
     aggiornaEtichetta();
 
-    /* ---------- dimensione del testo ---------- */
-    var passo = parseInt(leggi("fiabe:scala"), 10);
-    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
-
-    function applicaScala() {
-      radice.style.setProperty("--scala", String(SCALE[passo]));
-      document.getElementById("testo-meno").disabled = (passo === 0);
-      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
-      scrivi("fiabe:scala", String(passo));
-    }
-    document.getElementById("testo-meno").addEventListener("click", function () {
-      if (passo > 0) { passo--; applicaScala(); }
+    // per ogni libro, dove si era arrivati
+    var righe = document.querySelectorAll(".ripresa-libro");
+    Array.prototype.forEach.call(righe, function (riga) {
+      var ancora = leggi(riga.getAttribute("data-libro") + ":ultima");
+      if (!ancora) { return; }
+      var a = document.createElement("a");
+      a.setAttribute("href", riga.getAttribute("data-base") + "#" + ancora);
+      var etichette = {};
+      try { etichette = JSON.parse(riga.getAttribute("data-etichette") || "{}"); } catch (e) { etichette = {}; }
+      var dove = etichette[ancora];
+      if (!dove) { return; }
+      a.textContent = riga.getAttribute("data-testo").replace("{d}", dove);
+      riga.appendChild(a);
+      riga.setAttribute("data-visibile", "si");
     });
-    document.getElementById("testo-piu").addEventListener("click", function () {
-      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
-    });
-    applicaScala();
-
-    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
-    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
-    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
-    var barra = document.getElementById("barra");
-    var doveNumero = document.getElementById("dove-numero");
-    var doveTitolo = document.getElementById("dove-titolo");
-    var riquadro = document.getElementById("riprendi");
-    var riquadroLink = document.getElementById("riprendi-link");
-
-    function datiFiaba(articolo) {
-      var testata = articolo.querySelector(".fiaba-testata");
-      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
-      return {
-        id: articolo.id,
-        numero: numero,
-        titolo: testata.querySelector("h2").textContent,
-        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
-                   .replace(/&rsquo;/g, "’")
-      };
-    }
-
-    var corrente = null;
-
-    function segnaLette(fino) {
-      vociIndice.forEach(function (li, i) {
-        li.setAttribute("data-letta", i < fino ? "si" : "no");
-      });
-    }
-
-    var arrivata = parseInt(leggi("fiabe:arrivata"), 10);
-    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
-    segnaLette(arrivata);
-
-    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
-    var ultima = leggi("fiabe:ultima");
-    if (ultima) {
-      var bersaglio = document.getElementById(ultima);
-      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
-        var d = datiFiaba(bersaglio);
-        riquadroLink.textContent = (d.titolo === d.numero)
-          ? T.riprendi + " " + d.ripresa
-          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
-        riquadroLink.setAttribute("href", "#" + d.id);
-        riquadro.setAttribute("data-visibile", "si");
-      }
-    }
-    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
-      riquadro.setAttribute("data-visibile", "no");
-    });
-    riquadroLink.addEventListener("click", function () {
-      riquadro.setAttribute("data-visibile", "no");
-    });
-
-    if ("IntersectionObserver" in window) {
-      var visibili = {};
-      var osservatore = new IntersectionObserver(function (voci) {
-        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
-
-        var attiva = null;
-        for (var i = 0; i < fiabe.length; i++) {
-          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
-        }
-        if (!attiva || attiva === corrente) { return; }
-        corrente = attiva;
-
-        var d = datiFiaba(attiva);
-        doveNumero.textContent = d.numero;
-        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
-        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
-        scrivi("fiabe:ultima", d.id);
-
-        var indice = fiabe.indexOf(attiva);
-        if (indice > arrivata) {
-          arrivata = indice;
-          scrivi("fiabe:arrivata", String(arrivata));
-          segnaLette(arrivata);
-        }
-
-        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
-        // riga la barra compare solo al movimento successivo, e saltando
-        // dall'indice a una fiaba non compare affatto.
-        aggiornaBarra();
-      }, { rootMargin: "-45% 0px -45% 0px" });
-      fiabe.forEach(function (f) { osservatore.observe(f); });
-    }
-
-    // la barra serve dentro le fiabe, non in cima alla pagina
-    var soglia = document.querySelector(".indice");
-    function aggiornaBarra() {
-      var dentro = soglia.getBoundingClientRect().bottom < 0;
-      barra.setAttribute("data-visibile", dentro && corrente ? "si" : "no");
-    }
-    window.addEventListener("scroll", aggiornaBarra, { passive: true });
-    aggiornaBarra();
-
-    /* ---------- un lettore audio alla volta ---------- */
-    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
-    lettori.forEach(function (a) {
-      a.addEventListener("play", function () {
-        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
-      });
-    });
-
-    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
   })();
 </script>
 </body>

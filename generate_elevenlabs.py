@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Genera le fiabe in stories/it/ con la voce ElevenLabs 'fiabe'.
+"""Genera le fiabe italiane di un libro con la voce ElevenLabs 'fiabe'.
 
-Senza argomenti genera tutte le fiabe; con argomenti genera solo quelle
-indicate per numero, per esempio:  python3 generate_elevenlabs.py 05 06
+Il primo argomento è il libro (di sola lettura in stories/it/<libro>/);
+senza altro genera tutte le sue fiabe, con dei numeri solo quelle:
+
+    python3 generate_elevenlabs.py nina 05 06
+    python3 generate_elevenlabs.py tilde
 """
 import hashlib
 import json
@@ -17,13 +20,14 @@ import urllib.request
 import urllib.error
 
 BASE = Path(__file__).resolve().parent
-AUDIO = BASE / "audio"
+LIBRO = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].isdigit() else "nina"
+AUDIO = BASE / "audio" / LIBRO
 LANG = "it"
 VOICE_ID = "G9UYpVOtV3hbTUam453l"  # PVC 'fiabe', italiano, accento romanesco
 MODEL = "eleven_multilingual_v2"
 API = "https://api.elevenlabs.io/v1/text-to-speech"
 
-STORIES = sorted((BASE / "stories" / "it").glob("[0-9][0-9]*.md"))
+STORIES = sorted((BASE / "stories" / "it" / LIBRO).glob("[0-9][0-9]*.md"))
 
 EMOJI_RE = re.compile(
     "[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]"
@@ -122,7 +126,7 @@ def main():
         "use_speaker_boost": True,
     }
 
-    voluti = {a.zfill(2) for a in sys.argv[1:]}
+    voluti = {a.zfill(2) for a in sys.argv[1:] if a.isdigit()}
 
     for index, md in enumerate(STORIES, start=1):
         key = f"{index:02d}"
