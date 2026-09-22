@@ -4,7 +4,7 @@
 
 ---
 
-Le fiabe della lucciola te le ho raccontate perché le ho viste con i miei occhi. Quella notte alla finestra c'ero io, e la lampada l'ho spenta io, e il prato acceso l'ho visto io per primo.
+Le fiabe della lucciola te le ho raccontate perché le ho viste con i miei occhi. Quella notte alla finestra c'ero io, e la lampada l'ho spenta io, e il prato acceso l'ho visto io prima di chiunque.
 
 Questa te la racconto in un altro modo.
 
@@ -20,7 +20,7 @@ E nessuno, lassù, si è mai chiesto dove va a finire l'acqua che sposti quando 
 
 Nelle fiabe che ti ho già raccontato, quella casa era la luce nella finestra: la meraviglia, l'inizio di un'amicizia. In queste è un'altra cosa. È la stessa casa, con la stessa gente buona dentro. Solo che vista da sotto, quella casa ha fatto un danno vero — e nessuno di sopra lo ha saputo per tantissimo tempo, e quando l'ha saputo era già tardi per rimediare del tutto.
 
-Volevo dirtelo prima, non dopo, perché è una cosa importante da sapere fin da piccoli: le persone buone possono fare un male vero. Non perché sono cattive. Perché non sanno che il prato ha anche un sotto.
+Volevo dirtelo prima, non dopo, perché è una cosa importante da sapere fin dall'infanzia: le persone buone possono fare un male vero. Non perché sono cattive. Perché non sanno che il prato ha anche un sotto.
 
 Sotto quel prato, in quegli stessi anni, in una notte lunghissima sotto l'erba, viveva qualcun altro.
 

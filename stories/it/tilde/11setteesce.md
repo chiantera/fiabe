@@ -54,7 +54,7 @@ Passò una lucciola, e Tilde la sentì passare dal cambiamento d'aria.
 
 «Non ci vengo mai», disse Tilde. «Stanotte accompagno una amica.»
 
-«È una notte speciale, sai? Il prato è tutto acceso. Non ho mai visto niente del genere. Sembra che qualcuno abbia acceso una città intera, tutta insieme, da una parte all'altra — c'è una bambina venuta giù dalla collina e...»
+«È una notte speciale, sai? Il prato è tutto acceso. Non ho mai visto niente del genere. Sembra che qualcuno abbia acceso una città intera, tutta insieme, da una parte all'altra — c'è una persona piccola venuta giù dalla collina e...»
 
 «Ti credo sulla parola», disse Tilde.
 
@@ -126,7 +126,7 @@ Un primo giorno di scuola. Un aeroporto. Una porta che si chiude e dall'altra pa
 
 Fa una paura tremenda, lasciare andare qualcuno in un posto dove non puoi seguirlo.
 
-Ma è anche il regalo più grande che gli puoi fare: stare fermo esattamente fino al bordo, e non un passo di più, perché quel passo in più non tocca a te farlo.
+Ma è anche il regalo più grande che gli puoi fare: restare lì esattamente fino al bordo, e non un passo di più, perché quel passo in più non tocca a te farlo.
 
 Tilde non ha mai visto il cielo. Ha creduto lo stesso a chi glielo ha descritto.
 

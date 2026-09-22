@@ -94,7 +94,7 @@ Era la prima stanza di qualcuno.
 
 Tilde la lasciò storta com'era.
 
-Non sei il primo a passare di qui, amore mio.
+Qualcuno ha già camminato qui prima di te, amore mio.
 
 Prima di te c'è stata un sacco di gente che non conoscerai mai, e che non sapeva niente di te: e però hanno scavato bene, e hanno lasciato le curve giuste, e le strade larghe, e una stanza fredda dove tenere le cose.
 

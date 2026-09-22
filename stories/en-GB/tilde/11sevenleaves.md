@@ -54,7 +54,7 @@ A firefly went past, and Tilde felt her go by from the change in the air.
 
 «I never come up», said Tilde. «Tonight I'm seeing off a friend.»
 
-«It's a special night, you know. The meadow's lit up all over. I've never seen anything like it. It's as if somebody's lit up a whole city, all at once, from one side to the other — there's a little girl come down from the hill and—»
+«It's a special night, you know. The meadow's lit up all over. I've never seen anything like it. It's as if somebody's lit up a whole city, all at once, from one side to the other — there's a child come down from the hill and—»
 
 «I'll take your word for it», said Tilde.
 

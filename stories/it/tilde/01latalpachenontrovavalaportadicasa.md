@@ -98,7 +98,7 @@ Non era quello.
 
 E allora due lucciole la accompagnarono a casa, facendole luce, e nessuna delle due disse che era sbadata.
 
-C'è sempre un posto in cui sei bravissimo, amore mio.
+C'è sempre un posto in cui te la cavi benissimo, amore mio.
 
 Magari non è quello dove ti guardano tutti.
 

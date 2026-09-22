@@ -78,9 +78,9 @@ Le capitava, ormai, di dimenticare il nome di un fiore che conosceva da una vita
 
 Poi entrò, e per la prima volta in vita sua non ebbe bisogno di dirlo a nessuno: sapeva già di essere a casa.
 
-Casa non è dove ti hanno messo, amore mio.
+Casa non è dove hanno deciso che dovessi stare, amore mio.
 
-È quella che ti sei costruito tu, pezzo per pezzo, magari sbagliando una curva la prima volta e aggiustandola la seconda. È quella il cui ingresso hai scelto tu, e per questo la ritrovi sempre, anche quando tutto intorno sembra tre ciuffi d'erba tutti uguali.
+È quella che hai costruito tu, pezzo per pezzo, magari sbagliando una curva la prima volta e aggiustandola la seconda. È quella il cui ingresso hai scelto tu, e per questo la ritrovi sempre, anche quando tutto intorno sembra tre ciuffi d'erba tutti uguali.
 
 E qualche volta la porta di casa la metti proprio lì, vicino al ricordo di chi non c'è più: non per restare tristi, ma perché è comunque il punto che non dimentichi mai.
 

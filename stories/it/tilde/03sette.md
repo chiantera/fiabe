@@ -104,7 +104,7 @@ E lui restava un momento, e poi se ne andava di corsa a mangiare.
 
 Ci sono cose che ci mettono tantissimo, amore mio.
 
-Imparare a leggere. Diventare alti. Smettere di avere paura di una cosa.
+Imparare a leggere. Crescere in altezza. Smettere di avere paura di una cosa.
 
 E siccome ci mettono tanto, mentre succedono sembra che non stia succedendo niente, e viene voglia di dire *non ce la faccio* oppure *è tempo buttato*.
 

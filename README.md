@@ -86,11 +86,11 @@ e l'Epilogo nemmeno: chi ascolta può tenersi la porta aperta quanto vuole.
   (Libro III); Nina la aiuta come Rocco aveva aiutato lei. Cresce, diventa una
   guida per tutto il prato, e nel Libro ottavo è la sua luce a spegnersi —
   stavolta è Nina a ritrovarla al buio.
-- **Chi scese dalla collina** — mai nominata nelle fiabe di Nina, ma una
-  lucciola la chiama «una bambina» nel Libro undicesimo di Tilde: è lei la
-  bambina della casa in cima alla collina, la stessa voce che racconta tutte
-  le fiabe da grande. Compare di persona nel Libro sesto, scesa a vedere il
-  prato acceso da vicino.
+- **Chi scese dalla collina** — non ha un nome nelle fiabe di Nina; nel
+  Libro undicesimo di Tilde una lucciola parla di «una persona piccola».
+  È chi abitava nella casa in cima alla collina, la stessa voce che racconta
+  tutte le fiabe da grande. Nel Libro sesto scende a vedere il prato acceso
+  da vicino. Il genere di questa persona non è specificato.
 - **Le lucciole nuove** — le generazioni che non hanno mai conosciuto Rocco,
   ma cantano ancora la sua canzone senza sapere perché; nel Libro nono lo
   chiedono a Nina, e lei gliela racconta.
@@ -187,6 +187,11 @@ Ogni fiaba si chiude parlando direttamente a chi ascolta. La formula è
 **«amore mio»**, scelta perché non ha genere: chi ascolta può essere chiunque.
 
 Fino al Libro quinto la formula era «piccolo mio», sostituita ovunque nei testi.
+
+Nelle fiabe di Tilde anche le altre frasi rivolte a chi ascolta e i riferimenti
+alla voce narrante e alla persona della collina non ne specificano il genere,
+in italiano e in inglese. Si usano riformulazioni naturali da leggere ad alta
+voce, mantenendo il genere e l'identità dei personaggi Tilde, Pino, Rocco e Sette.
 
 ## L'audio (voce clonata)
 
