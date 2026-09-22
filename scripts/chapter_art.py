@@ -268,6 +268,41 @@ SCENES['tilde:06'] = ('Tilde scopre le fondamenta e il pozzo della casa', founda
 SCENES['tilde:07'] = ('Pino resta vicino a Tilde mentre chiudono le stanze allagate', lost_room)
 SCENES['tilde:08'] = ('Tilde prepara in segreto un angolino asciutto per Rocco', dry_corner)
 
+def digging():
+    b=earth()+tunnel('M0 443Q273 443 509 300',96)
+    b+=mole(456,350,1.3)+shrew(310,414,1)
+    b+=path('M509 254 524 273 511 290 535 304 514 322','none','#9e7d54',4)
+    for x,y,r in [(547,287,8),(562,316,5),(530,354,7),(401,422,6)]: b+=circle(x,y,r,'#97764d')
+    b+=path('M73 402 93 399M133 397 152 393M193 386 211 382M253 369 272 361','none','#d4b781',3)
+    return b
+
+def old_city():
+    b=earth(70)
+    b+=tunnel('M0 335H800',76)+tunnel('M387 173V500',72)
+    b+=tunnel('M126 335V211H665V335M178 335V473H614V335',49)
+    for x,y,rx,ry in [(128,213,57,37),(665,213,53,38),(614,473,66,36),(181,473,61,37)]: b+=room(x,y,rx,ry)
+    b+=ellipse(524,335,28,22,'#a49c81')+tunnel('M476 334Q515 276 570 331',30)
+    b+=mole(362,353,1)+shrew(270,356,.75)
+    return b
+
+def cicada(x,y,s=1):
+    b=path('M-3 8Q-92-73-94-16-93 42-4 36Z','#b5c3a0')+path('M3 8Q92-73 94-16 93 42 4 36Z','#cbd3ad')
+    b+=path('M-8 25-77-20M-8 25-62 19M8 25 77-20M8 25 62 19','none','#8b9c77',2)
+    b+=ellipse(0,21,13,33,'#9b9e6e')+ellipse(0,-10,20,15,'#bac18a')
+    b+=circle(-16,-12,4,'#596c4a')+circle(16,-12,4,'#596c4a')
+    return group(b,x,y,s)
+
+def emergence():
+    b=meadow()+path('M507 560Q541 411 516 188','none','#657d55',10)
+    b+=path('M522 317Q601 245 611 286 612 317 524 328Z','#6e8861')
+    b+=mole(337,493,1.8)+nymph(518,405,.62)+cicada(514,246,1.3)
+    for x,y in [(173,357),(647,376),(231,255)]: b+=glow(x,y,22)+circle(x,y,3,'#edd88e')
+    return b+grass()
+
+SCENES['tilde:09'] = ('Una talpa al giorno: Tilde e Pino ricostruiscono in salita', digging)
+SCENES['tilde:10'] = ('Le strade larghe e le stanze della città antica', old_city)
+SCENES['tilde:11'] = ('Sette asciuga le ali nuove, Tilde resta al suo fianco', emergence)
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
