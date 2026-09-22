@@ -28,7 +28,7 @@ E prima di cominciare, fece una cosa che non era necessaria.
 
 Scese.
 
-Scese nell'acqua fredda, a nuotare — le talpe nuotano, male ma nuotano — e andò a vedere le stanze vecchie un'ultima volta.
+Scese nell'acqua fredda, a nuotare — le talpe nuotano, male ma nuotano, e a lei, con l'artrite, faceva anche più male del solito — e andò a vedere le stanze vecchie un'ultima volta.
 
 Passò dalla camera bassa, quella con il soffitto tondo, la prima che avesse mai fatto da sola: ci aveva messo un'estate intera e le era venuta storta, e si vedeva ancora dove aveva sbagliato la curva.
 

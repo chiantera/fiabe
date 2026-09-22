@@ -75,19 +75,19 @@ e l'Epilogo nemmeno: chi ascolta può tenersi la porta aperta quanto vuole.
 | | Titolo | Lettura ad alta voce |
 |---|---|---|
 | — | Prologo | 4 min |
-| I | La talpa che non trovava la porta di casa | 6 min |
-| II | Le strade sotto il prato | 6 min |
+| I | La talpa che non trovava la porta di casa | 7 min |
+| II | Le strade sotto il prato | 7 min |
 | III | Sette | 5 min |
 | IV | Il vicino di sopra | 5 min |
-| V | L'acqua | 5 min |
+| V | L'acqua | 6 min |
 | VI | Quelli di sopra | 6 min |
 | VII | La stanza che non c'è più | 5 min |
-| VIII | Il canto che si è fermato | 5 min |
+| VIII | Il canto che si è fermato | 6 min |
 | IX | Scavare in avanti | 6 min |
 | X | La città di prima | 7 min |
-| XI | Sette esce | 8 min |
-| XII | La porta di casa | 6 min |
-| — | Epilogo | 4 min |
+| XI | Sette esce | 9 min |
+| XII | La porta di casa | 7 min |
+| — | Epilogo | 5 min |
 
 Nina guarda il prato da sopra e parla di luce: farsi vedere, rendersi utili,
 avere il permesso di smettere. Tilde lo guarda da sotto e parla di un'altra

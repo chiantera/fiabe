@@ -6,7 +6,9 @@
 
 Quell'estate, una sera, il soffitto non vibrò.
 
-Tilde aspettò un po', perché certe sere Rocco cominciava tardi.
+Tilde se ne accorse con un po' di ritardo, perché si era appisolata: le capitava, ultimamente, di appisolarsi la sera prima ancora che facesse buio, e di svegliarsi senza sapere quanto tempo fosse passato.
+
+Aspettò un po', perché certe sere Rocco cominciava tardi.
 
 Poi aspettò ancora.
 

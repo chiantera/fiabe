@@ -48,6 +48,10 @@ Tilde thought about it.
 
 «They weren't the same,» she said.
 
+«But can you... see?» asked Pino, who had noticed the spectacles by now.
+
+«Hardly at all,» said Tilde. «Even with these, if it comes to that. But you don't need to see, to get about down here. You need to feel.»
+
 And Pino, who was rude out of curiosity rather than unkindness, said: «Will you show me?»
 
 So Tilde did something she had never done before: she showed somebody round her house.

@@ -6,7 +6,11 @@
 
 In the meadow at the foot of the hill, under the grass, there lived a mole called Tilde.
 
-Tilde was old, her coat was like worn velvet, and everybody in the meadow was fond of her. But everybody, absolutely everybody, knew one other thing about her:
+Tilde was old, her coat was like worn velvet, and everybody in the meadow was fond of her.
+
+She also had a pair of spectacles — a present from the fireflies, who were quite certain they'd help — and she wore them with great pride, even though, let's be honest, moles can't see much even with spectacles on: they changed nothing at all, but they suited her. Her legs creaked a little when it was cold. And now and then, halfway through a thought, she'd stop, look around, and start again with a different one.
+
+But everybody, absolutely everybody, knew one other thing about her:
 
 that Tilde could never find her front door.
 

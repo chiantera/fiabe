@@ -38,6 +38,8 @@ But nobody had walked down this one in a very long time. You could tell.
 
 Tilde put a paw on her chest and waited to stop being frightened.
 
+Her head, these days, played the odd trick on her — a name that wouldn't come, a thought left half finished — but her legs never did. Her legs never forgot a single thing, and even in a brand new place like this one, they knew exactly where to put themselves.
+
 Then, being a mole, she went to have a look.
 
 The corridor went on. Then it opened into a four-way junction, well made, with the corners rounded off, because sharp corners wear away and fall in.

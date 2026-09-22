@@ -20,6 +20,8 @@ Tilde had always known her. She had found her when she was the size of a grain o
 
 And that was that.
 
+Tilde always sat down for a moment before leaving, because getting up quickly, these days, cost her a small «ouch» in her back legs.
+
 One day Tilde took Pino down, who the moment he heard about the cell wanted to see it at once, and who, faced with Seven, stayed quiet for nearly two whole seconds.
 
 Then he said: «What do you do?»

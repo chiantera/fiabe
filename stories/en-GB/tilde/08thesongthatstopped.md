@@ -6,7 +6,9 @@
 
 That summer, one evening, the ceiling didn't tremble.
 
-Tilde waited a while, because some evenings Rocco started late.
+Tilde noticed a little late, because she had dozed off: these days it happened to her, dozing off in the evening before it was even properly dark, and waking up with no idea how much time had passed.
+
+She waited a while, because some evenings Rocco started late.
 
 Then she waited some more.
 

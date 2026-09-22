@@ -18,7 +18,7 @@ Tilde didn't ask ready for what. She'd known for seven years.
 
 Seven began moving upwards, slowly, with a movement she'd never made before: until then she had only stayed; now she was going.
 
-Tilde followed her.
+Tilde followed her. But first she settled her spectacles properly on her nose — to do things right, even though up there she'd need them no more than she did down below, which is to say not at all.
 
 They climbed through corridors Tilde knew by heart, and the further up they went, the more the air changed — less damp, then cold, then with something in it that Tilde didn't care for at all and which is called wind.
 

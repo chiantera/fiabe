@@ -14,6 +14,8 @@ Let's do it like last time: I'll tell you what's true, piece by piece.
 
 The meadow is true, and you know that already. Moles are true, and they really do dig like that: one tunnel a day, nose always pointing a little upwards, so the water can't take hold. Cicadas are true, and they really do spend years underground, perfectly still, before coming out for a single night with brand new wings.
 
+And Tilde's spectacles are a little bit true too: moles really do have eyes, tiny ones, that see just about the difference between light and dark. Putting a pair of spectacles on one is a joke, but it's an honest joke, because it really wouldn't change anything even for a real mole. And the joints that ache in the cold are true as well: it can happen to old moles, the same way it can happen to anybody who gets old — not to everyone, but to plenty.
+
 And do you remember, in the other story, when I told you that under the oak root, on the shady side, there really is a little corner of dry earth?
 
 I told you it was true. I never told you who made it.

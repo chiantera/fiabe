@@ -16,7 +16,7 @@ Ci mise sei giorni.
 
 Non perché fosse lontano, ma perché scavare in salita è tutta un'altra cosa: la terra ti viene addosso invece di andarsene, e bisogna fermarsi spesso, e una galleria in pendenza fatta di fretta frana.
 
-Andò avanti così: un pezzo, riposo, un pezzo, riposo. E a ogni sosta appoggiava il muso alla parete e controllava di essere ancora sulla striscia.
+Andò avanti così: un pezzo, riposo, un pezzo, riposo — un po' perché la salita è fatta così, un po' perché le sue zampe, ultimamente, chiedevano riposo anche quando lei non glielo aveva ancora chiesto. E a ogni sosta appoggiava il muso alla parete e controllava di essere ancora sulla striscia.
 
 La terra intanto cambiava.
 

@@ -22,7 +22,7 @@ Non aveva mai saputo chi fosse.
 
 Una notte di luglio decise di scoprirlo.
 
-Salì fino al punto dove il soffitto vibrava di più, che era sotto la radice grossa della quercia, e lì si fermò. Poi alzò una zampa e bussò. Tre colpetti.
+Salì fino al punto dove il soffitto vibrava di più, che era sotto la radice grossa della quercia, e lì si fermò. Le era costato un pochino più fatica del solito: le zampe, ultimamente, si lamentavano più spesso. Poi alzò una zampa e bussò. Tre colpetti.
 
 Sopra, il *frin frin* si fermò di colpo.
 

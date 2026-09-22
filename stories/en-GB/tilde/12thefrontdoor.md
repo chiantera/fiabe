@@ -74,6 +74,8 @@ She didn't knock the three knocks. There was nothing left above to knock for.
 
 But she stayed there a moment anyway, the way you stay near a place that matters, even when nobody answers any more.
 
+These days she sometimes forgot the name of a flower she'd known all her life, or why she'd come into a room. But that evening, and every evening after, she never once forgot where the door was.
+
 Then she went in, and for the first time in her life she didn't need to tell anybody: she already knew she was home.
 
 Home isn't where you were put, my love.

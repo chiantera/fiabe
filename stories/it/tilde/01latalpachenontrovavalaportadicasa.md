@@ -6,7 +6,11 @@
 
 Nel prato ai piedi della collina, sotto l'erba, ci stava una talpa che si chiamava Tilde.
 
-Tilde era vecchia, aveva il pelo come il velluto consumato, e tutti nel prato le volevano bene. Ma tutti, proprio tutti, sapevano anche un'altra cosa di lei:
+Tilde era vecchia, aveva il pelo come il velluto consumato, e tutti nel prato le volevano bene.
+
+Aveva anche un paio di occhiali — regalo delle lucciole, sicurissime che l'avrebbero aiutata — e li portava con orgoglio, anche se, diciamocelo, le talpe ci vedono pochissimo pure con gli occhiali: non cambiava niente, ma le stavano bene. Le zampe, quando faceva freddo, le scricchiolavano un pochino. E ogni tanto, a metà di un pensiero, si fermava, si guardava intorno, e ricominciava da un altro pensiero.
+
+Ma tutti, proprio tutti, sapevano anche un'altra cosa di lei:
 
 che Tilde non trovava mai la porta di casa.
 
