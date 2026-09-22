@@ -157,7 +157,7 @@ LINGUE = {
         "apri": "Open",
     },
 }
-ROMANI = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
+ROMANI = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
 PAROLE_AL_MINUTO = 130  # ritmo di lettura ad alta voce, non di lettura silenziosa
 
 
