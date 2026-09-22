@@ -16,6 +16,8 @@ raccontano la stessa notte da due parti diverse.
 
 ## Le fiabe di Nina
 
+<img src="assets/meadow.svg" alt="Copertina de «Le fiabe di Nina»: il prato di notte, la quercia, la luna e le lucciole accese." width="480">
+
 | | Titolo | Lettura ad alta voce |
 |---|---|---|
 | — | Prologo | 4 min |
@@ -70,7 +72,30 @@ prima di leggerlo ad alta voce a qualcuno che si è affezionato a Rocco.
 Nel decimo Nina se ne va e non torna. Se sia la stessa cosa la fiaba non lo dice,
 e l'Epilogo nemmeno: chi ascolta può tenersi la porta aperta quanto vuole.
 
+### Personaggi
+
+- **Nina** — la lucciola protagonista. Aveva paura del buio da piccola; impara
+  ad accendersi per salvare un grillo perduto, e passa il resto della vita
+  imparando quando accendersi, quando spegnersi, e quando lasciare che sia
+  un'altra a farlo da sola.
+- **Rocco** — il grillo che Nina salva nel primo libro. Diventano amici per
+  tutta la vita: canta ogni sera per il prato, perde la voce da vecchio
+  (Libro IV), e muore nel sonno nel Libro settimo, dopo aver visto un'ultima
+  volta il prato acceso.
+- **Bea** — una lucciola piccola che all'inizio non riesce ad accendersi
+  (Libro III); Nina la aiuta come Rocco aveva aiutato lei. Cresce, diventa una
+  guida per tutto il prato, e nel Libro ottavo è la sua luce a spegnersi —
+  stavolta è Nina a ritrovarla al buio.
+- **Chi scese dalla collina** — mai nominato: il bambino della casa in cima
+  alla collina, la stessa voce che racconta tutte le fiabe da grande. Compare
+  di persona nel Libro sesto, sceso a vedere il prato acceso da vicino.
+- **Le lucciole nuove** — le generazioni che non hanno mai conosciuto Rocco,
+  ma cantano ancora la sua canzone senza sapere perché; nel Libro nono lo
+  chiedono a Nina, e lei gliela racconta.
+
 ## Le fiabe di Tilde
+
+<img src="assets/burrow.svg" alt="Copertina de «Le fiabe di Tilde»: la sua tana sotto il prato, vista in sezione." width="480">
 
 | | Titolo | Lettura ad alta voce |
 |---|---|---|
@@ -135,6 +160,24 @@ fatto un danno vero senza saperlo. L'**Epilogo** chiude il cerchio con quello
 di Nina — lì si diceva già che l'angolino di terra asciutta sotto la radice è
 vero, senza dire chi l'avesse fatto; qui si dice chi, e cosa è stato fatto
 (poco, e tardi, ma qualcosa) una volta scoperto il danno.
+
+### Personaggi
+
+- **Tilde** — la vecchia talpa protagonista. Sopra è una barzelletta — non
+  trova mai la porta di casa — sotto è un ingegnere: conosce ogni corridoio,
+  ogni radice, ogni cambiamento della terra sotto le zampe.
+- **Pino** — un toporagno giovane, velocissimo e loquace, che deve mangiare
+  ogni venti minuti o muore. Non è un allievo di Tilde: è un vicino invadente
+  di cui lei finisce per non poter fare a meno.
+- **Sette** — una ninfa di cicala che Tilde conosce da quando era grande come
+  un chicco di riso. Resta ferma in una cella per sette anni prima di uscire
+  con le ali nuove, e se ne va — forse per sempre.
+- **Rocco** — lo stesso grillo delle fiabe di Nina, qui è «il vicino di
+  sopra»: Tilde non lo sente cantare, lo sente vibrare nella terra, e per
+  anni si parlano con tre colpetti sul soffitto.
+- **La quercia** — non parla e non si muove che lei veda, ma le sue radici
+  crescono un dito all'anno, e per Tilde sono la strada maestra di tutto il
+  prato.
 
 ## Come ci si rivolge a chi ascolta
 
