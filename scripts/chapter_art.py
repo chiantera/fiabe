@@ -155,6 +155,63 @@ SCENES['nina:09'] = ('Le giovani lucciole ascoltano Nina raccontare', nina_story
 SCENES['nina:10'] = ('Nina passa la siepe, Bea resta a cantare', nina_departure)
 SCENES['nina:11'] = ('Insieme alla finestra, senza accendere la luce', nina_epilogue)
 
+def earth(surface=100):
+    b=path('M0 0H800V560H0Z','#b99b73')
+    b+=path(f'M0 0H800V{surface}C597 {surface-41} 279 {surface+63} 0 {surface-16}Z','#607258')
+    b+=path(f'M0 {surface-10}C279 {surface+69} 597 {surface-25} 800 {surface}V{surface+22}C570 {surface-9} 252 {surface+84} 0 {surface+18}Z','#899571')
+    b+=path(f'M146 {surface+27}l16 53-22 36m18-48 41 25m378-51-21 57 13 33m-10-49-26 18M311 {surface+38}l9 30','none','#927651',5)
+    for x,y in [(96,321),(628,255),(557,491),(105,481),(694,462),(298,204),(730,202),(74,224)]: b+=ellipse(x,y,7,3,'#9d7e56')
+    return b
+
+def tunnel(d,w=70):
+    return path(d,'none','#6b553f',w)
+
+def room(x,y,rx=130,ry=100):
+    return ellipse(x,y,rx+17,ry+15,'#69533f')+ellipse(x,y,rx,ry,'#d4b781')
+
+def mole(x,y,s=1,flip=False):
+    b=path('M-27 14C-46 8-48-15-40-36-34-57-13-65 2-53 21-42 27-22 28-7L47 1 29 14Z','#756451')
+    b+=path('M29-7 47 1 29 8Z','#c9947b')+circle(21,-18,2.5,'#332f29')
+    b+=path('M-30 14H-44M9 14H27','none','#4f463a',6)
+    b+=f'<g stroke="#d3bf8d" stroke-width="2.5">{circle(8,-20,9,"none")}{circle(27,-20,8,"none")}{path("M16-22H19M-1-22-15-28","none")}</g>'
+    return group(b,x,y,s,flip)
+
+def shrew(x,y,s=1,flip=False):
+    b=ellipse(0,0,23,12,'#a6a292')+path('M14-9 44 1 17 8Z','#a6a292')+circle(25,-3,2,'#403e34')
+    b+=circle(10,-11,6,'#9a8e7d')+path('M-22 2Q-44-14-56 2','none','#a6a292',3)+path('M-10 10-16 16M14 8 21 15','none','#756451',3)
+    return group(b,x,y,s,flip)
+
+def hedgehog(x,y,s=1):
+    b=path('M-39 13-42-3-34-9-38-20-23-22-20-34-8-30 1-40 11-30 24-33 28-20 38-16 36 12Z','#67513f')
+    b+=path('M20 0Q27-15 38-8L57 11H12Z','#c7ab80')+circle(40,2,2,'#332f29')
+    b+=path('M-27 13H-37M25 13H36','none','#564633',5)
+    return group(b,x,y,s)
+
+def tilde_prologue():
+    b=earth(180)+house(603,147,.9)+path('M677 143H722V178H677Z','#92947b')
+    b+=path('M689 178V293Q661 350 701 430','none','#73938a',18)
+    b+=tunnel('M0 390H318Q438 390 477 465')+room(284,383,117,82)+mole(287,417,1.25)
+    b+=path('M681 312Q558 311 496 369','none','#73938a',13)
+    return b
+
+def rescue():
+    b=earth()+path('M578 107 607 160 581 208 610 256 584 302 600 342','none','#69533f',26)
+    b+=tunnel('M603 356Q506 421 391 374 279 328 213 135',82)
+    b+=mole(400,396,1.25,True)+hedgehog(521,391,.8)
+    for x in [535,583,643]: b+=fly(x,64,.55)
+    return b
+
+def roads():
+    b=earth()+tunnel('M88 148V290Q88 324 147 324H665Q710 324 710 266V146')
+    b+=tunnel('M333 324V441H545M510 326V215H657',60)+room(539,446,88,54)
+    b+=mole(305,339,1.1)+shrew(198,344,.9)
+    b+=path('M595 413 620 430 596 448M622 407 647 430 622 457','none','#bfa06b',3)
+    return b
+
+SCENES['tilde:00'] = ('La stessa casa vista da sotto: il pozzo e le strade', tilde_prologue)
+SCENES['tilde:01'] = ('Tilde guida il piccolo riccio lungo la salita sicura', rescue)
+SCENES['tilde:02'] = ('Tilde mostra a Pino le strade sotto il prato', roads)
+
 def render(key):
     title, draw = SCENES[key]
     book, number = key.split(':')
