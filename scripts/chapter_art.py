@@ -479,7 +479,19 @@ def ugo_08():
     b+=bat(560,160,1)+echo(560,160,.9,True)+echo(560,160,.9)
     return b+grass()
 
-SCENES['ugo:08'] = ('Il prato trattiene il fiato: chi è sceso dalla collina, e tutti intorno al buio', ugo_08)
+def ugo_09():
+    # Le quaranta lucciole portano Rocco; un'antenna si alza verso la voce di Ugo.
+    b=meadow(False)+creek()+tree(150,300,.45)
+    for row in range(4):
+        for col in range(10):
+            b+=fly(200+col*26,230+row*14+(col%3)*3,.28,True,(row+col)%4==0)
+    b+=cricket(318,222,1.6,True)
+    b+=path('M362 192Q400 150 470 150','none','#9a9e77',3)
+    return b+bat(600,190,.95,True)+echo(600,190,.8,True)+grass()
+
+SCENES['ugo:09'] = ("Rocco, portato dalle lucciole, gira un'antenna verso la voce di Ugo", ugo_09)
+
+SCENES['ugo:08'] =('Il prato trattiene il fiato: chi è sceso dalla collina, e tutti intorno al buio', ugo_08)
 
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
