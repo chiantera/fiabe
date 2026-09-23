@@ -48,7 +48,7 @@ The dark wasn't empty at all. Under every clover leaf there was a firefly with i
 
 The whole meadow was there, all around Breath. The whole meadow was keeping still, and waiting.
 
-Ugo would have liked to tell them. *You're not alone. They're all here. They're very close.*
+Ugo would have liked to tell them. *The dark is full. They're all here. They're very close.*
 
 But there was no ceiling to knock on. And his voice, he knew, wouldn't be heard.
 
