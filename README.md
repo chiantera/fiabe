@@ -8,6 +8,7 @@ ognuno si legge per conto suo.
 | --- | --- | --- |
 | I | **Le fiabe di Nina** — la lucciola | 10 fiabe, un prologo e un epilogo |
 | II | **Le fiabe di Tilde** — la vecchia talpa | 12 fiabe, un prologo e un epilogo |
+| III | **Le fiabe di Ugo** — il pipistrello sotto il tetto | in corso |
 
 Tilde compare già nelle fiabe di Nina: è «la vecchia talpa che non trovava mai
 la porta di casa», nominata tre volte come una battuta ricorrente. Il suo libro
