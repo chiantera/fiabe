@@ -536,6 +536,25 @@ def ugo_12():
 
 SCENES['ugo:12'] = ('Sulla trave non c’è più uno solo: Ugo e la colonia nuova, e sotto un respiro nuovo', ugo_12)
 
+def ugo_prologue():
+    # La stanza con il soffitto storto: il letto sotto, qualcuno sopra, tre colpi in mezzo.
+    b=cutaway(lamp=False)+bat_hanging(400,192,1.25)
+    b+=path('M170 452Q230 404 300 420 360 405 430 452Z','#7f8c70')
+    for i,y in enumerate([300,318,336]): b+=f'<g opacity=".5">{path(f"M{372+i*8} {y}Q{390+i*8} {y-7} {408+i*8} {y}","none","#edd88e",2)}</g>'
+    return b
+
+def ugo_epilogue():
+    # Domani, poco prima del buio: in giardino a contare chi esce dal buco con il cappello.
+    ground=path('M0 470C180 430 320 455 460 440 600 426 700 450 800 440V560H0Z','#214739')
+    b=sky(False)+'<g opacity=".16">'+ellipse(400,470,560,190,'#e8d6a0')+ellipse(400,470,420,120,'#e8d6a0')+'</g>'+ground+big_house(lit=True)
+    b+=path('M596 324H652V333H596Z','#8a7456')+path('M600 333V340M648 333V340','none','#6d5f48',3)
+    for x,y,s in [(660,300,.45),(706,248,.5),(742,180,.55),(640,140,.5)]: b+=bat(x,y,s)
+    b+=stander(150,556,.95)+stander(215,556,.6)
+    return b+grass()
+
+SCENES['ugo:00'] = ('La stanza con il soffitto storto, e sopra qualcuno che risponde', ugo_prologue)
+SCENES['ugo:13'] = ('Poco prima del buio, in giardino, a contare chi esce dal tetto', ugo_epilogue)
+
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'

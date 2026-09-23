@@ -50,7 +50,7 @@ E una mi si è posata sulla mano aperta, e ci è rimasta finché da casa non han
 
 Ecco: le storie che ti racconto da qui in avanti le so perché quella finestra gialla era la mia.
 
-Adesso la casa è questa, e la finestra è la tua, e quello che ti rimbocca le coperte sono io.
+Adesso la casa è questa, e la finestra è la tua, e chi ti rimbocca le coperte sono io.
 
 Quando sarai grande, se ti capita, portacelo tu qualcuno in un prato al buio.
 
