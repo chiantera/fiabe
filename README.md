@@ -8,12 +8,14 @@ ognuno si legge per conto suo.
 | --- | --- | --- |
 | I | **Le fiabe di Nina** — la lucciola | 10 fiabe, un prologo e un epilogo |
 | II | **Le fiabe di Tilde** — la vecchia talpa | 12 fiabe, un prologo e un epilogo |
-| III | **Le fiabe di Ugo** — il pipistrello sotto il tetto | in corso |
+| III | **Le fiabe di Ugo** — il pipistrello sotto il tetto | 12 fiabe, un prologo e un epilogo |
 
 Tilde compare già nelle fiabe di Nina: è «la vecchia talpa che non trovava mai
 la porta di casa», nominata tre volte come una battuta ricorrente. Il suo libro
 sta sotto il prato e corre lungo gli stessi anni, quindi ogni tanto i due libri
-raccontano la stessa notte da due parti diverse.
+raccontano la stessa notte da due parti diverse. Ugo sta sopra, sotto il tetto
+della casa in cima alla collina: il terzo libro racconta quegli anni dall'alto,
+e chi dorme sotto quel tetto è la voce che li racconta tutti e tre.
 
 ## Le fiabe di Nina
 
@@ -182,6 +184,104 @@ vero, senza dire chi l'avesse fatto; qui si dice chi, e cosa è stato fatto
   crescono un dito all'anno, e per Tilde sono la strada maestra di tutto il
   prato.
 
+## Le fiabe di Ugo
+
+<img src="assets/attic.svg" alt="Copertina de «Le fiabe di Ugo»: il tetto della casa in cima alla collina di notte, e Ugo che esce dal buco sotto le tegole." width="480">
+
+| | Titolo | Lettura ad alta voce |
+|---|---|---|
+| — | Prologo | 3 min |
+| I | Il pipistrello che nessuno sentiva | 6 min |
+| II | Quelli di sotto | 5 min |
+| III | Il rumore nel soffitto | 6 min |
+| IV | Il sonno lungo | 6 min |
+| V | La notte che Pino stette zitto | 6 min |
+| VI | Il mondo alla rovescia | 7 min |
+| VII | La lampada spenta | 7 min |
+| VIII | Il prato trattiene il fiato | 8 min |
+| IX | Qualcuno si girò | 8 min |
+| X | Le luci laggiù | 8 min |
+| XI | Il buco sotto le tegole | 7 min |
+| XII | La risposta | 6 min |
+| — | Epilogo | 4 min |
+
+Nina parla di luce, cioè del farsi vedere. Tilde parla di tatto, cioè del sapere
+dove sei. Ugo parla di voce: essere sentiti. È un pipistrello, e vede il mondo
+gridando e ascoltando come torna indietro il grido. Solo che la sua voce è così
+alta che non la sente nessuno: né le lucciole, né la talpa, né la gente. Il
+ritornello del libro è la frase «E tornò indietro soltanto la sua voce», e
+l'ultima pagina la rovescia.
+
+Ugo abita sotto il tetto della casa in cima alla collina, e il libro corre
+lungo gli stessi anni degli altri due, visti da sopra. Alcuni capitoli
+raccontano notti che chi ha letto Nina e Tilde conosce già: il settimo è la
+sera in cui la lampada si spegne (Libro quinto di Nina), con un grattare sotto
+le fondamenta che Ugo non capirà mai (Libro sesto di Tilde); l'ottavo è la
+notte in cui chi aveva paura del buio scende la collina (sesto di Nina) ed è la
+stessa notte in cui Sette esce dal guscio e una voce vecchia dice «Ti credo
+sulla parola» (undicesimo di Tilde); il nono è il volo di Rocco (settimo di
+Nina); il decimo è la notte in cui Nina passa la siepe (decimo di Nina), e molte
+estati dopo. Il libro non spiega niente: chi non ha letto gli altri due sente
+comunque una notte piena, chi li ha letti riconosce tutto.
+
+L'altro filo è la persona che dorme sotto il tetto. Nei primi capitoli ha paura
+del rumore nel soffitto; nel terzo bussa tre volte, con il codice che Ugo ha
+sentito per anni in fondo al prato fra una talpa e un grillo, e il soffitto
+risponde. Da lì in poi si parlano così per tutta la vita. Nell'undicesimo, ormai
+grande, salva il buco sotto le tegole dagli operai: «Lasciate il buco. C'è
+qualcuno.»
+
+Vanno letti in ordine: il primo porta Ugo, rimasto solo, nella casa nuova; il
+secondo e il terzo lo fanno conoscere a quelli di sotto senza che lo vedano; il
+quarto è il letargo, e il silenzio di un inverno intero. Il quinto e il sesto
+sono più leggeri: Pino il toporagno, l'unico che potrebbe sentirlo se solo
+stesse zitto, e il mondo a testa in giù. Dal settimo al decimo le notti degli
+altri libri. L'undicesimo e il dodicesimo chiudono: il buco salvato, e dal buio
+accanto a Ugo una colonia nuova che risponde.
+
+Il **Prologo** completa la voce degli altri due: Nina l'ho vista, Tilde l'ho
+creduta sulla parola, questa l'ho *sentita*, per anni, attraverso il soffitto,
+mentre mi dicevano che non c'era niente. La stanza con il soffitto storto
+adesso è di chi ascolta. L'**Epilogo** risponde al solito «ma è vera?», con
+prudenza sui fatti incerti (che per i pipistrelli le lucciole abbiano un sapore
+cattivo si dice, ma non è sicuro), e dice due cose nuove: il nome Ugo l'ha
+scelto la voce narrante, e il buco sotto le tegole non l'ha chiuso nessuno
+perché l'aveva chiesto lei. Finisce con due gesti: domani, al tramonto, contare
+chi esce dal tetto; stanotte, se si sente grattare nel soffitto, bussare tre
+volte. «Non so se ti risponderanno. A me rispondevano.»
+
+Il nono è il capitolo del libro più delicato da leggere ad alta voce: Rocco
+muore quella notte, fuori scena, e Ugo non lo sa. L'ottavo è il più lungo; se
+serve accorciare, è da lì che si comincia.
+
+### Personaggi
+
+- **Ugo** — il pipistrello protagonista. Da giovane perde la colonia (partita
+  per la grotta una notte prima del suo ritorno) e trova casa sotto le tegole
+  della casa nuova. Vede con la voce, e la sua voce non la sente nessuno.
+  Chiama lo stesso tutte le sere, perché un pipistrello chiama sempre.
+- **Il Respiro**, poi **il Passo Lungo** — chi dorme nella stanza sotto il
+  tetto. Ugo lo conosce solo dai rumori, e gli dà il nome del rumore che fa:
+  prima il respiro, corto quando ha paura e lungo quando dorme, poi il passo,
+  da grande. È la stessa persona che scende la collina nelle fiabe di Nina, e
+  la voce che racconta tutti e tre i libri. Il genere non è mai specificato.
+- **Il Passo Pesante** e **il Cucchiaino** — gli altri due di sotto: uno sale
+  le scale due gradini alla volta, l'altro gira lo zucchero nella tazza, sempre
+  tre giri, mai quattro. Anche qui, nessun genere.
+- **Pino** — il toporagno delle fiabe di Tilde. È l'unico nel prato con una
+  voce abbastanza alta da poter sentire Ugo, se solo stesse zitto; dal Libro
+  quinto è il suo amico. La regola: Pino parla, poi sta zitto, e Ugo risponde.
+- **La civetta** — vola senza fare rumore, e nel Libro quinto la sente solo
+  Ugo. Non è cattiva: ha fame.
+- **Rocco** — lo stesso grillo degli altri due libri. Ugo gli vuole bene senza
+  che lui lo sappia, per una frase sentita anni prima («nel buio a volte basta
+  una voce per sapere dove andare»); nel Libro nono è il primo, in tutta la
+  vita di Ugo, a girarsi verso la sua voce invece di scappare.
+- **Le lucciole** — per Ugo la loro luce è un cartello: *non sono per te*. Nina
+  e Bea non vengono mai nominate, ma si riconoscono.
+- **La colonia nuova** — pipistrelli giovani che entrano dal buco salvato,
+  mentre Ugo dorme il suo ultimo sonno lungo del libro, e che rispondono.
+
 ## Come ci si rivolge a chi ascolta
 
 Ogni fiaba si chiude parlando direttamente a chi ascolta. La formula è
@@ -193,6 +293,13 @@ Nelle fiabe di Tilde anche le altre frasi rivolte a chi ascolta e i riferimenti
 alla voce narrante e alla persona della collina non ne specificano il genere,
 in italiano e in inglese. Si usano riformulazioni naturali da leggere ad alta
 voce, mantenendo il genere e l'identità dei personaggi Tilde, Pino, Rocco e Sette.
+
+Nelle fiabe di Ugo la regola vale anche per chi abita sotto il tetto. In
+italiano hanno sempre il nome del loro rumore (il Respiro, il Passo Lungo, il
+Passo Pesante, il Cucchiaino), e aggettivi e participi si accordano con quel
+nome, mai con la persona; in inglese sono Breath, Long Stride, Heavy Step e
+Teaspoon, con il pronome *they*. Ugo, Pino e Rocco restano maschili, la civetta
+femminile.
 
 ## L'audio (voce clonata)
 
@@ -218,10 +325,11 @@ sola:
 python3 generate_elevenlabs.py nina 00 04 06 07 08 09 10 11
 ```
 
-Per **Tilde** l'audio non è ancora stato registrato per nessun capitolo:
+Per **Tilde** e **Ugo** l'audio non è ancora stato registrato per nessun capitolo:
 
 ```bash
 python3 generate_elevenlabs.py tilde
+python3 generate_elevenlabs.py ugo
 ```
 
 Il vecchio percorso locale con **Coqui TTS (XTTS-v2)** resta in `generate.py` come
@@ -246,8 +354,17 @@ python3 build.py
 ```
 
 Lo stile condiviso si modifica in `assets/fiabe.css`; le illustrazioni dello
-scaffale sono `assets/meadow.svg` e `assets/burrow.svg`. Tutte le pagine usano
+scaffale sono `assets/meadow.svg`, `assets/burrow.svg` e `assets/attic.svg`. Tutte le pagine usano
 gli stessi asset, senza dipendenze di compilazione aggiuntive.
+
+Le illustrazioni dei capitoli stanno in `assets/chapters/<libro>/NN.svg`: se il
+file esiste, `build.py` lo mette sotto il titolo della fiaba. Quelle di Ugo (e la
+sua copertina) sono disegnate in codice da `scripts/chapter_art.py`:
+
+```bash
+python3 scripts/chapter_art.py ugo:05      # un capitolo
+python3 scripts/chapter_art.py cover:attic # la copertina dello scaffale
+```
 
 Lo script rilegge tutti i file `stories/<lingua>/<libro>/[0-9][0-9]*.md` in ordine e ricostruisce indice,
 tempi di lettura e colophon. Per aggiungere una fiaba basta creare in `stories/`
@@ -261,8 +378,8 @@ Una cartella per lingua sotto `stories/`, e una pagina per lingua:
 
 | Lingua | Testi | Scaffale | Un libro |
 | --- | --- | --- | --- |
-| Italiano | `stories/it/<libro>/` | `/` | `/nina/`, `/tilde/` |
-| English (UK) | `stories/en-GB/<libro>/` | `/en/` | `/en/nina/`, `/en/tilde/` |
+| Italiano | `stories/it/<libro>/` | `/` | `/nina/`, `/tilde/`, `/ugo/` |
+| English (UK) | `stories/en-GB/<libro>/` | `/en/` | `/en/nina/`, `/en/tilde/`, `/en/ugo/` |
 
 I libri stanno in `LIBRI`, in `build.py`, con titolo, riassunto e descrizione
 (quella che va nel meta-tag e nell'anteprima social) per lingua. Un libro
@@ -336,7 +453,7 @@ La pagina è online su **https://fiabe.vercel.app**.
 Il progetto Vercel è collegato a questo repository: ogni push su `main`
 pubblica una nuova versione. Ricordarsi quindi di eseguire `python3 build.py`
 e committare anche le pagine rigenerate (`index.html`, `nina/index.html`,
-`tilde/index.html`, `en/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`),
+`tilde/index.html`, `ugo/index.html`, `en/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`),
 altrimenti il sito resta indietro rispetto ai testi.
 
 ## Autori
@@ -352,9 +469,9 @@ Ogni pagina generata da `build.py` porta, oltre al titolo e alla descrizione:
 
 - **Open Graph e Twitter Card** (`og:*`, `twitter:*`): titolo, descrizione,
   URL, lingua e un'immagine di anteprima 1200&times;630 diversa per libro
-  (`assets/og-nina.png`, `assets/og-tilde.png`) o generica per lo scaffale
+  (`assets/og-nina.png`, `assets/og-tilde.png`, `assets/og-ugo.png`) o generica per lo scaffale
   (`assets/og-default.png`). Le immagini sono ritagliate dalle stesse
-  illustrazioni SVG dello scaffale (`assets/meadow.svg`, `assets/burrow.svg`)
+  illustrazioni SVG dello scaffale (`assets/meadow.svg`, `assets/burrow.svg`, `assets/attic.svg`)
   con `cairosvg` + Pillow, non disegnate a mano: se le illustrazioni cambiano,
   vanno rigenerate allo stesso modo.
 - **Dati strutturati JSON-LD** (schema.org): `WebSite` con `hasPart` sullo
@@ -397,16 +514,18 @@ fiabe/
 ├── robots.txt
 ├── sitemap.xml                  # generato da build.py: non modificare a mano
 ├── manifest.json                # generato da build.py: manifest italiano
-├── index.html, nina/, tilde/    # italiano: generati, non modificare a mano
-├── en/                          # inglese: index.html, nina/, tilde/, manifest.json (generati)
+├── index.html, nina/, tilde/, ugo/  # italiano: generati, non modificare a mano
+├── en/                          # inglese: index.html, nina/, tilde/, ugo/, manifest.json (generati)
+├── scripts/chapter_art.py       # illustrazioni dei capitoli e copertina di Ugo, in SVG
 ├── assets/
 │   ├── fiabe.css                # stile condiviso da tutte le pagine
-│   ├── meadow.svg, burrow.svg    # illustrazioni dello scaffale (Nina, Tilde)
+│   ├── meadow.svg, burrow.svg, attic.svg  # illustrazioni dello scaffale (Nina, Tilde, Ugo)
+│   ├── chapters/<libro>/NN.svg  # illustrazioni dei capitoli
 │   ├── favicon.svg, favicon-32.png, apple-touch-icon.png, icon-512.png
-│   └── og-nina.png, og-tilde.png, og-default.png  # anteprime social, 1200×630
+│   └── og-nina.png, og-tilde.png, og-ugo.png, og-default.png  # anteprime social, 1200×630
 ├── stories/
-│   ├── it/{nina,tilde}/NN<titolo-attaccato>.md
-│   └── en-GB/{nina,tilde}/NN<title-stuck-together>.md
+│   ├── it/{nina,tilde,ugo}/NN<titolo-attaccato>.md
+│   └── en-GB/{nina,tilde,ugo}/NN<title-stuck-together>.md
 ├── note/                        # (ignorato) tracce e scalette di lavoro
 ├── ref/                         # (ignorato) campione voce di riferimento
 └── audio/                       # (ignorato, tranne gli MP3 finali 11l-*.mp3)
