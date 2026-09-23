@@ -523,6 +523,19 @@ def ugo_11():
 
 SCENES['ugo:11'] = ('Il buco con il suo tettuccio, e il Passo Lungo in giardino che guarda chi esce', ugo_11)
 
+def ugo_12():
+    # La trave non è più di uno solo: Ugo in mezzo, e intorno voci nuove.
+    b=cutaway(lamp=False)
+    for x in [290,322,354,446,478,510]: b+=bat_hanging(x,182,.72)
+    b+=bat_hanging(400,192,1.1)
+    # Voci che si chiamano e si rispondono lungo la trave.
+    for x,y in [(306,222),(338,226),(372,230),(428,232),(462,226),(494,222)]:
+        b+=f'<g opacity=".45">{path(f"M{x-7} {y}Q{x} {y+7} {x+7} {y}","none","#d9d2a5",2)}{path(f"M{x-11} {y+6}Q{x} {y+15} {x+11} {y+6}","none","#d9d2a5",2)}</g>'
+    b+=path('M170 452Q230 404 300 420 360 405 430 452Z','#7f8c70')
+    return b
+
+SCENES['ugo:12'] = ('Sulla trave non c’è più uno solo: Ugo e la colonia nuova, e sotto un respiro nuovo', ugo_12)
+
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
