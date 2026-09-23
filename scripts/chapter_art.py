@@ -464,6 +464,23 @@ def ugo_07():
 
 SCENES['ugo:07'] = ('Clic: la finestra si spegne, e il prato laggiù si accende tutto insieme', ugo_07)
 
+def sitter(x,y,s=1):
+    # Chi è sceso dalla collina, seduto nell'erba: una sagoma piccola e neutra, di spalle.
+    b=path('M-34 0Q-40-50-26-70-14-86 0-86 14-86 26-70 40-50 34 0Z','#8f9a78')
+    b+=ellipse(-22,-102,4,7,'#c9aa80')+ellipse(22,-102,4,7,'#c9aa80')+circle(0,-106,22,'#4b4938')
+    b+=path('M-30-8H30','none','#6b7a63',14)
+    return group(b,x,y,s)
+
+def ugo_08():
+    b=meadow(False)+tree(150,-40,.95)
+    b+=sitter(430,500,1.1)+path('M470 486 492 490','none','#5d5d52',8)
+    for x,y,s in [(250,470,.5),(600,450,.45),(330,520,.4),(700,510,.5),(530,535,.4),(160,520,.45)]:
+        b+=clover(x,y+12,s*.9)+fly(x+16,y-2,s,False)
+    b+=bat(560,160,1)+echo(560,160,.9,True)+echo(560,160,.9)
+    return b+grass()
+
+SCENES['ugo:08'] = ('Il prato trattiene il fiato: chi è sceso dalla collina, e tutti intorno al buio', ugo_08)
+
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
