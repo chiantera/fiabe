@@ -322,7 +322,64 @@ def tilde_epilogue():
 SCENES['tilde:12'] = ('La porta scelta da Tilde, vicino al ricordo di Rocco', front_door)
 SCENES['tilde:13'] = ('I mucchietti nel prato rivelano una città nascosta', tilde_epilogue)
 
+# --- Ugo --------------------------------------------------------------------
+# Il pipistrello è più chiaro del cielo, e caldo: sul verde scuro deve leggersi.
+BAT_WING, BAT_BODY = '#5b4f45', '#75675a'
+
+def bat(x,y,s=1,flip=False):
+    b=path('M0-4C-14-20-36-25-62-15-53-8-49 1-53 10-42 3-31 5-25 14-18 7-9 7 0 7Z',BAT_WING)
+    b+=path('M0-4C14-20 36-25 62-15 53-8 49 1 53 10 42 3 31 5 25 14 18 7 9 7 0 7Z',BAT_WING)
+    b+=ellipse(0,3,9,13,BAT_BODY)+circle(0,-11,8,BAT_BODY)
+    b+=path('M-7-15-9-27-1-18Z',BAT_BODY)+path('M7-15 9-27 1-18Z',BAT_BODY)
+    b+=circle(-3,-12,1.6,'#edd88e')+circle(3,-12,1.6,'#edd88e')
+    return group(b,x,y,s,flip)
+
+def bat_hanging(x,y,s=1):
+    b=path('M-4-24-5-36M4-24 5-36','none',BAT_BODY,3)
+    b+=ellipse(0,0,15,25,BAT_WING)+path('M0-22V20','none','#4a4038',2)
+    b+=circle(0,22,8,BAT_BODY)+path('M-7 26-9 38-1 29Z',BAT_BODY)+path('M7 26 9 38 1 29Z',BAT_BODY)
+    return group(b,x,y,s)
+
+def echo(x,y,s=1,flip=False,n=3):
+    # La voce di Ugo: archi che vanno avanti e tornano indietro.
+    b=''.join(path(f'M{72+i*16} {-14-i*9}Q{84+i*20} 0 {72+i*16} {14+i*9}','none','#d9d2a5',2) for i in range(n))
+    return f'<g opacity=".45">{group(b,x,y,s,flip)}</g>'
+
+def big_house(lit=True, gap=True):
+    # La casa in cima alla collina, vista da vicino: il tetto è il protagonista.
+    b=path('M150 300H650V560H150Z','#25483c')
+    b+=path('M92 318 400 118 708 318Z','#1a392f')
+    for y in [170,205,240,275,305]:
+        half=(y-118)*308/200
+        b+=path(f'M{400-half+6:.0f} {y}H{400+half-6:.0f}','none','#2c5044',3)
+    b+=path('M86 318H714V332H86Z','#142c25')
+    if gap: b+=path('M608 332Q624 348 640 332Z','#0b1a16')
+    if lit: b+=glow(340,420,70)
+    b+=path('M300 380H380V460H300Z','#efdaa0' if lit else '#142c25')+path('M340 380V460M300 420H380','none','#25483c',5)
+    b+=path('M470 400H540V560H470Z','#1d3c32')
+    return b
+
+def attic_cover():
+    ground=path('M0 470C180 430 320 455 460 440 600 426 700 450 800 440V560H0Z','#214739')
+    return sky()+ground+big_house()+bat(700,380,.9)+echo(700,380,.9)
+
+def ugo_01():
+    b=meadow()+tree(170,90,.7)+house(610,262,1,False)
+    return b+bat(410,175,1.2)+echo(410,175,1)+grass()
+
+SCENES['ugo:01'] = ('Ugo sente per la prima volta una cosa dritta: la casa nuova', ugo_01)
+COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
+
+SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
+
 def render(key):
+    if key.startswith('cover:'):
+        # Le copertine dello scaffale stanno in assets/, non in assets/chapters/.
+        title, draw = COVERS[key.split(':')[1]]
+        output = ROOT / 'assets' / (key.split(':')[1]+'.svg')
+        output.write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none">\n<title>'+escape(title)+'</title>\n'+SKY_DEFS+'\n'+draw()+'\n</svg>\n',encoding='utf-8')
+        print(output.relative_to(ROOT))
+        return
     title, draw = SCENES[key]
     book, number = key.split(':')
     output = ROOT / 'assets' / 'chapters' / book / (number+'.svg')

@@ -33,6 +33,7 @@ OG_LOCALE = {"it": "it_IT", "en-GB": "en_GB"}
 LIBRI = [
     {
         "cartella": "nina",
+        "copertina": "meadow",
         "it": {
             "titolo": "Le fiabe di Nina",
             "nome_breve": "Nina",
@@ -52,6 +53,7 @@ LIBRI = [
     },
     {
         "cartella": "tilde",
+        "copertina": "burrow",
         "it": {
             "titolo": "Le fiabe di Tilde",
             "nome_breve": "Tilde",
@@ -67,6 +69,26 @@ LIBRI = [
             "riassunto": ("The old mole from the meadow, the one who could never find her own "
                           "front door. Seen from below, where she finds it perfectly well."),
             "descrizione": "{n} bedtime stories about Tilde, the old mole of the meadow at the foot of the hill.",
+        },
+    },
+    {
+        "cartella": "ugo",
+        "copertina": "attic",
+        "it": {
+            "titolo": "Le fiabe di Ugo",
+            "nome_breve": "Ugo",
+            "occhiello": "Libro terzo",
+            "riassunto": ("Il pipistrello che abita sotto il tetto della casa in cima alla "
+                          "collina. Vede con la voce, e la sua voce non la sente nessuno."),
+            "descrizione": "{n} fiabe della buonanotte su Ugo, il pipistrello sotto il tetto della casa in cima alla collina.",
+        },
+        "en-GB": {
+            "titolo": "Ugo&rsquo;s stories",
+            "nome_breve": "Ugo",
+            "occhiello": "Book three",
+            "riassunto": ("The bat who lives under the roof of the house at the top of the hill. "
+                          "He sees with his voice, and nobody can hear it."),
+            "descrizione": "{n} bedtime stories about Ugo, the bat under the roof of the house at the top of the hill.",
         },
     },
 ]
@@ -183,6 +205,8 @@ LINGUE["en-GB"].update({
     "scaffale_nota": "One meadow, many stories", "firma": "From the meadow at the foot of the hill. With love.",
     "leggi_libro": "Step into the story",
 })
+
+COPERTINE = {l["cartella"]: l["copertina"] for l in LIBRI}
 
 ROMANI = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
 PAROLE_AL_MINUTO = 130  # ritmo di lettura ad alta voce, non di lettura silenziosa
@@ -581,9 +605,10 @@ def guscio(lingua, titolo_tab, descrizione, url, corpo, script, jsonld=None):
     ) + f'\n<link rel="alternate" hreflang="x-default" href="{SITO}/{url}">'
     canonico = f'{SITO}{lingua["base"]}{url}'
     cartella = url.rstrip("/")
-    immagine = (f"{SITO}/assets/og-{cartella}.png" if cartella in {"nina", "tilde"}
+    libro_pagina = cartella in {l["cartella"] for l in LIBRI}
+    immagine = (f"{SITO}/assets/og-{cartella}.png" if libro_pagina
                 else f"{SITO}/assets/og-default.png")
-    tipo_og = "book" if cartella in {"nina", "tilde"} else "website"
+    tipo_og = "book" if libro_pagina else "website"
     locale_alternative = "\n".join(
         f'<meta property="og:locale:alternate" content="{OG_LOCALE.get(l["lang"], l["lang"])}">'
         for l in LINGUE.values() if l["lang"] != lingua["lang"]
@@ -795,7 +820,7 @@ def scaffale(codice, lingua, schede):
             righe.append(
                 f'      <li class="scheda">\n'
                 f'        <a class="copertina" href="{lingua["base"]}{s["cartella"]}/" tabindex="-1" aria-hidden="true">'
-                f'<img src="/assets/{"meadow" if s["cartella"] == "nina" else "burrow"}.svg" width="800" height="560" alt="" loading="lazy"></a>\n'
+                f'<img src="/assets/{COPERTINE[s["cartella"]]}.svg" width="800" height="560" alt="" loading="lazy"></a>\n'
                 f'        <div class="scheda-corpo"><p class="etichetta">{s["occhiello"]}</p>\n'
                 f'        <h2><a href="{lingua["base"]}{s["cartella"]}/">{s["titolo"]}</a></h2>\n'
                 f'        <p class="riassunto">{s["riassunto"]}</p>\n'

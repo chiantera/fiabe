@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le fiabe di Ugo</title>
+<meta name="description" content="1 fiabe della buonanotte su Ugo, il pipistrello sotto il tetto della casa in cima alla collina.">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/ugo/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/ugo/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/ugo/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/ugo/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="Le fiabe di Ugo">
+<meta property="og:description" content="1 fiabe della buonanotte su Ugo, il pipistrello sotto il tetto della casa in cima alla collina.">
+<meta property="og:url" content="https://fiabe.vercel.app/ugo/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-ugo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le fiabe di Ugo">
+<meta name="twitter:description" content="1 fiabe della buonanotte su Ugo, il pipistrello sotto il tetto della casa in cima alla collina.">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-ugo.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Le fiabe di Ugo", "description": "1 fiabe della buonanotte su Ugo, il pipistrello sotto il tetto della casa in cima alla collina.", "url": "https://fiabe.vercel.app/ugo/", "inLanguage": "it", "image": "https://fiabe.vercel.app/assets/og-ugo.png", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8}, "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#indice">Indice</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
+    <a class="tasto" href="#indice">&#9650;&nbsp;Indice</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/" title="Tutti i libri">Ugo</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="Testo pi&ugrave; piccolo"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="Testo pi&ugrave; grande">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="Cambia tema">&#9681;</button>
+    </span>
+  </div>
+
+  <main class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/" aria-label="Tutti i libri">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/en/ugo/" hreflang="en-GB" lang="en-GB">English</a>
+          <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
+        </span>
+      </div>
+      <p class="briciola"><a href="/">&#9664;&nbsp;I libri</a></p>
+      <h1>Le fiabe di Ugo</h1>
+      <p class="intro">Il pipistrello che abita sotto il tetto della casa in cima alla collina. Vede con la voce, e la sua voce non la sente nessuno.</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#libro-1">Comincia a leggere <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">6 minuti in tutto</p>
+      </div>
+    </header>
+
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">Riprendi</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Nascondi la ripresa">Chiudi</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="Indice">
+      <p class="etichetta">Indice &middot; 6 minuti in tutto</p>
+      <ol>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">Il pipistrello che nessuno sentiva</span><span class="voce-durata">6 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="libro-1" data-ripresa="dal Libro I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 6 minuti di lettura</p>
+        <h2>Il pipistrello che nessuno sentiva</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro primo</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/ugo/01.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">Sopra il prato ai piedi della collina, di notte, volava uno che nessuno aveva mai sentito.</p>
+      <p>Si chiamava Ugo, ed era un pipistrello.</p>
+      <p>Ugo aveva gli occhi, e ci vedeva anche — i pipistrelli non sono ciechi, anche se tutti dicono il contrario. Ma per andare in giro al buio usava un'altra cosa.</p>
+      <p>Usava la voce.</p>
+      <p>Funzionava così: Ugo gridava. Un grido piccolo e altissimo, così alto che non lo sentiva nessuno: né le lucciole, né i grilli, né la gente. Il grido andava avanti nel buio, sbatteva contro le cose, e tornava indietro.</p>
+      <p>E da come tornava, Ugo capiva com'era fatto il mondo.</p>
+      <p>La quercia tornava indietro tonda, piena di buchi e di foglie che tremavano. La siepe tornava fitta, come quando si grida dentro una spugna. Il ruscello tornava liscio, con un tremolio sopra. Una zanzara tornava come un puntino che si spostava — e allora Ugo girava di qua, apriva la bocca, e la zanzara non tornava più.</p>
+      <p>Così Ugo conosceva il prato meglio di chiunque altro. Lo sentiva tutto, ogni notte, pezzo per pezzo.</p>
+      <p>E nessuno sapeva che esisteva.</p>
+      <p>Non era sempre stato da solo.</p>
+      <p>Una volta abitava in un albero cavo, di là dal ruscello, insieme a tanti altri come lui: la colonia. Di giorno dormivano appesi a testa in giù, stretti stretti, per tenersi caldo. E la sera uscivano tutti insieme, e l'aria si riempiva di voci altissime che si chiamavano e si rispondevano, e per chi le sentiva era il rumore più bello del mondo.</p>
+      <p>Poi, un autunno, Ugo andò a caccia lontano. Più lontano del solito, dove le zanzare erano ancora tante. E quando tornò, l'albero era vuoto.</p>
+      <p>Ogni anno, col primo freddo, la colonia partiva per una grotta lontana a passare l'inverno. Quell'anno era partita una notte prima. E Ugo non c'era.</p>
+      <p>Li chiamò per tutta la notte.</p>
+      <p>E tornò indietro soltanto la sua voce.</p>
+      <p>Passò l'inverno da solo, nell'albero vuoto, dormendo come dormono i pipistrelli d'inverno: tanto, e con il cuore piano piano. In primavera aspettò che tornassero. Non tornarono. E nemmeno la primavera dopo. Certe volte le colonie cambiano casa, e non lo dicono a nessuno.</p>
+      <p>Ugo restò.</p>
+      <p>Ogni sera usciva e chiamava. Prima chiamava loro. Poi, dopo un po', chiamava e basta, perché un pipistrello chiama sempre: è così che sa dove si trova.</p>
+      <p>Poi, una notte di primavera, successe una cosa nuova.</p>
+      <p>Stava volando sopra la collina, e la sua voce tornò indietro con una forma che non aveva mai sentito.</p>
+      <p>Tornò <em>dritta</em>.</p>
+      <p>Nel prato niente è dritto. L'erba si piega, i sassi sono tondi, le foglie sono storte, e anche il ruscello, se può, fa una curva. E invece lassù, in cima alla collina, la voce tornava tutta insieme, liscia e precisa, come una riga.</p>
+      <p>Ugo si avvicinò.</p>
+      <p>Era una casa. Una casa nuova, appena finita, che sapeva ancora di legno e di calce. Non ci abitava nessuno: le finestre erano buie, e dentro non si sentiva respirare niente.</p>
+      <p>Sotto il bordo del tetto, dove le tegole finivano, c'era un buco. Grande giusto per lui.</p>
+      <p>Ugo ci entrò.</p>
+      <p>Dentro era buio, asciutto, e ancora tiepido del sole del giorno. E quando Ugo gridò, per sentire com'era fatto quel posto, la voce gli tornò subito, vicina e gentile, come quando qualcuno ti risponde dalla stanza accanto.</p>
+      <p>Ugo si appese a una trave, a testa in giù. Si avvolse nelle ali come in una coperta.</p>
+      <p>«Buonanotte», disse al tetto.</p>
+      <p>E il tetto gli rispose subito, con la sua stessa voce: <em>buonanotte</em>.</p>
+      <p>Non era la stessa cosa della colonia. Ma era vicina.</p>
+      <p>Fuori cominciava a fare chiaro, che per un pipistrello è l'ora di andare a dormire. E Ugo si addormentò, per la prima volta da tanto tempo, in un posto che gli sembrava casa.</p>
+      <p>Anche quando non ti risponde nessuno, amore mio, qualcosa ti risponde lo stesso.</p>
+      <p>Il muro, l'albero, la collina. Se chiami, ti rimandano indietro la tua voce, e da come torna capisci dove sei.</p>
+      <p>Non è la stessa cosa di una risposta vera. Ma intanto ti dice dove sei. E da lì si può aspettare.</p>
+      <p>E ora chiudi gli occhi.</p>
+      <p>Sopra il prato è tutto tranquillo, sotto il tetto respira qualcuno, e domani ci sarà di nuovo luce.</p>
+      <p class="congedo">Buonanotte. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="Buonanotte, a domani"><span class="etichetta">Buonanotte, a domani</span><a href="/">Tutti i libri <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">Colophon</p>
+      <p>1 fiabe, 705 parole. I tempi di lettura sono calcolati a 130 parole al minuto: il passo di chi legge ad alta voce, non di chi legge da solo.</p>
+    </footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "Accendi la luce", "spegni": "Spegni la luce", "temaChiaro": "Passa al tema chiaro", "temaScuro": "Passa al tema scuro", "riprendi": "Riprendi", "memoria": "fiabe:ugo"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    function aggiornaBarra() {
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
+  })();
+</script>
+</body>
+</html>

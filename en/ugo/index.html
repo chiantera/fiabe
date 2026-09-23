@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ugo’s stories</title>
+<meta name="description" content="1 bedtime stories about Ugo, the bat under the roof of the house at the top of the hill.">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/en/ugo/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/ugo/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/ugo/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/ugo/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/en/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="Ugo’s stories">
+<meta property="og:description" content="1 bedtime stories about Ugo, the bat under the roof of the house at the top of the hill.">
+<meta property="og:url" content="https://fiabe.vercel.app/en/ugo/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-ugo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ugo’s stories">
+<meta name="twitter:description" content="1 bedtime stories about Ugo, the bat under the roof of the house at the top of the hill.">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-ugo.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Ugo’s stories", "description": "1 bedtime stories about Ugo, the bat under the roof of the house at the top of the hill.", "url": "https://fiabe.vercel.app/en/ugo/", "inLanguage": "en-GB", "image": "https://fiabe.vercel.app/assets/og-ugo.png", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8}, "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#indice">Contents</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
+    <a class="tasto" href="#indice">&#9650;&nbsp;Contents</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/en/" title="All the books">Ugo</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="Smaller text"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="Larger text">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="Change theme">&#9681;</button>
+    </span>
+  </div>
+
+  <main class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/en/" aria-label="All the books">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/ugo/" hreflang="it" lang="it">Italiano</a>
+          <button class="interruttore" id="interruttore" type="button">Turn the light off</button>
+        </span>
+      </div>
+      <p class="briciola"><a href="/en/">&#9664;&nbsp;The books</a></p>
+      <h1>Ugo&rsquo;s stories</h1>
+      <p class="intro">The bat who lives under the roof of the house at the top of the hill. He sees with his voice, and nobody can hear it.</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#libro-1">Start reading <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">6 minutes in all</p>
+      </div>
+    </header>
+
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">Resume</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Hide the resume prompt">Close</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="Contents">
+      <p class="etichetta">Contents &middot; 6 minutes in all</p>
+      <ol>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">The bat nobody could hear</span><span class="voce-durata">6 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="libro-1" data-ripresa="from Book I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 6 minutes to read aloud</p>
+        <h2>The bat nobody could hear</h2>
+        <p class="sottotitolo">A bedtime story — Book One</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/ugo/01.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">Above the meadow at the foot of the hill, at night, there flew somebody nobody had ever heard.</p>
+      <p>His name was Ugo, and he was a bat.</p>
+      <p>Ugo had eyes, and he could see with them too — bats aren't blind, whatever everybody says. But to get about in the dark he used something else.</p>
+      <p>He used his voice.</p>
+      <p>It worked like this: Ugo shouted. A small, very high shout, so high that nobody could hear it: not the fireflies, not the crickets, not people. The shout went out into the dark, bumped into things, and came back.</p>
+      <p>And from the way it came back, Ugo knew what the world was like.</p>
+      <p>The oak came back round, full of holes and trembling leaves. The hedge came back thick, like shouting into a sponge. The brook came back smooth, with a shimmer on top. A mosquito came back as a little dot that moved — and then Ugo turned this way, opened his mouth, and the mosquito didn't come back any more.</p>
+      <p>So Ugo knew the meadow better than anybody. He heard all of it, every night, piece by piece.</p>
+      <p>And nobody knew he existed.</p>
+      <p>He hadn't always been on his own.</p>
+      <p>Once he had lived in a hollow tree, on the far side of the brook, with lots of others like him: the colony. In the daytime they slept hanging upside down, squeezed tight together to keep warm. And in the evening they all went out at once, and the air filled with very high voices calling to each other and answering, and for anybody who could hear them it was the most beautiful sound in the world.</p>
+      <p>Then, one autumn, Ugo went hunting a long way off. Further than usual, where there were still plenty of mosquitoes. And when he came back, the tree was empty.</p>
+      <p>Every year, with the first cold, the colony left for a faraway cave to spend the winter. That year they had left one night early. And Ugo wasn't there.</p>
+      <p>He called them all night long.</p>
+      <p>And only his own voice came back.</p>
+      <p>He spent the winter alone, in the empty tree, sleeping the way bats sleep in winter: a great deal, with his heart going very slowly. In spring he waited for them to come back. They didn't. Nor the spring after. Sometimes colonies change house, and they don't tell anybody.</p>
+      <p>Ugo stayed.</p>
+      <p>Every evening he went out and called. At first he called for them. Then, after a while, he just called, because a bat always calls: that's how he knows where he is.</p>
+      <p>Then, one spring night, something new happened.</p>
+      <p>He was flying over the hill, and his voice came back with a shape he had never heard before.</p>
+      <p>It came back <em>straight</em>.</p>
+      <p>Nothing in the meadow is straight. The grass bends, the stones are round, the leaves are crooked, and even the brook takes a bend whenever it can. But up there, at the top of the hill, his voice came back all at once, smooth and exact, like a ruled line.</p>
+      <p>Ugo went closer.</p>
+      <p>It was a house. A new house, just finished, that still smelt of wood and plaster. Nobody lived in it: the windows were dark, and inside you couldn't hear anything breathing.</p>
+      <p>Under the edge of the roof, where the tiles stopped, there was a hole. Exactly his size.</p>
+      <p>Ugo went in.</p>
+      <p>Inside it was dark, and dry, and still warm from the day's sun. And when Ugo shouted, to hear what the place was like, his voice came straight back, close and kind, like somebody answering you from the next room.</p>
+      <p>Ugo hung himself from a beam, upside down. He wrapped himself in his wings like a blanket.</p>
+      <p>«Goodnight,» he said to the roof.</p>
+      <p>And the roof answered at once, in his own voice: <em>goodnight</em>.</p>
+      <p>It wasn't the same as the colony. But it was close.</p>
+      <p>Outside it was starting to get light, which for a bat is bedtime. And Ugo fell asleep, for the first time in a long while, somewhere that felt like home.</p>
+      <p>Even when nobody answers you, my love, something answers all the same.</p>
+      <p>The wall, the tree, the hill. If you call, they send your voice back to you, and from the way it comes back you know where you are.</p>
+      <p>It isn't the same as a real answer. But in the meantime it tells you where you are. And from there, you can wait.</p>
+      <p>And now close your eyes.</p>
+      <p>Above the meadow everything is quiet, under the roof somebody is breathing, and tomorrow there will be light again.</p>
+      <p class="congedo">Goodnight. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="Goodnight, see you tomorrow"><span class="etichetta">Goodnight, see you tomorrow</span><a href="/en/">All the books <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">Colophon</p>
+      <p>1 stories, 771 words. Reading times are worked out at 130 words a minute: the pace of someone reading aloud, not of someone reading alone.</p>
+    </footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "Turn the light on", "spegni": "Turn the light off", "temaChiaro": "Switch to the light theme", "temaScuro": "Switch to the dark theme", "riprendi": "Resume", "memoria": "fiabe:ugo"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    function aggiornaBarra() {
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
+  })();
+</script>
+</body>
+</html>
