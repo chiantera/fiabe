@@ -453,6 +453,17 @@ def ugo_06():
     return b+grass()
 
 SCENES['ugo:06'] = ('Due appesi alla siepe: Ugo come sempre, Pino per la prima volta', ugo_06)
+
+def ugo_07():
+    # La finestra si spegne, e il prato laggiù si accende tutto insieme.
+    b=meadow(False)+tree(150,160,.5)+house(590,300,1.7,False)
+    b+=fly(590,236,.5)
+    for x,y in [(60,470),(120,430),(210,505),(260,455),(330,490),(380,440),(420,520),(470,470),(90,530),(300,540),(510,515),(180,470),(240,410),(360,400),(560,470),(640,500),(700,460),(750,520),(40,410),(140,375)]:
+        b+=glow(x,y,9+(x*7)%6)+circle(x,y,2.5,'#edd88e')
+    return b+bat(300,170,1)+echo(300,170,.8)
+
+SCENES['ugo:07'] = ('Clic: la finestra si spegne, e il prato laggiù si accende tutto insieme', ugo_07)
+
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
