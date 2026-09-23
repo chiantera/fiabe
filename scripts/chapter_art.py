@@ -368,6 +368,17 @@ def ugo_01():
     return b+bat(410,175,1.2)+echo(410,175,1)+grass()
 
 SCENES['ugo:01'] = ('Ugo sente per la prima volta una cosa dritta: la casa nuova', ugo_01)
+
+def mosquito(x,y,s=1):
+    b=path('M-6-3-1 0M6-3 1 0','none','#9aa38c',1.5)+ellipse(0,0,3,1.6,'#2a3a31')
+    return group(b,x,y,s)
+
+def ugo_02():
+    b=sky()+path('M0 470C180 430 320 455 460 440 600 426 700 450 800 440V560H0Z','#214739')+big_house()
+    for x,y in [(262,372),(288,352),(398,366),(412,398),(245,440),(420,452),(395,340)]: b+=mosquito(x,y,1.8)
+    return b+bat(195,345,.95)+echo(195,345,.8)
+
+SCENES['ugo:02'] = ('La finestra accesa del Respiro, le zanzare, e Ugo che fa la guardia', ugo_02)
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
