@@ -418,6 +418,25 @@ def ugo_04():
     return b
 
 SCENES['ugo:04'] = ('Neve sul tetto, Ugo nel sonno lungo, e sotto qualcuno che bussa lo stesso', ugo_04)
+
+def owl(x,y,s=1):
+    # La civetta in volo, ali larghe e morbide: niente spigoli, niente rumore.
+    wing=path('M8-8C44-30 96-30 132-18L150-14 136-8 148-2 132 0 140 8 122 8Q80 22 8 16Z','#6f6858')
+    wing+=path('M30 4Q70 10 110 4M40-6Q80-10 118-8','none','#857d6a',3)
+    b=group(wing)+group(wing,flip=True)
+    b+=ellipse(0,6,22,28,'#7d7563')+path('M-12 30 0 46 12 30Z','#6f6858')
+    b+=circle(0,-14,20,'#8c8470')+ellipse(-8,-14,9,10,'#b9ad92')+ellipse(8,-14,9,10,'#b9ad92')
+    b+=circle(-8,-14,3,'#1f2a24')+circle(8,-14,3,'#1f2a24')+path('M-2-6 0-1 2-6Z','#5a5244')
+    return group(b,x,y,s)
+
+def ugo_05():
+    b=meadow(False)+tree(120,110,.55)
+    b+=owl(500,345,1.05)
+    b+=path('M392 492Q430 470 468 492','none','#2d5646',10)+shrew(430,488,.9)
+    b+=path('M352 492 360 466M372 494 368 470M482 494 490 468M500 494 496 472','none','#66856a',3)
+    return b+bat(250,170,1.05)+echo(250,170,.9)+grass()
+
+SCENES['ugo:05'] = ('La civetta scivola senza rumore, Pino si appiattisce, Ugo grida dal cielo', ugo_05)
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
