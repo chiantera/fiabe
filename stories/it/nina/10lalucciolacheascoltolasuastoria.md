@@ -172,9 +172,9 @@ Nessuno dice di sì e nessuno dice di no. Cantano un po' più forte, e basta.
 
 Tu non devi servire a niente, amore mio.
 
-Puoi accenderti perché qualcuno ha bisogno di te, e allora è bellissimo. Ma puoi accenderti anche una sera che non ha bisogno di te nessuno, per il gusto di essere acceso, e va bene uguale — anzi, forse è quella la volta che conta.
+Puoi accenderti perché qualcuno ha bisogno di te, e allora è bellissimo. Ma puoi accenderti anche una sera che non ha bisogno di te nessuno, per il gusto di brillare, e va bene uguale — anzi, forse è quella la volta che conta.
 
-Non c'è nessuno che tiene il conto di quanto sei stato utile.
+Non c'è nessuno che tiene il conto delle cose utili che fai.
 
 C'è soltanto qualcuno che si ricorda com'eri.
 

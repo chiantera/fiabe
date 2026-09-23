@@ -479,6 +479,8 @@ def ugo_08():
     b+=bat(560,160,1)+echo(560,160,.9,True)+echo(560,160,.9)
     return b+grass()
 
+SCENES['ugo:08'] = ('Il prato trattiene il fiato: chi è sceso dalla collina, e tutti intorno al buio', ugo_08)
+
 def ugo_09():
     # Le quaranta lucciole portano Rocco; un'antenna si alza verso la voce di Ugo.
     b=meadow(False)+creek()+tree(150,300,.45)
@@ -491,7 +493,18 @@ def ugo_09():
 
 SCENES['ugo:09'] = ("Rocco, portato dalle lucciole, gira un'antenna verso la voce di Ugo", ugo_09)
 
-SCENES['ugo:08'] =('Il prato trattiene il fiato: chi è sceso dalla collina, e tutti intorno al buio', ugo_08)
+
+def ugo_10():
+    # Oltre la siepe, sopra la terra chiara: un puntino d'oro, e Ugo che non chiama.
+    b=sky(False)+path('M0 372Q300 350 800 360V560H0Z','#6b6a52')+path('M0 420Q380 392 800 404V560H0Z','#77745a')
+    b+=path('M0 470Q90 440 170 470 230 500 250 560H0Z','#234d3d')
+    for x,y in [(30,500),(70,520),(120,505),(160,530),(50,545),(200,545)]: b+=glow(x,y,8)+circle(x,y,1.8,'#edd88e')
+    # Il filo della canzone, sempre più sottile.
+    b+='<g opacity=".3">'+path('M210 470Q300 420 380 430 470 440 520 395 570 360 606 358','none','#d9d2a5',2).replace('/>',' stroke-dasharray="2 9"/>')+'</g>'
+    b+=glow(620,356,30)+circle(620,356,3.5,'#edd88e')+f'<g opacity=".5">{glow(712,350,14)}{circle(712,350,1.8,"#edd88e")}</g>'
+    return b+bat(360,230,.9)
+
+SCENES['ugo:10'] = ("Dove il filo della canzone sta per finire, un puntino d'oro che respira", ugo_10)
 
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 

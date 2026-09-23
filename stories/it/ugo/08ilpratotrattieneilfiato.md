@@ -48,7 +48,7 @@ Il buio non era vuoto per niente. Sotto ogni foglia di trifoglio c'era una lucci
 
 Tutto il prato era lì, intorno al Respiro. Tutto il prato stava fermo, e aspettava.
 
-Ugo avrebbe voluto dirglielo. *Non sei solo. Sono tutti qui. Sono vicinissimi.*
+Ugo avrebbe voluto dirglielo. *Il buio è pieno. Sono tutti qui. Sono vicinissimi.*
 
 Ma non c'era un soffitto a cui bussare. E la sua voce, lo sapeva, non l'avrebbe sentita.
 
@@ -92,7 +92,7 @@ E uno solo, lassù, le aveva sentite tutte insieme.
 
 Non lo sapeva nessuno. Non glielo aveva chiesto nessuno. Ma Ugo, prima di addormentarsi, se le ripassò tutte, una per una, come si contano le cose preziose.
 
-Quando stai fermo al buio, amore mio, non sei mai così solo come credi.
+Quando resti al buio senza muoverti, amore mio, intorno a te c'è sempre più compagnia di quanto credi.
 
 Il buio sembra vuoto perché non si vede niente. Ma è pieno: di qualcuno che respira, di qualcuno che aspetta, di qualcuno che trattiene il fiato insieme a te.
 
