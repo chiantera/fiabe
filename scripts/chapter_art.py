@@ -379,6 +379,35 @@ def ugo_02():
     return b+bat(195,345,.95)+echo(195,345,.8)
 
 SCENES['ugo:02'] = ('La finestra accesa del Respiro, le zanzare, e Ugo che fa la guardia', ugo_02)
+
+def cutaway(lamp=True):
+    # Sezione della casa: la soffitta sopra, la stanza del Respiro sotto.
+    b=path('M0 0H800V560H0Z','url(#sky)')
+    b+=path('M40 262 400 44 760 262Z','#1a392f')+path('M110 250 400 78 690 250Z','#0f231c')
+    b+=path('M262 150H538','none','#3a5a4b',14)
+    b+=path('M40 250H760V270H40Z','#4a3e30')
+    b+=path('M40 270H760V560H40Z','#2c3f35')
+    if lamp: b+=glow(600,400,110)+path('M584 470H616L608 420H592Z','#6d5f48')+path('M570 420H630L615 385H585Z','#efdaa0')
+    b+=path('M150 450H470V510H150Z','#6f7d62')+ellipse(200,445,40,16,'#c9c1a0')+path('M150 510V545M470 510V545','none','#4a3e30',8)
+    return b
+
+def sleeper_standing(x,y,s=1):
+    # Chi dorme sotto il tetto: una figura piccola e neutra, in pigiama, un braccio alzato.
+    b=path('M-14 0V-52M14 0V-52','none','#6b7a63',16)
+    b+=path('M-26-50Q-30-110 0-116 30-110 26-50Z','#8f9a78')
+    b+=path('M14-104Q30-140 22-170','none','#c9aa80',11)+circle(22,-172,9,'#c9aa80')
+    b+=path('M-16-104Q-34-86-36-66','none','#c9aa80',11)
+    b+=circle(0,-136,21,'#c9aa80')+path('M-21-138Q-20-162 0-160 20-162 21-138Q12-150 0-148-12-150-21-138Z','#4b4938')
+    return group(b,x,y,s)
+
+def ugo_03():
+    b=cutaway()+bat_hanging(400,192,1.25)
+    b+=sleeper_standing(300,450)
+    for i,y in enumerate([290,306,322]): b+=f'<g opacity=".5">{path(f"M{338+i*6} {y}Q{352+i*6} {y-6} {366+i*6} {y}","none","#edd88e",2)}</g>'
+    for i,y in enumerate([226,236,246]): b+=f'<g opacity=".5">{path(f"M{430+i*6} {y}Q{444+i*6} {y-6} {458+i*6} {y}","none","#edd88e",2)}</g>'
+    return b
+
+SCENES['ugo:03'] = ('Tre colpi dal letto, tre colpi dalla trave', ugo_03)
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
