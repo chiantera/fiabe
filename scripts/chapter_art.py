@@ -437,6 +437,22 @@ def ugo_05():
     return b+bat(250,170,1.05)+echo(250,170,.9)+grass()
 
 SCENES['ugo:05'] = ('La civetta scivola senza rumore, Pino si appiattisce, Ugo grida dal cielo', ugo_05)
+
+def ugo_06():
+    # Un rametto della siepe: Ugo appeso come sempre, Pino appeso per la prima volta.
+    b=meadow()+house(712,258,.6,False)
+    b+=path('M0 170C120 150 260 175 420 200 500 212 560 214 600 206','none','#233f33',16)
+    b+=path('M380 196 402 170M470 210 486 186M140 160 128 132','none','#233f33',7)
+    for x,y in [(402,166),(486,182),(126,128),(560,206)]: b+=ellipse(x,y,16,9,'#39604a')
+    b+=bat_hanging(300,224,1.1)
+    # Pino appeso per le zampe di dietro, la coda che pende di lato.
+    body=ellipse(0,0,23,12,'#a6a292')+path('M14-9 44 1 17 8Z','#a6a292')+circle(25,-3,2,'#403e34')+circle(10,-11,6,'#9a8e7d')
+    b+=path('M443 240 441 209M457 240 459 211','none','#756451',4)
+    b+=path('M452 240Q486 236 480 272','none','#a6a292',3)
+    b+=f'<g transform="translate(450 264) rotate(90)">{body}</g>'
+    return b+grass()
+
+SCENES['ugo:06'] = ('Due appesi alla siepe: Ugo come sempre, Pino per la prima volta', ugo_06)
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
