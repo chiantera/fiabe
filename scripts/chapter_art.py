@@ -408,6 +408,16 @@ def ugo_03():
     return b
 
 SCENES['ugo:03'] = ('Tre colpi dal letto, tre colpi dalla trave', ugo_03)
+
+def ugo_04():
+    b=cutaway()
+    b+=path('M40 262 400 44 760 262','none','#dfe5d6',12)
+    for x,y in [(90,60),(170,140),(640,90),(720,170),(60,210),(700,40),(560,30),(250,40)]: b+=circle(x,y,4,'#dfe5d6')
+    b+=bat_hanging(400,192,1.25)
+    b+=path('M170 452Q230 404 300 420 360 405 430 452Z','#7f8c70')
+    return b
+
+SCENES['ugo:04'] = ('Neve sul tetto, Ugo nel sonno lungo, e sotto qualcuno che bussa lo stesso', ugo_04)
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
