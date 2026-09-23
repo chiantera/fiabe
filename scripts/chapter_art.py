@@ -506,6 +506,23 @@ def ugo_10():
 
 SCENES['ugo:10'] = ("Dove il filo della canzone sta per finire, un puntino d'oro che respira", ugo_10)
 
+def stander(x,y,s=1):
+    # Il Passo Lungo in giardino, di spalle, il naso in su: una sagoma adulta e neutra.
+    b=path('M-12 0V-70M12 0V-70','none','#3d4a3f',15)
+    b+=path('M-28-66Q-32-150 0-156 32-150 28-66Z','#6f7d62')
+    b+=path('M-26-140Q-40-110-34-80M26-140Q40-110 34-80','none','#6f7d62',12)
+    b+=ellipse(-19,-178,4,7,'#c9aa80')+ellipse(19,-178,4,7,'#c9aa80')+circle(0,-182,20,'#4b4938')
+    return group(b,x,y,s)
+
+def ugo_11():
+    ground=path('M0 470C180 430 320 455 460 440 600 426 700 450 800 440V560H0Z','#214739')
+    b=sky()+ground+big_house(lit=False)
+    b+=path('M596 324H652V333H596Z','#8a7456')+path('M600 333V340M648 333V340','none','#6d5f48',3)
+    b+=stander(230,556,1)
+    return b+bat(520,262,.75,True)+grass()
+
+SCENES['ugo:11'] = ('Il buco con il suo tettuccio, e il Passo Lungo in giardino che guarda chi esce', ugo_11)
+
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
