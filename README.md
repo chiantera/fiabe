@@ -380,6 +380,7 @@ Una cartella per lingua sotto `stories/`, e una pagina per lingua:
 | --- | --- | --- | --- |
 | Italiano | `stories/it/<libro>/` | `/` | `/nina/`, `/tilde/`, `/ugo/` |
 | English (UK) | `stories/en-GB/<libro>/` | `/en/` | `/en/nina/`, `/en/tilde/`, `/en/ugo/` |
+| 中文 (cinese mandarino, caratteri semplificati) | `stories/zh-Hans/<libro>/` | `/zh/` | `/zh/nina/`, `/zh/tilde/`, `/zh/ugo/` |
 
 I libri stanno in `LIBRI`, in `build.py`, con titolo, riassunto e descrizione
 (quella che va nel meta-tag e nell'anteprima social) per lingua. Un libro
@@ -392,6 +393,33 @@ per aggiungerne una basta creare la cartella, tradurre e aggiungere la voce.
 
 Le ancore non cambiano con la lingua: `#prologo`, `#libro-1` … `#libro-10`,
 `#epilogo` sono le stesse su tutte le pagine.
+
+Il cinese è tradotto dall'italiano, non dall'inglese. Alcune scelte da
+tenere ferme se si correggono i testi:
+
+- **Tempi di lettura.** Il cinese non separa le parole, quindi `build.py`
+  conta i caratteri (`al_minuto: 220` nella voce `zh-Hans` di `LINGUE`,
+  tarato perché i minuti tornino vicini a quelli italiani).
+- **Genere.** In cinese 他 e 她 si pronunciano uguali ma si scrivono diversi.
+  Chi ascolta e la voce narrante sono 你 e 我, che non hanno genere; quelli di
+  sotto nelle fiabe di Ugo (呼吸, 长步子, 重脚步, 小勺子) non hanno mai un
+  pronome singolare: si ripete il nome o si omette il soggetto, cosa che in
+  cinese è naturale. «Amore mio» è 宝贝.
+- **Nomi.** 妮娜, 罗科, 贝阿, 蒂尔德, 皮诺, 小七 (Sette), 乌戈. Le frasi che
+  tornano da un libro all'altro sono tradotte sempre uguali: «在黑暗里，有时候
+  一个声音就够让人知道往哪儿走了» (Rocco), «我就凭你一句话，相信你» (Tilde),
+  «回来的，只有他自己的声音» (Ugo).
+- **Nomi dei file.** In pinyin senza toni (`01paheideyinghuochong.md`);
+  prologo ed epilogo sono `00prologue.md` e `NNepilogue.md`, come in inglese.
+- **Pagina.** `fiabe.css` dà al cinese un serif CJK di sistema e toglie
+  corsivo e capolettera, che sugli ideogrammi non funzionano.
+
+Il cambio lingua e gli `hreflang` puntano solo alle pagine che esistono in
+quella lingua (`disponibile()` in `build.py`): una traduzione a metà non
+lascia link rotti.
+
+Una revisione di una persona di madrelingua cinese è la cosa più utile che si
+possa fare adesso per questi testi.
 
 I titoli inglesi seguono la stessa regola di quelli italiani, maiuscola solo
 sulla prima parola. In inglese si userebbe anche il maiuscolo su tutte le
@@ -453,7 +481,7 @@ La pagina è online su **https://fiabe.vercel.app**.
 Il progetto Vercel è collegato a questo repository: ogni push su `main`
 pubblica una nuova versione. Ricordarsi quindi di eseguire `python3 build.py`
 e committare anche le pagine rigenerate (`index.html`, `nina/index.html`,
-`tilde/index.html`, `ugo/index.html`, `en/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`),
+`tilde/index.html`, `ugo/index.html`, `en/…`, `zh/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`, `zh/manifest.json`),
 altrimenti il sito resta indietro rispetto ai testi.
 
 ## Autori
@@ -516,6 +544,7 @@ fiabe/
 ├── manifest.json                # generato da build.py: manifest italiano
 ├── index.html, nina/, tilde/, ugo/  # italiano: generati, non modificare a mano
 ├── en/                          # inglese: index.html, nina/, tilde/, ugo/, manifest.json (generati)
+├── zh/                          # cinese: index.html, nina/, tilde/, ugo/, manifest.json (generati)
 ├── scripts/chapter_art.py       # illustrazioni dei capitoli e copertina di Ugo, in SVG
 ├── assets/
 │   ├── fiabe.css                # stile condiviso da tutte le pagine
@@ -525,7 +554,8 @@ fiabe/
 │   └── og-nina.png, og-tilde.png, og-ugo.png, og-default.png  # anteprime social, 1200×630
 ├── stories/
 │   ├── it/{nina,tilde,ugo}/NN<titolo-attaccato>.md
-│   └── en-GB/{nina,tilde,ugo}/NN<title-stuck-together>.md
+│   ├── en-GB/{nina,tilde,ugo}/NN<title-stuck-together>.md
+│   └── zh-Hans/{nina,tilde,ugo}/NN<pinyin>.md
 ├── note/                        # (ignorato) tracce e scalette di lavoro
 ├── ref/                         # (ignorato) campione voce di riferimento
 └── audio/                       # (ignorato, tranne gli MP3 finali 11l-*.mp3)
