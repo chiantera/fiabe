@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>乌戈的故事</title>
+<meta name="description" content="4个睡前故事，讲的是山顶房子屋檐下的蝙蝠乌戈。">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/zh/ugo/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/ugo/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/ugo/">
+<link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/ugo/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/ugo/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/zh/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="乌戈的故事">
+<meta property="og:description" content="4个睡前故事，讲的是山顶房子屋檐下的蝙蝠乌戈。">
+<meta property="og:url" content="https://fiabe.vercel.app/zh/ugo/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-ugo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="乌戈的故事">
+<meta name="twitter:description" content="4个睡前故事，讲的是山顶房子屋檐下的蝙蝠乌戈。">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-ugo.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "乌戈的故事", "description": "4个睡前故事，讲的是山顶房子屋檐下的蝙蝠乌戈。", "url": "https://fiabe.vercel.app/zh/ugo/", "inLanguage": "zh-Hans", "image": "https://fiabe.vercel.app/assets/og-ugo.png", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8}, "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#indice">目录</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
+    <a class="tasto" href="#indice">&#9650;&nbsp;目录</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/zh/" title="所有的书">乌戈</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="字小一点"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="字大一点">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="切换主题">&#9681;</button>
+    </span>
+  </div>
+
+  <main class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/zh/" aria-label="所有的书">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/ugo/" hreflang="it" lang="it">Italiano</a><a class="lingua" href="/en/ugo/" hreflang="en-GB" lang="en-GB">English</a>
+          <button class="interruttore" id="interruttore" type="button">关灯</button>
+        </span>
+      </div>
+      <p class="briciola"><a href="/zh/">&#9664;&nbsp;书架</a></p>
+      <h1>乌戈的故事</h1>
+      <p class="intro">住在山顶那座房子屋檐下的蝙蝠。他用声音看东西，可他的声音谁也听不见。</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#prologo">开始读 <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">共28分钟</p>
+      </div>
+    </header>
+
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">继续读</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="隐藏继续阅读提示">关闭</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="目录">
+      <p class="etichetta">目录 &middot; 共28分钟</p>
+      <ol>
+        <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">序章</span><span class="voce-durata">4 min</span></a></li>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">谁也听不见的蝙蝠</span><span class="voce-durata">6 min</span></a></li>
+        <li><a href="#libro-2"><span class="numero">II</span><span class="voce-titolo">底下的人</span><span class="voce-durata">6 min</span></a></li>
+        <li><a href="#libro-3"><span class="numero">III</span><span class="voce-titolo">天花板里的声音</span><span class="voce-durata">6 min</span></a></li>
+        <li><a href="#libro-4"><span class="numero">IV</span><span class="voce-titolo">长长的睡眠</span><span class="voce-durata">6 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="prologo" data-ripresa="序章">
+      <header class="fiaba-testata">
+        <p class="etichetta">序章 &middot; 朗读约4分钟</p>
+        <h2>序章</h2>
+        <p class="sottotitolo">乌戈的故事——在所有故事之前读</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/ugo/00.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">萤火虫的故事，我讲给你听，是因为我亲眼看见了。</p>
+      <p>鼹鼠的故事，我讲给你听，是凭着一句话相信的，因为有人讲给我听过。</p>
+      <p>这一个不一样。这一个，是我听见的。</p>
+      <p>我听了好多年，每天晚上，隔着天花板听。可我没听懂。我是长大以后才懂的，一小块一小块地懂，有几块，是现在给你准备这个故事的时候，我才刚刚懂。</p>
+      <p>我得先告诉你一件事。</p>
+      <p>我像你这么大的时候，睡在一个房间里，天花板又低又斜，就在屋顶底下。站在床上，伸手就能摸到它。</p>
+      <p>每天晚上，大人让我上床以后，天花板里就会传来一个声音。</p>
+      <p>轻轻的刮擦声。<em>嚓。嚓嚓。</em>然后是一声<em>嗒</em>。</p>
+      <p>我怕得睡不着。我说了，他们总是回答同一句话：什么也没有。是风。快睡吧。</p>
+      <p>那不是风。</p>
+      <p>有一天晚上，我做了一件以前从来没做过的事：我站在床上，抖得像一片叶子，敲了敲。敲了三下。</p>
+      <p>天花板回答了我。</p>
+      <p>剩下的我不讲了，因为它在故事里，你会一晚一晚地听到。我只告诉你，从那天晚上起，天花板里的声音再也没吓着我。正好相反。</p>
+      <p>好多年，我敲，好多年，有谁回答我。我不知道那是谁。我只知道，它在。</p>
+      <p>在上面，在天花板上面，还有外面，在黑里，在草地上空发生的事，我看不见。有些事，我是后来才发现的。还有一些，是我用心听着想出来的，因为一个声音你要是听上好多年，最后就会知道，发出这个声音的是个什么样子。</p>
+      <p>现在，那个斜天花板的房间是你的了。</p>
+      <p>你躺在床上，关了灯，在你上面，在瓦片底下，还有谁在那儿。</p>
+      <p>别害怕。我先告诉你，好让你知道：上面那一位，从来没有伤害过任何人。它只是有一个谁也听不见的声音。</p>
+      <p>这是它的故事。</p>
+      <p>它是这样开始的：</p>
+      <p><em>在小山脚下的草地上空，夜里，飞着一个谁也没听见过的家伙。</em></p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-1">谁也听不见的蝙蝠 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-1" data-ripresa="故事 I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 朗读约6分钟</p>
+        <h2>谁也听不见的蝙蝠</h2>
+        <p class="sottotitolo">睡前故事 · 第一篇</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/ugo/01.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">在小山脚下的草地上空，夜里，飞着一个谁也没听见过的家伙。</p>
+      <p>他叫乌戈，是一只蝙蝠。</p>
+      <p>乌戈有眼睛，也看得见——蝙蝠不是瞎子，虽然大家都这么说。可是在黑里到处飞，他用的是另一样东西。</p>
+      <p>他用声音。</p>
+      <p>是这样的：乌戈喊。一声又小又尖的喊，尖得谁也听不见：萤火虫听不见，蟋蟀听不见，人也听不见。这一声往前跑进黑里，撞到东西上，再弹回来。</p>
+      <p>从它弹回来的样子，乌戈就知道世界是什么样的。</p>
+      <p>橡树弹回来是圆的，满是窟窿和发抖的叶子。树篱弹回来是密密的，就像对着一块海绵喊。小溪弹回来是光溜溜的，上面有一层颤颤的波纹。一只蚊子弹回来，是一个会移动的小点——于是乌戈往这边一拐，张开嘴，那只蚊子就再也弹不回来了。</p>
+      <p>所以乌戈比谁都熟悉这片草地。每天夜里，他一块一块地把它全听一遍。</p>
+      <p>可是谁也不知道他存在。</p>
+      <p>他不是一直都孤零零的。</p>
+      <p>从前他住在一棵空心树里，在小溪那边，和好多跟他一样的伙伴在一起：一个蝙蝠群。白天，他们倒挂着睡觉，挤得紧紧的，好暖和。晚上，他们一起飞出去，空气里满是尖尖的声音，互相呼唤，互相回答，对听得见的人来说，那是世界上最好听的声音。</p>
+      <p>后来，有一年秋天，乌戈飞到远处去捕猎。比平常远，那里的蚊子还很多。等他回来，那棵树空了。</p>
+      <p>每年，天一冷，蝙蝠群就要动身去一个远远的山洞里过冬。那一年，他们早走了一个晚上。而乌戈不在。</p>
+      <p>他喊了他们一整夜。</p>
+      <p>回来的，只有他自己的声音。</p>
+      <p>他一个人在那棵空树里过了冬，像蝙蝠在冬天那样睡觉：睡很久，心跳得很慢很慢。到了春天，他等他们回来。他们没有回来。第二年春天也没有。有时候，蝙蝠群会换个家，而且谁也不告诉。</p>
+      <p>乌戈留下了。</p>
+      <p>每天晚上，他都飞出去喊。一开始，他喊的是他们。后来，过了一阵，他就只是喊，因为蝙蝠总是要喊的：他就是靠这个知道自己在哪儿。</p>
+      <p>后来，一个春天的夜里，发生了一件新鲜事。</p>
+      <p>他正在小山上空飞，他的声音弹回来的时候，带着一个他从来没听过的形状。</p>
+      <p>它弹回来是<em>直的</em>。</p>
+      <p>草地里没有东西是直的。草会弯，石头是圆的，叶子是歪的，就连小溪，只要能拐弯，也要拐个弯。可是在上面，在小山顶上，声音一下子整个弹回来，平平的，准准的，像一条线。</p>
+      <p>乌戈飞近了。</p>
+      <p>是一座房子。一座新房子，刚刚盖好，还有木头和石灰的味道。里面没有人住：窗户都是黑的，里面听不见任何东西在呼吸。</p>
+      <p>在屋顶边上，瓦片到头的地方，有一个洞。大小正好够他钻。</p>
+      <p>乌戈钻了进去。</p>
+      <p>里面又黑，又干，还留着白天太阳的余温。乌戈喊了一声，想听听这地方是什么样子，声音马上就回来了，近近的，温和的，就像有人在隔壁房间回答你。</p>
+      <p>乌戈倒挂在一根房梁上。他用翅膀把自己裹起来，像裹着一床被子。</p>
+      <p>“晚安。”他对屋顶说。</p>
+      <p>屋顶马上回答了他，用的是他自己的声音：<em>晚安</em>。</p>
+      <p>这跟蝙蝠群不是一回事。可是很接近了。</p>
+      <p>外面天开始亮了，对蝙蝠来说，这是该睡觉的时候。乌戈睡着了，这是很久以来第一次，在一个让他觉得像家的地方。</p>
+      <p>就算谁也不回答你，宝贝，也总有什么会回答你。</p>
+      <p>墙，树，小山。你一喊，它们就把你的声音送回来，从它回来的样子，你就知道自己在哪儿。</p>
+      <p>这跟一个真正的回答不是一回事。可它至少告诉你你在哪儿。从那儿，你就可以等。</p>
+      <p>现在闭上眼睛吧。</p>
+      <p>草地上面一切安静，屋顶底下有人在呼吸，明天又会有光。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-2">底下的人 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-2" data-ripresa="故事 II">
+      <header class="fiaba-testata">
+        <p class="etichetta">II &middot; 朗读约6分钟</p>
+        <h2>底下的人</h2>
+        <p class="sottotitolo">睡前故事 · 第二篇，接《谁也听不见的蝙蝠》</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/ugo/02.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">整整一个夏天，小山顶上的房子只属于乌戈一个。</p>
+      <p>他一根梁一根梁地认得它。他知道哪片瓦一刮风就咯吱响，下午的热气聚在哪儿，在哪个角落里他的声音弹回来最圆。空房子回答得很响：每个房间都把喊声整个送回来，好像迫不及待地想跟谁说说话。</p>
+      <p>后来，夏末的一个早上，乌戈正倒挂着睡觉，房子里一下子全是声音。</p>
+      <p>门。纸箱子。楼梯上上下下的脚步。有样很重很重的东西在地板上拖，还有人在说<em>慢点，慢点，慢点</em>。</p>
+      <p>乌戈睁开一只眼睛，听了听，又闭上了。白天，蝙蝠什么都不管。</p>
+      <p>可是到了晚上，他出去的时候，房子用另一种方式回答他了。</p>
+      <p>它回答得轻轻的。窗帘、床、挂在门后的大衣，每样都拿走了他声音的一小块，弹回来的东西更软，更短。住满了东西的房子就是这样回答的：像一个有好多事要忙、却还是在听你说话的人。</p>
+      <p>底下的人来了。</p>
+      <p>乌戈几乎从来没见过他们。白天他睡觉；夜里他们在里面，他在外面。可是他隔着天花板听得见他们，因为不知道他们的名字，他就用他们发出的声音来叫他们。</p>
+      <p>有一个重脚步，上楼梯一步跨两级，震得房梁直抖。</p>
+      <p>有一个小勺子：每天晚上，同一个时候，从厨房传来一阵<em>叮叮叮</em>，是一把小勺子在杯子里搅糖。总是三圈。从来不是四圈。</p>
+      <p>还有一个，是所有声音里最小的那个。</p>
+      <p>它从乌戈那根房梁正下方的房间里传出来。是一阵呼吸。又短又快，是一个年纪很小、别人都睡了自己却不睡的人。</p>
+      <p>乌戈管它叫呼吸。</p>
+      <p>呼吸有一盏台灯，一整夜都开着。乌戈知道，是因为每天晚上，他从瓦片底下的洞里钻出去，就看见下面那扇窗户：一个黄色的方块，整座小山上唯一亮着的一个。</p>
+      <p>第一天晚上从它前面飞过的时候，乌戈发现了一件美妙的事。</p>
+      <p>那盏灯在招蚊子。</p>
+      <p>蚊子从整片草地飞来，被光吸引，也被从半开的窗户里飘出来的那股暖暖的气息吸引。它们嗡嗡地撞在玻璃上，找一条缝，排着队想进去。</p>
+      <p>乌戈从来没见过——不对，是从来没<em>听</em>过——这么多蚊子一起挤在一个地方。</p>
+      <p>从那天晚上起，呼吸的窗户成了他最喜欢的捕猎地点。他在玻璃前面来回飞，慢慢的，准准的，每一只打算进去的蚊子，都永远改了主意。</p>
+      <p>整个夏天，没有一只蚊子叮过呼吸。一只也没有。</p>
+      <p>有一天晚上，隔着天花板，乌戈听见重脚步对小勺子说：“真奇怪。上面这儿一只蚊子都没有。”</p>
+      <p>“大概是山上的空气好吧。”小勺子说。<em>叮叮叮。</em></p>
+      <p>乌戈在外面，嘴里塞得满满的，什么也没说。反正谁也听不见。</p>
+      <p>然后，天亮的时候，他从洞里钻回来，倒挂在他的房梁上，听着。</p>
+      <p>在他底下，呼吸还醒着。总是短短的，总是快快的。台灯总是亮着。</p>
+      <p>蚊子，乌戈知道怎么赶走。可是那阵短短的呼吸，他不知道。他还不知道该怎么办。</p>
+      <p>有人在照顾你，你却不知道，宝贝。</p>
+      <p>你睡着的时候，有人关上一扇窗，有人给你掖好被子，有人把一样嗡嗡叫的东西赶走。你看不见，第二天也没有人告诉你。</p>
+      <p>不用道谢。只要睡觉就好。这样就很好。</p>
+      <p>现在闭上眼睛吧。</p>
+      <p>草地上面一切安静，屋顶底下有人在呼吸，明天又会有光。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-3">天花板里的声音 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-3" data-ripresa="故事 III">
+      <header class="fiaba-testata">
+        <p class="etichetta">III &middot; 朗读约6分钟</p>
+        <h2>天花板里的声音</h2>
+        <p class="sottotitolo">睡前故事 · 第三篇，接《底下的人》</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/ugo/03.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">有一个问题，乌戈很快就发现了。</p>
+      <p>每天晚上，要出去，他都得从房梁挪到瓦片底下那个洞口。而蝙蝠走路走得糟透了。他们生来是飞的，不是踮着脚走的：他们折着翅膀往前拖，用爪子抓住，滑一下，再抓住。</p>
+      <p>在屋顶的木板上，这会发出声音。</p>
+      <p><em>嚓。嚓嚓。嗒。</em></p>
+      <p>正好在呼吸的房间上面。又正好是大人哄呼吸上床的时候。</p>
+      <p>第一天晚上，乌戈没发觉。第二天晚上，他听见底下的呼吸变短了。第三天晚上，他听见它闷住了，好像是从什么东西底下传出来的。</p>
+      <p>乌戈知道这是什么意思。从声音弹回来的样子，他什么都明白：呼吸躲到被子底下去了。</p>
+      <p>是因为他。</p>
+      <p>于是他想安静一点。他试着滑，而不是抓，一次只动一只爪子，连气都屏住。没用：<em>嚓，嚓嚓，嗒。</em></p>
+      <p>他试着晚一点出去，等呼吸睡着了再走。可是呼吸从来不睡，这时候窗前的蚊子又在等着，而一只饿着肚子的蝙蝠，会弄出更大的声音。</p>
+      <p>有一天晚上，隔着天花板，他听见呼吸的声音，小小的：</p>
+      <p>“天花板里有东西。”</p>
+      <p>“那儿什么也没有，”小勺子说，她是来道晚安的，“快睡吧。”</p>
+      <p>“可是我听得见。”</p>
+      <p>“大概是风吧。”重脚步在远一点的地方说。</p>
+      <p>那不是风。那是乌戈。而乌戈倒挂在他的房梁上，也不知道该怎么说出来。</p>
+      <p>呼吸的房间就在屋顶底下，天花板又低又斜。站在床上，伸手就能摸到。</p>
+      <p>有一天夜里，又是一阵<em>嚓嚓</em>以后，呼吸做了一件从来没做过的事。</p>
+      <p>呼吸在床上站了起来。发着抖。乌戈从呼吸声里听得出来，来来回回，像一片叶子。</p>
+      <p>然后敲了敲天花板。三下。</p>
+      <p><em>咚。咚。咚。</em></p>
+      <p>乌戈一动也不动。</p>
+      <p>因为他认得这三下。</p>
+      <p>他听了好多年了，每个夏天的晚上，在草地的最那头：三下轻轻的敲击，从地底下传出来，就在橡树根旁边，紧接着，一只蟋蟀的歌里会空出一个小小的空当。他不知道是谁在敲，是谁在回答。可他很早以前就明白了它们的意思。</p>
+      <p>敲三下，意思是：<em>我在这儿。</em></p>
+      <p>乌戈慢慢地伸出翅膀上的爪子，在身子底下的木板上敲了敲。</p>
+      <p><em>咚。咚。咚。</em></p>
+      <p>底下，没声了。</p>
+      <p>呼吸完全停住了，就像跳进水里以前憋住一口气那样。</p>
+      <p>然后，过了很长很长的一会儿，敲了两下。</p>
+      <p><em>咚。咚。</em></p>
+      <p>乌戈敲了两下。</p>
+      <p>底下，一下。</p>
+      <p>乌戈，一下。</p>
+      <p>然后，在底下，乌戈一整个夏天都在等、自己却不知道的那件事发生了。呼吸变长了。一次，两次，三次。慢慢的，沉沉的，安安稳稳的。</p>
+      <p>呼吸睡着了。</p>
+      <p>台灯还亮着。那不关乌戈的事，这他知道。可是从那天晚上起，天花板再也没有吓着任何人。</p>
+      <p>正好相反。</p>
+      <p>每天晚上，乌戈准备出去的时候，底下就传上来三下。他也回三下。然后他才出去，<em>嚓，嚓嚓，嗒</em>，现在这声音的意思只是：<em>去吃晚饭了，马上回来。</em></p>
+      <p>有一天晚上，他听见呼吸对小勺子说：</p>
+      <p>“天花板里有一个人。”</p>
+      <p>“没有，宝贝。那儿什么也没有。”</p>
+      <p>“有的，”呼吸说，“可是那个人很好。”</p>
+      <p>一样吓人的东西，宝贝，有时候吓人，只是因为你不知道它是谁。</p>
+      <p>要是你跟它说话，它回答了你，它就没那么吓人了。要是它每天晚上都回答你，早晚有一天，它会变成一个伴儿。</p>
+      <p>你不是每次都能敲一敲。可是能敲的时候，试一试吧：有时候，那边有一个人，一直就在等你问。</p>
+      <p>现在闭上眼睛吧。</p>
+      <p>草地上面一切安静，屋顶底下有人在呼吸，明天又会有光。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-4">长长的睡眠 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-4" data-ripresa="故事 IV">
+      <header class="fiaba-testata">
+        <p class="etichetta">IV &middot; 朗读约6分钟</p>
+        <h2>长长的睡眠</h2>
+        <p class="sottotitolo">睡前故事 · 第四篇，接《天花板里的声音》</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/ugo/04.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">到了十一月，蚊子没有了。</p>
+      <p>不是一下子没有的：有一天晚上，呼吸的窗户前有十只，然后五只，然后只剩一只，轻轻地嗡嗡着，好像它也有点冷。然后一只也没有了。</p>
+      <p>乌戈知道这是什么意思。</p>
+      <p>长长的睡眠要来了。</p>
+      <p>所有的蝙蝠都有它。天一冷，再也没有东西可吃的时候，身体就自己慢下来：心跳得慢，然后更慢，然后慢得几乎听不见；翅膀像伞一样合起来；然后就睡了。不是一夜，不是一个星期。一直睡到三月。</p>
+      <p>长长的睡眠是没得商量的。它像雪一样来：不会问你同不同意。</p>
+      <p>可是那一年，乌戈有了一个他从来没有过的难题。</p>
+      <p>那三下。</p>
+      <p>每天晚上，呼吸都在底下敲。每天晚上，乌戈都回答。这成了他们俩的事，就像小勺子的<em>叮叮叮</em>，就像重脚步一步两级的上楼声。</p>
+      <p>要是乌戈一直睡到三月，谁来回答呢？</p>
+      <p>呼吸会敲，天花板会一声不响。一个晚上，两个晚上，十个晚上。最后，呼吸会以为天花板里的那一位走了。</p>
+      <p>乌戈很想解释。可是这样的事，敲三下怎么解释得清呢？</p>
+      <p>最后一个晚上，他还是试了。听见敲声，他回答了。然后他又敲了三下，非常慢，中间隔着长长的空，就像一个困得不得了的人那样敲。这是一只蝙蝠用一只爪子能说出来的、最接近<em>晚安，春天见</em>的话了。</p>
+      <p>底下，没声了。谁知道呼吸明白了没有。</p>
+      <p>然后乌戈试着不睡。</p>
+      <p>他数房梁。他数瓦片。他只用一只脚倒挂着，就是为了让自己不舒服。他在脑子里把草地上所有东西的形状过了一遍：圆圆的橡树，密密的树篱，光溜溜的小溪。</p>
+      <p>他数到了小溪。然后就再也数不到哪儿去了。</p>
+      <p>他睡着了。</p>
+      <p>那个冬天下雪了。雪落在屋顶上，白白的，静静的，瓦片底下的冷变得那么深，深得像一个房间。</p>
+      <p>乌戈挂在他的房梁上，裹在翅膀里，什么也听不见。他的心偶尔跳一下，就像一个人想起一件事，然后又把它忘了。</p>
+      <p>而在他底下，每天晚上，都有谁敲三下。</p>
+      <p><em>咚。咚。咚。</em></p>
+      <p>没有人回答。</p>
+      <p>有些晚上，敲声很重，几乎是在生气。有些晚上，敲声很小，像一个小声问出来的问题。有些晚上，只有一下，然后就没有了。可是第二天晚上，又是三下。</p>
+      <p>一整个冬天。</p>
+      <p>三月，一个晚上，乌戈睁开了一只眼睛。</p>
+      <p>他的心慢慢地又跳起来了，就像有人一圈一圈地给一只钟上发条。他的翅膀僵僵的，腿是麻的，饿得能把整座小山的蚊子都吃光——可蚊子还没有来呢。</p>
+      <p>他朝洞口拖过去。<em>嚓。嚓嚓。</em></p>
+      <p>他还没到<em>嗒</em>，底下就传来了：</p>
+      <p><em>咚。咚。咚。</em></p>
+      <p>马上。就好像有人一直等在那儿，手早就举起来了。</p>
+      <p>乌戈停住了。他伸出爪子，那只爪子睡得还有点歪，回答了。</p>
+      <p><em>咚。咚。咚。</em></p>
+      <p>底下传来了一个声音，这么长时间以来，乌戈从来没听过的声音。</p>
+      <p>呼吸在笑。</p>
+      <p>“你在跟谁说话？”小勺子在门口问。</p>
+      <p>“跟天花板里的那一位，”呼吸说，“那一位去睡觉了。”</p>
+      <p>“睡了一整个冬天？”</p>
+      <p>“一整个冬天。我就知道。”</p>
+      <p>睡着了的人，并没有走开，宝贝。</p>
+      <p>有时候，一个你爱的人会走开一阵子：去睡觉，去工作，去很远的地方。有一阵子，你敲门，没有人回答你。</p>
+      <p>这不是说那个人不在了。只是说，现在是冬天。</p>
+      <p>冬天都会过去的。每一个都会。</p>
+      <p>现在闭上眼睛吧。</p>
+      <p>草地上面一切安静，屋顶底下有人在呼吸，明天又会有光。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="晚安，明天见"><span class="etichetta">晚安，明天见</span><a href="/zh/">所有的书 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">关于本书</p>
+      <p>4个故事, 一篇序章，共5535字。朗读时间按每分钟220字计算：这是大声读给别人听的速度，不是自己默读的速度。</p>
+    </footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "开灯", "spegni": "关灯", "temaChiaro": "切换到浅色主题", "temaScuro": "切换到深色主题", "riprendi": "继续读", "memoria": "fiabe:ugo"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    function aggiornaBarra() {
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
+  })();
+</script>
+</body>
+</html>
