@@ -25,7 +25,7 @@ AUTORE = "Fausto Chiantera"
 VOCE_E_SITO = "Deckard"
 
 # Mappa lingua -> locale nel formato che Open Graph vuole (con underscore).
-OG_LOCALE = {"it": "it_IT", "en-GB": "en_GB"}
+OG_LOCALE = {"it": "it_IT", "en-GB": "en_GB", "zh-Hans": "zh_CN"}
 
 # Una lingua per cartella. "uscita" è il file generato, "base" il prefisso
 # degli URL. L'italiano sta alla radice perché era lì da prima.
@@ -50,6 +50,13 @@ LIBRI = [
                           "someone else come to it on her own."),
             "descrizione": "{n} bedtime stories about Nina, the firefly of the meadow at the foot of the hill.",
         },
+        "zh-Hans": {
+            "titolo": "妮娜的故事",
+            "nome_breve": "妮娜",
+            "occhiello": "第一本",
+            "riassunto": "一只萤火虫学会发光，学会熄灭，也学会让别人自己亮起来。",
+            "descrizione": "{n}个睡前故事，讲的是山脚下草地里的萤火虫妮娜。",
+        },
     },
     {
         "cartella": "tilde",
@@ -70,6 +77,13 @@ LIBRI = [
                           "front door. Seen from below, where she finds it perfectly well."),
             "descrizione": "{n} bedtime stories about Tilde, the old mole of the meadow at the foot of the hill.",
         },
+        "zh-Hans": {
+            "titolo": "蒂尔德的故事",
+            "nome_breve": "蒂尔德",
+            "occhiello": "第二本",
+            "riassunto": "草地上那只老鼹鼠，总是找不到自己家门的那一只。从地底下看，她找得一清二楚。",
+            "descrizione": "{n}个睡前故事，讲的是山脚下草地里的老鼹鼠蒂尔德。",
+        },
     },
     {
         "cartella": "ugo",
@@ -89,6 +103,13 @@ LIBRI = [
             "riassunto": ("The bat who lives under the roof of the house at the top of the hill. "
                           "He sees with his voice, and nobody can hear it."),
             "descrizione": "{n} bedtime stories about Ugo, the bat under the roof of the house at the top of the hill.",
+        },
+        "zh-Hans": {
+            "titolo": "乌戈的故事",
+            "nome_breve": "乌戈",
+            "occhiello": "第三本",
+            "riassunto": "住在山顶那座房子屋檐下的蝙蝠。他用声音看东西，可他的声音谁也听不见。",
+            "descrizione": "{n}个睡前故事，讲的是山顶房子屋檐下的蝙蝠乌戈。",
         },
     },
 ]
@@ -190,6 +211,55 @@ LINGUE = {
         "sei_a": "Resume {d}",
         "apri": "Open",
     },
+    "zh-Hans": {
+        "cartella": "zh-Hans",
+        "uscita": os.path.join("zh", "index.html"),
+        "base": "/zh/",
+        "lang": "zh-Hans",
+        "nome": "中文",
+        "audio": os.path.join("audio", "zh-Hans"),
+        # Il cinese non separa le parole: si contano i caratteri, e ad alta
+        # voce, piano, se ne leggono circa duecentoventi al minuto.
+        "al_minuto": 220,
+        "sito": "妮娜的睡前故事",
+        "occhiello": "睡前故事",
+        "intro": ("{n}个故事，讲一只萤火虫学会发光，学会熄灭，也学会让别人自己亮起来。"
+                  "要大声读，一晚一个，按写好的顺序读。"),
+        "indice": "目录",
+        "in_tutto": "共{m}分钟",
+        "minuti_lettura": "朗读约{m}分钟",
+        "ascolta": "听故事",
+        "no_audio": "你的浏览器无法播放这段音频。",
+        "libro": "第",
+        "da_libro": "故事 {r}",
+        "da_prologo": "序章",
+        "da_epilogo": "尾声",
+        "colophon": "关于本书",
+        "colophon_testo": ("{n}个故事{coda}，共{p}字。朗读时间按每分钟{wpm}字计算："
+                           "这是大声读给别人听的速度，不是自己默读的速度。"),
+        "extra_nome": {"prologue": "一篇序章", "epilogue": "一篇尾声"},
+        "extra_giunzione": "和",
+        "spegni": "关灯",
+        "accendi": "开灯",
+        "tema_chiaro": "切换到浅色主题",
+        "tema_scuro": "切换到深色主题",
+        "riprendi": "继续读",
+        "chiudi": "关闭",
+        "chiudi_aria": "隐藏继续阅读提示",
+        "testo_meno": "字小一点",
+        "testo_piu": "字大一点",
+        "cambia_tema": "切换主题",
+        "altra_lingua": "Italiano",
+        "scaffale": "睡前故事",
+        "scaffale_intro": "要大声读的故事，一晚一个。每本书都按写好的顺序读。",
+        "tutti_i_libri": "所有的书",
+        "torna_scaffale": "&#9664;&nbsp;书架",
+        "quante": "{n}个故事 &middot; {m}分钟",
+        "una_fiaba": "1个故事 &middot; {m}分钟",
+        "in_preparazione": "准备中",
+        "sei_a": "继续读：{d}",
+        "apri": "打开",
+    },
 }
 LINGUE["it"].update({
     "inizia": "Comincia a leggere", "prossima": "La prossima storia", "fine": "Buonanotte, a domani",
@@ -204,6 +274,13 @@ LINGUE["en-GB"].update({
     "biblioteca": "Our little bookshelf",
     "scaffale_nota": "One meadow, many stories", "firma": "From the meadow at the foot of the hill. With love.",
     "leggi_libro": "Step into the story",
+})
+LINGUE["zh-Hans"].update({
+    "inizia": "开始读", "prossima": "下一个故事", "fine": "晚安，明天见",
+    "hero": "美好的故事。<br><em>一起度过的夜晚。</em>", "scopri": "选一个故事",
+    "biblioteca": "我们的小书架",
+    "scaffale_nota": "一片草地，许多故事", "firma": "来自山脚下的草地。满怀爱意。",
+    "leggi_libro": "走进故事",
 })
 
 COPERTINE = {l["cartella"]: l["copertina"] for l in LIBRI}
@@ -224,7 +301,16 @@ def inline(testo):
     return t
 
 
-def leggi(percorso):
+HAN = re.compile(r"[\u3400-\u9fff\uf900-\ufaff]")
+
+
+def conta_parole(testo):
+    """Parole per le lingue con gli spazi, caratteri per il cinese."""
+    han = len(HAN.findall(testo))
+    return han + len(HAN.sub(" ", testo).split()) if han else len(testo.split())
+
+
+def leggi(percorso, al_minuto=PAROLE_AL_MINUTO):
     titolo = sottotitolo = ""
     paragrafi = []
     for riga in open(percorso, encoding="utf-8"):
@@ -237,7 +323,7 @@ def leggi(percorso):
             sottotitolo = riga[1:-1]
         else:
             paragrafi.append(riga)
-    parole = sum(len(p.split()) for p in paragrafi)
+    parole = sum(conta_parole(p) for p in paragrafi)
     nome = os.path.basename(percorso)
     numero = nome[:2]
     chiave = os.path.splitext(nome)[0][2:]
@@ -249,7 +335,7 @@ def leggi(percorso):
         "titolo": titolo,
         "sottotitolo": sottotitolo,
         "paragrafi": paragrafi,
-        "minuti": max(1, math.ceil(parole / PAROLE_AL_MINUTO)),
+        "minuti": max(1, math.ceil(parole / al_minuto)),
         "parole": parole,
     }
 
@@ -271,7 +357,8 @@ def audio_per(cartella_audio, numero):
 def raccogli(lingua, libro):
     """Legge le fiabe di un libro in una lingua e prepara indice e articoli."""
     cartella = os.path.join(STORIE, lingua["cartella"], libro["cartella"])
-    fiabe = [leggi(f) for f in sorted(glob.glob(os.path.join(cartella, "[0-9][0-9]*.md")))]
+    ritmo = lingua.get("al_minuto", PAROLE_AL_MINUTO)
+    fiabe = [leggi(f, ritmo) for f in sorted(glob.glob(os.path.join(cartella, "[0-9][0-9]*.md")))]
 
     indice, articoli = [], []
     conta = 0
@@ -305,7 +392,7 @@ def raccogli(lingua, libro):
             classi = []
             if j == 0:
                 classi.append("apertura")
-            if par.startswith("Buonanotte.") or par.startswith("Goodnight."):
+            if par.startswith(("Buonanotte.", "Goodnight.", "晚安。")):
                 classi.append("congedo")
             attr = f' class="{" ".join(classi)}"' if classi else ""
             corpo.append(f"      <p{attr}>{inline(par)}</p>")
@@ -597,11 +684,19 @@ FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n
 
 
 
+def disponibile(lingua, url):
+    """La pagina esiste in quella lingua? Lo scaffale c'è se c'è almeno un libro."""
+    radice = os.path.join(STORIE, lingua["cartella"])
+    libro = url.strip("/")
+    modello = os.path.join(radice, libro or "*", "[0-9][0-9]*.md")
+    return bool(glob.glob(modello))
+
+
 def guscio(lingua, titolo_tab, descrizione, url, corpo, script, jsonld=None):
     """Mette insieme una pagina completa."""
     alternative = "\n".join(
         f'<link rel="alternate" hreflang="{l["lang"]}" href="{SITO}{l["base"]}{url}">'
-        for l in LINGUE.values()
+        for l in LINGUE.values() if disponibile(l, url)
     ) + f'\n<link rel="alternate" hreflang="x-default" href="{SITO}/{url}">'
     canonico = f'{SITO}{lingua["base"]}{url}'
     cartella = url.rstrip("/")
@@ -611,7 +706,7 @@ def guscio(lingua, titolo_tab, descrizione, url, corpo, script, jsonld=None):
     tipo_og = "book" if libro_pagina else "website"
     locale_alternative = "\n".join(
         f'<meta property="og:locale:alternate" content="{OG_LOCALE.get(l["lang"], l["lang"])}">'
-        for l in LINGUE.values() if l["lang"] != lingua["lang"]
+        for l in LINGUE.values() if l["lang"] != lingua["lang"] and disponibile(l, url)
     )
     dati_strutturati = (
         f'\n<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>'
@@ -747,7 +842,7 @@ def pagina(codice, lingua, libro):
 
     <footer class="colophon">
       <p class="etichetta">{lingua["colophon"]}</p>
-      <p>{lingua["colophon_testo"].format(n=numero_fiabe, coda=coda, p=parole, wpm=PAROLE_AL_MINUTO)}</p>
+      <p>{lingua["colophon_testo"].format(n=numero_fiabe, coda=coda, p=parole, wpm=lingua.get("al_minuto", PAROLE_AL_MINUTO))}</p>
     </footer>
   </main>'''
 
@@ -806,7 +901,7 @@ def pagina(codice, lingua, libro):
 def cambio_lingua(codice, url):
     return "".join(
         f'<a class="lingua" href="{l["base"]}{url}" hreflang="{l["lang"]}" lang="{l["lang"]}">{l["nome"]}</a>'
-        for c, l in LINGUE.items() if c != codice
+        for c, l in LINGUE.items() if c != codice and disponibile(l, url)
     )
 
 
@@ -979,6 +1074,8 @@ for codice, lingua in LINGUE.items():
     }
     percorso = os.path.join(SRC, lingua["base"].strip("/").replace("/", os.sep), "manifest.json")
     percorso = os.path.normpath(percorso)
+    if not os.path.isdir(os.path.dirname(percorso)):
+        continue  # lingua senza nessuna pagina: niente manifest
     with open(percorso, "w", encoding="utf-8") as fp:
         json.dump(manifesto, fp, ensure_ascii=False, indent=2)
         fp.write("\n")

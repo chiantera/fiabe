@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>妮娜的故事</title>
+<meta name="description" content="4个睡前故事，讲的是山脚下草地里的萤火虫妮娜。">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/zh/nina/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/nina/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/nina/">
+<link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/nina/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/nina/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/zh/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="妮娜的故事">
+<meta property="og:description" content="4个睡前故事，讲的是山脚下草地里的萤火虫妮娜。">
+<meta property="og:url" content="https://fiabe.vercel.app/zh/nina/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-nina.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="妮娜的故事">
+<meta name="twitter:description" content="4个睡前故事，讲的是山脚下草地里的萤火虫妮娜。">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-nina.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "妮娜的故事", "description": "4个睡前故事，讲的是山脚下草地里的萤火虫妮娜。", "url": "https://fiabe.vercel.app/zh/nina/", "inLanguage": "zh-Hans", "image": "https://fiabe.vercel.app/assets/og-nina.png", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8}, "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#indice">目录</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
+    <a class="tasto" href="#indice">&#9650;&nbsp;目录</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/zh/" title="所有的书">妮娜</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="字小一点"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="字大一点">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="切换主题">&#9681;</button>
+    </span>
+  </div>
+
+  <main class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/zh/" aria-label="所有的书">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/nina/" hreflang="it" lang="it">Italiano</a><a class="lingua" href="/en/nina/" hreflang="en-GB" lang="en-GB">English</a>
+          <button class="interruttore" id="interruttore" type="button">关灯</button>
+        </span>
+      </div>
+      <p class="briciola"><a href="/zh/">&#9664;&nbsp;书架</a></p>
+      <h1>妮娜的故事</h1>
+      <p class="intro">一只萤火虫学会发光，学会熄灭，也学会让别人自己亮起来。</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#prologo">开始读 <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">共28分钟</p>
+      </div>
+    </header>
+
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">继续读</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="隐藏继续阅读提示">关闭</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="目录">
+      <p class="etichetta">目录 &middot; 共28分钟</p>
+      <ol>
+        <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">序章</span><span class="voce-durata">4 min</span></a></li>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">怕黑的萤火虫</span><span class="voce-durata">3 min</span></a></li>
+        <li><a href="#libro-2"><span class="numero">II</span><span class="voce-titolo">萤火虫和累坏了的灯笼</span><span class="voce-durata">5 min</span></a></li>
+        <li><a href="#libro-3"><span class="numero">III</span><span class="voce-titolo">萤火虫和不肯发光的小家伙</span><span class="voce-durata">7 min</span></a></li>
+        <li><a href="#libro-4"><span class="numero">IV</span><span class="voce-titolo">萤火虫和失去声音的蟋蟀</span><span class="voce-durata">9 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="prologo" data-ripresa="序章">
+      <header class="fiaba-testata">
+        <p class="etichetta">序章 &middot; 朗读约4分钟</p>
+        <h2>序章</h2>
+        <p class="sottotitolo">妮娜的故事——在所有故事之前读</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/nina/00.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">把大灯关掉。只留那盏小的。</p>
+      <p>好了。</p>
+      <p>现在我给你讲一个故事。故事很长：里面装得下十个晚上，一晚讲一段，可不是今晚全讲完。</p>
+      <p>讲的是一只萤火虫。</p>
+      <p>不过开始之前，我得先告诉你一件事，就一件，说完就开始。</p>
+      <p>我像你这么大的时候，在黑暗里睡不着觉。</p>
+      <p>这不是随便说说：我是真的睡不着。我整夜开着台灯，就算大人们跟我说什么都没有、一切都好好的、可以关灯了，我还是开着。</p>
+      <p>那时我们住在一座小山顶上的房子里。山脚下，远远的，有一片草地。</p>
+      <p>头几个月，我从来没见过那片草地。因为夜里开着灯，从窗户往外看是看不见草地的：只看得见窗户自己。</p>
+      <p>后来有一天晚上，玻璃上停了一个金色的小点。</p>
+      <p>它小极了。而且它在呼吸：一亮，一灭，慢慢地，就像一个一点也不着急的活东西那样。</p>
+      <p>我看了它很久很久。</p>
+      <p>然后我做了一件这辈子从来没做过的事：我伸出手，把台灯关了。</p>
+      <p>山脚下的草地，一下子全亮了。</p>
+      <p>我说不太清楚那是什么样子。像从飞机上看见的一座城，可它是活的，全是金色的，而且一点声音也没有。</p>
+      <p>它一直都在那儿。每天夜里，一直都在，而我待在玻璃这边，开着灯，什么也看不见。</p>
+      <p>只要弄出一点黑就够了。</p>
+      <p>很久以后——那时我的腿已经长长了——有一天晚上，我打开家门，走下小山，想去近处看看。我带着一支手电筒，可是拿着手电筒，我什么也没找到：只有草，石头，还有我那道白光到处乱撞。</p>
+      <p>于是我把手电也关了，坐在湿湿的草里等，一动不动。</p>
+      <p>等了好一会儿。一动不动，是世界上最难的事。</p>
+      <p>然后，离我两步远的地方，亮起了一只萤火虫。接着又一只。接着是整片草地。</p>
+      <p>有一只落在我摊开的手心上，一直待到家里有人喊我回去。</p>
+      <p>所以你看：从现在起我讲给你听的这些故事，我之所以知道，是因为那扇黄色的窗户是我的。</p>
+      <p>现在，房子就是这座房子，窗户是你的窗户，给你掖被子的，是我。</p>
+      <p>等你长大了，要是有机会，你也带一个人去黑黑的草地里看看。</p>
+      <p>现在闭上眼睛吧，故事要开始了。</p>
+      <p>它是这样开始的：</p>
+      <p><em>从前，在一座小山脚下的草地里，住着一只小小的萤火虫，她的名字叫妮娜。</em></p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-1">怕黑的萤火虫 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-1" data-ripresa="故事 I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 朗读约3分钟</p>
+        <h2>怕黑的萤火虫</h2>
+        <p class="sottotitolo">睡前故事 · 第一篇</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/nina/01.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">从前，在一座小山脚下的草地里，住着一只小小的萤火虫，她的名字叫妮娜。</p>
+      <p>妮娜有一个对萤火虫来说很奇怪的问题：她怕黑。</p>
+      <p>每天傍晚，太阳落到树后面，影子在草地上越拉越长的时候，妮娜就躲到一片三叶草的叶子底下，闭上眼睛。</p>
+      <p>“别出去，别出去。”她小声对自己说。</p>
+      <p>她的姐妹们却开开心心地在草地上飞来飞去，把金色的小灯笼一亮一灭。她们看起来就像从天上掉下来、决定留下来的星星。</p>
+      <p>有一天夜里，妮娜正躲在叶子底下发抖，忽然听见小溪边有个细细的声音在哭。</p>
+      <p>是一只迷了路的小蟋蟀。</p>
+      <p>“我找不到回家的路了，”小蟋蟀抽抽搭搭地说，“太黑了。”</p>
+      <p>妮娜一下子把自己的害怕全忘了。她从叶子底下钻出来，自己都没注意到，她的小灯笼就亮了：一团暖暖的金光，照亮了青草、小石子，还有那只吓坏了的小蟋蟀。</p>
+      <p>“哇！”小蟋蟀擦着眼泪说，“你真亮啊！”</p>
+      <p>妮娜低头一看，看见自己的光映在小溪的水里。真美。</p>
+      <p>“来吧，”妮娜说，“我送你回家。”</p>
+      <p>就这样，萤火虫慢慢地飞，领着小蟋蟀穿过草地，越过睡着的花，一直送到老橡树树根底下他的小家。</p>
+      <p>从那天夜里起，妮娜再也不怕黑了。</p>
+      <p>因为她发现了一个秘密：只要有人愿意点亮自己的光，黑暗就从来不是真的黑。</p>
+      <p>现在，宝贝，闭上眼睛吧。萤火虫在守着你。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-2">萤火虫和累坏了的灯笼 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-2" data-ripresa="故事 II">
+      <header class="fiaba-testata">
+        <p class="etichetta">II &middot; 朗读约5分钟</p>
+        <h2>萤火虫和累坏了的灯笼</h2>
+        <p class="sottotitolo">睡前故事 · 第二篇，接《怕黑的萤火虫》</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/nina/02.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">一整个夏天过去了，山脚下的草地里，大家都知道了妮娜的故事：那只学会了发光的萤火虫。</p>
+      <p>每天夜里，她从草地这头飞到那头。她给回家晚了的蚂蚁照亮小路。她给那只老是找不到家门的老鼹鼠照个亮。她陪着迷路的蜗牛、糊涂的飞蛾，还有丢了风的蒲公英种子。</p>
+      <p>那只蟋蟀——现在他有名字了，叫罗科——从橡树根底下的小家里看着她飞过。</p>
+      <p>“妮娜，”有一天晚上他对她说，“你休息过吗？”</p>
+      <p>“不能休息，”她一边飞走一边回答，“说不定有谁需要我。”</p>
+      <p>可是后来，九月来了。</p>
+      <p>夜变长了，也变冷了。小溪流得慢了。花合上了花瓣，再也没有张开。</p>
+      <p>一天夜里，发生了一件事，比世界上所有的黑暗都更让妮娜害怕。</p>
+      <p>她的灯笼灭了。</p>
+      <p>不是慢慢地，像萤火虫呼吸那样。就是灭了，像一根蜡烛被风吹灭。</p>
+      <p>妮娜发着抖，落在小溪边的一块石头上。</p>
+      <p>“哎呀，”她小声说，“哎呀，哎呀，不好了。”</p>
+      <p>她试着重新亮起来。她闭紧眼睛，屏住呼吸，使出了全身的力气。</p>
+      <p>没有用。只有灰灰的一片。</p>
+      <p>“完了，”她哭了，“现在我对谁都没用了。”</p>
+      <p>就在这时，她听见草丛里一声小小的<em>唧唧</em>。</p>
+      <p>是罗科。他用细细的小腿爬上石头，有点喘，因为对一只蟋蟀来说，这可是一段不短的坡。</p>
+      <p>“我从那边看见你了。”他说。</p>
+      <p>“可是……怎么会？我已经灭了。”</p>
+      <p>罗科在她身边坐下。</p>
+      <p>“妮娜，”他温柔地说，“我找你的时候，从来不是看光。我看的是<em>你</em>。”</p>
+      <p>妮娜不知道该说什么。</p>
+      <p>“你知道你的灯笼为什么灭了吗？”蟋蟀接着说，“不是因为坏了。是因为累了。你照亮了整片草地，照了整整一个夏天，一个晚上都没停过。”</p>
+      <p>“可是我一停下来，黑暗就回来了。”</p>
+      <p>“黑暗反正会回来的，”罗科说，“每天晚上都会回来。那不是你的错，也不是你的活儿。你是一只萤火虫，不是太阳。”</p>
+      <p>妮娜很久都没有说话，只是听着流水。</p>
+      <p>“那我该怎么办？”</p>
+      <p>“现在吗？”罗科把触角朝天上抬起来，“现在我们看星星。明天你睡觉。后天你想睡的话，还睡。”</p>
+      <p>“那要是有人迷路了呢？”</p>
+      <p>“那我来唱歌，”蟋蟀说，“我不会发光。可我会出声，在黑暗里，有时候一个声音就够让人知道往哪儿走了。”</p>
+      <p>就这样，好几个月来第一次，妮娜没有飞。</p>
+      <p>她待在石头上，待在朋友身边，他们一起看着九月的天空，那片天空满满的、满满的、满满的都是星星——那些她从来没有时间看的星星，因为她总是忙着发光。</p>
+      <p>罗科在冷冷的草丛里轻轻地唱着，妮娜睡着了。</p>
+      <p>她睡过了整个秋天。她睡过了整个冬天，蜷在老橡树温暖的树心里，蟋蟀就睡在旁边，白雪像一床白被子一样盖住了草地。</p>
+      <p>后来有一天，空气变软了，小溪又开始唱歌，第一批三叶草从土里钻了出来。</p>
+      <p>妮娜睁开了眼睛。</p>
+      <p>不用使劲，不用害怕，甚至想都没想——</p>
+      <p>她亮了。</p>
+      <p>比以前更亮。</p>
+      <p>因为再美的光也需要休息，宝贝。</p>
+      <p>你的光也一样。</p>
+      <p>现在闭上眼睛吧：草地很安全，蟋蟀在站岗，明天又会有光。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-3">萤火虫和不肯发光的小家伙 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-3" data-ripresa="故事 III">
+      <header class="fiaba-testata">
+        <p class="etichetta">III &middot; 朗读约7分钟</p>
+        <h2>萤火虫和不肯发光的小家伙</h2>
+        <p class="sottotitolo">睡前故事 · 第三篇，接《萤火虫和累坏了的灯笼》</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/nina/03.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">山脚下的草地里，夏天又回来了。</p>
+      <p>妮娜又飞起来了，她的灯笼还像从前一样金黄、温暖。不过有一件事变了：每天夜里，到了某个时候，她就落在一根草叶上，待在那儿什么也不干，看星星。</p>
+      <p>蟋蟀罗科从橡树根底下的小家里看见她停着，高高兴兴地唱起歌来。</p>
+      <p>就是在这样的一个夜里，新的萤火虫出生了。</p>
+      <p>她们又多又小，一只接一只地亮起来，就像火堆里的炭一颗颗亮起来那样。噗。噗。噗。</p>
+      <p>只有一只没亮。</p>
+      <p>她待在一片三叶草叶子的阴影里，眼睛闭得紧紧的，一点光也没有。</p>
+      <p>她叫贝阿。</p>
+      <p>妮娜轻轻地飞过去，心里有一种奇怪的感觉：就是听见一首老歌时，认出它来的那种感觉。</p>
+      <p>“你好，”她说，“你怎么不跟大家一起飞呀？”</p>
+      <p>“因为天黑。”贝阿回答。</p>
+      <p>妮娜心想：<em>啊，这个我会。这个我可太会了。</em></p>
+      <p>“看我，”第一天夜里她说，然后使劲亮了起来，“就这样。”</p>
+      <p>贝阿看着。什么也没发生。</p>
+      <p>“跟我学，”第二天夜里她说，“屏住气，闭紧眼睛，使劲。”</p>
+      <p>贝阿屏住气，闭紧眼睛，使劲。结果只是变得更灰了一点点。</p>
+      <p>“你得再努力一点。”第三天夜里妮娜说，她自己都没发觉，声音有点凶了。</p>
+      <p>于是贝阿做了一件所有人在别人叫他们“再努力一点”的时候都会做的事：她在叶子底下藏得更深了，整整两个晚上都没出来。</p>
+      <p>妮娜落在小溪边她那块石头上，生着气。</p>
+      <p>“我不明白，”她对罗科说，“我在教她呀。我教得好好的！”</p>
+      <p>“妮娜，”蟋蟀说，“我能问你一个问题吗？”</p>
+      <p>“你问吧。”</p>
+      <p>“你呢，是谁教你的？”</p>
+      <p>妮娜张开嘴。又闭上了。</p>
+      <p>因为谁也没教过她。很久以前的那个夜里，没有哪只大萤火虫对她说<em>看我</em>，或者<em>使劲</em>，或者<em>再努力一点</em>。</p>
+      <p>只有一只蟋蟀在草丛里哭，因为他找不到回家的路。</p>
+      <p>“你看，”罗科轻轻地说，“你亮起来，不是因为有人给你讲明白了。你亮起来，是因为有人需要你。”</p>
+      <p>“那我该怎么办？”</p>
+      <p>“什么也别做，”蟋蟀说，“就这一回，什么也别做。”</p>
+      <p>第二天夜里，妮娜又来到那片三叶草叶子下面。她没有说<em>看我</em>。她没有说<em>努力</em>。</p>
+      <p>她在贝阿身边坐了下来。</p>
+      <p>然后她做了一件萤火虫几乎从来不做的事：她把自己的灯笼熄了。</p>
+      <p>“你干什么呀？”贝阿害怕地问。</p>
+      <p>“陪着你，”妮娜说，“两个人一起，黑就没那么难了。”</p>
+      <p>她们就那样待着，两只熄了灯的萤火虫，躲在一片叶子底下，安静得像两颗小石子。</p>
+      <p>后来，风来了。</p>
+      <p>风一下子全来了，从小山后面刮过来，把草压弯了，把橡树的枝条吹得直发抖。大萤火虫们赶紧躲到叶子底下去，她们的灯笼一盏接一盏地灭了。</p>
+      <p>草地从来没有这么黑过。</p>
+      <p>在这片黑里，从草丛深处，传来了哭声。</p>
+      <p>那是一个非常非常小的声音——比贝阿还小。是一只瓢虫，被风从她的叶子上吹走了，现在她不知道自己在哪儿了。</p>
+      <p>贝阿等着有谁过去。</p>
+      <p>谁也没去：大家都躲起来了。</p>
+      <p>于是——没有屏住气，没有闭紧眼睛，没有使劲，连一秒钟都没想——</p>
+      <p>贝阿亮了。</p>
+      <p>那是一点小小的、颤颤的光，嫩绿嫩绿的，像三月的新芽。可是够了。</p>
+      <p>够她穿过被风压弯的草，找到浑身湿透的瓢虫，顶着风，一步一步，把瓢虫送回她的叶子上。</p>
+      <p>妮娜在她躲着的地方看着贝阿飞过，什么也没说。</p>
+      <p>她只是笑了。</p>
+      <p>因为她清清楚楚地知道那是什么感觉。</p>
+      <p>别人的光是点不亮的，宝贝。讲道理点不亮，用力气点不亮，说<em>再努力一点</em>也点不亮。</p>
+      <p>你只能坐在旁边，在黑暗里，等它自己来。</p>
+      <p>现在闭上眼睛吧。</p>
+      <p>要是有时候你觉得自己一点光也没有，那不是真的：你有。只是需要它的那个夜晚还没有到。</p>
+      <p>等那个夜晚到了，你什么也不用做就会亮起来。</p>
+      <p>它自己就会发生。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-4">萤火虫和失去声音的蟋蟀 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-4" data-ripresa="故事 IV">
+      <header class="fiaba-testata">
+        <p class="etichetta">IV &middot; 朗读约9分钟</p>
+        <h2>萤火虫和失去声音的蟋蟀</h2>
+        <p class="sottotitolo">睡前故事 · 第四篇，接《萤火虫和不肯发光的小家伙》</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/nina/04.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">九月悄悄地回来了，它总是这样。</p>
+      <p>山脚下的草地里，傍晚变短了，萤火虫们开始飞得低一些，贴着还温温的草。</p>
+      <p>贝阿长大了。她的光不再发抖了：那是一点嫩绿的小光，小小的，稳稳的，有些夜里，是她去给那些糊涂的家伙引路——糊涂的飞蛾，迷路的蜗牛，丢了风的蒲公英种子。</p>
+      <p>妮娜呢，她已经学会了累坏了的灯笼教给她的道理，总是早早就停下来。她落在小溪边她那块石头上，熄了灯，听着。</p>
+      <p>因为草地里总有东西可以听：从老橡树的树根那儿，传来罗科的歌声。</p>
+      <p><em>唧唧。唧唧。</em></p>
+      <p>那是世界上最熟悉的声音。妮娜记得的每一个夏天，每一个夜里，它都在。</p>
+      <p>可是这年九月，歌变短了。</p>
+      <p>从前罗科从太阳落山一直唱到星星全出来。后来他唱到一半就停了。再后来，有些夜里他只<em>唧</em>一声，就一声，好像在说<em>我在这儿</em>，然后就没声了。</p>
+      <p>“我的嗓子老了，”妮娜问他的时候，他这样说，“常有的事。”</p>
+      <p>说完他就笑，然后换个话题。</p>
+      <p>后来有一天夜里，草地一点声音也没有。</p>
+      <p>妮娜马上就发觉了，就像发觉嘴里少了一颗牙那样。她从石头上飞起来，朝橡树飞去，一边飞，一边明白了一件她这辈子从来没想过的事：</p>
+      <p>她找罗科，一直都是靠听的。</p>
+      <p>一直都是。每一次。只要停下来，转转头，朝着<em>唧唧</em>声飞过去就行了。</p>
+      <p>现在什么声音也没有。</p>
+      <p>“罗科？”她喊。</p>
+      <p>没有回答。</p>
+      <p>“罗科，你在哪儿？”</p>
+      <p>只有草里的风声。</p>
+      <p>于是妮娜落到地上，做了最难的一件事：她不再找那个声音，开始找<em>他</em>。树皮的褶子。两条粗树根中间的凹处。那块夏天底下总有阴凉的石头。</p>
+      <p>就在那后面，一小块干燥的泥土角落里，罗科在那儿，触角垂着，脸朝着另一边。</p>
+      <p>“你在这儿！”妮娜说，松了一口气，声音都在发抖，“你怎么不答应？”</p>
+      <p>罗科没有转过来。</p>
+      <p>“我答应不了了。”他说。</p>
+      <p>他说得很轻很轻，妮娜过了一会儿才明白：就是这么多了，这就是他剩下的全部声音。</p>
+      <p>“我试了一整个晚上，”蟋蟀接着说，“什么也出不来。我想，还是别让你看见我这个样子好。”</p>
+      <p>“罗科……”</p>
+      <p>“我不会发光，妮娜。”他这时转过来了，眼睛湿湿的，“我从来就不会。我只会一件事，现在我连这件事也不会了。”</p>
+      <p>然后他说了一句妮娜比世界上任何话都熟悉的话，因为那是很多年前，在一块冰凉的九月的石头上，她自己说过的：</p>
+      <p>“我对谁都没用了。”</p>
+      <p>妮娜在他身边坐下。</p>
+      <p>她没有说<em>不是这样的</em>。她没有说<em>你得休息</em>。她没有说<em>明天再试试</em>。</p>
+      <p>她等着，就像他教过她的那样。就像她跟贝阿学会的那样。</p>
+      <p>然后她说：</p>
+      <p>“罗科。我找你，从来不是靠听声音。”</p>
+      <p>蟋蟀抬起了触角。</p>
+      <p>“我找的是<em>你</em>。”</p>
+      <p>他们俩都没有再说话，就在橡树根底下待着，因为有些话，周围需要留一点安静。</p>
+      <p>就在这时，草地深处传来了哭声。</p>
+      <p>是一只金龟子，四脚朝天翻倒了，腿乱蹬着翻不过来，也不知道自己的树篱在哪儿了。</p>
+      <p>罗科一下子绷紧了。他试着张开翅膀。他试着<em>唧</em>一声。</p>
+      <p>什么也没出来，他低下了头。</p>
+      <p>“你看，”他小声说，“你看见了吧。”</p>
+      <p>可是在他们头顶的草丛里，有什么动了一下。</p>
+      <p>是贝阿。</p>
+      <p>她落在树根边上，看着这只老蟋蟀，说了一句再简单不过的话：</p>
+      <p>“罗科，我会。”</p>
+      <p>“你会什么？”</p>
+      <p>“你的歌。”贝阿好像有点不好意思，“我从生下来那天起，每天夜里都听。我从来没有特意学过。我就是会了。”</p>
+      <p>于是贝阿搓了搓她的小翅膀——那不是蟋蟀的翅膀，发不出对的声音：她弄出了一声歪歪扭扭、跑了调的<em>吱——</em>，像一扇生锈的门。</p>
+      <p>罗科做了个鬼脸。</p>
+      <p>“轻一点，”他说，“长一点。这不是使劲推出来的东西。这是放出来的东西。”</p>
+      <p>贝阿又试了一次。</p>
+      <p><em>唧——</em></p>
+      <p>那不是罗科的声音。它更细，更尖，结尾还有点拿不准。</p>
+      <p>可那就是那首歌。</p>
+      <p>草丛里马上传来一个小小的声音：“谁在那儿？你们在哪儿？”</p>
+      <p>贝阿亮起灯，飞到金龟子那里，一边歪歪扭扭地唱着，一边帮他翻过身来，把他送回了树篱。</p>
+      <p>她回来的时候，别的新萤火虫都已经围在树根边上等着了。</p>
+      <p>“也教教我们吧。”其中一只说。</p>
+      <p>罗科——那天夜里他一个音也唱不出来——一直到天亮，都在用他剩下的那一丝声音说着<em>轻一点</em>，<em>长一点</em>，<em>不对，别使劲</em>。</p>
+      <p>天亮的时候，草地上到处都是小小的、唱错了的<em>唧唧</em>，每一声都错得不一样。</p>
+      <p>那是妮娜听过的最好听的声音。</p>
+      <p>后来冬天来了，它总会来。</p>
+      <p>小溪流得慢了，白雪像一床白被子盖住了草地。可是那一年，妮娜没有睡在橡树温暖的树心里：她蜷在树根底下那块干燥的小角落里，在她朋友身边，一直陪着他。</p>
+      <p>等空气变软、第一批三叶草钻出泥土的时候，草地醒了。</p>
+      <p>罗科也跟着醒了。他老了，声音再也没有回来。</p>
+      <p>可他已经不需要了。</p>
+      <p>因为天一黑，从所有的草里，从每一片叶子底下，从每一块石头后面，都升起了他的歌——是二十个小小的声音唱的，她们不知不觉就学会了，只是因为一直待在那儿。</p>
+      <p>他待在树根上听着，触角竖得直直的，从来没有这么开心过。</p>
+      <p>你现在会做的事，宝贝，说不定有一天你就不会了。</p>
+      <p>没关系，因为大家爱你，并不是为了那些事。</p>
+      <p>而且它们不会丢：它们会留在你做那些事的时候、待在你身边的人心里。</p>
+      <p>现在闭上眼睛吧。</p>
+      <p>草地自己在唱歌，萤火虫守着蟋蟀，明天又会有光。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="晚安，明天见"><span class="etichetta">晚安，明天见</span><a href="/zh/">所有的书 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">关于本书</p>
+      <p>4个故事, 一篇序章，共5625字。朗读时间按每分钟220字计算：这是大声读给别人听的速度，不是自己默读的速度。</p>
+    </footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "开灯", "spegni": "关灯", "temaChiaro": "切换到浅色主题", "temaScuro": "切换到深色主题", "riprendi": "继续读", "memoria": "fiabe:nina"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    function aggiornaBarra() {
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
+  })();
+</script>
+</body>
+</html>
