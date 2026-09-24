@@ -381,6 +381,7 @@ Una cartella per lingua sotto `stories/`, e una pagina per lingua:
 | Italiano | `stories/it/<libro>/` | `/` | `/nina/`, `/tilde/`, `/ugo/` |
 | English (UK) | `stories/en-GB/<libro>/` | `/en/` | `/en/nina/`, `/en/tilde/`, `/en/ugo/` |
 | 中文 (cinese mandarino, caratteri semplificati) | `stories/zh-Hans/<libro>/` | `/zh/` | `/zh/nina/`, `/zh/tilde/`, `/zh/ugo/` |
+| 한국어 (coreano) | `stories/ko/<libro>/` | `/ko/` | `/ko/nina/`, `/ko/tilde/`, `/ko/ugo/` |
 
 I libri stanno in `LIBRI`, in `build.py`, con titolo, riassunto e descrizione
 (quella che va nel meta-tag e nell'anteprima social) per lingua. Un libro
@@ -413,6 +414,23 @@ tenere ferme se si correggono i testi:
   prologo ed epilogo sono `00prologue.md` e `NNepilogue.md`, come in inglese.
 - **Pagina.** `fiabe.css` dà al cinese un serif CJK di sistema e toglie
   corsivo e capolettera, che sugli ideogrammi non funzionano.
+
+Anche il coreano è tradotto dall'italiano:
+
+- **Registro.** Il 반말 affettuoso di chi racconta ad alta voce
+  («옛날 옛날에… 살았어»), lo stesso per il racconto e per le frasi rivolte a
+  chi ascolta. «Amore mio» è 내 사랑, «Buonanotte» è 잘 자.
+- **Tempi di lettura.** Una parola coreana porta attaccate particelle e
+  desinenze, quindi si contano le sillabe hangul (`al_minuto: 280` nella voce
+  `ko`): i minuti coincidono con quelli italiani.
+- **Genere.** Il coreano omette il pronome con naturalezza, quindi non serve
+  riformulare niente. Unica regola: mai 그 o 그녀, si ripete il nome.
+- **Nomi.** 니나, 로코, 베아, 틸데, 피노, 일곱이 (Sette), 우고; quelli di sotto
+  sono 숨소리, 긴걸음, 무거운걸음, 찻숟가락. Frasi ricorrenti: «어둠 속에서는
+  때로 목소리 하나면 어디로 가야 할지 알 수 있어» (Rocco), «네 말을 믿을게»
+  (Tilde), «돌아온 건 자기 목소리뿐이었어» (Ugo).
+- **Pagina.** Serif coreano di sistema e `word-break: keep-all`, così le
+  parole non si spezzano a metà a fine riga.
 
 Il cambio lingua e gli `hreflang` puntano solo alle pagine che esistono in
 quella lingua (`disponibile()` in `build.py`): una traduzione a metà non
@@ -481,7 +499,7 @@ La pagina è online su **https://fiabe.vercel.app**.
 Il progetto Vercel è collegato a questo repository: ogni push su `main`
 pubblica una nuova versione. Ricordarsi quindi di eseguire `python3 build.py`
 e committare anche le pagine rigenerate (`index.html`, `nina/index.html`,
-`tilde/index.html`, `ugo/index.html`, `en/…`, `zh/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`, `zh/manifest.json`),
+`tilde/index.html`, `ugo/index.html`, `en/…`, `zh/…`, `ko/…`, `sitemap.xml`, `manifest.json`, `en/manifest.json`, `zh/manifest.json`, `ko/manifest.json`),
 altrimenti il sito resta indietro rispetto ai testi.
 
 ## Autori
@@ -545,6 +563,7 @@ fiabe/
 ├── index.html, nina/, tilde/, ugo/  # italiano: generati, non modificare a mano
 ├── en/                          # inglese: index.html, nina/, tilde/, ugo/, manifest.json (generati)
 ├── zh/                          # cinese: index.html, nina/, tilde/, ugo/, manifest.json (generati)
+├── ko/                          # coreano: index.html, nina/, tilde/, ugo/, manifest.json (generati)
 ├── scripts/chapter_art.py       # illustrazioni dei capitoli e copertina di Ugo, in SVG
 ├── assets/
 │   ├── fiabe.css                # stile condiviso da tutte le pagine
@@ -555,7 +574,8 @@ fiabe/
 ├── stories/
 │   ├── it/{nina,tilde,ugo}/NN<titolo-attaccato>.md
 │   ├── en-GB/{nina,tilde,ugo}/NN<title-stuck-together>.md
-│   └── zh-Hans/{nina,tilde,ugo}/NN<pinyin>.md
+│   ├── zh-Hans/{nina,tilde,ugo}/NN<pinyin>.md
+│   └── ko/{nina,tilde,ugo}/NN<romanizzazione>.md
 ├── note/                        # (ignorato) tracce e scalette di lavoro
 ├── ref/                         # (ignorato) campione voce di riferimento
 └── audio/                       # (ignorato, tranne gli MP3 finali 11l-*.mp3)
