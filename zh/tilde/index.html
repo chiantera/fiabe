@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>蒂尔德的故事</title>
+<meta name="description" content="1个睡前故事，讲的是山脚下草地里的老鼹鼠蒂尔德。">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/zh/tilde/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/tilde/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/tilde/">
+<link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/tilde/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/tilde/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/zh/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="蒂尔德的故事">
+<meta property="og:description" content="1个睡前故事，讲的是山脚下草地里的老鼹鼠蒂尔德。">
+<meta property="og:url" content="https://fiabe.vercel.app/zh/tilde/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-tilde.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="蒂尔德的故事">
+<meta name="twitter:description" content="1个睡前故事，讲的是山脚下草地里的老鼹鼠蒂尔德。">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-tilde.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "蒂尔德的故事", "description": "1个睡前故事，讲的是山脚下草地里的老鼹鼠蒂尔德。", "url": "https://fiabe.vercel.app/zh/tilde/", "inLanguage": "zh-Hans", "image": "https://fiabe.vercel.app/assets/og-tilde.png", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8}, "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#indice">目录</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
+    <a class="tasto" href="#indice">&#9650;&nbsp;目录</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/zh/" title="所有的书">蒂尔德</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="字小一点"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="字大一点">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="切换主题">&#9681;</button>
+    </span>
+  </div>
+
+  <main class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/zh/" aria-label="所有的书">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/tilde/" hreflang="it" lang="it">Italiano</a><a class="lingua" href="/en/tilde/" hreflang="en-GB" lang="en-GB">English</a>
+          <button class="interruttore" id="interruttore" type="button">关灯</button>
+        </span>
+      </div>
+      <p class="briciola"><a href="/zh/">&#9664;&nbsp;书架</a></p>
+      <h1>蒂尔德的故事</h1>
+      <p class="intro">草地上那只老鼹鼠，总是找不到自己家门的那一只。从地底下看，她找得一清二楚。</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#prologo">开始读 <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">共11分钟</p>
+      </div>
+    </header>
+
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">继续读</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="隐藏继续阅读提示">关闭</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="目录">
+      <p class="etichetta">目录 &middot; 共11分钟</p>
+      <ol>
+        <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">序章</span><span class="voce-durata">4 min</span></a></li>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">找不到家门的鼹鼠</span><span class="voce-durata">7 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="prologo" data-ripresa="序章">
+      <header class="fiaba-testata">
+        <p class="etichetta">序章 &middot; 朗读约4分钟</p>
+        <h2>序章</h2>
+        <p class="sottotitolo">蒂尔德的故事——在所有故事之前读</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/tilde/00.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">萤火虫的故事，我讲给你听，是因为那是我亲眼看见的。那天夜里窗户前的人是我，关掉台灯的是我，第一个看见草地亮起来的，也是我。</p>
+      <p>这一个，我要换一种方式讲。</p>
+      <p>这一个我没有看见。是很多年以后，一个晚上，我已经长大了，有人讲给我听的——我就相信了，就凭一句话，说到底，真正要紧的故事，我们一向都是这样相信的。等讲到那儿你就会看到，故事里面发生的，恰恰也是这件事。</p>
+      <p>不过我得先告诉你一件事，这件事我以前从来没说过。</p>
+      <p>你还记得小山顶上那座房子吗？有黄色窗户的那座，我就是从那儿看见整片草地亮成金色的？那是一座好房子。住在里面的人都爱惜东西，不会故意伤害谁，要是他们知道怎么避免，连不小心都不会。</p>
+      <p>可是他们盖房子的时候，还挖了一口井。</p>
+      <p>上面的人谁也没想过，挖井的时候，被你挪开的水会流到哪儿去。水流到了草地底下，流进了一个有人住了一辈子的地方，它改了道，谁也没问一声。</p>
+      <p>在我已经讲给你听的那些故事里，那座房子是窗户里的光：是惊奇，是一段友谊的开始。在这些故事里，它是另一回事。还是那座房子，里面还是那些好人。只不过从底下看，那座房子造成了真正的损害——而上面的人很长很长时间都不知道，等知道的时候，已经来不及完全补救了。</p>
+      <p>我想在前面告诉你，不是在后面，因为这是一件从小就该知道的重要的事：好人也会造成真正的伤害。不是因为他们坏。是因为他们不知道，草地还有一个底下。</p>
+      <p>就在那片草地底下，就在那些年里，在草下面一个很长很长的夜里，住着另一个人。</p>
+      <p>她没有翅膀，也不会发光，上面没有人知道她的名字。</p>
+      <p>可是她撑着一整个世界，一条通道一条通道地撑着，我想把这个故事讲给你听，就像别人讲给我听的那样：你就凭我一句话，相信它。</p>
+      <p>它是这样开始的：</p>
+      <p><em>在小山脚下的草地里，在草的下面，住着一只鼹鼠，她的名字叫蒂尔德。</em></p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="下一个故事"><span class="etichetta">下一个故事</span><a href="#libro-1">找不到家门的鼹鼠 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-1" data-ripresa="故事 I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 朗读约7分钟</p>
+        <h2>找不到家门的鼹鼠</h2>
+        <p class="sottotitolo">睡前故事 · 第一篇</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/tilde/01.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">在小山脚下的草地里，在草的下面，住着一只鼹鼠，她的名字叫蒂尔德。</p>
+      <p>蒂尔德老了，她的毛像磨旧了的天鹅绒，草地里人人都喜欢她。</p>
+      <p>她还有一副眼镜——是萤火虫们送的，她们百分之百相信这能帮上她——她戴着它，很是得意，虽然说实话，鼹鼠就算戴上眼镜也看不太清：什么也没改变，可是她戴着挺好看。天冷的时候，她的爪子会有点咯吱咯吱响。有时候，一个念头想到一半，她会停下来，看看四周，然后换一个念头重新开始。</p>
+      <p>不过大家，真的是大家，还都知道她另外一件事：</p>
+      <p>蒂尔德从来都找不到自己的家门。</p>
+      <p>她傍晚出来透透气，走上四步，然后一转身，眼前就是三丛一模一样的草。</p>
+      <p>“是这丛吗？”</p>
+      <p>不是这丛。</p>
+      <p>“那就是那丛。”</p>
+      <p>也不是。</p>
+      <p>最后总是有谁送她回家：蚂蚁们，或者一只蜗牛，或者一只路过的萤火虫给她照个亮。蒂尔德谢过大家，钻进地底下，下面就再也听不见什么声音了。</p>
+      <p>萤火虫们私下里说，她有点糊涂。她们说的时候带着喜欢，可她们确实这么说。</p>
+      <p>后来，暴雨的那一夜来了。</p>
+      <p>雨下了好几个钟头，下得很大，停下来的时候，草地上到处是水坑，在靠近树篱的一个地方，地面裂开了：一道又窄又深的缝，边上的土还在往下塌。</p>
+      <p>一只小刺猬掉了进去。</p>
+      <p>他哭得很轻很轻，因为别的什么也做不了。</p>
+      <p>大家都来了。萤火虫们聚在裂缝上面发光，一起发光，使出全身的力气。</p>
+      <p>头一回，光一点用也没有。</p>
+      <p>那只刺猬在下面看得清清楚楚。麻烦就在这儿：看得见，却什么也做不了。那道缝太窄，飞不进去，又太深，够不着，每次谁往边上探一探身子，就又有一块土塌下去。</p>
+      <p>谁也不知道该怎么办。</p>
+      <p>后来一只萤火虫说：“去叫鼹鼠。”</p>
+      <p>有人回答：“蒂尔德？可是蒂尔德连自己家都找不到。”</p>
+      <p>她们还是去叫了她。</p>
+      <p>蒂尔德一路小跑着来了，听完，就朝着错误的方向，坚定地出发了。</p>
+      <p>大家尴尬地安静了一会儿。</p>
+      <p>然后蒂尔德停下来。她低下鼻子，贴在地上，就那样待着。</p>
+      <p>她一下子不再可笑了。</p>
+      <p>“啊，”她说，“我们是在橡树根上面。那裂缝就在那边。”</p>
+      <p>她开始挖。</p>
+      <p>三秒钟她就消失在地底下了，从那以后，故事发生在一个草地上谁也没去过的地方。</p>
+      <p>因为草地底下并不黑：草地底下跟黑一点关系也没有。</p>
+      <p>草地底下有路。有蒂尔德这一辈子给自己挖出来的通道，她一条一条都认得，知道它们通向哪儿，就像你闭着眼睛也知道你的房间在哪儿一样。有湿泥土的气味，每走两步就变一变，什么都告诉你：这边是黏土，那边是沙子，上面有一块大石头，下面有水流过。</p>
+      <p>还有树根。蒂尔德叫得出它们的名字：橡树的根又粗又多疙瘩，树篱的根又细又密，像头发，顺着那根走，就能走到裂缝那儿。</p>
+      <p>蒂尔德就顺着那根走。</p>
+      <p>她从底下来到了刺猬旁边，那里的土不会塌。她挖了一条宽宽的、舒舒服服的上坡路，不慌不忙，因为慌慌张张做出来的东西会塌。</p>
+      <p>然后她说：“来，慢慢走。把爪子放在我放的地方。”</p>
+      <p>上面，在草地上，大家都围在裂缝边上等着。</p>
+      <p>可是刺猬没有从裂缝里出来。</p>
+      <p>他是从一个新洞里出来的，在三米开外，在草丛中间，浑身是土，活得好好的。</p>
+      <p>蒂尔德跟在他后面也出来了。</p>
+      <p>“你是怎么做到的？”一只萤火虫问。</p>
+      <p>蒂尔德想了想，好像她以前从来没琢磨过这件事。</p>
+      <p>“从底下看，一切都不一样，”她说，“在底下，我从来不迷路。”</p>
+      <p>然后她跟大家道了别，走了四步，一转身，眼前是三丛一模一样的草。</p>
+      <p>“是这丛吗？”</p>
+      <p>不是这丛。</p>
+      <p>于是两只萤火虫送她回家，给她照着亮，她们俩谁也没说她糊涂。</p>
+      <p>总有一个地方，你在那里做得特别好，宝贝。</p>
+      <p>也许不是大家都看着的那个地方。</p>
+      <p>要是有个地方你老是迷路，那也说明不了什么：只说明那不是你认得路的地方。</p>
+      <p>现在闭上眼睛吧。</p>
+      <p>草地底下一切安静，路都在原处，明天又会有光。</p>
+      <p class="congedo">晚安。🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="晚安，明天见"><span class="etichetta">晚安，明天见</span><a href="/zh/">所有的书 <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">关于本书</p>
+      <p>1个故事, 一篇序章，共2139字。朗读时间按每分钟220字计算：这是大声读给别人听的速度，不是自己默读的速度。</p>
+    </footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "开灯", "spegni": "关灯", "temaChiaro": "切换到浅色主题", "temaScuro": "切换到深色主题", "riprendi": "继续读", "memoria": "fiabe:tilde"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    function aggiornaBarra() {
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
+  })();
+</script>
+</body>
+</html>
