@@ -156,3 +156,12 @@ a:focus-visible, button:focus-visible, audio:focus-visible { outline: 3px solid 
 :lang(zh) em, :lang(zh) .sottotitolo, :lang(zh) .congedo { font-style: normal; }
 :lang(zh) .fiaba { line-height: 1.95; }
 :lang(zh) .apertura::first-letter { float: none; font: inherit; padding: 0; color: inherit; }
+
+/* Coreano: stesse ragioni del cinese, più keep-all perché le parole
+   coreane non vengano spezzate a metà sillaba a fine riga. */
+:lang(ko) body { font-family: "Newsreader", "Nanum Myeongjo", "Noto Serif KR", "Noto Serif CJK KR", "AppleMyungjo", "Batang", serif; word-break: keep-all; }
+:lang(ko) .testata h1, :lang(ko) .fiaba h2, :lang(ko) .scheda h2, :lang(ko) .sezione-titolo h2 { font-family: "Young Serif", "Nanum Myeongjo", "Noto Serif KR", "Noto Serif CJK KR", "AppleMyungjo", serif; letter-spacing: 0; }
+:lang(ko) .etichetta { letter-spacing: .05em; }
+:lang(ko) em, :lang(ko) .sottotitolo, :lang(ko) .congedo { font-style: normal; }
+:lang(ko) .fiaba { line-height: 1.9; }
+:lang(ko) .apertura::first-letter { float: none; font: inherit; padding: 0; color: inherit; }

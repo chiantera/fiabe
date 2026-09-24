@@ -25,7 +25,7 @@ AUTORE = "Fausto Chiantera"
 VOCE_E_SITO = "Deckard"
 
 # Mappa lingua -> locale nel formato che Open Graph vuole (con underscore).
-OG_LOCALE = {"it": "it_IT", "en-GB": "en_GB", "zh-Hans": "zh_CN"}
+OG_LOCALE = {"it": "it_IT", "en-GB": "en_GB", "zh-Hans": "zh_CN", "ko": "ko_KR"}
 
 # Una lingua per cartella. "uscita" è il file generato, "base" il prefisso
 # degli URL. L'italiano sta alla radice perché era lì da prima.
@@ -49,6 +49,13 @@ LIBRI = [
             "riassunto": ("A firefly who learns to light up, to put herself out, and to let "
                           "someone else come to it on her own."),
             "descrizione": "{n} bedtime stories about Nina, the firefly of the meadow at the foot of the hill.",
+        },
+        "ko": {
+            "titolo": "니나 이야기",
+            "nome_breve": "니나",
+            "occhiello": "첫 번째 책",
+            "riassunto": "반딧불이 한 마리가 빛나는 법을, 불을 끄는 법을, 그리고 다른 누군가가 스스로 빛나도록 기다려 주는 법을 배우는 이야기.",
+            "descrizione": "언덕 아래 풀밭에 사는 반딧불이 니나의 잠자리 이야기 {n}편.",
         },
         "zh-Hans": {
             "titolo": "妮娜的故事",
@@ -77,6 +84,13 @@ LIBRI = [
                           "front door. Seen from below, where she finds it perfectly well."),
             "descrizione": "{n} bedtime stories about Tilde, the old mole of the meadow at the foot of the hill.",
         },
+        "ko": {
+            "titolo": "틸데 이야기",
+            "nome_breve": "틸데",
+            "occhiello": "두 번째 책",
+            "riassunto": "풀밭의 늙은 두더지, 늘 자기 집 문을 못 찾던 그 두더지. 땅 아래에서 보면, 문을 아주 잘 찾아.",
+            "descrizione": "언덕 아래 풀밭에 사는 늙은 두더지 틸데의 잠자리 이야기 {n}편.",
+        },
         "zh-Hans": {
             "titolo": "蒂尔德的故事",
             "nome_breve": "蒂尔德",
@@ -103,6 +117,13 @@ LIBRI = [
             "riassunto": ("The bat who lives under the roof of the house at the top of the hill. "
                           "He sees with his voice, and nobody can hear it."),
             "descrizione": "{n} bedtime stories about Ugo, the bat under the roof of the house at the top of the hill.",
+        },
+        "ko": {
+            "titolo": "우고 이야기",
+            "nome_breve": "우고",
+            "occhiello": "세 번째 책",
+            "riassunto": "언덕 꼭대기 집 지붕 밑에 사는 박쥐. 목소리로 세상을 보는데, 그 목소리는 아무도 듣지 못해.",
+            "descrizione": "언덕 꼭대기 집 지붕 밑에 사는 박쥐 우고의 잠자리 이야기 {n}편.",
         },
         "zh-Hans": {
             "titolo": "乌戈的故事",
@@ -260,6 +281,56 @@ LINGUE = {
         "sei_a": "继续读：{d}",
         "apri": "打开",
     },
+    "ko": {
+        "cartella": "ko",
+        "uscita": os.path.join("ko", "index.html"),
+        "base": "/ko/",
+        "lang": "ko",
+        "nome": "한국어",
+        "audio": os.path.join("audio", "ko"),
+        # Il coreano ha gli spazi, ma una "parola" coreana porta attaccate
+        # particelle e desinenze: si contano le sillabe, come i caratteri cinesi.
+        "al_minuto": 280,
+        "sito": "니나의 잠자리 이야기",
+        "occhiello": "잠자리 이야기",
+        "intro": ("반딧불이 한 마리가 빛나는 법을, 불을 끄는 법을, 그리고 다른 누군가가 스스로 "
+                  "빛나도록 기다려 주는 법을 배우는 이야기 {n}편. 소리 내어, 하룻밤에 한 편씩, "
+                  "쓰인 순서대로 읽어 주세요."),
+        "indice": "차례",
+        "in_tutto": "모두 {m}분",
+        "minuti_lettura": "소리 내어 읽으면 {m}분",
+        "ascolta": "듣기",
+        "no_audio": "이 브라우저에서는 오디오를 재생할 수 없어요.",
+        "libro": "이야기",
+        "da_libro": "{r}번째 이야기",
+        "da_prologo": "프롤로그",
+        "da_epilogo": "에필로그",
+        "colophon": "이 책에 대하여",
+        "colophon_testo": ("이야기 {n}편{coda}, {p}음절. 읽는 시간은 1분에 {wpm}음절로 "
+                           "계산했어요. 혼자 눈으로 읽는 속도가 아니라, 누군가에게 소리 내어 읽어 주는 속도예요."),
+        "extra_nome": {"prologue": "프롤로그 한 편", "epilogue": "에필로그 한 편"},
+        "extra_giunzione": "과 ",
+        "spegni": "불 끄기",
+        "accendi": "불 켜기",
+        "tema_chiaro": "밝은 테마로 바꾸기",
+        "tema_scuro": "어두운 테마로 바꾸기",
+        "riprendi": "이어 읽기",
+        "chiudi": "닫기",
+        "chiudi_aria": "이어 읽기 알림 숨기기",
+        "testo_meno": "글자 작게",
+        "testo_piu": "글자 크게",
+        "cambia_tema": "테마 바꾸기",
+        "altra_lingua": "Italiano",
+        "scaffale": "잠자리 이야기",
+        "scaffale_intro": "소리 내어 읽는 이야기, 하룻밤에 한 편씩. 책마다 쓰인 순서대로 읽어요.",
+        "tutti_i_libri": "모든 책",
+        "torna_scaffale": "&#9664;&nbsp;책장",
+        "quante": "이야기 {n}편 &middot; {m}분",
+        "una_fiaba": "이야기 1편 &middot; {m}분",
+        "in_preparazione": "준비 중",
+        "sei_a": "이어 읽기: {d}",
+        "apri": "열기",
+    },
 }
 LINGUE["it"].update({
     "inizia": "Comincia a leggere", "prossima": "La prossima storia", "fine": "Buonanotte, a domani",
@@ -274,6 +345,13 @@ LINGUE["en-GB"].update({
     "biblioteca": "Our little bookshelf",
     "scaffale_nota": "One meadow, many stories", "firma": "From the meadow at the foot of the hill. With love.",
     "leggi_libro": "Step into the story",
+})
+LINGUE["ko"].update({
+    "inizia": "읽기 시작", "prossima": "다음 이야기", "fine": "잘 자, 내일 또 만나",
+    "hero": "좋은 이야기.<br><em>함께하는 저녁.</em>", "scopri": "이야기 고르기",
+    "biblioteca": "우리의 작은 책장",
+    "scaffale_nota": "풀밭 하나, 이야기 여럿", "firma": "언덕 아래 풀밭에서. 사랑을 담아.",
+    "leggi_libro": "이야기 속으로",
 })
 LINGUE["zh-Hans"].update({
     "inizia": "开始读", "prossima": "下一个故事", "fine": "晚安，明天见",
@@ -301,11 +379,11 @@ def inline(testo):
     return t
 
 
-HAN = re.compile(r"[\u3400-\u9fff\uf900-\ufaff]")
+HAN = re.compile(r"[\u3400-\u9fff\uf900-\ufaff\uac00-\ud7a3]")  # ideogrammi e sillabe hangul
 
 
 def conta_parole(testo):
-    """Parole per le lingue con gli spazi, caratteri per il cinese."""
+    """Parole per le lingue con gli spazi; caratteri per il cinese, sillabe per il coreano."""
     han = len(HAN.findall(testo))
     return han + len(HAN.sub(" ", testo).split()) if han else len(testo.split())
 
@@ -392,7 +470,7 @@ def raccogli(lingua, libro):
             classi = []
             if j == 0:
                 classi.append("apertura")
-            if par.startswith(("Buonanotte.", "Goodnight.", "晚安。")):
+            if par.startswith(("Buonanotte.", "Goodnight.", "晚安。", "잘 자.")):
                 classi.append("congedo")
             attr = f' class="{" ".join(classi)}"' if classi else ""
             corpo.append(f"      <p{attr}>{inline(par)}</p>")
