@@ -145,3 +145,14 @@ a:focus-visible, button:focus-visible, audio:focus-visible { outline: 3px solid 
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
 @media print { .barra, .testata-azioni, .libro-azioni, .lettura, .riprendi, .prossima { display: none !important; } .fiaba { break-before: page; border: 0; } body { background: white; color: black; } }
+
+/* Cinese: i caratteri latini restano ai font del sito, gli ideogrammi cadono
+   su un serif CJK di sistema. Niente corsivo finto (gli ideogrammi inclinati
+   si leggono male), niente spaziatura larga pensata per il maiuscoletto
+   latino, e un'interlinea un po' più ariosa. */
+:lang(zh) body { font-family: "Newsreader", "Songti SC", "Noto Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun", serif; }
+:lang(zh) .testata h1, :lang(zh) .fiaba h2, :lang(zh) .scheda h2, :lang(zh) .sezione-titolo h2 { font-family: "Young Serif", "Songti SC", "Noto Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", serif; letter-spacing: 0; }
+:lang(zh) .etichetta { letter-spacing: .05em; }
+:lang(zh) em, :lang(zh) .sottotitolo, :lang(zh) .congedo { font-style: normal; }
+:lang(zh) .fiaba { line-height: 1.95; }
+:lang(zh) .apertura::first-letter { float: none; font: inherit; padding: 0; color: inherit; }

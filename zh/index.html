@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>睡前故事</title>
+<meta name="description" content="要大声读的故事，一晚一个。每本书都按写好的顺序读。">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/zh/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/zh/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="睡前故事">
+<meta property="og:description" content="要大声读的故事，一晚一个。每本书都按写好的顺序读。">
+<meta property="og:url" content="https://fiabe.vercel.app/zh/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="睡前故事">
+<meta name="twitter:description" content="要大声读的故事，一晚一个。每本书都按写好的顺序读。">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-default.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "睡前故事", "description": "要大声读的故事，一晚一个。每本书都按写好的顺序读。", "url": "https://fiabe.vercel.app/zh/", "inLanguage": "zh-Hans", "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}, "hasPart": [{"@type": "Book", "name": "妮娜的故事", "url": "https://fiabe.vercel.app/zh/nina/"}]}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#scaffale">所有的书</a>
+  <main class="pagina pagina-scaffale">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/zh/" aria-label="所有的书">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/" hreflang="it" lang="it">Italiano</a><a class="lingua" href="/en/" hreflang="en-GB" lang="en-GB">English</a>
+          <button class="interruttore" id="interruttore" type="button">关灯</button>
+        </span>
+      </div>
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="etichetta">睡前故事</p>
+          <h1>美好的故事。<br><em>一起度过的夜晚。</em></h1>
+          <p class="intro">要大声读的故事，一晚一个。每本书都按写好的顺序读。</p>
+          <a class="bottone" href="#scaffale">选一个故事 <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+    </header>
+
+    <nav id="scaffale" aria-label="所有的书">
+      <div class="sezione-titolo"><h2>我们的小书架</h2><span>一片草地，许多故事</span></div>
+      <ol class="scaffale">
+      <li class="scheda">
+        <a class="copertina" href="/zh/nina/" tabindex="-1" aria-hidden="true"><img src="/assets/meadow.svg" width="800" height="560" alt="" loading="lazy"></a>
+        <div class="scheda-corpo"><p class="etichetta">第一本</p>
+        <h2><a href="/zh/nina/">妮娜的故事</a></h2>
+        <p class="riassunto">一只萤火虫学会发光，学会熄灭，也学会让别人自己亮起来。</p>
+        <p class="quante">4个故事 &middot; 28分钟</p>
+        <p class="ripresa-libro" data-libro="fiabe:nina" data-base="/zh/nina/" data-testo="继续读：{d}" data-etichette="{&quot;prologo&quot;: &quot;序章&quot;, &quot;libro-1&quot;: &quot;故事 I&quot;, &quot;libro-2&quot;: &quot;故事 II&quot;, &quot;libro-3&quot;: &quot;故事 III&quot;, &quot;libro-4&quot;: &quot;故事 IV&quot;}"></p>
+        <a class="scheda-link" href="/zh/nina/">走进故事 <span aria-hidden="true">&rarr;</span></a></div>
+      </li>
+      <li class="scheda scheda-attesa"><div class="scheda-corpo">
+        <p class="etichetta">第二本</p>
+        <h2>蒂尔德的故事</h2>
+        <p class="riassunto">草地上那只老鼹鼠，总是找不到自己家门的那一只。从地底下看，她找得一清二楚。</p>
+        <p class="quante">准备中</p></div>
+      </li>
+      <li class="scheda scheda-attesa"><div class="scheda-corpo">
+        <p class="etichetta">第三本</p>
+        <h2>乌戈的故事</h2>
+        <p class="riassunto">住在山顶那座房子屋檐下的蝙蝠。他用声音看东西，可他的声音谁也听不见。</p>
+        <p class="quante">准备中</p></div>
+      </li>
+      </ol>
+    </nav>
+    <footer class="scaffale-footer"><p>来自山脚下的草地。满怀爱意。</p><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "开灯", "spegni": "关灯", "temaChiaro": "切换到浅色主题", "temaScuro": "切换到深色主题", "riprendi": "继续读"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var interruttore = document.getElementById("interruttore");
+
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    interruttore.addEventListener("click", function () {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    });
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    // per ogni libro, dove si era arrivati
+    var righe = document.querySelectorAll(".ripresa-libro");
+    Array.prototype.forEach.call(righe, function (riga) {
+      var ancora = leggi(riga.getAttribute("data-libro") + ":ultima");
+      if (!ancora) { return; }
+      var a = document.createElement("a");
+      a.setAttribute("href", riga.getAttribute("data-base") + "#" + ancora);
+      var etichette = {};
+      try { etichette = JSON.parse(riga.getAttribute("data-etichette") || "{}"); } catch (e) { etichette = {}; }
+      var dove = etichette[ancora];
+      if (!dove) { return; }
+      a.textContent = riga.getAttribute("data-testo").replace("{d}", dove);
+      riga.appendChild(a);
+      riga.setAttribute("data-visibile", "si");
+    });
+  })();
+</script>
+</body>
+</html>
