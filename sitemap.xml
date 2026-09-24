@@ -68,11 +68,20 @@
     <lastmod>2026-09-24</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/ugo/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/ugo/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/ugo/"/>
   </url>
   <url>
     <loc>https://fiabe.vercel.app/en/ugo/</loc>
     <lastmod>2026-09-24</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/ugo/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/ugo/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/ugo/"/>
+  </url>
+  <url>
+    <loc>https://fiabe.vercel.app/zh/ugo/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/ugo/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/ugo/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/ugo/"/>
   </url>
 </urlset>
