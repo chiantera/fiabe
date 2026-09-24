@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>잠자리 이야기</title>
+<meta name="description" content="소리 내어 읽는 이야기, 하룻밤에 한 편씩. 책마다 쓰인 순서대로 읽어요.">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/ko/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/">
+<link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/ko/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="잠자리 이야기">
+<meta property="og:description" content="소리 내어 읽는 이야기, 하룻밤에 한 편씩. 책마다 쓰인 순서대로 읽어요.">
+<meta property="og:url" content="https://fiabe.vercel.app/ko/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="잠자리 이야기">
+<meta name="twitter:description" content="소리 내어 읽는 이야기, 하룻밤에 한 편씩. 책마다 쓰인 순서대로 읽어요.">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-default.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "잠자리 이야기", "description": "소리 내어 읽는 이야기, 하룻밤에 한 편씩. 책마다 쓰인 순서대로 읽어요.", "url": "https://fiabe.vercel.app/ko/", "inLanguage": "ko", "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}, "hasPart": [{"@type": "Book", "name": "니나 이야기", "url": "https://fiabe.vercel.app/ko/nina/"}]}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#scaffale">모든 책</a>
+  <main class="pagina pagina-scaffale">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/ko/" aria-label="모든 책">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/" hreflang="it" lang="it">Italiano</a><a class="lingua" href="/en/" hreflang="en-GB" lang="en-GB">English</a><a class="lingua" href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a>
+          <button class="interruttore" id="interruttore" type="button">불 끄기</button>
+        </span>
+      </div>
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="etichetta">잠자리 이야기</p>
+          <h1>좋은 이야기.<br><em>함께하는 저녁.</em></h1>
+          <p class="intro">소리 내어 읽는 이야기, 하룻밤에 한 편씩. 책마다 쓰인 순서대로 읽어요.</p>
+          <a class="bottone" href="#scaffale">이야기 고르기 <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+    </header>
+
+    <nav id="scaffale" aria-label="모든 책">
+      <div class="sezione-titolo"><h2>우리의 작은 책장</h2><span>풀밭 하나, 이야기 여럿</span></div>
+      <ol class="scaffale">
+      <li class="scheda">
+        <a class="copertina" href="/ko/nina/" tabindex="-1" aria-hidden="true"><img src="/assets/meadow.svg" width="800" height="560" alt="" loading="lazy"></a>
+        <div class="scheda-corpo"><p class="etichetta">첫 번째 책</p>
+        <h2><a href="/ko/nina/">니나 이야기</a></h2>
+        <p class="riassunto">반딧불이 한 마리가 빛나는 법을, 불을 끄는 법을, 그리고 다른 누군가가 스스로 빛나도록 기다려 주는 법을 배우는 이야기.</p>
+        <p class="quante">이야기 4편 &middot; 27분</p>
+        <p class="ripresa-libro" data-libro="fiabe:nina" data-base="/ko/nina/" data-testo="이어 읽기: {d}" data-etichette="{&quot;prologo&quot;: &quot;프롤로그&quot;, &quot;libro-1&quot;: &quot;I번째 이야기&quot;, &quot;libro-2&quot;: &quot;II번째 이야기&quot;, &quot;libro-3&quot;: &quot;III번째 이야기&quot;, &quot;libro-4&quot;: &quot;IV번째 이야기&quot;}"></p>
+        <a class="scheda-link" href="/ko/nina/">이야기 속으로 <span aria-hidden="true">&rarr;</span></a></div>
+      </li>
+      <li class="scheda scheda-attesa"><div class="scheda-corpo">
+        <p class="etichetta">두 번째 책</p>
+        <h2>틸데 이야기</h2>
+        <p class="riassunto">풀밭의 늙은 두더지, 늘 자기 집 문을 못 찾던 그 두더지. 땅 아래에서 보면, 문을 아주 잘 찾아.</p>
+        <p class="quante">준비 중</p></div>
+      </li>
+      <li class="scheda scheda-attesa"><div class="scheda-corpo">
+        <p class="etichetta">세 번째 책</p>
+        <h2>우고 이야기</h2>
+        <p class="riassunto">언덕 꼭대기 집 지붕 밑에 사는 박쥐. 목소리로 세상을 보는데, 그 목소리는 아무도 듣지 못해.</p>
+        <p class="quante">준비 중</p></div>
+      </li>
+      </ol>
+    </nav>
+    <footer class="scaffale-footer"><p>언덕 아래 풀밭에서. 사랑을 담아.</p><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "불 켜기", "spegni": "불 끄기", "temaChiaro": "밝은 테마로 바꾸기", "temaScuro": "어두운 테마로 바꾸기", "riprendi": "이어 읽기"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var interruttore = document.getElementById("interruttore");
+
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    interruttore.addEventListener("click", function () {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    });
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    // per ogni libro, dove si era arrivati
+    var righe = document.querySelectorAll(".ripresa-libro");
+    Array.prototype.forEach.call(righe, function (riga) {
+      var ancora = leggi(riga.getAttribute("data-libro") + ":ultima");
+      if (!ancora) { return; }
+      var a = document.createElement("a");
+      a.setAttribute("href", riga.getAttribute("data-base") + "#" + ancora);
+      var etichette = {};
+      try { etichette = JSON.parse(riga.getAttribute("data-etichette") || "{}"); } catch (e) { etichette = {}; }
+      var dove = etichette[ancora];
+      if (!dove) { return; }
+      a.textContent = riga.getAttribute("data-testo").replace("{d}", dove);
+      riga.appendChild(a);
+      riga.setAttribute("data-visibile", "si");
+    });
+  })();
+</script>
+</body>
+</html>

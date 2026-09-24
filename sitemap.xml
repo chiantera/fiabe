@@ -6,6 +6,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/"/>
   </url>
   <url>
     <loc>https://fiabe.vercel.app/en/</loc>
@@ -13,6 +14,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/"/>
   </url>
   <url>
     <loc>https://fiabe.vercel.app/zh/</loc>
@@ -20,6 +22,15 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/"/>
+  </url>
+  <url>
+    <loc>https://fiabe.vercel.app/ko/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/"/>
   </url>
   <url>
     <loc>https://fiabe.vercel.app/nina/</loc>
@@ -27,6 +38,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/nina/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/nina/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/nina/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/nina/"/>
   </url>
   <url>
     <loc>https://fiabe.vercel.app/en/nina/</loc>
@@ -34,6 +46,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/nina/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/nina/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/nina/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/nina/"/>
   </url>
   <url>
     <loc>https://fiabe.vercel.app/zh/nina/</loc>
@@ -41,6 +54,15 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/nina/"/>
     <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/nina/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/nina/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/nina/"/>
+  </url>
+  <url>
+    <loc>https://fiabe.vercel.app/ko/nina/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/nina/"/>
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/nina/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://fiabe.vercel.app/zh/nina/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fiabe.vercel.app/ko/nina/"/>
   </url>
   <url>
     <loc>https://fiabe.vercel.app/tilde/</loc>
