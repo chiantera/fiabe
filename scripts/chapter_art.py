@@ -657,6 +657,32 @@ def pia_prologue():
 SCENES['pia:00'] = ('Tra le radici della quercia: la biglia, il bottone, il ditale con il germoglio e il cartello', pia_prologue)
 SCENES['pia:01'] = ('Nella bottega storta, una perlina azzurra rotola verso Tito', pia_01)
 
+def rat(x,y,s=1,flip=False,load=None):
+    # Un ratto di città: grigio, coda nuda, e quello che è riuscito a salvare sulla schiena.
+    b=path('M-24 6C-48 10-62 2-74-10','none','#b49a90',3)
+    b+=ellipse(0,0,26,15,'#7d7f80')+circle(22,-8,11,'#7d7f80')+path('M28-12 44-4 28 0Z','#7d7f80')
+    b+=circle(44,-4,2.4,'#3a2a22')+circle(27,-11,2,'#1f1f1f')+circle(17,-18,6,'#9c9ea0')+circle(17,-18,3.4,'#c99c84')
+    b+=path('M-12 13-14 19M10 13 13 19','none','#5d5f60',4)
+    if load: b+=circle(-4,-17,8,load)+path('M-4-25V-9','none','#3e2e22',1.5)
+    return group(b,x,y,s,flip)
+
+def pia_02():
+    b=sky(False)
+    # la città, dietro la collina: un tramonto che non finisce mai
+    b+='<defs><radialGradient id="city" cx="740" cy="300" r="260" gradientUnits="userSpaceOnUse"><stop stop-color="#efb56a" stop-opacity=".55"/><stop offset="1" stop-color="#efb56a" stop-opacity="0"/></radialGradient></defs>'
+    b+=path('M400 0H800V420H400Z','url(#city)')
+    b+=path('M0 341C124 238 231 262 364 320 519 388 641 260 800 290V560H0Z','#64816a')
+    b+=path('M0 398C137 382 219 313 341 340 539 384 643 394 800 333V560H0Z','#365f4c')
+    b+=path('M800 352C640 380 520 420 420 452 300 490 160 500 0 520V560H0 800Z','#b9a888')
+    b+=path('M800 372C640 400 520 440 420 470 300 508 160 518 0 540','none','#cbbd9c',3)
+    b+=tree(130,90,.75)
+    for i,(x,c) in enumerate([(640,'#e8c86a'),(560,'#c96f5a'),(480,'#7fa6c9'),(405,'#d9d2c4'),(330,'#a3c48b'),(255,None)]):
+        y=430+ (640-x)*0.14
+        b+=rat(x,y-14,.8,True,c)
+    return b+grass()
+
+SCENES['pia:02'] = ('Al tramonto, in fila lungo la strada, arrivano i ratti dalla città', pia_02)
+
 COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover),
           'shop': ('La porticina accesa tra le radici della vecchia quercia, e Pia sulla soglia', shop_cover)}
 

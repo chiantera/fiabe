@@ -9,7 +9,7 @@ ognuno si legge per conto suo.
 | I | **Le fiabe di Nina** — la lucciola | 10 fiabe, un prologo e un epilogo |
 | II | **Le fiabe di Tilde** — la vecchia talpa | 12 fiabe, un prologo e un epilogo |
 | III | **Le fiabe di Ugo** — il pipistrello sotto il tetto | 12 fiabe, un prologo e un epilogo |
-| IV | **Le fiabe di Pia** — la scorattola della bottega storta | in scrittura: un prologo e 1 fiaba (it, en) |
+| IV | **Le fiabe di Pia** — la scorattola della bottega storta | in scrittura: un prologo e 2 fiabe (it, en) |
 
 Tilde compare già nelle fiabe di Nina: è «la vecchia talpa che non trovava mai
 la porta di casa», nominata tre volte come una battuta ricorrente. Il suo libro
@@ -291,6 +291,7 @@ serve accorciare, è da lì che si comincia.
 |---|---|---|
 | — | Prologo | 3 min |
 | I | La bottega storta | 8 min |
+| II | L'estate dei ratti | 9 min |
 
 Nina parla di luce, Tilde di tatto, Ugo di voce. Pia parla di posto: dove sta
 chi non è né una cosa né l'altra. È una scorattola, metà scoiattolo e metà
@@ -306,6 +307,18 @@ sulla parola, il pipistrello sentito. Pia è *trovata*: le cose perse nel prato
 che ricompaiono tra le radici, il cartellino di corteccia, le ghiande lasciate
 come resto. Il libro non dice mai che la scorattola è inventata.
 
+Il secondo libro racconta da dove potrebbe venire: l'estate in cui i ratti,
+cacciati dalla città quando gli uomini chiusero il vecchio mercato, arrivarono
+nel prato. Parlavano svelto, con l'accento di città, chiamavano tutti *capo*,
+lavoravano di notte e facevano festa di giorno: volevano le stesse cose degli
+scoiattoli, ma a orari diversi. Si incontravano al tramonto tra le radici della
+quercia, che è l'ora in cui apre la bottega di Pia. Quando il mercato nuovo li
+richiamò in città partirono quasi tutti; uno, l'ultimo della fila, si vedeva con
+una scoiattola. Il libro non tira la conclusione: la lascia a Gaspare, che guarda
+Pia a lungo e non dice niente, e al congedo («Gli scienziati sono persone serie,
+e quasi sempre hanno ragione. Ma di notte, nel prato, non c'è mai nessuno a
+controllare»).
+
 ### Personaggi
 
 - **Pia** — la scorattola. Pelo nocciola, muso un po' lungo, coda a metà con un
@@ -313,6 +326,9 @@ come resto. Il libro non dice mai che la scorattola è inventata.
   dei topi. Non ci sono prezzi: ognuno paga con quello che ha, quasi sempre una
   ghianda, che Pia sotterra e dimentica, come fanno gli scoiattoli.
 - **Tito** — un giovane scoiattolo. La sua mamma dice che da Pia non ci si va.
+- **Gaspare** — un rospo vecchio come le pietre del ruscello, che viene in
+  bottega per stare all'asciutto. Si ricorda l'estate dei ratti. Dal Libro
+  secondo Pia porta al collo il gettone giallo che lo ha fatto parlare.
 
 ## Come ci si rivolge a chi ascolta
 
