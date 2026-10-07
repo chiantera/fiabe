@@ -133,6 +133,40 @@ LIBRI = [
             "descrizione": "{n}个睡前故事，讲的是山顶房子屋檐下的蝙蝠乌戈。",
         },
     },
+    {
+        "cartella": "pia",
+        "copertina": "shop",
+        "it": {
+            "titolo": "Le fiabe di Pia",
+            "nome_breve": "Pia",
+            "occhiello": "Libro quarto",
+            "riassunto": ("La scorattola che tiene bottega tra le radici della vecchia quercia, "
+                          "dove il pavimento &egrave; storto e tutto, prima o poi, rotola nell&rsquo;angolo."),
+            "descrizione": "{n} fiabe della buonanotte su Pia, la scorattola della bottega tra le radici della vecchia quercia.",
+        },
+        "en-GB": {
+            "titolo": "Pia&rsquo;s stories",
+            "nome_breve": "Pia",
+            "occhiello": "Book four",
+            "riassunto": ("The squirrat who keeps a shop among the roots of the old oak, where the "
+                          "floor is crooked and everything, sooner or later, rolls into the corner."),
+            "descrizione": "{n} bedtime stories about Pia, the squirrat with a shop among the roots of the old oak.",
+        },
+        "ko": {
+            "titolo": "피아 이야기",
+            "nome_breve": "피아",
+            "occhiello": "네 번째 책",
+            "riassunto": "늙은 참나무 뿌리 사이에서 가게를 하는 다람쥐 반, 쥐 반. 바닥이 기울어서, 모든 게 언젠가는 구석으로 굴러와.",
+            "descrizione": "늙은 참나무 뿌리 사이 가게 주인 피아의 잠자리 이야기 {n}편.",
+        },
+        "zh-Hans": {
+            "titolo": "皮娅的故事",
+            "nome_breve": "皮娅",
+            "occhiello": "第四本",
+            "riassunto": "在老橡树的树根之间开小店的松老鼠。店里的地板是斜的，什么东西早晚都会滚到角落里去。",
+            "descrizione": "{n}个睡前故事，讲的是在老橡树树根间开小店的松老鼠皮娅。",
+        },
+    },
 ]
 
 LINGUE = {

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le fiabe di Pia</title>
+<meta name="description" content="1 fiabe della buonanotte su Pia, la scorattola della bottega tra le radici della vecchia quercia.">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/pia/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/pia/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/pia/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/pia/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="Le fiabe di Pia">
+<meta property="og:description" content="1 fiabe della buonanotte su Pia, la scorattola della bottega tra le radici della vecchia quercia.">
+<meta property="og:url" content="https://fiabe.vercel.app/pia/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-pia.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le fiabe di Pia">
+<meta name="twitter:description" content="1 fiabe della buonanotte su Pia, la scorattola della bottega tra le radici della vecchia quercia.">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-pia.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Le fiabe di Pia", "description": "1 fiabe della buonanotte su Pia, la scorattola della bottega tra le radici della vecchia quercia.", "url": "https://fiabe.vercel.app/pia/", "inLanguage": "it", "image": "https://fiabe.vercel.app/assets/og-pia.png", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8}, "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#indice">Indice</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
+    <a class="tasto" href="#indice">&#9650;&nbsp;Indice</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/" title="Tutti i libri">Pia</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="Testo pi&ugrave; piccolo"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="Testo pi&ugrave; grande">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="Cambia tema">&#9681;</button>
+    </span>
+  </div>
+
+  <main class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/" aria-label="Tutti i libri">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/en/pia/" hreflang="en-GB" lang="en-GB">English</a>
+          <button class="interruttore" id="interruttore" type="button">Spegni la luce</button>
+        </span>
+      </div>
+      <p class="briciola"><a href="/">&#9664;&nbsp;I libri</a></p>
+      <h1>Le fiabe di Pia</h1>
+      <p class="intro">La scorattola che tiene bottega tra le radici della vecchia quercia, dove il pavimento &egrave; storto e tutto, prima o poi, rotola nell&rsquo;angolo.</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#prologo">Comincia a leggere <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">11 minuti in tutto</p>
+      </div>
+    </header>
+
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">Riprendi</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Nascondi la ripresa">Chiudi</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="Indice">
+      <p class="etichetta">Indice &middot; 11 minuti in tutto</p>
+      <ol>
+        <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">Prologo</span><span class="voce-durata">3 min</span></a></li>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">La bottega storta</span><span class="voce-durata">8 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="prologo" data-ripresa="dal Prologo">
+      <header class="fiaba-testata">
+        <p class="etichetta">Prologo &middot; 3 minuti di lettura</p>
+        <h2>Prologo</h2>
+        <p class="sottotitolo">Le fiabe di Pia — da leggere prima di tutte le altre</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/pia/00.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">La storia della lucciola te l'ho raccontata perché l'ho vista con i miei occhi.</p>
+      <p>Quella della talpa, sulla parola. Quella del pipistrello l'ho sentita, tutte le sere, attraverso il soffitto.</p>
+      <p>Questa l'ho trovata.</p>
+      <p>Un pezzetto alla volta, per terra, tra le radici della vecchia quercia in fondo al prato.</p>
+      <p>Ti devo confessare una cosa: quando avevo la tua età perdevo tutto. Le biglie, i bottoni, le matite, il tappo della borraccia, una chiave che non ho mai saputo di cosa fosse. Le perdevo soprattutto nel prato, e le perdevo per sempre. O almeno così credevo.</p>
+      <p>Poi un pomeriggio, tra le radici della quercia, dalla parte del sole, ho trovato la mia biglia blu.</p>
+      <p>Non l'avevo persa lì. L'avevo persa vicino al ruscello, mesi prima, e il ruscello dalla quercia è lontano. Ma era lei: aveva la stessa bollicina dentro, storta.</p>
+      <p>Accanto alla biglia c'era un bottone piccolo piccolo, con un filo d'erba infilato nei buchi. C'era un ditale pieno di terra, e nella terra un germoglio. E c'era un pezzetto di corteccia con sopra qualcosa scritto con una scrittura così minuscola che ci ho messo una settimana, con la lente d'ingrandimento, a leggerla.</p>
+      <p>C'era scritto: <em>Si trova di tutto. Prima o poi.</em></p>
+      <p>Non l'ho detto a nessuno. Sapevo già cosa mi avrebbero risposto: che erano le formiche, che era il vento, che andassi a giocare.</p>
+      <p>Però ho cominciato a lasciare delle cose lì, apposta. Un bottone. Una perlina. Un pezzetto di matita.</p>
+      <p>La mattina dopo non c'erano più.</p>
+      <p>E al loro posto, quasi sempre, c'era una ghianda. Una sola, messa per bene, come il resto che ti danno in negozio.</p>
+      <p>Ho fatto così per anni. Le ghiande le tengo ancora, in una scatola di latta.</p>
+      <p>Chi abitava lì sotto non l'ho mai visto. Quello che ti racconto l'ho messo insieme con quello che trovavo, come si fa con i pezzi di un puzzle quando la scatola non c'è più. Certi pezzi li ho dovuti immaginare. Ma il disegno, te lo giuro, è quello.</p>
+      <p>Prima di cominciare ti dico una cosa sola.</p>
+      <p>Se stanotte perdi qualcosa, non preoccuparti troppo.</p>
+      <p>Forse non è persa. Forse sta soltanto rotolando.</p>
+      <p>Questa è la sua storia.</p>
+      <p>Comincia così:</p>
+      <p><em>Tra le radici della vecchia quercia, in fondo al prato, c'era una bottega dove si trovava di tutto.</em></p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="La prossima storia"><span class="etichetta">La prossima storia</span><a href="#libro-1">La bottega storta <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-1" data-ripresa="dal Libro I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 8 minuti di lettura</p>
+        <h2>La bottega storta</h2>
+        <p class="sottotitolo">Una fiaba della buonanotte — Libro primo</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/pia/01.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">Tra le radici della vecchia quercia, in fondo al prato, c'era una bottega dove si trovava di tutto.</p>
+      <p>Non si vedeva subito. Bisognava sapere dove guardare: dalla parte del sole, dove due radici grosse si incrociano come due braccia conserte, c'era una porticina tonda. E sopra la porticina, un pezzo di corteccia con scritto, piccolo piccolo:</p>
+      <p><em>Bottega di Pia. Si trova di tutto. Prima o poi.</em></p>
+      <p>Dentro c'era davvero di tutto.</p>
+      <p>Bottoni di ogni colore, infilati su un filo d'erba come una collana. Ditali. Tappi. Mezzi gusci di noce, usati come scodelle. Perline, sassolini lisci, una molla, chiavi minuscole che non aprivano niente, un dado da gioco con il sei consumato. E ghiande. Ghiande dappertutto: nei cassetti, sotto le sedie, dentro gli stivali. C'erano anche degli stivali, ma nessuno sapeva di chi.</p>
+      <p>E il pavimento era storto.</p>
+      <p>Una volta non lo era. Quando Pia aveva aperto la bottega, tanti anni prima, il pavimento era dritto come un tavolo. Ma la quercia era viva, e le cose vive crescono. Le radici, un pochino ogni anno, si erano gonfiate, girate, spostate, e si erano portate dietro la bottega.</p>
+      <p>Adesso, se mettevi una biglia vicino alla porta, la biglia partiva da sola. Rotolava sotto il bancone, girava intorno alla stufa, passava tra le gambe della sedia e andava a finire sempre nello stesso posto: l'angolo in fondo, quello più basso.</p>
+      <p>Pia lo chiamava l'angolo storto.</p>
+      <p>Tutto, prima o poi, finiva lì. Per questo Pia non cercava mai niente. Quando le serviva una cosa, andava nell'angolo storto e aspettava.</p>
+      <p>Pia era piccola, con il pelo color nocciola e due occhi neri e svelti. Aveva il muso un po' lungo e una coda un po' strana: non folta e a pennacchio come quella degli scoiattoli, e nemmeno nuda e sottile come quella dei topi. Una coda a metà, con un ciuffo in fondo, come un pennello.</p>
+      <p>Da dove venisse, Pia, non lo sapeva nessuno. Nemmeno lei.</p>
+      <p>Gli scoiattoli dicevano che aveva il muso troppo lungo per essere una di loro. I topi dicevano che aveva la coda troppo bella per essere una di loro. E alla fine, a forza di discutere, tutto il prato si era messo d'accordo: Pia era una scorattola. Metà scoiattolo, metà ratto.</p>
+      <p>Nessuno ne aveva mai vista un'altra. Ma nessuno si stupiva più di tanto.</p>
+      <p>Dei ratti, al giorno d'oggi, non si sa mai cosa combinano.</p>
+      <p>La bottega apriva al tramonto: all'ora in cui gli scoiattoli vanno a dormire e i topi si svegliano. L'unica ora del giorno che fosse un po' di tutti e due.</p>
+      <p>Quella sera la porticina si aprì appena appena, e dentro sbirciò un musetto con due orecchie a punta e un ciuffo in cima.</p>
+      <p>Era uno scoiattolo. Giovane giovane, con la coda più grande di lui.</p>
+      <p>«È aperto?» chiese.</p>
+      <p>«È sempre aperto, quando la porta si apre», disse Pia dal bancone. «Entra, che fai corrente.»</p>
+      <p>Lo scoiattolo fece un passo, e il pavimento storto gliene fece fare altri tre. Si aggrappò al bancone.</p>
+      <p>«La mia mamma dice che qui non ci devo venire», disse.</p>
+      <p>«Lo dicono tutte le mamme», disse Pia. «Come ti chiami?»</p>
+      <p>«Tito.»</p>
+      <p>«E cosa ti serve, Tito?»</p>
+      <p>Tito si guardò le zampe.</p>
+      <p>«Domani è il compleanno della mia mamma. E io non ho niente da regalarle. Volevo la cosa più bella che c'è.»</p>
+      <p>Pia ci pensò su.</p>
+      <p>«Qui dentro», disse, «ogni cosa è la cosa più bella che c'è. Per qualcuno.»</p>
+      <p>«E per la mia mamma?»</p>
+      <p>«Quello lo sai tu. Vieni.»</p>
+      <p>E lo portò nell'angolo storto.</p>
+      <p>Ci volle un bel po'. Tito guardava tutto: i bottoni, le perline, la molla, il dado con il sei consumato. Prendeva una cosa, la girava, la rimetteva giù. Pia non diceva niente. Se ne stava lì accanto con la coda arrotolata, e aspettava, perché nella bottega di Pia non si sceglieva mai in fretta.</p>
+      <p>Poi, dall'altra parte della bottega, qualcosa si mosse.</p>
+      <p>Rotolò fuori da sotto un cassetto. Passò sotto il bancone, girò intorno alla stufa, scivolò tra le gambe della sedia, e si fermò, tic, proprio davanti alle zampe di Tito.</p>
+      <p>Era una perlina di vetro. Azzurra come il cielo un attimo prima che faccia buio, con dentro una bollicina d'aria.</p>
+      <p>Tito non disse niente. La prese con tutte e due le zampe e la tenne contro il petto.</p>
+      <p>«Quanto costa?» chiese poi, piano.</p>
+      <p>Nella bottega di Pia non c'erano prezzi. Ognuno pagava con quello che aveva.</p>
+      <p>Tito si frugò nel pelo e tirò fuori una ghianda. Una sola, bella liscia, con il cappellino ancora attaccato. Era quella che teneva da parte per l'inverno: si vedeva da come la guardava.</p>
+      <p>Pia la prese con molta serietà.</p>
+      <p>«Affare fatto», disse.</p>
+      <p>Sulla porta, Tito si girò.</p>
+      <p>«Pia», disse. «La mia mamma dice che tu sei mezza ratto.»</p>
+      <p>«E l'altra metà?»</p>
+      <p>Tito ci pensò.</p>
+      <p>«Quella non l'ha detto.»</p>
+      <p>«Ecco», disse Pia. «Neanch'io lo so. Buon compleanno alla tua mamma.»</p>
+      <p>Quando Tito se ne fu andato, Pia uscì dalla porticina con la ghianda in mano. Scavò una buca tra le radici, ce la mise dentro, la coprì e batté la terra con le zampe, per bene. Come fanno gli scoiattoli.</p>
+      <p>E come fanno gli scoiattoli, la mattina dopo non si ricordava più dove.</p>
+      <p><em>Non fa niente</em>, pensò. <em>Qui le cose, prima o poi, tornano.</em></p>
+      <p>Quella notte, prima di dormire, Pia fece quello che faceva tutte le notti.</p>
+      <p>Andò nell'angolo storto e guardò.</p>
+      <p>Tutto il prato, prima o poi, ci aveva trovato quello che cercava. Lei no. Perché la cosa che cercava lei non era mai rotolata giù: un'altra come lei. Non sapeva nemmeno com'era fatta, quella cosa. Ma era sicura che, se fosse arrivata, l'avrebbe riconosciuta subito.</p>
+      <p>L'angolo storto, quella notte, era pieno di cose. Ma non di quella.</p>
+      <p>Pia sospirò, senza nessuna tristezza. Poi si arrampicò sulla sua amaca, che era un calzino appeso tra due radici. Era storta anche lei, così Pia dormiva con la testa un pochino più in basso dei piedi.</p>
+      <p>Ci si era abituata da tanto.</p>
+      <p>Certe cose non si trovano cercandole, amore mio.</p>
+      <p>Si trovano stando nel posto giusto, e aspettando, mentre il mondo, piano piano, si inclina un pochino verso di te.</p>
+      <p>E ora chiudi gli occhi. La bottega è chiusa, l'angolo storto aspetta, e domani qualcosa rotolerà.</p>
+      <p class="congedo">Buonanotte. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="Buonanotte, a domani"><span class="etichetta">Buonanotte, a domani</span><a href="/">Tutti i libri <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">Colophon</p>
+      <p>1 fiabe, un prologo, 1418 parole. I tempi di lettura sono calcolati a 130 parole al minuto: il passo di chi legge ad alta voce, non di chi legge da solo.</p>
+    </footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "Accendi la luce", "spegni": "Spegni la luce", "temaChiaro": "Passa al tema chiaro", "temaScuro": "Passa al tema scuro", "riprendi": "Riprendi", "memoria": "fiabe:pia"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    function aggiornaBarra() {
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
+  })();
+</script>
+</body>
+</html>
