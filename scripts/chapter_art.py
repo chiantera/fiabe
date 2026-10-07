@@ -555,7 +555,110 @@ def ugo_epilogue():
 SCENES['ugo:00'] = ('La stanza con il soffitto storto, e sopra qualcuno che risponde', ugo_prologue)
 SCENES['ugo:13'] = ('Poco prima del buio, in giardino, a contare chi esce dal tetto', ugo_epilogue)
 
-COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover)}
+
+# --- Pia ---------------------------------------------------------------
+
+PIA_FUR='#a77b52'
+PIA_BELLY='#d2b48a'
+SQ_FUR='#b4683d'
+WOOD='#5a4330'
+WOOD_DARK='#3e2e22'
+
+def squirrat(x,y,s=1,flip=False):
+    # Metà scoiattolo, metà ratto: muso lungo, orecchie tonde, coda sottile con il ciuffo.
+    b=path('M-24 8C-58 6-74-22-62-50-54-68-36-70-32-58','none','#8d6a49',6)
+    b+=ellipse(-31,-60,10,7,'#c9a274')
+    b+=ellipse(0,0,28,22,PIA_FUR)+ellipse(6,6,15,13,PIA_BELLY)
+    b+=circle(24,-20,15,PIA_FUR)+path('M32-27 58-15 33-9Z',PIA_FUR)
+    b+=circle(58,-15,3,'#3a2a22')+circle(33,-23,2.4,'#2a211b')
+    b+=circle(17,-34,7,PIA_FUR)+circle(17,-34,4,'#c99c84')
+    b+=path('M40-14 54-6M40-12 52-20','none','#e5d3b0',1)
+    b+=path('M-14 18-17 24M12 19 16 24','none','#7b5a3f',5)
+    return group(b,x,y,s,flip)
+
+def squirrel(x,y,s=1,flip=False):
+    b=path('M-22 6C-60 0-62-52-34-66-14-76 4-62-6-46-18-30-10-16-22 6Z','#c27a4a')
+    b+=ellipse(0,0,24,20,SQ_FUR)+ellipse(5,6,12,11,'#e2c29a')
+    b+=circle(20,-18,13,SQ_FUR)+path('M28-22 40-14 28-10Z',SQ_FUR)
+    b+=circle(40,-14,2.4,'#3a2a22')+circle(26,-21,2.2,'#2a211b')
+    b+=path('M14-28 12-44 22-31Z',SQ_FUR)+path('M12-44 10-50','none','#c27a4a',3)
+    b+=path('M-12 16-14 22M10 17 13 22','none','#7d4a2b',5)
+    return group(b,x,y,s,flip)
+
+def bead(x,y,r=8,color='#7fa6c9'):
+    return circle(x,y,r,color)+circle(x-r*.35,y-r*.35,r*.28,'#e7f0f6')
+
+def acorn(x,y,s=1,a=0):
+    b=ellipse(0,4,7,9,'#9b7046')+path('M-8-1Q0-11 8-1Z','#6b4f33')+path('M0-8V-12','none','#6b4f33',2)
+    return f'<g transform="translate({x} {y}) rotate({a}) scale({s})">{b}</g>'
+
+def oak_base(door=True):
+    # Il piede della quercia, da vicino: due radici grosse incrociate e la porticina.
+    b=path('M300 0H520Q530 220 560 300 640 330 800 352V560H0V352Q160 330 260 300 290 220 300 0Z','#2b4a3b')
+    b+=path('M300 0H520Q530 220 560 300 640 330 800 352V560H0V352Q160 330 260 300 290 220 300 0Z','none','#233f33',6)
+    b+=path('M330 40Q340 160 320 260M480 30Q470 150 500 270','none','#3a5c49',5)
+    b+=path('M210 560Q260 380 440 330 560 300 690 340','none','#2b4a3b',58)
+    b+=path('M610 560Q560 400 380 345 250 310 120 352','none','#315343',58)
+    if door:
+        b+=glow(410,300,80)
+        b+=path('M376 316A34 34 0 0 1 444 316V342H376Z','#efdaa0')
+        b+=path('M410 284V342M380 318H440','none','#c9a86e',3)
+        b+=path('M368 250H452V272H368Z','#8a6a4a')+path('M378 261H442','none','#e8d6a8',2)
+    return b
+
+def shop_cover():
+    ground=path('M0 470C180 440 320 460 460 448 600 436 700 452 800 446V560H0Z','#214739')
+    return sky()+oak_base()+ground+squirrat(470,330,1)+bead(370,350,6)+acorn(330,352,1,-20)+grass()
+
+def shop_room(behind=''):
+    # La bottega dentro le radici: il pavimento pende verso l'angolo storto, a destra.
+    b=path('M0 0H800V560H0Z','#2a1f17')
+    b+=path('M70 60Q400 0 730 60 770 300 730 470 400 520 70 470 30 300 70 60Z',WOOD_DARK)
+    b+=path('M90 80Q400 30 710 80 740 300 705 400L95 330Q60 220 90 80Z','#7a5a3d')
+    b+=path('M95 330 705 400 720 470Q400 515 80 465Z',WOOD)
+    b+=path('M95 330 705 400','none','#2d211a',5)
+    for i in range(5):
+        x=160+i*120
+        b+=path(f'M{x} {338+i*14} {x-30} {470}','none','#4b3726',2)
+    # stufa, bancone, scaffale con i bottoni
+    b+=path('M140 250H190V338H140Z','#3b3b36')+path('M158 250V140','none','#3b3b36',10)+circle(165,300,9,'#e3a35a')
+    b+=behind  # chi sta dietro il bancone
+    b+=path('M250 260H430V362H250Z','#5b4128')+path('M240 252H440V266H240Z','#6d4f32')
+    b+=path('M480 120H660M480 180H660','none','#5b4128',8)
+    for i,c in enumerate(['#c96f5a','#e8c86a','#7fa6c9','#a3c48b','#d9d2c4','#b38bc9','#e8c86a']):
+        b+=circle(495+i*25,108,8,c)
+    for i in range(6): b+=acorn(495+i*30,167,1,(-1)**i*15)
+    # l'angolo storto: il mucchio
+    for x,y,r,c in [(640,410,12,'#c96f5a'),(668,420,9,'#e8c86a'),(615,418,8,'#a3c48b'),(690,408,10,'#d9d2c4'),(652,392,7,'#b38bc9'),(680,388,8,'#7fa6c9')]:
+        b+=circle(x,y,r,c)
+    for x,y,a in [(600,425,-30),(630,428,40),(700,420,10),(662,402,-60)]: b+=acorn(x,y,1.1,a)
+    b+=path('M600 380H630V398H600Z','#9aa0a6')+path('M690 360 712 372 706 392 684 380Z','#e9e3d0')
+    b+=circle(697,374,2,'#2a211b')+circle(703,382,2,'#2a211b')
+    # la lanterna
+    b+=glow(400,95,90)+circle(400,95,10,'#efdaa0')+path('M400 60V85','none','#2a1f17',2)
+    return b
+
+def pia_01():
+    b=shop_room(squirrat(335,262,1.1))
+    b+=squirrel(540,352,1.05,True)
+    # la perlina che rotola, con la sua scia
+    b+=bead(500,372,9)+path('M460 360H482M452 370H476M466 380H484','none','#c9b28a',2)
+    return b
+
+def pia_prologue():
+    b=sky()+oak_base(False)+path('M0 470C180 440 320 460 460 448 600 436 700 452 800 446V560H0Z','#214739')
+    b+=bead(330,452,13)
+    b+=circle(392,456,11,'#c96f5a')+circle(388,453,1.8,'#2a1f17')+circle(396,459,1.8,'#2a1f17')+path('M382 445Q392 436 404 446','none','#9fbd86',2)
+    b+=path('M440 438H468L464 462H444Z','#b9bdc1')+ellipse(454,438,14,4,'#7a5a3d')+path('M454 436Q450 418 446 410M454 428Q462 418 470 418','none','#9fbd86',3)
+    b+=path('M500 440 560 432 566 458 506 466Z','#8a6a4a')+path('M512 446 552 441M514 454 548 450','none','#e8d6a8',1.5)
+    b+=acorn(600,455,1.4,-15)
+    return b+grass()
+
+SCENES['pia:00'] = ('Tra le radici della quercia: la biglia, il bottone, il ditale con il germoglio e il cartello', pia_prologue)
+SCENES['pia:01'] = ('Nella bottega storta, una perlina azzurra rotola verso Tito', pia_01)
+
+COVERS = {'attic': ('Il tetto della casa in cima alla collina, e Ugo che esce dal buco sotto le tegole', attic_cover),
+          'shop': ('La porticina accesa tra le radici della vecchia quercia, e Pia sulla soglia', shop_cover)}
 
 SKY_DEFS='<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#153e38"/><stop offset="1" stop-color="#587761"/></linearGradient></defs>'
 

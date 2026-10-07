@@ -9,6 +9,7 @@ ognuno si legge per conto suo.
 | I | **Le fiabe di Nina** — la lucciola | 10 fiabe, un prologo e un epilogo |
 | II | **Le fiabe di Tilde** — la vecchia talpa | 12 fiabe, un prologo e un epilogo |
 | III | **Le fiabe di Ugo** — il pipistrello sotto il tetto | 12 fiabe, un prologo e un epilogo |
+| IV | **Le fiabe di Pia** — la scorattola della bottega storta | in scrittura: un prologo e 1 fiaba (it, en) |
 
 Tilde compare già nelle fiabe di Nina: è «la vecchia talpa che non trovava mai
 la porta di casa», nominata tre volte come una battuta ricorrente. Il suo libro
@@ -282,6 +283,37 @@ serve accorciare, è da lì che si comincia.
 - **La colonia nuova** — pipistrelli giovani che entrano dal buco salvato,
   mentre Ugo dorme il suo ultimo sonno lungo del libro, e che rispondono.
 
+## Le fiabe di Pia
+
+<img src="assets/shop.svg" alt="Copertina de «Le fiabe di Pia»: la porticina accesa tra le radici della vecchia quercia, e Pia sulla soglia." width="480">
+
+| | Titolo | Lettura ad alta voce |
+|---|---|---|
+| — | Prologo | 3 min |
+| I | La bottega storta | 8 min |
+
+Nina parla di luce, Tilde di tatto, Ugo di voce. Pia parla di posto: dove sta
+chi non è né una cosa né l'altra. È una scorattola, metà scoiattolo e metà
+ratto, o almeno così ha deciso il prato, visto che nessuno sa da dove venga e
+dei ratti, al giorno d'oggi, non si sa mai cosa combinano. Tiene una bottega tra
+le radici della vecchia quercia, dalla parte del sole (l'angolino di Rocco è
+dalla parte dell'ombra). Le radici crescono e il pavimento pende sempre di più,
+così tutto, prima o poi, rotola nell'angolo storto: per questo Pia non cerca mai
+niente, aspetta. L'unica cosa che non ci è mai rotolata è un'altra come lei.
+
+Il prologo trova un modo nuovo di sapere la storia: la lucciola vista, la talpa
+sulla parola, il pipistrello sentito. Pia è *trovata*: le cose perse nel prato
+che ricompaiono tra le radici, il cartellino di corteccia, le ghiande lasciate
+come resto. Il libro non dice mai che la scorattola è inventata.
+
+### Personaggi
+
+- **Pia** — la scorattola. Pelo nocciola, muso un po' lungo, coda a metà con un
+  ciuffo in fondo. Apre al tramonto, l'ora che è un po' degli scoiattoli e un po'
+  dei topi. Non ci sono prezzi: ognuno paga con quello che ha, quasi sempre una
+  ghianda, che Pia sotterra e dimentica, come fanno gli scoiattoli.
+- **Tito** — un giovane scoiattolo. La sua mamma dice che da Pia non ci si va.
+
 ## Come ci si rivolge a chi ascolta
 
 Ogni fiaba si chiude parlando direttamente a chi ascolta. La formula è
@@ -354,7 +386,7 @@ python3 build.py
 ```
 
 Lo stile condiviso si modifica in `assets/fiabe.css`; le illustrazioni dello
-scaffale sono `assets/meadow.svg`, `assets/burrow.svg` e `assets/attic.svg`. Tutte le pagine usano
+scaffale sono `assets/meadow.svg`, `assets/burrow.svg`, `assets/attic.svg` e `assets/shop.svg`. Tutte le pagine usano
 gli stessi asset, senza dipendenze di compilazione aggiuntive.
 
 Le illustrazioni dei capitoli stanno in `assets/chapters/<libro>/NN.svg`: se il
@@ -364,6 +396,7 @@ sua copertina) sono disegnate in codice da `scripts/chapter_art.py`:
 ```bash
 python3 scripts/chapter_art.py ugo:05      # un capitolo
 python3 scripts/chapter_art.py cover:attic # la copertina dello scaffale
+python3 scripts/chapter_art.py cover:shop  # quella di Pia
 ```
 
 Lo script rilegge tutti i file `stories/<lingua>/<libro>/[0-9][0-9]*.md` in ordine e ricostruisce indice,
@@ -517,7 +550,7 @@ Ogni pagina generata da `build.py` porta, oltre al titolo e alla descrizione:
   URL, lingua e un'immagine di anteprima 1200&times;630 diversa per libro
   (`assets/og-nina.png`, `assets/og-tilde.png`, `assets/og-ugo.png`) o generica per lo scaffale
   (`assets/og-default.png`). Le immagini sono ritagliate dalle stesse
-  illustrazioni SVG dello scaffale (`assets/meadow.svg`, `assets/burrow.svg`, `assets/attic.svg`)
+  illustrazioni SVG dello scaffale (`assets/meadow.svg`, `assets/burrow.svg`, `assets/attic.svg`, `assets/shop.svg`)
   con `cairosvg` + Pillow, non disegnate a mano: se le illustrazioni cambiano,
   vanno rigenerate allo stesso modo.
 - **Dati strutturati JSON-LD** (schema.org): `WebSite` con `hasPart` sullo
@@ -567,7 +600,7 @@ fiabe/
 ├── scripts/chapter_art.py       # illustrazioni dei capitoli e copertina di Ugo, in SVG
 ├── assets/
 │   ├── fiabe.css                # stile condiviso da tutte le pagine
-│   ├── meadow.svg, burrow.svg, attic.svg  # illustrazioni dello scaffale (Nina, Tilde, Ugo)
+│   ├── meadow.svg, burrow.svg, attic.svg, shop.svg  # illustrazioni dello scaffale (Nina, Tilde, Ugo, Pia)
 │   ├── chapters/<libro>/NN.svg  # illustrazioni dei capitoli
 │   ├── favicon.svg, favicon-32.png, apple-touch-icon.png, icon-512.png
 │   └── og-nina.png, og-tilde.png, og-ugo.png, og-default.png  # anteprime social, 1200×630

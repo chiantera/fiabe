@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pia’s stories</title>
+<meta name="description" content="1 bedtime stories about Pia, the squirrat with a shop among the roots of the old oak.">
+<meta name="author" content="Fausto Chiantera">
+<link rel="canonical" href="https://fiabe.vercel.app/en/pia/">
+<link rel="alternate" hreflang="it" href="https://fiabe.vercel.app/pia/">
+<link rel="alternate" hreflang="en-GB" href="https://fiabe.vercel.app/en/pia/">
+<link rel="alternate" hreflang="x-default" href="https://fiabe.vercel.app/pia/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/en/manifest.json">
+<meta name="theme-color" content="#14241e">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Fiabe">
+<meta property="og:title" content="Pia’s stories">
+<meta property="og:description" content="1 bedtime stories about Pia, the squirrat with a shop among the roots of the old oak.">
+<meta property="og:url" content="https://fiabe.vercel.app/en/pia/">
+<meta property="og:image" content="https://fiabe.vercel.app/assets/og-pia.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pia’s stories">
+<meta name="twitter:description" content="1 bedtime stories about Pia, the squirrat with a shop among the roots of the old oak.">
+<meta name="twitter:image" content="https://fiabe.vercel.app/assets/og-pia.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Book", "name": "Pia’s stories", "description": "1 bedtime stories about Pia, the squirrat with a shop among the roots of the old oak.", "url": "https://fiabe.vercel.app/en/pia/", "inLanguage": "en-GB", "image": "https://fiabe.vercel.app/assets/og-pia.png", "audience": {"@type": "PeopleAudience", "suggestedMinAge": 3, "suggestedMaxAge": 8}, "author": {"@type": "Person", "name": "Fausto Chiantera"}, "contributor": {"@type": "Person", "name": "Deckard", "description": "Voce narrante e sviluppo del sito"}}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Karla:wght@400;600&display=swap">
+<link rel="stylesheet" href="/assets/fiabe.css">
+<script>
+  (function () {
+    try {
+      var tema = localStorage.getItem("fiabe:tema");
+      if (tema === "dark" || tema === "light") {
+        document.documentElement.setAttribute("data-theme", tema);
+      }
+      var SCALE = [0.92, 1, 1.12, 1.26];
+      var passo = parseInt(localStorage.getItem("fiabe:scala"), 10);
+      if (!isNaN(passo) && passo >= 0 && passo < SCALE.length) {
+        document.documentElement.style.setProperty("--scala", String(SCALE[passo]));
+      }
+    } catch (e) { /* senza memoria si parte dai valori di partenza */ }
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#indice">Contents</a>
+  <div class="barra" id="barra" data-visibile="no" inert>
+    <a class="tasto" href="#indice">&#9650;&nbsp;Contents</a>
+    <p class="dove" id="dove">
+      <a class="dove-libro" href="/en/" title="All the books">Pia</a>
+      <span class="dove-numero" id="dove-numero"></span>
+      <span class="dove-titolo" id="dove-titolo"></span>
+    </p>
+    <span class="barra-azioni">
+      <button class="tasto" id="testo-meno" type="button" aria-label="Smaller text"><span class="aa-piccola">A</span>&minus;</button>
+      <button class="tasto" id="testo-piu" type="button" aria-label="Larger text">A&plus;</button>
+      <button class="tasto" id="tema-barra" type="button" aria-label="Change theme">&#9681;</button>
+    </span>
+  </div>
+
+  <main class="pagina">
+    <header class="testata">
+      <div class="testata-alto">
+        <a class="marchio" href="/en/" aria-label="All the books">fiabe</a>
+        <span class="testata-azioni">
+          <a class="lingua" href="/pia/" hreflang="it" lang="it">Italiano</a>
+          <button class="interruttore" id="interruttore" type="button">Turn the light off</button>
+        </span>
+      </div>
+      <p class="briciola"><a href="/en/">&#9664;&nbsp;The books</a></p>
+      <h1>Pia&rsquo;s stories</h1>
+      <p class="intro">The squirrat who keeps a shop among the roots of the old oak, where the floor is crooked and everything, sooner or later, rolls into the corner.</p>
+      <div class="libro-azioni">
+        <a class="bottone" href="#prologo">Start reading <span aria-hidden="true">&rarr;</span></a>
+        <p class="quante">13 minutes in all</p>
+      </div>
+    </header>
+
+    <p class="riprendi" id="riprendi" data-visibile="no">
+      <a href="#" id="riprendi-link">Resume</a>
+      <button class="tasto" id="riprendi-chiudi" type="button" aria-label="Hide the resume prompt">Close</button>
+    </p>
+
+    <nav class="indice" id="indice" aria-label="Contents">
+      <p class="etichetta">Contents &middot; 13 minutes in all</p>
+      <ol>
+        <li><a href="#prologo"><span class="numero">&mdash;</span><span class="voce-titolo">Prologue</span><span class="voce-durata">4 min</span></a></li>
+        <li><a href="#libro-1"><span class="numero">I</span><span class="voce-titolo">The crooked shop</span><span class="voce-durata">9 min</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="fiaba" id="prologo" data-ripresa="from the Prologue">
+      <header class="fiaba-testata">
+        <p class="etichetta">Prologue &middot; 4 minutes to read aloud</p>
+        <h2>Prologue</h2>
+        <p class="sottotitolo">Pia's stories — to be read before all the others</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/pia/00.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">I told you the firefly's story because I saw it with my own eyes.</p>
+      <p>The mole's, on trust. The bat's I heard, every night, through the ceiling.</p>
+      <p>This one I found.</p>
+      <p>A little piece at a time, on the ground, among the roots of the old oak at the far end of the meadow.</p>
+      <p>I have to confess something: when I was your age, I lost everything. Marbles, buttons, pencils, the cap of my water bottle, a key I never found out the use of. I lost them mostly in the meadow, and I lost them for good. Or so I thought.</p>
+      <p>Then one afternoon, among the roots of the oak, on the sunny side, I found my blue marble.</p>
+      <p>I hadn't lost it there. I'd lost it by the stream, months before, and the stream is a long way from the oak. But it was mine: it had the same little bubble inside, crooked.</p>
+      <p>Next to the marble there was a tiny button, with a blade of grass threaded through its holes. There was a thimble full of earth, and in the earth a sprout. And there was a scrap of bark with something written on it, in writing so small that it took me a week, with a magnifying glass, to read it.</p>
+      <p>It said: <em>You'll find everything here. Sooner or later.</em></p>
+      <p>I didn't tell anybody. I already knew what they'd say: that it was the ants, that it was the wind, that I should go and play.</p>
+      <p>But I started leaving things there, on purpose. A button. A bead. A stub of pencil.</p>
+      <p>The next morning they were gone.</p>
+      <p>And in their place, nearly always, there was an acorn. Just one, set down neatly, like the change they give you in a shop.</p>
+      <p>I kept that up for years. I still have the acorns, in a tin box.</p>
+      <p>I never saw who lived down there. What I'm going to tell you I put together from what I found, the way you do with a jigsaw when the box is long gone. Some pieces I had to imagine. But the picture, I promise you, is the right one.</p>
+      <p>Before we start, just one thing.</p>
+      <p>If you lose something tonight, don't worry too much.</p>
+      <p>Maybe it isn't lost. Maybe it's just rolling.</p>
+      <p>This is her story.</p>
+      <p>It begins like this:</p>
+      <p><em>Among the roots of the old oak, at the far end of the meadow, there was a shop where you could find everything.</em></p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="The next story"><span class="etichetta">The next story</span><a href="#libro-1">The crooked shop <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+    <article class="fiaba" id="libro-1" data-ripresa="from Book I">
+      <header class="fiaba-testata">
+        <p class="etichetta">I &middot; 9 minutes to read aloud</p>
+        <h2>The crooked shop</h2>
+        <p class="sottotitolo">A bedtime story — Book one</p>
+      </header>
+      <img class="illustrazione-capitolo" src="/assets/chapters/pia/01.svg" width="800" height="560" alt="" loading="lazy" decoding="async">
+      <p class="apertura">Among the roots of the old oak, at the far end of the meadow, there was a shop where you could find everything.</p>
+      <p>You didn't see it straight away. You had to know where to look: on the sunny side, where two thick roots cross like folded arms, there was a little round door. And above the little door, a piece of bark with a sign on it, written very small:</p>
+      <p><em>Pia's Shop. You'll find everything here. Sooner or later.</em></p>
+      <p>Inside, there really was everything.</p>
+      <p>Buttons of every colour, strung on a blade of grass like a necklace. Thimbles. Bottle tops. Half walnut shells, used as bowls. Beads, smooth pebbles, a spring, tiny keys that opened nothing, a dice with the six worn away. And acorns. Acorns everywhere: in the drawers, under the chairs, inside the boots. There were boots, too, but nobody knew whose.</p>
+      <p>And the floor was crooked.</p>
+      <p>It hadn't always been. When Pia had opened the shop, many years before, the floor was as flat as a table. But the oak was alive, and living things grow. A little every year, the roots had swelled, and turned, and shifted, and taken the shop along with them.</p>
+      <p>Now, if you put a marble down by the door, the marble set off by itself. It rolled under the counter, round the stove, between the legs of the chair, and it always ended up in the same place: the corner at the back, the lowest one.</p>
+      <p>Pia called it the crooked corner.</p>
+      <p>Everything, sooner or later, ended up there. That was why Pia never looked for anything. When she needed something, she went to the crooked corner and waited.</p>
+      <p>Pia was small, with hazelnut fur and two quick black eyes. Her snout was a bit long and her tail was a bit odd: not bushy and plumed like a squirrel's, and not bare and thin like a rat's either. A halfway tail, with a tuft at the end, like a paintbrush.</p>
+      <p>Where Pia came from, nobody knew. Not even Pia.</p>
+      <p>The squirrels said her snout was too long for her to be one of them. The rats said her tail was too lovely for her to be one of them. And in the end, after a great deal of arguing, the whole meadow agreed: Pia was a squirrat. Half squirrel, half rat.</p>
+      <p>Nobody had ever seen another one. But nobody was all that surprised.</p>
+      <p>Nobody really knows what rats get up to these days.</p>
+      <p>The shop opened at sunset: the hour when squirrels go to bed and mice wake up. The only hour of the day that belonged a little to both.</p>
+      <p>That evening, the little door opened just a crack, and in peeped a small face with two pointed ears and a tuft on top.</p>
+      <p>It was a squirrel. A very young one, with a tail bigger than the rest of him.</p>
+      <p>“Are you open?” he asked.</p>
+      <p>“It's always open, when the door opens,” said Pia, from behind the counter. “Come in, you're letting the draught in.”</p>
+      <p>The squirrel took one step, and the crooked floor made him take three more. He grabbed hold of the counter.</p>
+      <p>“My mum says I'm not supposed to come here,” he said.</p>
+      <p>“All mums say that,” said Pia. “What's your name?”</p>
+      <p>“Tito.”</p>
+      <p>“And what do you need, Tito?”</p>
+      <p>Tito looked down at his paws.</p>
+      <p>“It's my mum's birthday tomorrow. And I haven't got anything to give her. I wanted the most beautiful thing there is.”</p>
+      <p>Pia thought about it.</p>
+      <p>“In here,” she said, “everything is the most beautiful thing there is. To somebody.”</p>
+      <p>“And to my mum?”</p>
+      <p>“That's for you to know. Come along.”</p>
+      <p>And she took him to the crooked corner.</p>
+      <p>It took quite a while. Tito looked at everything: the buttons, the beads, the spring, the dice with the six worn away. He picked a thing up, turned it round, put it down again. Pia said nothing. She stood next to him with her tail curled round, and waited, because in Pia's shop nobody ever chose in a hurry.</p>
+      <p>Then, on the other side of the shop, something moved.</p>
+      <p>It rolled out from under a drawer. It went under the counter, round the stove, slipped between the legs of the chair, and stopped, tic, right in front of Tito's paws.</p>
+      <p>It was a glass bead. Blue like the sky just before it gets dark, with a tiny bubble of air inside.</p>
+      <p>Tito didn't say a word. He picked it up with both paws and held it against his chest.</p>
+      <p>“How much is it?” he asked at last, quietly.</p>
+      <p>There were no prices in Pia's shop. Everybody paid with whatever they had.</p>
+      <p>Tito rummaged in his fur and pulled out an acorn. Just one, nice and smooth, with its little cap still on. It was the one he'd been saving for the winter: you could tell from the way he looked at it.</p>
+      <p>Pia took it very seriously.</p>
+      <p>“It's a deal,” she said.</p>
+      <p>At the door, Tito turned round.</p>
+      <p>“Pia,” he said. “My mum says you're half rat.”</p>
+      <p>“And the other half?”</p>
+      <p>Tito thought about it.</p>
+      <p>“She didn't say.”</p>
+      <p>“There you are,” said Pia. “I don't know either. Happy birthday to your mum.”</p>
+      <p>When Tito had gone, Pia went out of the little door with the acorn in her paw. She dug a hole among the roots, put the acorn in, covered it up and patted the earth down with her paws, nice and firm. The way squirrels do.</p>
+      <p>And the way squirrels do, the next morning she couldn't remember where.</p>
+      <p><em>Never mind</em>, she thought. <em>Things come back here, sooner or later.</em></p>
+      <p>That night, before going to sleep, Pia did what she did every night.</p>
+      <p>She went to the crooked corner and looked.</p>
+      <p>The whole meadow, sooner or later, had found what it was looking for there. Not Pia. Because the thing she was looking for had never rolled in: another one like her. She didn't even know what it would look like. But she was sure that, if it ever came, she'd know it straight away.</p>
+      <p>That night the crooked corner was full of things. But not that one.</p>
+      <p>Pia sighed, not sadly at all. Then she climbed into her hammock, which was a sock hung between two roots. It was crooked too, so Pia slept with her head a little lower than her feet.</p>
+      <p>She'd been used to it for a long time.</p>
+      <p>Some things you don't find by looking for them, my love.</p>
+      <p>You find them by being in the right place, and waiting, while the world, very slowly, tilts a little towards you.</p>
+      <p>And now close your eyes. The shop is shut, the crooked corner is waiting, and tomorrow something will roll in.</p>
+      <p class="congedo">Goodnight. 🌙✨</p>
+      <div class="divisorio"><span class="lucciole" aria-hidden="true"><span class="lucciola" style="--ritardo:0.0s"></span><span class="lucciola" style="--ritardo:1.3s"></span><span class="lucciola" style="--ritardo:2.6s"></span></span></div>
+<nav class="prossima" aria-label="Goodnight, see you tomorrow"><span class="etichetta">Goodnight, see you tomorrow</span><a href="/en/">All the books <span aria-hidden="true">&rarr;</span></a></nav>
+    </article>
+
+    <footer class="colophon">
+      <p class="etichetta">Colophon</p>
+      <p>1 stories, a prologue, 1541 words. Reading times are worked out at 130 words a minute: the pace of someone reading aloud, not of someone reading alone.</p>
+    </footer>
+  </main>
+<script>
+  (function () {
+    var T = {"accendi": "Turn the light on", "spegni": "Turn the light off", "temaChiaro": "Switch to the light theme", "temaScuro": "Switch to the dark theme", "riprendi": "Resume", "memoria": "fiabe:pia"};
+    var radice = document.documentElement;
+    var sistemaScuro = window.matchMedia("(prefers-color-scheme: dark)");
+    var lento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var SCALE = [0.92, 1, 1.12, 1.26];
+
+    // localStorage puo' mancare (navigazione privata, cookie bloccati):
+    // la pagina deve funzionare comunque, solo senza memoria.
+    function leggi(chiave) {
+      try { return window.localStorage.getItem(chiave); } catch (e) { return null; }
+    }
+    function scrivi(chiave, valore) {
+      try { window.localStorage.setItem(chiave, valore); } catch (e) { /* pazienza */ }
+    }
+
+    /* ---------- tema ---------- */
+    var interruttore = document.getElementById("interruttore");
+    var temaBarra = document.getElementById("tema-barra");
+
+    function scuroAdesso() {
+      var scelta = radice.getAttribute("data-theme");
+      return scelta ? scelta === "dark" : sistemaScuro.matches;
+    }
+    function aggiornaEtichetta() {
+      var scuro = scuroAdesso();
+      interruttore.textContent = scuro ? T.accendi : T.spegni;
+      interruttore.setAttribute("aria-label", scuro ? T.temaChiaro : T.temaScuro);
+    }
+    function cambiaTema() {
+      var prossimo = scuroAdesso() ? "light" : "dark";
+      radice.setAttribute("data-theme", prossimo);
+      scrivi("fiabe:tema", prossimo);
+      aggiornaEtichetta();
+    }
+    interruttore.addEventListener("click", cambiaTema);
+    temaBarra.addEventListener("click", cambiaTema);
+    sistemaScuro.addEventListener("change", aggiornaEtichetta);
+    aggiornaEtichetta();
+
+    /* ---------- dimensione del testo ---------- */
+    var passo = parseInt(leggi("fiabe:scala"), 10);
+    if (isNaN(passo) || passo < 0 || passo >= SCALE.length) { passo = 1; }
+
+    function applicaScala() {
+      radice.style.setProperty("--scala", String(SCALE[passo]));
+      document.getElementById("testo-meno").disabled = (passo === 0);
+      document.getElementById("testo-piu").disabled = (passo === SCALE.length - 1);
+      scrivi("fiabe:scala", String(passo));
+    }
+    document.getElementById("testo-meno").addEventListener("click", function () {
+      if (passo > 0) { passo--; applicaScala(); }
+    });
+    document.getElementById("testo-piu").addEventListener("click", function () {
+      if (passo < SCALE.length - 1) { passo++; applicaScala(); }
+    });
+    applicaScala();
+
+    /* ---------- dove siamo, e dove eravamo rimasti ---------- */
+    var fiabe = Array.prototype.slice.call(document.querySelectorAll(".fiaba"));
+    var vociIndice = Array.prototype.slice.call(document.querySelectorAll(".indice li"));
+    var barra = document.getElementById("barra");
+    var doveNumero = document.getElementById("dove-numero");
+    var doveTitolo = document.getElementById("dove-titolo");
+    var riquadro = document.getElementById("riprendi");
+    var riquadroLink = document.getElementById("riprendi-link");
+
+    function datiFiaba(articolo) {
+      var testata = articolo.querySelector(".fiaba-testata");
+      var numero = testata.querySelector(".etichetta").textContent.split("·")[0].trim();
+      return {
+        id: articolo.id,
+        numero: numero,
+        titolo: testata.querySelector("h2").textContent,
+        ripresa: (articolo.getAttribute("data-ripresa") || ("dal Libro " + numero))
+                   .replace(/&rsquo;/g, "’")
+      };
+    }
+
+    var corrente = null;
+
+    function segnaLette(fino) {
+      vociIndice.forEach(function (li, i) {
+        li.setAttribute("data-letta", i < fino ? "si" : "no");
+      });
+    }
+
+    var arrivata = parseInt(leggi(T.memoria + ":arrivata"), 10);
+    if (isNaN(arrivata) || arrivata < 0) { arrivata = 0; }
+    segnaLette(arrivata);
+
+    // ripresa: solo se si era andati oltre la prima fiaba e si riparte dall'alto
+    var ultima = leggi(T.memoria + ":ultima");
+    if (ultima) {
+      var bersaglio = document.getElementById(ultima);
+      if (bersaglio && window.scrollY < 40 && fiabe.indexOf(bersaglio) > 0) {
+        var d = datiFiaba(bersaglio);
+        riquadroLink.textContent = (d.titolo === d.numero)
+          ? T.riprendi + " " + d.ripresa
+          : T.riprendi + " " + d.ripresa + " — " + d.titolo;
+        riquadroLink.setAttribute("href", "#" + d.id);
+        riquadro.setAttribute("data-visibile", "si");
+      }
+    }
+    document.getElementById("riprendi-chiudi").addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+    riquadroLink.addEventListener("click", function () {
+      riquadro.setAttribute("data-visibile", "no");
+    });
+
+    if ("IntersectionObserver" in window) {
+      var visibili = {};
+      var osservatore = new IntersectionObserver(function (voci) {
+        voci.forEach(function (v) { visibili[v.target.id] = v.isIntersecting; });
+
+        var attiva = null;
+        for (var i = 0; i < fiabe.length; i++) {
+          if (visibili[fiabe[i].id]) { attiva = fiabe[i]; break; }
+        }
+        if (!attiva || attiva === corrente) { return; }
+        corrente = attiva;
+
+        var d = datiFiaba(attiva);
+        doveNumero.textContent = d.numero;
+        // nel Prologo e nell'Epilogo il titolo e' gia' il numero: non ripeterlo
+        doveTitolo.textContent = (d.titolo === d.numero) ? "" : d.titolo;
+        scrivi(T.memoria + ":ultima", d.id);
+
+        var indice = fiabe.indexOf(attiva);
+        if (indice > arrivata) {
+          arrivata = indice;
+          scrivi(T.memoria + ":arrivata", String(arrivata));
+          segnaLette(arrivata);
+        }
+
+        // l'osservatore arriva dopo l'ultimo evento di scroll: senza questa
+        // riga la barra compare solo al movimento successivo, e saltando
+        // dall'indice a una fiaba non compare affatto.
+        aggiornaBarra();
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      fiabe.forEach(function (f) { osservatore.observe(f); });
+    }
+
+    // la barra serve dentro le fiabe, non in cima alla pagina
+    function aggiornaBarra() {
+      var dentro = fiabe.length && fiabe[0].getBoundingClientRect().top <= 80;
+      var visibile = !!(dentro && corrente);
+      barra.setAttribute("data-visibile", visibile ? "si" : "no");
+      barra.inert = !visibile;
+    }
+    window.addEventListener("scroll", aggiornaBarra, { passive: true });
+    aggiornaBarra();
+
+    /* ---------- un lettore audio alla volta ---------- */
+    var lettori = Array.prototype.slice.call(document.querySelectorAll("audio"));
+    lettori.forEach(function (a) {
+      a.addEventListener("play", function () {
+        lettori.forEach(function (altro) { if (altro !== a) { altro.pause(); } });
+      });
+    });
+
+    if (lento.matches) { radice.style.scrollBehavior = "auto"; }
+  })();
+</script>
+</body>
+</html>
